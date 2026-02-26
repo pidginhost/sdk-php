@@ -1,0 +1,40 @@
+{
+    "name": "pidginhost/sdk-php",
+    "version": "0.1.0",
+    "description": "The Pidgin Host API allows you to manage Services and resources within the Pidgin Host cloud in a simple, programmatic way using conventional HTTP requests. All of the functionality that you are familiar with in the Pidgin Host control panel is also available through the API, allowing you to script the complex actions that your situation requires.",
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://github.com/pidginhost/sdk-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PidginHost",
+            "homepage": "https://www.pidginhost.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": { "PidginHost\\\\Sdk\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "PidginHost\\\\Sdk\\Test\\" : "test/" }
+    }
+}
