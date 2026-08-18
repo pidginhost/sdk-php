@@ -1,0 +1,25 @@
+# InvoiceDetail
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [readonly]
+**number_proforma** | **string** |  | [readonly]
+**number_fiscal** | **string** |  | [readonly]
+**status** | [**\PidginHost\Sdk\Model\InvoiceStatusEnum**](InvoiceStatusEnum.md) |  | [readonly]
+**subtotal** | **string** |  | [readonly]
+**vat_value** | **string** |  | [readonly]
+**vat_percentage** | **int** |  | [readonly]
+**total** | **string** |  | [readonly]
+**invoice_date** | **\DateTime** |  | [readonly]
+**due_date** | **\DateTime** |  | [readonly]
+**payment_date** | **string** |  | [readonly]
+**product_info** | **mixed** |  | [readonly]
+**usage_detail** | **mixed** |  | [readonly]
+**client_info** | **mixed** |  | [readonly]
+**invoice_info** | **mixed** |  | [readonly]
+**payment_method** | **string** |  | [readonly]
+**services** | **string** |  | [readonly]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
