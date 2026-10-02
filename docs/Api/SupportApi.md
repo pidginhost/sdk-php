@@ -150,7 +150,7 @@ try {
 ## `supportTicketsCreate()`
 
 ```php
-supportTicketsCreate($ticket_create): \PidginHost\Sdk\Model\TicketDetail
+supportTicketsCreate($ticket_create_request): \PidginHost\Sdk\Model\TicketDetail
 ```
 
 
@@ -181,10 +181,10 @@ $apiInstance = new PidginHost\Sdk\Api\SupportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ticket_create = new \PidginHost\Sdk\Model\TicketCreate(); // \PidginHost\Sdk\Model\TicketCreate
+$ticket_create_request = new \PidginHost\Sdk\Model\TicketCreateRequest(); // \PidginHost\Sdk\Model\TicketCreateRequest
 
 try {
-    $result = $apiInstance->supportTicketsCreate($ticket_create);
+    $result = $apiInstance->supportTicketsCreate($ticket_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportApi->supportTicketsCreate: ', $e->getMessage(), PHP_EOL;
@@ -195,7 +195,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ticket_create** | [**\PidginHost\Sdk\Model\TicketCreate**](../Model/TicketCreate.md)|  | |
+| **ticket_create_request** | [**\PidginHost\Sdk\Model\TicketCreateRequest**](../Model/TicketCreateRequest.md)|  | |
 
 ### Return type
 
@@ -420,7 +420,7 @@ try {
 ## `supportTicketsReplyCreate()`
 
 ```php
-supportTicketsReplyCreate($id, $ticket_reply): \PidginHost\Sdk\Model\TicketReplyResponse
+supportTicketsReplyCreate($id, $ticket_reply_request): \PidginHost\Sdk\Model\TicketReplyResponse
 ```
 
 
@@ -452,10 +452,10 @@ $apiInstance = new PidginHost\Sdk\Api\SupportApi(
     $config
 );
 $id = 'id_example'; // string
-$ticket_reply = new \PidginHost\Sdk\Model\TicketReply(); // \PidginHost\Sdk\Model\TicketReply
+$ticket_reply_request = new \PidginHost\Sdk\Model\TicketReplyRequest(); // \PidginHost\Sdk\Model\TicketReplyRequest
 
 try {
-    $result = $apiInstance->supportTicketsReplyCreate($id, $ticket_reply);
+    $result = $apiInstance->supportTicketsReplyCreate($id, $ticket_reply_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SupportApi->supportTicketsReplyCreate: ', $e->getMessage(), PHP_EOL;
@@ -467,7 +467,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **ticket_reply** | [**\PidginHost\Sdk\Model\TicketReply**](../Model/TicketReply.md)|  | |
+| **ticket_reply_request** | [**\PidginHost\Sdk\Model\TicketReplyRequest**](../Model/TicketReplyRequest.md)|  | |
 
 ### Return type
 

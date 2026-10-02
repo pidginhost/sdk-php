@@ -74,7 +74,7 @@ class InvoiceDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         'client_info' => 'mixed',
         'invoice_info' => 'mixed',
         'payment_method' => 'string',
-        'services' => 'string'
+        'services' => '\PidginHost\Sdk\Model\InvoiceService[]'
     ];
 
     /**
@@ -957,7 +957,7 @@ class InvoiceDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets services
      *
-     * @return string
+     * @return \PidginHost\Sdk\Model\InvoiceService[]
      */
     public function getServices()
     {
@@ -967,7 +967,7 @@ class InvoiceDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets services
      *
-     * @param string $services services
+     * @param \PidginHost\Sdk\Model\InvoiceService[] $services services
      *
      * @return self
      */

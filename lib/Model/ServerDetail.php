@@ -69,9 +69,8 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         'generation' => 'string',
         'machine' => 'array<string,mixed>',
         'volumes' => '\PidginHost\Sdk\Model\Volume[]',
-        'networks' => 'array<string,mixed>',
+        'networks' => '\PidginHost\Sdk\Model\ServerNetworks',
         'floating_ips' => '\PidginHost\Sdk\Model\FloatingIPSummary[]',
-        'password' => 'string',
         'ssh_pub_key' => 'string',
         'status' => '\PidginHost\Sdk\Model\ResourceStatusEnum',
         'username' => 'string',
@@ -104,7 +103,6 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         'volumes' => null,
         'networks' => null,
         'floating_ips' => null,
-        'password' => null,
         'ssh_pub_key' => null,
         'status' => null,
         'username' => null,
@@ -135,7 +133,6 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         'volumes' => false,
         'networks' => false,
         'floating_ips' => false,
-        'password' => false,
         'ssh_pub_key' => false,
         'status' => false,
         'username' => false,
@@ -246,7 +243,6 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         'volumes' => 'volumes',
         'networks' => 'networks',
         'floating_ips' => 'floating_ips',
-        'password' => 'password',
         'ssh_pub_key' => 'ssh_pub_key',
         'status' => 'status',
         'username' => 'username',
@@ -277,7 +273,6 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         'volumes' => 'setVolumes',
         'networks' => 'setNetworks',
         'floating_ips' => 'setFloatingIps',
-        'password' => 'setPassword',
         'ssh_pub_key' => 'setSshPubKey',
         'status' => 'setStatus',
         'username' => 'setUsername',
@@ -308,7 +303,6 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         'volumes' => 'getVolumes',
         'networks' => 'getNetworks',
         'floating_ips' => 'getFloatingIps',
-        'password' => 'getPassword',
         'ssh_pub_key' => 'getSshPubKey',
         'status' => 'getStatus',
         'username' => 'getUsername',
@@ -390,7 +384,6 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('volumes', $data ?? [], null);
         $this->setIfExists('networks', $data ?? [], null);
         $this->setIfExists('floating_ips', $data ?? [], null);
-        $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('ssh_pub_key', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('username', $data ?? [], null);
@@ -469,10 +462,6 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['floating_ips'] === null) {
             $invalidProperties[] = "'floating_ips' can't be null";
         }
-        if (!is_null($this->container['password']) && (mb_strlen($this->container['password']) > 300)) {
-            $invalidProperties[] = "invalid value for 'password', the character length must be smaller than or equal to 300.";
-        }
-
         if (!is_null($this->container['ssh_pub_key']) && (mb_strlen($this->container['ssh_pub_key']) > 3000)) {
             $invalidProperties[] = "invalid value for 'ssh_pub_key', the character length must be smaller than or equal to 3000.";
         }
@@ -820,7 +809,7 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets networks
      *
-     * @return array<string,mixed>
+     * @return \PidginHost\Sdk\Model\ServerNetworks
      */
     public function getNetworks()
     {
@@ -830,7 +819,7 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets networks
      *
-     * @param array<string,mixed> $networks networks
+     * @param \PidginHost\Sdk\Model\ServerNetworks $networks networks
      *
      * @return self
      */
@@ -867,37 +856,6 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable floating_ips cannot be null');
         }
         $this->container['floating_ips'] = $floating_ips;
-
-        return $this;
-    }
-
-    /**
-     * Gets password
-     *
-     * @return string|null
-     */
-    public function getPassword()
-    {
-        return $this->container['password'];
-    }
-
-    /**
-     * Sets password
-     *
-     * @param string|null $password password
-     *
-     * @return self
-     */
-    public function setPassword($password)
-    {
-        if (is_null($password)) {
-            throw new \InvalidArgumentException('non-nullable password cannot be null');
-        }
-        if ((mb_strlen($password) > 300)) {
-            throw new \InvalidArgumentException('invalid length for $password when calling ServerDetail., must be smaller than or equal to 300.');
-        }
-
-        $this->container['password'] = $password;
 
         return $this;
     }

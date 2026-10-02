@@ -14,7 +14,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 ## `hostingHostingChangePasswordCreate()`
 
 ```php
-hostingHostingChangePasswordCreate($id, $change_password): \PidginHost\Sdk\Model\HostingChangePasswordResponse
+hostingHostingChangePasswordCreate($id, $change_password_request): \PidginHost\Sdk\Model\HostingChangePasswordResponse
 ```
 
 
@@ -46,10 +46,10 @@ $apiInstance = new PidginHost\Sdk\Api\HostingApi(
     $config
 );
 $id = 'id_example'; // string
-$change_password = new \PidginHost\Sdk\Model\ChangePassword(); // \PidginHost\Sdk\Model\ChangePassword
+$change_password_request = new \PidginHost\Sdk\Model\ChangePasswordRequest(); // \PidginHost\Sdk\Model\ChangePasswordRequest
 
 try {
-    $result = $apiInstance->hostingHostingChangePasswordCreate($id, $change_password);
+    $result = $apiInstance->hostingHostingChangePasswordCreate($id, $change_password_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling HostingApi->hostingHostingChangePasswordCreate: ', $e->getMessage(), PHP_EOL;
@@ -61,7 +61,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **change_password** | [**\PidginHost\Sdk\Model\ChangePassword**](../Model/ChangePassword.md)|  | |
+| **change_password_request** | [**\PidginHost\Sdk\Model\ChangePasswordRequest**](../Model/ChangePasswordRequest.md)|  | |
 
 ### Return type
 

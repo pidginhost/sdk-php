@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **created** | **string** |  | [readonly]
 **last_used** | **string** |  | [readonly]
 **request_count** | **int** |  | [readonly]
-**account** | **string** |  | [readonly]
-**membership_status** | **string** |  | [readonly]
+**account** | **string** |  | [optional]
+**membership_status** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

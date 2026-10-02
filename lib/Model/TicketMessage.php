@@ -62,7 +62,7 @@ class TicketMessage implements ModelInterface, ArrayAccess, \JsonSerializable
         'date' => 'string',
         'message' => 'string',
         'author_name' => 'string',
-        'has_attachment' => 'string',
+        'has_attachment' => 'bool',
         'attachment_filename' => 'string'
     ];
 
@@ -454,7 +454,7 @@ class TicketMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets has_attachment
      *
-     * @return string
+     * @return bool
      */
     public function getHasAttachment()
     {
@@ -464,7 +464,7 @@ class TicketMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets has_attachment
      *
-     * @param string $has_attachment has_attachment
+     * @param bool $has_attachment has_attachment
      *
      * @return self
      */

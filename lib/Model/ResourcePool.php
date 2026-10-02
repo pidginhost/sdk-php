@@ -61,9 +61,8 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'int',
         'package' => 'string',
         'generation' => 'string',
-        'size' => 'string',
-        'nodes' => '\PidginHost\Sdk\Model\ResourcePoolNode[]',
-        'new_size' => 'int'
+        'size' => 'int',
+        'nodes' => '\PidginHost\Sdk\Model\ResourcePoolNode[]'
     ];
 
     /**
@@ -78,8 +77,7 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
         'package' => null,
         'generation' => null,
         'size' => null,
-        'nodes' => null,
-        'new_size' => null
+        'nodes' => null
     ];
 
     /**
@@ -92,8 +90,7 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
         'package' => false,
         'generation' => false,
         'size' => false,
-        'nodes' => false,
-        'new_size' => false
+        'nodes' => false
     ];
 
     /**
@@ -186,8 +183,7 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
         'package' => 'package',
         'generation' => 'generation',
         'size' => 'size',
-        'nodes' => 'nodes',
-        'new_size' => 'new_size'
+        'nodes' => 'nodes'
     ];
 
     /**
@@ -200,8 +196,7 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
         'package' => 'setPackage',
         'generation' => 'setGeneration',
         'size' => 'setSize',
-        'nodes' => 'setNodes',
-        'new_size' => 'setNewSize'
+        'nodes' => 'setNodes'
     ];
 
     /**
@@ -214,8 +209,7 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
         'package' => 'getPackage',
         'generation' => 'getGeneration',
         'size' => 'getSize',
-        'nodes' => 'getNodes',
-        'new_size' => 'getNewSize'
+        'nodes' => 'getNodes'
     ];
 
     /**
@@ -280,7 +274,6 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('generation', $data ?? [], null);
         $this->setIfExists('size', $data ?? [], null);
         $this->setIfExists('nodes', $data ?? [], null);
-        $this->setIfExists('new_size', $data ?? [], null);
     }
 
     /**
@@ -325,10 +318,6 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['nodes'] === null) {
             $invalidProperties[] = "'nodes' can't be null";
         }
-        if (!is_null($this->container['new_size']) && ($this->container['new_size'] < 1)) {
-            $invalidProperties[] = "invalid value for 'new_size', must be bigger than or equal to 1.";
-        }
-
         return $invalidProperties;
     }
 
@@ -428,7 +417,7 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets size
      *
-     * @return string
+     * @return int
      */
     public function getSize()
     {
@@ -438,7 +427,7 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets size
      *
-     * @param string $size size
+     * @param int $size size
      *
      * @return self
      */
@@ -475,37 +464,6 @@ class ResourcePool implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable nodes cannot be null');
         }
         $this->container['nodes'] = $nodes;
-
-        return $this;
-    }
-
-    /**
-     * Gets new_size
-     *
-     * @return int|null
-     */
-    public function getNewSize()
-    {
-        return $this->container['new_size'];
-    }
-
-    /**
-     * Sets new_size
-     *
-     * @param int|null $new_size new_size
-     *
-     * @return self
-     */
-    public function setNewSize($new_size)
-    {
-        if (is_null($new_size)) {
-            throw new \InvalidArgumentException('non-nullable new_size cannot be null');
-        }
-        if (($new_size < 1)) {
-            throw new \InvalidArgumentException('invalid value for $new_size when calling ResourcePool., must be bigger than or equal to 1.');
-        }
-
-        $this->container['new_size'] = $new_size;
 
         return $this;
     }

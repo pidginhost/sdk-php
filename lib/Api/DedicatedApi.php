@@ -402,16 +402,16 @@ class DedicatedApi
      * Operation dedicatedServersPowerCreate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PowerAction $power_action power_action (required)
+     * @param  \PidginHost\Sdk\Model\PowerActionRequest $power_action_request power_action_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersPowerCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\PowerActionResponse
      */
-    public function dedicatedServersPowerCreate($id, $power_action, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
+    public function dedicatedServersPowerCreate($id, $power_action_request, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
     {
-        list($response) = $this->dedicatedServersPowerCreateWithHttpInfo($id, $power_action, $contentType);
+        list($response) = $this->dedicatedServersPowerCreateWithHttpInfo($id, $power_action_request, $contentType);
         return $response;
     }
 
@@ -419,16 +419,16 @@ class DedicatedApi
      * Operation dedicatedServersPowerCreateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PowerAction $power_action (required)
+     * @param  \PidginHost\Sdk\Model\PowerActionRequest $power_action_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersPowerCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\PowerActionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function dedicatedServersPowerCreateWithHttpInfo($id, $power_action, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
+    public function dedicatedServersPowerCreateWithHttpInfo($id, $power_action_request, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
     {
-        $request = $this->dedicatedServersPowerCreateRequest($id, $power_action, $contentType);
+        $request = $this->dedicatedServersPowerCreateRequest($id, $power_action_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -503,15 +503,15 @@ class DedicatedApi
      * Operation dedicatedServersPowerCreateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PowerAction $power_action (required)
+     * @param  \PidginHost\Sdk\Model\PowerActionRequest $power_action_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersPowerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dedicatedServersPowerCreateAsync($id, $power_action, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
+    public function dedicatedServersPowerCreateAsync($id, $power_action_request, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
     {
-        return $this->dedicatedServersPowerCreateAsyncWithHttpInfo($id, $power_action, $contentType)
+        return $this->dedicatedServersPowerCreateAsyncWithHttpInfo($id, $power_action_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -523,16 +523,16 @@ class DedicatedApi
      * Operation dedicatedServersPowerCreateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PowerAction $power_action (required)
+     * @param  \PidginHost\Sdk\Model\PowerActionRequest $power_action_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersPowerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dedicatedServersPowerCreateAsyncWithHttpInfo($id, $power_action, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
+    public function dedicatedServersPowerCreateAsyncWithHttpInfo($id, $power_action_request, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\PowerActionResponse';
-        $request = $this->dedicatedServersPowerCreateRequest($id, $power_action, $contentType);
+        $request = $this->dedicatedServersPowerCreateRequest($id, $power_action_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -574,13 +574,13 @@ class DedicatedApi
      * Create request for operation 'dedicatedServersPowerCreate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PowerAction $power_action (required)
+     * @param  \PidginHost\Sdk\Model\PowerActionRequest $power_action_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersPowerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function dedicatedServersPowerCreateRequest($id, $power_action, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
+    public function dedicatedServersPowerCreateRequest($id, $power_action_request, string $contentType = self::contentTypes['dedicatedServersPowerCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -590,10 +590,10 @@ class DedicatedApi
             );
         }
 
-        // verify the required parameter 'power_action' is set
-        if ($power_action === null || (is_array($power_action) && count($power_action) === 0)) {
+        // verify the required parameter 'power_action_request' is set
+        if ($power_action_request === null || (is_array($power_action_request) && count($power_action_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $power_action when calling dedicatedServersPowerCreate'
+                'Missing the required parameter $power_action_request when calling dedicatedServersPowerCreate'
             );
         }
 
@@ -624,12 +624,12 @@ class DedicatedApi
         );
 
         // for model (json/xml)
-        if (isset($power_action)) {
+        if (isset($power_action_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($power_action));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($power_action_request));
             } else {
-                $httpBody = $power_action;
+                $httpBody = $power_action_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -686,16 +686,16 @@ class DedicatedApi
      * Operation dedicatedServersRdnsCreate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\DedicatedRDNS $dedicated_rdns dedicated_rdns (required)
+     * @param  \PidginHost\Sdk\Model\DedicatedRDNSRequest $dedicated_rdns_request dedicated_rdns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersRdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\RDNSUpdateResponse
      */
-    public function dedicatedServersRdnsCreate($id, $dedicated_rdns, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
+    public function dedicatedServersRdnsCreate($id, $dedicated_rdns_request, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
     {
-        list($response) = $this->dedicatedServersRdnsCreateWithHttpInfo($id, $dedicated_rdns, $contentType);
+        list($response) = $this->dedicatedServersRdnsCreateWithHttpInfo($id, $dedicated_rdns_request, $contentType);
         return $response;
     }
 
@@ -703,16 +703,16 @@ class DedicatedApi
      * Operation dedicatedServersRdnsCreateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\DedicatedRDNS $dedicated_rdns (required)
+     * @param  \PidginHost\Sdk\Model\DedicatedRDNSRequest $dedicated_rdns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersRdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\RDNSUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function dedicatedServersRdnsCreateWithHttpInfo($id, $dedicated_rdns, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
+    public function dedicatedServersRdnsCreateWithHttpInfo($id, $dedicated_rdns_request, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
     {
-        $request = $this->dedicatedServersRdnsCreateRequest($id, $dedicated_rdns, $contentType);
+        $request = $this->dedicatedServersRdnsCreateRequest($id, $dedicated_rdns_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -787,15 +787,15 @@ class DedicatedApi
      * Operation dedicatedServersRdnsCreateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\DedicatedRDNS $dedicated_rdns (required)
+     * @param  \PidginHost\Sdk\Model\DedicatedRDNSRequest $dedicated_rdns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersRdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dedicatedServersRdnsCreateAsync($id, $dedicated_rdns, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
+    public function dedicatedServersRdnsCreateAsync($id, $dedicated_rdns_request, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
     {
-        return $this->dedicatedServersRdnsCreateAsyncWithHttpInfo($id, $dedicated_rdns, $contentType)
+        return $this->dedicatedServersRdnsCreateAsyncWithHttpInfo($id, $dedicated_rdns_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -807,16 +807,16 @@ class DedicatedApi
      * Operation dedicatedServersRdnsCreateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\DedicatedRDNS $dedicated_rdns (required)
+     * @param  \PidginHost\Sdk\Model\DedicatedRDNSRequest $dedicated_rdns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersRdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dedicatedServersRdnsCreateAsyncWithHttpInfo($id, $dedicated_rdns, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
+    public function dedicatedServersRdnsCreateAsyncWithHttpInfo($id, $dedicated_rdns_request, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\RDNSUpdateResponse';
-        $request = $this->dedicatedServersRdnsCreateRequest($id, $dedicated_rdns, $contentType);
+        $request = $this->dedicatedServersRdnsCreateRequest($id, $dedicated_rdns_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -858,13 +858,13 @@ class DedicatedApi
      * Create request for operation 'dedicatedServersRdnsCreate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\DedicatedRDNS $dedicated_rdns (required)
+     * @param  \PidginHost\Sdk\Model\DedicatedRDNSRequest $dedicated_rdns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersRdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function dedicatedServersRdnsCreateRequest($id, $dedicated_rdns, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
+    public function dedicatedServersRdnsCreateRequest($id, $dedicated_rdns_request, string $contentType = self::contentTypes['dedicatedServersRdnsCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -874,10 +874,10 @@ class DedicatedApi
             );
         }
 
-        // verify the required parameter 'dedicated_rdns' is set
-        if ($dedicated_rdns === null || (is_array($dedicated_rdns) && count($dedicated_rdns) === 0)) {
+        // verify the required parameter 'dedicated_rdns_request' is set
+        if ($dedicated_rdns_request === null || (is_array($dedicated_rdns_request) && count($dedicated_rdns_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $dedicated_rdns when calling dedicatedServersRdnsCreate'
+                'Missing the required parameter $dedicated_rdns_request when calling dedicatedServersRdnsCreate'
             );
         }
 
@@ -908,12 +908,12 @@ class DedicatedApi
         );
 
         // for model (json/xml)
-        if (isset($dedicated_rdns)) {
+        if (isset($dedicated_rdns_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dedicated_rdns));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dedicated_rdns_request));
             } else {
-                $httpBody = $dedicated_rdns;
+                $httpBody = $dedicated_rdns_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -970,16 +970,16 @@ class DedicatedApi
      * Operation dedicatedServersReinstallCreate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\Reinstall $reinstall reinstall (required)
+     * @param  \PidginHost\Sdk\Model\ReinstallRequest $reinstall_request reinstall_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersReinstallCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ReinstallResponse
      */
-    public function dedicatedServersReinstallCreate($id, $reinstall, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
+    public function dedicatedServersReinstallCreate($id, $reinstall_request, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
     {
-        list($response) = $this->dedicatedServersReinstallCreateWithHttpInfo($id, $reinstall, $contentType);
+        list($response) = $this->dedicatedServersReinstallCreateWithHttpInfo($id, $reinstall_request, $contentType);
         return $response;
     }
 
@@ -987,16 +987,16 @@ class DedicatedApi
      * Operation dedicatedServersReinstallCreateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\Reinstall $reinstall (required)
+     * @param  \PidginHost\Sdk\Model\ReinstallRequest $reinstall_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersReinstallCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ReinstallResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function dedicatedServersReinstallCreateWithHttpInfo($id, $reinstall, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
+    public function dedicatedServersReinstallCreateWithHttpInfo($id, $reinstall_request, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
     {
-        $request = $this->dedicatedServersReinstallCreateRequest($id, $reinstall, $contentType);
+        $request = $this->dedicatedServersReinstallCreateRequest($id, $reinstall_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1071,15 +1071,15 @@ class DedicatedApi
      * Operation dedicatedServersReinstallCreateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\Reinstall $reinstall (required)
+     * @param  \PidginHost\Sdk\Model\ReinstallRequest $reinstall_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersReinstallCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dedicatedServersReinstallCreateAsync($id, $reinstall, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
+    public function dedicatedServersReinstallCreateAsync($id, $reinstall_request, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
     {
-        return $this->dedicatedServersReinstallCreateAsyncWithHttpInfo($id, $reinstall, $contentType)
+        return $this->dedicatedServersReinstallCreateAsyncWithHttpInfo($id, $reinstall_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1091,16 +1091,16 @@ class DedicatedApi
      * Operation dedicatedServersReinstallCreateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\Reinstall $reinstall (required)
+     * @param  \PidginHost\Sdk\Model\ReinstallRequest $reinstall_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersReinstallCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dedicatedServersReinstallCreateAsyncWithHttpInfo($id, $reinstall, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
+    public function dedicatedServersReinstallCreateAsyncWithHttpInfo($id, $reinstall_request, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ReinstallResponse';
-        $request = $this->dedicatedServersReinstallCreateRequest($id, $reinstall, $contentType);
+        $request = $this->dedicatedServersReinstallCreateRequest($id, $reinstall_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1142,13 +1142,13 @@ class DedicatedApi
      * Create request for operation 'dedicatedServersReinstallCreate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\Reinstall $reinstall (required)
+     * @param  \PidginHost\Sdk\Model\ReinstallRequest $reinstall_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dedicatedServersReinstallCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function dedicatedServersReinstallCreateRequest($id, $reinstall, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
+    public function dedicatedServersReinstallCreateRequest($id, $reinstall_request, string $contentType = self::contentTypes['dedicatedServersReinstallCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1158,10 +1158,10 @@ class DedicatedApi
             );
         }
 
-        // verify the required parameter 'reinstall' is set
-        if ($reinstall === null || (is_array($reinstall) && count($reinstall) === 0)) {
+        // verify the required parameter 'reinstall_request' is set
+        if ($reinstall_request === null || (is_array($reinstall_request) && count($reinstall_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $reinstall when calling dedicatedServersReinstallCreate'
+                'Missing the required parameter $reinstall_request when calling dedicatedServersReinstallCreate'
             );
         }
 
@@ -1192,12 +1192,12 @@ class DedicatedApi
         );
 
         // for model (json/xml)
-        if (isset($reinstall)) {
+        if (isset($reinstall_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reinstall));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reinstall_request));
             } else {
-                $httpBody = $reinstall;
+                $httpBody = $reinstall_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

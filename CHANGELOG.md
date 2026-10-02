@@ -5,6 +5,86 @@ All notable changes to the PidginHost PHP SDK are documented here.
 This SDK is auto-generated from the [PidginHost API schema](https://www.pidginhost.com/api/schema/).
 Version bumps reflect schema changes, not hand-written code changes.
 
+## v0.14.0
+
+### Added
+
+- **Kubernetes cluster encryption.** `KubernetesClustersEncryptionRetrieve`,
+  `...EncryptionCreate`, `...EncryptionRecheckCreate` and
+  `...EncryptionReconcileCreate` read and switch Cilium WireGuard encryption,
+  with the `ClusterEncryption`, `ClusterEncryptionOperation`,
+  `ClusterEncryptionRequest`, `ClusterEncryptionReconcileRequest`,
+  `ClusterEncryptionRefusal` and `ClusterEncryptionError` models and the
+  `ClusterEncryptionStatusEnum`, `EncryptionModeEnum` and
+  `EncryptionReasonCodeEnum` enums.
+- **Kubernetes node operations and pool removals.** List, read, cancel, resume
+  and retry node operations, reboot a pool node, and list, read and resume pool
+  removal journals (`NodeOperation`, `PoolRemovalJournal`, `PoolRemovalItem`,
+  their paginated lists and enums).
+- **Load balancer upgrades**: `KubernetesClustersUpgradeLbCreate` with
+  `LBUpgradeRequest`, `LBUpgradePlanResponse` and `LBUpgradeDispatchResponse`.
+- **Server traffic**: `CloudServersTrafficRetrieve` returns
+  `ServerTrafficResponse`.
+- `PublicIPv4` and `PublicIPv6` gained `server_id`, the id that
+  `/api/cloud/servers/{id}/` takes, or null when the address is unattached.
+- `Server.networks` and `ServerDetail.networks` are typed (`ServerNetworks`,
+  `ServerPublicNetwork`, `ServerPublicInterface`, `ServerPrivateInterface`)
+  instead of a free-form map. The JSON is unchanged.
+- Email responses that had no model now have one: `EmailStats`, `StatsDay`,
+  `StatsTotals`, `EmailReputation`, `EmailMessageList`,
+  `EmailMessageSummary`, `EmailSendResponse`, `ApiCredentialCreated`,
+  `SmtpCredentialCreated` and `InboundRouteWriteResponse`.
+- `FeaturesEnum` gained `lb-envoy-metrics`.
+
+### Changed
+
+**This release is breaking.** Request bodies now have their own models, and
+several response types were corrected to match what the API already sends.
+
+- **Request bodies have their own `...Request` models**, without the read-only
+  fields of the response. Creating a firewall rule set or an IPv4 address no
+  longer needs placeholder values such as `id: 0`. Pass the request model
+  wherever a call takes a body:
+  PHP: `$cloudApi->cloudFirewallRulesSetCreate(new FirewallRulesSetRequest(['name' => 'web']))`.
+  - Request-only models renamed from `X` to `XRequest`: ActivateFreeDNS, BucketCreate, BucketResize, BucketVisibility, ChangeBillingCycle, ChangeCompany, ChangePassword, ClusterAdd, ContactsUpdate, DNSRecordCreate, DeactivateFreeDNS, DedicatedRDNS, DeleteRecord, DepositCreate, DestroyProtection, DomainAdd, FloatingIPv4Create, FloatingIPv6Create, LowBalanceSettings, NameserversUpdate, PowerAction, PrivateNetworkAddHost, PrivateNetworkRemoveHost, Reinstall, ResourcePoolAdd, ServerAdd, ServerProductUpgrade, SnapshotCreate, Subscribe, TicketCreate, TicketReply.
+  - Patch bodies renamed from `PatchedX` to `PatchedXRequest`: ClusterDetail, Company, Domain, DomainRegistrant, FirewallRule, FirewallRulesSet, HTTPRoute, K8sPortForward, LBFirewallRule, Profile, ResourcePool, ServerDetail, TCPRoute, UDPRoute.
+  - New request models next to unchanged response models: APITokenCreateRequest, AddressRequest, AttachVolumeRequest, CheckAvailabilityRequest, ClusterDetailRequest, CompanyRequest, DNSGlueRequest, DomainCreateRequest, DomainRegistrantRequest, DomainRequest, FirewallRuleRequest, FirewallRulesSetRequest, HTTPRouteRequest, K8sPortForwardRequest, LBFirewallRuleRequest, PrivateNetworkRequest, ProfileRequest, PublicInterfaceRequest, RenewDomainRequest, ResourcePoolRequest, ReverseDNSRequest, SSHKeyRequest, SandboxAddressRequest, ServerDetailRequest, TCPRouteRequest, TransferRoDomainRequest, UDPRouteRequest, VolumeRequest.
+  - SSH key, volume, private network and inbound route updates use
+    `SSHKeyUpdateRequest`, `VolumeUpdateRequest`,
+    `PrivateNetworkUpdateRequest` and `InboundRouteCreateRequest` (and their
+    `Patched...` forms), which leave out fields an update cannot change.
+- `PublicInterface.ipv4` and `.ipv6` are always present, as an empty string
+  when the interface has no address of that family. Decoding the public
+  interface of a server without IPv6 used to fail.
+- `SSHKey.key` can be set when creating a key (`SSHKeyRequest`); it stays fixed
+  afterwards.
+- `PublicIPv4.server` and `PublicIPv6.server` are the server hostname, or an
+  empty string when unattached (they were null).
+- Response types corrected to what the API sends:
+  `DedicatedServer.ips` is a list of `DedicatedServerIP`,
+  `.server_status` is a `DedicatedServerStatus` and `.os_name` may be null;
+  `InvoiceDetail.services` is a list of `InvoiceService`;
+  `EmailService.price_monthly_eur` is a number and `.quota_monthly` an
+  integer; `ResourcePool.size`, `StorageProduct.min_size` and `.max_size` are
+  integers; `TicketMessage.has_attachment` is a boolean; `AttachVolume` is the
+  attach result (`attached`); ten `ClusterDetail` fields, three
+  `HostingService` fields, `OSImage.family_name` and `ResourcePoolNode.ip` may
+  be null.
+- `ServerDetail.password` is no longer in responses; it is write-only in
+  `ServerDetailRequest`. `ResourcePool.new_size` moved to `ResourcePoolRequest`.
+- `APITokenCreate` and `APITokenList` mark `account` and `membership_status`
+  as read-only and optional.
+- Snapshot and boot ISO lists are plain arrays, as the API returns them:
+  `PaginatedSnapshotList` and `PaginatedBootISOList` are removed.
+- `EmailServicesDestroy` is removed: the API always answered 405.
+- `InboundRoute.mode`, the FreeDNS `source` and `SuppressionEntry.reason` keep
+  their enum names `ModeEnum`, `SourceEnum` and `ReasonEnum`.
+
+### Repository
+
+- The GitHub repository now keeps history: each release is one commit on
+  `main`. Tags up to v0.13.0 remain separate snapshots.
+
 ## v0.13.0
 
 ### Added

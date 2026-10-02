@@ -81,9 +81,9 @@ class AttachVolumeTest extends TestCase
     }
 
     /**
-     * Test attribute "vm"
+     * Test attribute "attached"
      */
-    public function testPropertyVm()
+    public function testPropertyAttached()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

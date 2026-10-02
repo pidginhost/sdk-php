@@ -58,7 +58,7 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'vm' => 'int'
+        'attached' => 'bool'
     ];
 
     /**
@@ -69,7 +69,7 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'vm' => null
+        'attached' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'vm' => false
+        'attached' => false
     ];
 
     /**
@@ -167,7 +167,7 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'vm' => 'vm'
+        'attached' => 'attached'
     ];
 
     /**
@@ -176,7 +176,7 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'vm' => 'setVm'
+        'attached' => 'setAttached'
     ];
 
     /**
@@ -185,7 +185,7 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'vm' => 'getVm'
+        'attached' => 'getAttached'
     ];
 
     /**
@@ -245,7 +245,7 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('vm', $data ?? [], null);
+        $this->setIfExists('attached', $data ?? [], null);
     }
 
     /**
@@ -275,8 +275,8 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['vm'] === null) {
-            $invalidProperties[] = "'vm' can't be null";
+        if ($this->container['attached'] === null) {
+            $invalidProperties[] = "'attached' can't be null";
         }
         return $invalidProperties;
     }
@@ -294,28 +294,28 @@ class AttachVolume implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets vm
+     * Gets attached
      *
-     * @return int
+     * @return bool
      */
-    public function getVm()
+    public function getAttached()
     {
-        return $this->container['vm'];
+        return $this->container['attached'];
     }
 
     /**
-     * Sets vm
+     * Sets attached
      *
-     * @param int $vm Server ID
+     * @param bool $attached attached
      *
      * @return self
      */
-    public function setVm($vm)
+    public function setAttached($attached)
     {
-        if (is_null($vm)) {
-            throw new \InvalidArgumentException('non-nullable vm cannot be null');
+        if (is_null($attached)) {
+            throw new \InvalidArgumentException('non-nullable attached cannot be null');
         }
-        $this->container['vm'] = $vm;
+        $this->container['attached'] = $attached;
 
         return $this;
     }

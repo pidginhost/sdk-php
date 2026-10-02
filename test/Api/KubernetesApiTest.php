@@ -157,6 +157,54 @@ class KubernetesApiTest extends TestCase
     }
 
     /**
+     * Test case for kubernetesClustersEncryptionCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersEncryptionCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersEncryptionRecheckCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersEncryptionRecheckCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersEncryptionReconcileCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersEncryptionReconcileCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersEncryptionRetrieve
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersEncryptionRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for kubernetesClustersHttproutesCreate
      *
      * .
@@ -349,12 +397,108 @@ class KubernetesApiTest extends TestCase
     }
 
     /**
+     * Test case for kubernetesClustersNodeOperationsCancelCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersNodeOperationsCancelCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersNodeOperationsList
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersNodeOperationsList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersNodeOperationsResumeCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersNodeOperationsResumeCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersNodeOperationsRetrieve
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersNodeOperationsRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersNodeOperationsRetryCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersNodeOperationsRetryCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for kubernetesClustersPartialUpdate
      *
      * .
      *
      */
     public function testKubernetesClustersPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersPoolRemovalJournalsList
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersPoolRemovalJournalsList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersPoolRemovalJournalsResumeCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersPoolRemovalJournalsResumeCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersPoolRemovalJournalsRetrieve
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersPoolRemovalJournalsRetrieve()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -499,6 +643,18 @@ class KubernetesApiTest extends TestCase
      *
      */
     public function testKubernetesClustersResourcePoolsNodesMetricsRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersResourcePoolsNodesRebootCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersResourcePoolsNodesRebootCreate()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -763,6 +919,18 @@ class KubernetesApiTest extends TestCase
      *
      */
     public function testKubernetesClustersUpgradeFeatureCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersUpgradeLbCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersUpgradeLbCreate()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

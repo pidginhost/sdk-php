@@ -64,7 +64,8 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
         'gateway' => 'string',
         'prefix' => 'int',
         'attached' => 'bool',
-        'server' => 'string'
+        'server' => 'string',
+        'server_id' => 'int'
     ];
 
     /**
@@ -81,7 +82,8 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
         'gateway' => null,
         'prefix' => null,
         'attached' => null,
-        'server' => null
+        'server' => null,
+        'server_id' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
         'gateway' => false,
         'prefix' => false,
         'attached' => false,
-        'server' => false
+        'server' => false,
+        'server_id' => true
     ];
 
     /**
@@ -191,7 +194,8 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
         'gateway' => 'gateway',
         'prefix' => 'prefix',
         'attached' => 'attached',
-        'server' => 'server'
+        'server' => 'server',
+        'server_id' => 'server_id'
     ];
 
     /**
@@ -206,7 +210,8 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
         'gateway' => 'setGateway',
         'prefix' => 'setPrefix',
         'attached' => 'setAttached',
-        'server' => 'setServer'
+        'server' => 'setServer',
+        'server_id' => 'setServerId'
     ];
 
     /**
@@ -221,7 +226,8 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
         'gateway' => 'getGateway',
         'prefix' => 'getPrefix',
         'attached' => 'getAttached',
-        'server' => 'getServer'
+        'server' => 'getServer',
+        'server_id' => 'getServerId'
     ];
 
     /**
@@ -288,6 +294,7 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('prefix', $data ?? [], null);
         $this->setIfExists('attached', $data ?? [], null);
         $this->setIfExists('server', $data ?? [], null);
+        $this->setIfExists('server_id', $data ?? [], null);
     }
 
     /**
@@ -337,6 +344,9 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['server'] === null) {
             $invalidProperties[] = "'server' can't be null";
+        }
+        if ($this->container['server_id'] === null && !$this->isNullableSetToNull('server_id')) {
+            $invalidProperties[] = "'server_id' is required";
         }
         return $invalidProperties;
     }
@@ -528,7 +538,7 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets server
      *
-     * @param string $server server
+     * @param string $server Hostname of the server this address is attached to. Empty when it is not attached.
      *
      * @return self
      */
@@ -538,6 +548,40 @@ class PublicIPv4 implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable server cannot be null');
         }
         $this->container['server'] = $server;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_id
+     *
+     * @return int|null
+     */
+    public function getServerId()
+    {
+        return $this->container['server_id'];
+    }
+
+    /**
+     * Sets server_id
+     *
+     * @param int|null $server_id ID of the attached server, as used by /api/cloud/servers/{id}/. Null when the address is not attached to a cloud server.
+     *
+     * @return self
+     */
+    public function setServerId($server_id)
+    {
+        if (is_null($server_id)) {
+            array_push($this->openAPINullablesSetToNull, 'server_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('server_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['server_id'] = $server_id;
 
         return $this;
     }

@@ -124,13 +124,4 @@ class ResourcePoolTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "new_size"
-     */
-    public function testPropertyNewSize()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

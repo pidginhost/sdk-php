@@ -433,18 +433,6 @@ class EmailApiTest extends TestCase
     }
 
     /**
-     * Test case for emailServicesDestroy
-     *
-     * .
-     *
-     */
-    public function testEmailServicesDestroy()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for emailServicesDomainsCreate
      *
      * .

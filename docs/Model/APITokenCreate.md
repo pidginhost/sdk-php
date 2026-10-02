@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **scope** | [**\PidginHost\Sdk\Model\ScopeEnum**](ScopeEnum.md) |  | [optional]
 **key** | **string** |  | [readonly]
 **created** | **string** |  | [readonly]
-**account** | **string** |  | [readonly]
-**membership_status** | **string** |  | [readonly]
+**account** | **string** |  | [optional]
+**membership_status** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

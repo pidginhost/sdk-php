@@ -17,7 +17,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 ## `freednsDnsActivateCreate()`
 
 ```php
-freednsDnsActivateCreate($activate_free_dns): \PidginHost\Sdk\Model\ActivateFreeDNSResponse
+freednsDnsActivateCreate($activate_free_dns_request): \PidginHost\Sdk\Model\ActivateFreeDNSResponse
 ```
 
 
@@ -48,10 +48,10 @@ $apiInstance = new PidginHost\Sdk\Api\FreednsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$activate_free_dns = new \PidginHost\Sdk\Model\ActivateFreeDNS(); // \PidginHost\Sdk\Model\ActivateFreeDNS
+$activate_free_dns_request = new \PidginHost\Sdk\Model\ActivateFreeDNSRequest(); // \PidginHost\Sdk\Model\ActivateFreeDNSRequest
 
 try {
-    $result = $apiInstance->freednsDnsActivateCreate($activate_free_dns);
+    $result = $apiInstance->freednsDnsActivateCreate($activate_free_dns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FreednsApi->freednsDnsActivateCreate: ', $e->getMessage(), PHP_EOL;
@@ -62,7 +62,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **activate_free_dns** | [**\PidginHost\Sdk\Model\ActivateFreeDNS**](../Model/ActivateFreeDNS.md)|  | |
+| **activate_free_dns_request** | [**\PidginHost\Sdk\Model\ActivateFreeDNSRequest**](../Model/ActivateFreeDNSRequest.md)|  | |
 
 ### Return type
 
@@ -84,7 +84,7 @@ try {
 ## `freednsDnsAddRecordCreate()`
 
 ```php
-freednsDnsAddRecordCreate($domain, $source, $dns_record_create): \PidginHost\Sdk\Model\DNSRecordMutateResponse
+freednsDnsAddRecordCreate($domain, $source, $dns_record_create_request): \PidginHost\Sdk\Model\DNSRecordMutateResponse
 ```
 
 
@@ -117,10 +117,10 @@ $apiInstance = new PidginHost\Sdk\Api\FreednsApi(
 );
 $domain = 'domain_example'; // string | Domain name or PK.
 $source = 'source_example'; // string | 'internal' or 'external'.
-$dns_record_create = new \PidginHost\Sdk\Model\DNSRecordCreate(); // \PidginHost\Sdk\Model\DNSRecordCreate
+$dns_record_create_request = new \PidginHost\Sdk\Model\DNSRecordCreateRequest(); // \PidginHost\Sdk\Model\DNSRecordCreateRequest
 
 try {
-    $result = $apiInstance->freednsDnsAddRecordCreate($domain, $source, $dns_record_create);
+    $result = $apiInstance->freednsDnsAddRecordCreate($domain, $source, $dns_record_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FreednsApi->freednsDnsAddRecordCreate: ', $e->getMessage(), PHP_EOL;
@@ -133,7 +133,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| Domain name or PK. | |
 | **source** | **string**| &#39;internal&#39; or &#39;external&#39;. | |
-| **dns_record_create** | [**\PidginHost\Sdk\Model\DNSRecordCreate**](../Model/DNSRecordCreate.md)|  | |
+| **dns_record_create_request** | [**\PidginHost\Sdk\Model\DNSRecordCreateRequest**](../Model/DNSRecordCreateRequest.md)|  | |
 
 ### Return type
 
@@ -155,7 +155,7 @@ try {
 ## `freednsDnsDeactivateCreate()`
 
 ```php
-freednsDnsDeactivateCreate($deactivate_free_dns): \PidginHost\Sdk\Model\DeactivateFreeDNSResponse
+freednsDnsDeactivateCreate($deactivate_free_dns_request): \PidginHost\Sdk\Model\DeactivateFreeDNSResponse
 ```
 
 
@@ -186,10 +186,10 @@ $apiInstance = new PidginHost\Sdk\Api\FreednsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$deactivate_free_dns = new \PidginHost\Sdk\Model\DeactivateFreeDNS(); // \PidginHost\Sdk\Model\DeactivateFreeDNS
+$deactivate_free_dns_request = new \PidginHost\Sdk\Model\DeactivateFreeDNSRequest(); // \PidginHost\Sdk\Model\DeactivateFreeDNSRequest
 
 try {
-    $result = $apiInstance->freednsDnsDeactivateCreate($deactivate_free_dns);
+    $result = $apiInstance->freednsDnsDeactivateCreate($deactivate_free_dns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FreednsApi->freednsDnsDeactivateCreate: ', $e->getMessage(), PHP_EOL;
@@ -200,7 +200,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **deactivate_free_dns** | [**\PidginHost\Sdk\Model\DeactivateFreeDNS**](../Model/DeactivateFreeDNS.md)|  | |
+| **deactivate_free_dns_request** | [**\PidginHost\Sdk\Model\DeactivateFreeDNSRequest**](../Model/DeactivateFreeDNSRequest.md)|  | |
 
 ### Return type
 
@@ -222,7 +222,7 @@ try {
 ## `freednsDnsDeleteRecordCreate()`
 
 ```php
-freednsDnsDeleteRecordCreate($domain, $source, $delete_record): \PidginHost\Sdk\Model\DeleteRecordResponse
+freednsDnsDeleteRecordCreate($domain, $source, $delete_record_request): \PidginHost\Sdk\Model\DeleteRecordResponse
 ```
 
 
@@ -255,10 +255,10 @@ $apiInstance = new PidginHost\Sdk\Api\FreednsApi(
 );
 $domain = 'domain_example'; // string | Domain name or PK.
 $source = 'source_example'; // string | 'internal' or 'external'.
-$delete_record = new \PidginHost\Sdk\Model\DeleteRecord(); // \PidginHost\Sdk\Model\DeleteRecord
+$delete_record_request = new \PidginHost\Sdk\Model\DeleteRecordRequest(); // \PidginHost\Sdk\Model\DeleteRecordRequest
 
 try {
-    $result = $apiInstance->freednsDnsDeleteRecordCreate($domain, $source, $delete_record);
+    $result = $apiInstance->freednsDnsDeleteRecordCreate($domain, $source, $delete_record_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FreednsApi->freednsDnsDeleteRecordCreate: ', $e->getMessage(), PHP_EOL;
@@ -271,7 +271,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**| Domain name or PK. | |
 | **source** | **string**| &#39;internal&#39; or &#39;external&#39;. | |
-| **delete_record** | [**\PidginHost\Sdk\Model\DeleteRecord**](../Model/DeleteRecord.md)|  | |
+| **delete_record_request** | [**\PidginHost\Sdk\Model\DeleteRecordRequest**](../Model/DeleteRecordRequest.md)|  | |
 
 ### Return type
 

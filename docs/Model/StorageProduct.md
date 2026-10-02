@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **type** | **string** |  | [readonly]
 **unit** | **string** |  | [readonly]
 **price** | **string** | price per quantity units per month (if applicable) |
-**min_size** | **string** |  | [readonly]
-**max_size** | **string** |  | [readonly]
+**min_size** | **int** |  | [readonly]
+**max_size** | **int** |  | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

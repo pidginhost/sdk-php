@@ -1189,6 +1189,18 @@ class CloudApiTest extends TestCase
     }
 
     /**
+     * Test case for cloudServersTrafficRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudServersTrafficRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for cloudServersUpdate
      *
      * .

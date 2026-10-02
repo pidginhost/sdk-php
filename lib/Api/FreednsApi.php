@@ -144,32 +144,32 @@ class FreednsApi
     /**
      * Operation freednsDnsActivateCreate
      *
-     * @param  \PidginHost\Sdk\Model\ActivateFreeDNS $activate_free_dns activate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\ActivateFreeDNSRequest $activate_free_dns_request activate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsActivateCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ActivateFreeDNSResponse
      */
-    public function freednsDnsActivateCreate($activate_free_dns, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
+    public function freednsDnsActivateCreate($activate_free_dns_request, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
     {
-        list($response) = $this->freednsDnsActivateCreateWithHttpInfo($activate_free_dns, $contentType);
+        list($response) = $this->freednsDnsActivateCreateWithHttpInfo($activate_free_dns_request, $contentType);
         return $response;
     }
 
     /**
      * Operation freednsDnsActivateCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\ActivateFreeDNS $activate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\ActivateFreeDNSRequest $activate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsActivateCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ActivateFreeDNSResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function freednsDnsActivateCreateWithHttpInfo($activate_free_dns, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
+    public function freednsDnsActivateCreateWithHttpInfo($activate_free_dns_request, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
     {
-        $request = $this->freednsDnsActivateCreateRequest($activate_free_dns, $contentType);
+        $request = $this->freednsDnsActivateCreateRequest($activate_free_dns_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -243,15 +243,15 @@ class FreednsApi
     /**
      * Operation freednsDnsActivateCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\ActivateFreeDNS $activate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\ActivateFreeDNSRequest $activate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsActivateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function freednsDnsActivateCreateAsync($activate_free_dns, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
+    public function freednsDnsActivateCreateAsync($activate_free_dns_request, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
     {
-        return $this->freednsDnsActivateCreateAsyncWithHttpInfo($activate_free_dns, $contentType)
+        return $this->freednsDnsActivateCreateAsyncWithHttpInfo($activate_free_dns_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -262,16 +262,16 @@ class FreednsApi
     /**
      * Operation freednsDnsActivateCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\ActivateFreeDNS $activate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\ActivateFreeDNSRequest $activate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsActivateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function freednsDnsActivateCreateAsyncWithHttpInfo($activate_free_dns, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
+    public function freednsDnsActivateCreateAsyncWithHttpInfo($activate_free_dns_request, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ActivateFreeDNSResponse';
-        $request = $this->freednsDnsActivateCreateRequest($activate_free_dns, $contentType);
+        $request = $this->freednsDnsActivateCreateRequest($activate_free_dns_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,19 +312,19 @@ class FreednsApi
     /**
      * Create request for operation 'freednsDnsActivateCreate'
      *
-     * @param  \PidginHost\Sdk\Model\ActivateFreeDNS $activate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\ActivateFreeDNSRequest $activate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsActivateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function freednsDnsActivateCreateRequest($activate_free_dns, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
+    public function freednsDnsActivateCreateRequest($activate_free_dns_request, string $contentType = self::contentTypes['freednsDnsActivateCreate'][0])
     {
 
-        // verify the required parameter 'activate_free_dns' is set
-        if ($activate_free_dns === null || (is_array($activate_free_dns) && count($activate_free_dns) === 0)) {
+        // verify the required parameter 'activate_free_dns_request' is set
+        if ($activate_free_dns_request === null || (is_array($activate_free_dns_request) && count($activate_free_dns_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $activate_free_dns when calling freednsDnsActivateCreate'
+                'Missing the required parameter $activate_free_dns_request when calling freednsDnsActivateCreate'
             );
         }
 
@@ -347,12 +347,12 @@ class FreednsApi
         );
 
         // for model (json/xml)
-        if (isset($activate_free_dns)) {
+        if (isset($activate_free_dns_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activate_free_dns));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($activate_free_dns_request));
             } else {
-                $httpBody = $activate_free_dns;
+                $httpBody = $activate_free_dns_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -410,16 +410,16 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DNSRecordCreate $dns_record_create dns_record_create (required)
+     * @param  \PidginHost\Sdk\Model\DNSRecordCreateRequest $dns_record_create_request dns_record_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsAddRecordCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DNSRecordMutateResponse
      */
-    public function freednsDnsAddRecordCreate($domain, $source, $dns_record_create, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
+    public function freednsDnsAddRecordCreate($domain, $source, $dns_record_create_request, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
     {
-        list($response) = $this->freednsDnsAddRecordCreateWithHttpInfo($domain, $source, $dns_record_create, $contentType);
+        list($response) = $this->freednsDnsAddRecordCreateWithHttpInfo($domain, $source, $dns_record_create_request, $contentType);
         return $response;
     }
 
@@ -428,16 +428,16 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DNSRecordCreate $dns_record_create (required)
+     * @param  \PidginHost\Sdk\Model\DNSRecordCreateRequest $dns_record_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsAddRecordCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DNSRecordMutateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function freednsDnsAddRecordCreateWithHttpInfo($domain, $source, $dns_record_create, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
+    public function freednsDnsAddRecordCreateWithHttpInfo($domain, $source, $dns_record_create_request, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
     {
-        $request = $this->freednsDnsAddRecordCreateRequest($domain, $source, $dns_record_create, $contentType);
+        $request = $this->freednsDnsAddRecordCreateRequest($domain, $source, $dns_record_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -513,15 +513,15 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DNSRecordCreate $dns_record_create (required)
+     * @param  \PidginHost\Sdk\Model\DNSRecordCreateRequest $dns_record_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsAddRecordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function freednsDnsAddRecordCreateAsync($domain, $source, $dns_record_create, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
+    public function freednsDnsAddRecordCreateAsync($domain, $source, $dns_record_create_request, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
     {
-        return $this->freednsDnsAddRecordCreateAsyncWithHttpInfo($domain, $source, $dns_record_create, $contentType)
+        return $this->freednsDnsAddRecordCreateAsyncWithHttpInfo($domain, $source, $dns_record_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -534,16 +534,16 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DNSRecordCreate $dns_record_create (required)
+     * @param  \PidginHost\Sdk\Model\DNSRecordCreateRequest $dns_record_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsAddRecordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function freednsDnsAddRecordCreateAsyncWithHttpInfo($domain, $source, $dns_record_create, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
+    public function freednsDnsAddRecordCreateAsyncWithHttpInfo($domain, $source, $dns_record_create_request, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DNSRecordMutateResponse';
-        $request = $this->freednsDnsAddRecordCreateRequest($domain, $source, $dns_record_create, $contentType);
+        $request = $this->freednsDnsAddRecordCreateRequest($domain, $source, $dns_record_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -586,13 +586,13 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DNSRecordCreate $dns_record_create (required)
+     * @param  \PidginHost\Sdk\Model\DNSRecordCreateRequest $dns_record_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsAddRecordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function freednsDnsAddRecordCreateRequest($domain, $source, $dns_record_create, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
+    public function freednsDnsAddRecordCreateRequest($domain, $source, $dns_record_create_request, string $contentType = self::contentTypes['freednsDnsAddRecordCreate'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -609,10 +609,10 @@ class FreednsApi
             );
         }
 
-        // verify the required parameter 'dns_record_create' is set
-        if ($dns_record_create === null || (is_array($dns_record_create) && count($dns_record_create) === 0)) {
+        // verify the required parameter 'dns_record_create_request' is set
+        if ($dns_record_create_request === null || (is_array($dns_record_create_request) && count($dns_record_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $dns_record_create when calling freednsDnsAddRecordCreate'
+                'Missing the required parameter $dns_record_create_request when calling freednsDnsAddRecordCreate'
             );
         }
 
@@ -653,12 +653,12 @@ class FreednsApi
         );
 
         // for model (json/xml)
-        if (isset($dns_record_create)) {
+        if (isset($dns_record_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dns_record_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dns_record_create_request));
             } else {
-                $httpBody = $dns_record_create;
+                $httpBody = $dns_record_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -714,32 +714,32 @@ class FreednsApi
     /**
      * Operation freednsDnsDeactivateCreate
      *
-     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNS $deactivate_free_dns deactivate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNSRequest $deactivate_free_dns_request deactivate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeactivateCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DeactivateFreeDNSResponse
      */
-    public function freednsDnsDeactivateCreate($deactivate_free_dns, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
+    public function freednsDnsDeactivateCreate($deactivate_free_dns_request, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
     {
-        list($response) = $this->freednsDnsDeactivateCreateWithHttpInfo($deactivate_free_dns, $contentType);
+        list($response) = $this->freednsDnsDeactivateCreateWithHttpInfo($deactivate_free_dns_request, $contentType);
         return $response;
     }
 
     /**
      * Operation freednsDnsDeactivateCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNS $deactivate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNSRequest $deactivate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeactivateCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DeactivateFreeDNSResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function freednsDnsDeactivateCreateWithHttpInfo($deactivate_free_dns, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
+    public function freednsDnsDeactivateCreateWithHttpInfo($deactivate_free_dns_request, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
     {
-        $request = $this->freednsDnsDeactivateCreateRequest($deactivate_free_dns, $contentType);
+        $request = $this->freednsDnsDeactivateCreateRequest($deactivate_free_dns_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -813,15 +813,15 @@ class FreednsApi
     /**
      * Operation freednsDnsDeactivateCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNS $deactivate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNSRequest $deactivate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeactivateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function freednsDnsDeactivateCreateAsync($deactivate_free_dns, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
+    public function freednsDnsDeactivateCreateAsync($deactivate_free_dns_request, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
     {
-        return $this->freednsDnsDeactivateCreateAsyncWithHttpInfo($deactivate_free_dns, $contentType)
+        return $this->freednsDnsDeactivateCreateAsyncWithHttpInfo($deactivate_free_dns_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -832,16 +832,16 @@ class FreednsApi
     /**
      * Operation freednsDnsDeactivateCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNS $deactivate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNSRequest $deactivate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeactivateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function freednsDnsDeactivateCreateAsyncWithHttpInfo($deactivate_free_dns, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
+    public function freednsDnsDeactivateCreateAsyncWithHttpInfo($deactivate_free_dns_request, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DeactivateFreeDNSResponse';
-        $request = $this->freednsDnsDeactivateCreateRequest($deactivate_free_dns, $contentType);
+        $request = $this->freednsDnsDeactivateCreateRequest($deactivate_free_dns_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -882,19 +882,19 @@ class FreednsApi
     /**
      * Create request for operation 'freednsDnsDeactivateCreate'
      *
-     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNS $deactivate_free_dns (required)
+     * @param  \PidginHost\Sdk\Model\DeactivateFreeDNSRequest $deactivate_free_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeactivateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function freednsDnsDeactivateCreateRequest($deactivate_free_dns, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
+    public function freednsDnsDeactivateCreateRequest($deactivate_free_dns_request, string $contentType = self::contentTypes['freednsDnsDeactivateCreate'][0])
     {
 
-        // verify the required parameter 'deactivate_free_dns' is set
-        if ($deactivate_free_dns === null || (is_array($deactivate_free_dns) && count($deactivate_free_dns) === 0)) {
+        // verify the required parameter 'deactivate_free_dns_request' is set
+        if ($deactivate_free_dns_request === null || (is_array($deactivate_free_dns_request) && count($deactivate_free_dns_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $deactivate_free_dns when calling freednsDnsDeactivateCreate'
+                'Missing the required parameter $deactivate_free_dns_request when calling freednsDnsDeactivateCreate'
             );
         }
 
@@ -917,12 +917,12 @@ class FreednsApi
         );
 
         // for model (json/xml)
-        if (isset($deactivate_free_dns)) {
+        if (isset($deactivate_free_dns_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deactivate_free_dns));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deactivate_free_dns_request));
             } else {
-                $httpBody = $deactivate_free_dns;
+                $httpBody = $deactivate_free_dns_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -980,16 +980,16 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DeleteRecord $delete_record delete_record (required)
+     * @param  \PidginHost\Sdk\Model\DeleteRecordRequest $delete_record_request delete_record_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeleteRecordCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DeleteRecordResponse
      */
-    public function freednsDnsDeleteRecordCreate($domain, $source, $delete_record, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
+    public function freednsDnsDeleteRecordCreate($domain, $source, $delete_record_request, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
     {
-        list($response) = $this->freednsDnsDeleteRecordCreateWithHttpInfo($domain, $source, $delete_record, $contentType);
+        list($response) = $this->freednsDnsDeleteRecordCreateWithHttpInfo($domain, $source, $delete_record_request, $contentType);
         return $response;
     }
 
@@ -998,16 +998,16 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DeleteRecord $delete_record (required)
+     * @param  \PidginHost\Sdk\Model\DeleteRecordRequest $delete_record_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeleteRecordCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DeleteRecordResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function freednsDnsDeleteRecordCreateWithHttpInfo($domain, $source, $delete_record, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
+    public function freednsDnsDeleteRecordCreateWithHttpInfo($domain, $source, $delete_record_request, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
     {
-        $request = $this->freednsDnsDeleteRecordCreateRequest($domain, $source, $delete_record, $contentType);
+        $request = $this->freednsDnsDeleteRecordCreateRequest($domain, $source, $delete_record_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1083,15 +1083,15 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DeleteRecord $delete_record (required)
+     * @param  \PidginHost\Sdk\Model\DeleteRecordRequest $delete_record_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeleteRecordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function freednsDnsDeleteRecordCreateAsync($domain, $source, $delete_record, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
+    public function freednsDnsDeleteRecordCreateAsync($domain, $source, $delete_record_request, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
     {
-        return $this->freednsDnsDeleteRecordCreateAsyncWithHttpInfo($domain, $source, $delete_record, $contentType)
+        return $this->freednsDnsDeleteRecordCreateAsyncWithHttpInfo($domain, $source, $delete_record_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1104,16 +1104,16 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DeleteRecord $delete_record (required)
+     * @param  \PidginHost\Sdk\Model\DeleteRecordRequest $delete_record_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeleteRecordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function freednsDnsDeleteRecordCreateAsyncWithHttpInfo($domain, $source, $delete_record, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
+    public function freednsDnsDeleteRecordCreateAsyncWithHttpInfo($domain, $source, $delete_record_request, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DeleteRecordResponse';
-        $request = $this->freednsDnsDeleteRecordCreateRequest($domain, $source, $delete_record, $contentType);
+        $request = $this->freednsDnsDeleteRecordCreateRequest($domain, $source, $delete_record_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1156,13 +1156,13 @@ class FreednsApi
      *
      * @param  string $domain Domain name or PK. (required)
      * @param  string $source &#39;internal&#39; or &#39;external&#39;. (required)
-     * @param  \PidginHost\Sdk\Model\DeleteRecord $delete_record (required)
+     * @param  \PidginHost\Sdk\Model\DeleteRecordRequest $delete_record_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['freednsDnsDeleteRecordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function freednsDnsDeleteRecordCreateRequest($domain, $source, $delete_record, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
+    public function freednsDnsDeleteRecordCreateRequest($domain, $source, $delete_record_request, string $contentType = self::contentTypes['freednsDnsDeleteRecordCreate'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -1179,10 +1179,10 @@ class FreednsApi
             );
         }
 
-        // verify the required parameter 'delete_record' is set
-        if ($delete_record === null || (is_array($delete_record) && count($delete_record) === 0)) {
+        // verify the required parameter 'delete_record_request' is set
+        if ($delete_record_request === null || (is_array($delete_record_request) && count($delete_record_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $delete_record when calling freednsDnsDeleteRecordCreate'
+                'Missing the required parameter $delete_record_request when calling freednsDnsDeleteRecordCreate'
             );
         }
 
@@ -1223,12 +1223,12 @@ class FreednsApi
         );
 
         // for model (json/xml)
-        if (isset($delete_record)) {
+        if (isset($delete_record_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($delete_record));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($delete_record_request));
             } else {
-                $httpBody = $delete_record;
+                $httpBody = $delete_record_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

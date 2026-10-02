@@ -165,9 +165,6 @@ class EmailApi
         'emailServicesDedicatedIpDestroy' => [
             'application/json',
         ],
-        'emailServicesDestroy' => [
-            'application/json',
-        ],
         'emailServicesDomainsCreate' => [
             'application/json',
         ],
@@ -285,32 +282,32 @@ class EmailApi
     /**
      * Operation emailApiCredentialsCreate
      *
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\ApiCredential
+     * @return \PidginHost\Sdk\Model\ApiCredentialCreated
      */
-    public function emailApiCredentialsCreate($api_credential = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
+    public function emailApiCredentialsCreate($credential_create_request = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
     {
-        list($response) = $this->emailApiCredentialsCreateWithHttpInfo($api_credential, $contentType);
+        list($response) = $this->emailApiCredentialsCreateWithHttpInfo($credential_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation emailApiCredentialsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\ApiCredential, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\ApiCredentialCreated, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailApiCredentialsCreateWithHttpInfo($api_credential = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
+    public function emailApiCredentialsCreateWithHttpInfo($credential_create_request = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
     {
-        $request = $this->emailApiCredentialsCreateRequest($api_credential, $contentType);
+        $request = $this->emailApiCredentialsCreateRequest($credential_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -338,7 +335,7 @@ class EmailApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\ApiCredential',
+                        '\PidginHost\Sdk\Model\ApiCredentialCreated',
                         $request,
                         $response,
                     );
@@ -360,7 +357,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\ApiCredential',
+                '\PidginHost\Sdk\Model\ApiCredentialCreated',
                 $request,
                 $response,
             );
@@ -369,7 +366,7 @@ class EmailApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\ApiCredential',
+                        '\PidginHost\Sdk\Model\ApiCredentialCreated',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -384,15 +381,15 @@ class EmailApi
     /**
      * Operation emailApiCredentialsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailApiCredentialsCreateAsync($api_credential = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
+    public function emailApiCredentialsCreateAsync($credential_create_request = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
     {
-        return $this->emailApiCredentialsCreateAsyncWithHttpInfo($api_credential, $contentType)
+        return $this->emailApiCredentialsCreateAsyncWithHttpInfo($credential_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -403,16 +400,16 @@ class EmailApi
     /**
      * Operation emailApiCredentialsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailApiCredentialsCreateAsyncWithHttpInfo($api_credential = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
+    public function emailApiCredentialsCreateAsyncWithHttpInfo($credential_create_request = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\ApiCredential';
-        $request = $this->emailApiCredentialsCreateRequest($api_credential, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\ApiCredentialCreated';
+        $request = $this->emailApiCredentialsCreateRequest($credential_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -453,13 +450,13 @@ class EmailApi
     /**
      * Create request for operation 'emailApiCredentialsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailApiCredentialsCreateRequest($api_credential = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
+    public function emailApiCredentialsCreateRequest($credential_create_request = null, string $contentType = self::contentTypes['emailApiCredentialsCreate'][0])
     {
 
 
@@ -482,12 +479,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($api_credential)) {
+        if (isset($credential_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_credential));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($credential_create_request));
             } else {
-                $httpBody = $api_credential;
+                $httpBody = $credential_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1283,32 +1280,32 @@ class EmailApi
     /**
      * Operation emailDomainsCreate
      *
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SendingDomain
      */
-    public function emailDomainsCreate($domain_add, string $contentType = self::contentTypes['emailDomainsCreate'][0])
+    public function emailDomainsCreate($domain_add_request, string $contentType = self::contentTypes['emailDomainsCreate'][0])
     {
-        list($response) = $this->emailDomainsCreateWithHttpInfo($domain_add, $contentType);
+        list($response) = $this->emailDomainsCreateWithHttpInfo($domain_add_request, $contentType);
         return $response;
     }
 
     /**
      * Operation emailDomainsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SendingDomain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailDomainsCreateWithHttpInfo($domain_add, string $contentType = self::contentTypes['emailDomainsCreate'][0])
+    public function emailDomainsCreateWithHttpInfo($domain_add_request, string $contentType = self::contentTypes['emailDomainsCreate'][0])
     {
-        $request = $this->emailDomainsCreateRequest($domain_add, $contentType);
+        $request = $this->emailDomainsCreateRequest($domain_add_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1382,15 +1379,15 @@ class EmailApi
     /**
      * Operation emailDomainsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsCreateAsync($domain_add, string $contentType = self::contentTypes['emailDomainsCreate'][0])
+    public function emailDomainsCreateAsync($domain_add_request, string $contentType = self::contentTypes['emailDomainsCreate'][0])
     {
-        return $this->emailDomainsCreateAsyncWithHttpInfo($domain_add, $contentType)
+        return $this->emailDomainsCreateAsyncWithHttpInfo($domain_add_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1401,16 +1398,16 @@ class EmailApi
     /**
      * Operation emailDomainsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsCreateAsyncWithHttpInfo($domain_add, string $contentType = self::contentTypes['emailDomainsCreate'][0])
+    public function emailDomainsCreateAsyncWithHttpInfo($domain_add_request, string $contentType = self::contentTypes['emailDomainsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SendingDomain';
-        $request = $this->emailDomainsCreateRequest($domain_add, $contentType);
+        $request = $this->emailDomainsCreateRequest($domain_add_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1451,19 +1448,19 @@ class EmailApi
     /**
      * Create request for operation 'emailDomainsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailDomainsCreateRequest($domain_add, string $contentType = self::contentTypes['emailDomainsCreate'][0])
+    public function emailDomainsCreateRequest($domain_add_request, string $contentType = self::contentTypes['emailDomainsCreate'][0])
     {
 
-        // verify the required parameter 'domain_add' is set
-        if ($domain_add === null || (is_array($domain_add) && count($domain_add) === 0)) {
+        // verify the required parameter 'domain_add_request' is set
+        if ($domain_add_request === null || (is_array($domain_add_request) && count($domain_add_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $domain_add when calling emailDomainsCreate'
+                'Missing the required parameter $domain_add_request when calling emailDomainsCreate'
             );
         }
 
@@ -1486,12 +1483,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($domain_add)) {
+        if (isset($domain_add_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_add));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_add_request));
             } else {
-                $httpBody = $domain_add;
+                $httpBody = $domain_add_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1548,16 +1545,16 @@ class EmailApi
      * Operation emailDomainsInboundRoutesCreate
      *
      * @param  int $domain_pk domain_pk (required)
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\InboundRoute
+     * @return \PidginHost\Sdk\Model\InboundRouteWriteResponse
      */
-    public function emailDomainsInboundRoutesCreate($domain_pk, $inbound_route, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
+    public function emailDomainsInboundRoutesCreate($domain_pk, $inbound_route_create_request, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
     {
-        list($response) = $this->emailDomainsInboundRoutesCreateWithHttpInfo($domain_pk, $inbound_route, $contentType);
+        list($response) = $this->emailDomainsInboundRoutesCreateWithHttpInfo($domain_pk, $inbound_route_create_request, $contentType);
         return $response;
     }
 
@@ -1565,16 +1562,16 @@ class EmailApi
      * Operation emailDomainsInboundRoutesCreateWithHttpInfo
      *
      * @param  int $domain_pk (required)
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\InboundRoute, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\InboundRouteWriteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailDomainsInboundRoutesCreateWithHttpInfo($domain_pk, $inbound_route, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
+    public function emailDomainsInboundRoutesCreateWithHttpInfo($domain_pk, $inbound_route_create_request, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
     {
-        $request = $this->emailDomainsInboundRoutesCreateRequest($domain_pk, $inbound_route, $contentType);
+        $request = $this->emailDomainsInboundRoutesCreateRequest($domain_pk, $inbound_route_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1602,7 +1599,7 @@ class EmailApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\InboundRoute',
+                        '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                         $request,
                         $response,
                     );
@@ -1624,7 +1621,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\InboundRoute',
+                '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                 $request,
                 $response,
             );
@@ -1633,7 +1630,7 @@ class EmailApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\InboundRoute',
+                        '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1649,15 +1646,15 @@ class EmailApi
      * Operation emailDomainsInboundRoutesCreateAsync
      *
      * @param  int $domain_pk (required)
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsInboundRoutesCreateAsync($domain_pk, $inbound_route, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
+    public function emailDomainsInboundRoutesCreateAsync($domain_pk, $inbound_route_create_request, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
     {
-        return $this->emailDomainsInboundRoutesCreateAsyncWithHttpInfo($domain_pk, $inbound_route, $contentType)
+        return $this->emailDomainsInboundRoutesCreateAsyncWithHttpInfo($domain_pk, $inbound_route_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1669,16 +1666,16 @@ class EmailApi
      * Operation emailDomainsInboundRoutesCreateAsyncWithHttpInfo
      *
      * @param  int $domain_pk (required)
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsInboundRoutesCreateAsyncWithHttpInfo($domain_pk, $inbound_route, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
+    public function emailDomainsInboundRoutesCreateAsyncWithHttpInfo($domain_pk, $inbound_route_create_request, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\InboundRoute';
-        $request = $this->emailDomainsInboundRoutesCreateRequest($domain_pk, $inbound_route, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\InboundRouteWriteResponse';
+        $request = $this->emailDomainsInboundRoutesCreateRequest($domain_pk, $inbound_route_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1720,13 +1717,13 @@ class EmailApi
      * Create request for operation 'emailDomainsInboundRoutesCreate'
      *
      * @param  int $domain_pk (required)
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailDomainsInboundRoutesCreateRequest($domain_pk, $inbound_route, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
+    public function emailDomainsInboundRoutesCreateRequest($domain_pk, $inbound_route_create_request, string $contentType = self::contentTypes['emailDomainsInboundRoutesCreate'][0])
     {
 
         // verify the required parameter 'domain_pk' is set
@@ -1736,10 +1733,10 @@ class EmailApi
             );
         }
 
-        // verify the required parameter 'inbound_route' is set
-        if ($inbound_route === null || (is_array($inbound_route) && count($inbound_route) === 0)) {
+        // verify the required parameter 'inbound_route_create_request' is set
+        if ($inbound_route_create_request === null || (is_array($inbound_route_create_request) && count($inbound_route_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inbound_route when calling emailDomainsInboundRoutesCreate'
+                'Missing the required parameter $inbound_route_create_request when calling emailDomainsInboundRoutesCreate'
             );
         }
 
@@ -1770,12 +1767,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($inbound_route)) {
+        if (isset($inbound_route_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($inbound_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($inbound_route_create_request));
             } else {
-                $httpBody = $inbound_route;
+                $httpBody = $inbound_route_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2637,16 +2634,15 @@ class EmailApi
      * Operation emailDomainsRotateDkimCreate
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsRotateDkimCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SendingDomain
      */
-    public function emailDomainsRotateDkimCreate($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
+    public function emailDomainsRotateDkimCreate($id, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
     {
-        list($response) = $this->emailDomainsRotateDkimCreateWithHttpInfo($id, $sending_domain, $contentType);
+        list($response) = $this->emailDomainsRotateDkimCreateWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -2654,16 +2650,15 @@ class EmailApi
      * Operation emailDomainsRotateDkimCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsRotateDkimCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SendingDomain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailDomainsRotateDkimCreateWithHttpInfo($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
+    public function emailDomainsRotateDkimCreateWithHttpInfo($id, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
     {
-        $request = $this->emailDomainsRotateDkimCreateRequest($id, $sending_domain, $contentType);
+        $request = $this->emailDomainsRotateDkimCreateRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2738,15 +2733,14 @@ class EmailApi
      * Operation emailDomainsRotateDkimCreateAsync
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsRotateDkimCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsRotateDkimCreateAsync($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
+    public function emailDomainsRotateDkimCreateAsync($id, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
     {
-        return $this->emailDomainsRotateDkimCreateAsyncWithHttpInfo($id, $sending_domain, $contentType)
+        return $this->emailDomainsRotateDkimCreateAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2758,16 +2752,15 @@ class EmailApi
      * Operation emailDomainsRotateDkimCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsRotateDkimCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsRotateDkimCreateAsyncWithHttpInfo($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
+    public function emailDomainsRotateDkimCreateAsyncWithHttpInfo($id, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SendingDomain';
-        $request = $this->emailDomainsRotateDkimCreateRequest($id, $sending_domain, $contentType);
+        $request = $this->emailDomainsRotateDkimCreateRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2809,13 +2802,12 @@ class EmailApi
      * Create request for operation 'emailDomainsRotateDkimCreate'
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsRotateDkimCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailDomainsRotateDkimCreateRequest($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
+    public function emailDomainsRotateDkimCreateRequest($id, string $contentType = self::contentTypes['emailDomainsRotateDkimCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2824,7 +2816,6 @@ class EmailApi
                 'Missing the required parameter $id when calling emailDomainsRotateDkimCreate'
             );
         }
-
 
 
         $resourcePath = '/api/email/domains/{id}/rotate_dkim/';
@@ -2853,14 +2844,7 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($sending_domain)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sending_domain));
-            } else {
-                $httpBody = $sending_domain;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2915,16 +2899,16 @@ class EmailApi
      * Operation emailDomainsToggleInboundCreate
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain sending_domain (optional)
+     * @param  \PidginHost\Sdk\Model\ToggleInboundRequest|null $toggle_inbound_request toggle_inbound_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsToggleInboundCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SendingDomain
      */
-    public function emailDomainsToggleInboundCreate($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
+    public function emailDomainsToggleInboundCreate($id, $toggle_inbound_request = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
     {
-        list($response) = $this->emailDomainsToggleInboundCreateWithHttpInfo($id, $sending_domain, $contentType);
+        list($response) = $this->emailDomainsToggleInboundCreateWithHttpInfo($id, $toggle_inbound_request, $contentType);
         return $response;
     }
 
@@ -2932,16 +2916,16 @@ class EmailApi
      * Operation emailDomainsToggleInboundCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
+     * @param  \PidginHost\Sdk\Model\ToggleInboundRequest|null $toggle_inbound_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsToggleInboundCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SendingDomain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailDomainsToggleInboundCreateWithHttpInfo($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
+    public function emailDomainsToggleInboundCreateWithHttpInfo($id, $toggle_inbound_request = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
     {
-        $request = $this->emailDomainsToggleInboundCreateRequest($id, $sending_domain, $contentType);
+        $request = $this->emailDomainsToggleInboundCreateRequest($id, $toggle_inbound_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3016,15 +3000,15 @@ class EmailApi
      * Operation emailDomainsToggleInboundCreateAsync
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
+     * @param  \PidginHost\Sdk\Model\ToggleInboundRequest|null $toggle_inbound_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsToggleInboundCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsToggleInboundCreateAsync($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
+    public function emailDomainsToggleInboundCreateAsync($id, $toggle_inbound_request = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
     {
-        return $this->emailDomainsToggleInboundCreateAsyncWithHttpInfo($id, $sending_domain, $contentType)
+        return $this->emailDomainsToggleInboundCreateAsyncWithHttpInfo($id, $toggle_inbound_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3036,16 +3020,16 @@ class EmailApi
      * Operation emailDomainsToggleInboundCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
+     * @param  \PidginHost\Sdk\Model\ToggleInboundRequest|null $toggle_inbound_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsToggleInboundCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsToggleInboundCreateAsyncWithHttpInfo($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
+    public function emailDomainsToggleInboundCreateAsyncWithHttpInfo($id, $toggle_inbound_request = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SendingDomain';
-        $request = $this->emailDomainsToggleInboundCreateRequest($id, $sending_domain, $contentType);
+        $request = $this->emailDomainsToggleInboundCreateRequest($id, $toggle_inbound_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3087,13 +3071,13 @@ class EmailApi
      * Create request for operation 'emailDomainsToggleInboundCreate'
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
+     * @param  \PidginHost\Sdk\Model\ToggleInboundRequest|null $toggle_inbound_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsToggleInboundCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailDomainsToggleInboundCreateRequest($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
+    public function emailDomainsToggleInboundCreateRequest($id, $toggle_inbound_request = null, string $contentType = self::contentTypes['emailDomainsToggleInboundCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -3131,12 +3115,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($sending_domain)) {
+        if (isset($toggle_inbound_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sending_domain));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($toggle_inbound_request));
             } else {
-                $httpBody = $sending_domain;
+                $httpBody = $toggle_inbound_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3193,16 +3177,15 @@ class EmailApi
      * Operation emailDomainsVerifyCreate
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsVerifyCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SendingDomain
      */
-    public function emailDomainsVerifyCreate($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
+    public function emailDomainsVerifyCreate($id, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
     {
-        list($response) = $this->emailDomainsVerifyCreateWithHttpInfo($id, $sending_domain, $contentType);
+        list($response) = $this->emailDomainsVerifyCreateWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -3210,16 +3193,15 @@ class EmailApi
      * Operation emailDomainsVerifyCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsVerifyCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SendingDomain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailDomainsVerifyCreateWithHttpInfo($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
+    public function emailDomainsVerifyCreateWithHttpInfo($id, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
     {
-        $request = $this->emailDomainsVerifyCreateRequest($id, $sending_domain, $contentType);
+        $request = $this->emailDomainsVerifyCreateRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3294,15 +3276,14 @@ class EmailApi
      * Operation emailDomainsVerifyCreateAsync
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsVerifyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsVerifyCreateAsync($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
+    public function emailDomainsVerifyCreateAsync($id, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
     {
-        return $this->emailDomainsVerifyCreateAsyncWithHttpInfo($id, $sending_domain, $contentType)
+        return $this->emailDomainsVerifyCreateAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3314,16 +3295,15 @@ class EmailApi
      * Operation emailDomainsVerifyCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsVerifyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailDomainsVerifyCreateAsyncWithHttpInfo($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
+    public function emailDomainsVerifyCreateAsyncWithHttpInfo($id, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SendingDomain';
-        $request = $this->emailDomainsVerifyCreateRequest($id, $sending_domain, $contentType);
+        $request = $this->emailDomainsVerifyCreateRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3365,13 +3345,12 @@ class EmailApi
      * Create request for operation 'emailDomainsVerifyCreate'
      *
      * @param  int $id A unique integer value identifying this sending domain. (required)
-     * @param  \PidginHost\Sdk\Model\SendingDomain|null $sending_domain (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailDomainsVerifyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailDomainsVerifyCreateRequest($id, $sending_domain = null, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
+    public function emailDomainsVerifyCreateRequest($id, string $contentType = self::contentTypes['emailDomainsVerifyCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -3380,7 +3359,6 @@ class EmailApi
                 'Missing the required parameter $id when calling emailDomainsVerifyCreate'
             );
         }
-
 
 
         $resourcePath = '/api/email/domains/{id}/verify/';
@@ -3409,14 +3387,7 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($sending_domain)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sending_domain));
-            } else {
-                $httpBody = $sending_domain;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3470,32 +3441,32 @@ class EmailApi
     /**
      * Operation emailInboundRoutesCreate
      *
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\InboundRoute
+     * @return \PidginHost\Sdk\Model\InboundRouteWriteResponse
      */
-    public function emailInboundRoutesCreate($inbound_route, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
+    public function emailInboundRoutesCreate($inbound_route_create_request, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
     {
-        list($response) = $this->emailInboundRoutesCreateWithHttpInfo($inbound_route, $contentType);
+        list($response) = $this->emailInboundRoutesCreateWithHttpInfo($inbound_route_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation emailInboundRoutesCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\InboundRoute, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\InboundRouteWriteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailInboundRoutesCreateWithHttpInfo($inbound_route, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
+    public function emailInboundRoutesCreateWithHttpInfo($inbound_route_create_request, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
     {
-        $request = $this->emailInboundRoutesCreateRequest($inbound_route, $contentType);
+        $request = $this->emailInboundRoutesCreateRequest($inbound_route_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3523,7 +3494,7 @@ class EmailApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\InboundRoute',
+                        '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                         $request,
                         $response,
                     );
@@ -3545,7 +3516,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\InboundRoute',
+                '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                 $request,
                 $response,
             );
@@ -3554,7 +3525,7 @@ class EmailApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\InboundRoute',
+                        '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3569,15 +3540,15 @@ class EmailApi
     /**
      * Operation emailInboundRoutesCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailInboundRoutesCreateAsync($inbound_route, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
+    public function emailInboundRoutesCreateAsync($inbound_route_create_request, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
     {
-        return $this->emailInboundRoutesCreateAsyncWithHttpInfo($inbound_route, $contentType)
+        return $this->emailInboundRoutesCreateAsyncWithHttpInfo($inbound_route_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3588,16 +3559,16 @@ class EmailApi
     /**
      * Operation emailInboundRoutesCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailInboundRoutesCreateAsyncWithHttpInfo($inbound_route, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
+    public function emailInboundRoutesCreateAsyncWithHttpInfo($inbound_route_create_request, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\InboundRoute';
-        $request = $this->emailInboundRoutesCreateRequest($inbound_route, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\InboundRouteWriteResponse';
+        $request = $this->emailInboundRoutesCreateRequest($inbound_route_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3638,19 +3609,19 @@ class EmailApi
     /**
      * Create request for operation 'emailInboundRoutesCreate'
      *
-     * @param  \PidginHost\Sdk\Model\InboundRoute $inbound_route (required)
+     * @param  \PidginHost\Sdk\Model\InboundRouteCreateRequest $inbound_route_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailInboundRoutesCreateRequest($inbound_route, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
+    public function emailInboundRoutesCreateRequest($inbound_route_create_request, string $contentType = self::contentTypes['emailInboundRoutesCreate'][0])
     {
 
-        // verify the required parameter 'inbound_route' is set
-        if ($inbound_route === null || (is_array($inbound_route) && count($inbound_route) === 0)) {
+        // verify the required parameter 'inbound_route_create_request' is set
+        if ($inbound_route_create_request === null || (is_array($inbound_route_create_request) && count($inbound_route_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $inbound_route when calling emailInboundRoutesCreate'
+                'Missing the required parameter $inbound_route_create_request when calling emailInboundRoutesCreate'
             );
         }
 
@@ -3673,12 +3644,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($inbound_route)) {
+        if (isset($inbound_route_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($inbound_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($inbound_route_create_request));
             } else {
-                $httpBody = $inbound_route;
+                $httpBody = $inbound_route_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4210,16 +4181,16 @@ class EmailApi
      * Operation emailInboundRoutesPartialUpdate
      *
      * @param  int $id A unique integer value identifying this inbound route. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedInboundRoute|null $patched_inbound_route patched_inbound_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedInboundRouteCreateRequest|null $patched_inbound_route_create_request patched_inbound_route_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\InboundRoute
+     * @return \PidginHost\Sdk\Model\InboundRouteWriteResponse
      */
-    public function emailInboundRoutesPartialUpdate($id, $patched_inbound_route = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
+    public function emailInboundRoutesPartialUpdate($id, $patched_inbound_route_create_request = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
     {
-        list($response) = $this->emailInboundRoutesPartialUpdateWithHttpInfo($id, $patched_inbound_route, $contentType);
+        list($response) = $this->emailInboundRoutesPartialUpdateWithHttpInfo($id, $patched_inbound_route_create_request, $contentType);
         return $response;
     }
 
@@ -4227,16 +4198,16 @@ class EmailApi
      * Operation emailInboundRoutesPartialUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this inbound route. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedInboundRoute|null $patched_inbound_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedInboundRouteCreateRequest|null $patched_inbound_route_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\InboundRoute, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\InboundRouteWriteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailInboundRoutesPartialUpdateWithHttpInfo($id, $patched_inbound_route = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
+    public function emailInboundRoutesPartialUpdateWithHttpInfo($id, $patched_inbound_route_create_request = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
     {
-        $request = $this->emailInboundRoutesPartialUpdateRequest($id, $patched_inbound_route, $contentType);
+        $request = $this->emailInboundRoutesPartialUpdateRequest($id, $patched_inbound_route_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4264,7 +4235,7 @@ class EmailApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\InboundRoute',
+                        '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                         $request,
                         $response,
                     );
@@ -4286,7 +4257,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\InboundRoute',
+                '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                 $request,
                 $response,
             );
@@ -4295,7 +4266,7 @@ class EmailApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\InboundRoute',
+                        '\PidginHost\Sdk\Model\InboundRouteWriteResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4311,15 +4282,15 @@ class EmailApi
      * Operation emailInboundRoutesPartialUpdateAsync
      *
      * @param  int $id A unique integer value identifying this inbound route. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedInboundRoute|null $patched_inbound_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedInboundRouteCreateRequest|null $patched_inbound_route_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailInboundRoutesPartialUpdateAsync($id, $patched_inbound_route = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
+    public function emailInboundRoutesPartialUpdateAsync($id, $patched_inbound_route_create_request = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
     {
-        return $this->emailInboundRoutesPartialUpdateAsyncWithHttpInfo($id, $patched_inbound_route, $contentType)
+        return $this->emailInboundRoutesPartialUpdateAsyncWithHttpInfo($id, $patched_inbound_route_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4331,16 +4302,16 @@ class EmailApi
      * Operation emailInboundRoutesPartialUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this inbound route. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedInboundRoute|null $patched_inbound_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedInboundRouteCreateRequest|null $patched_inbound_route_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailInboundRoutesPartialUpdateAsyncWithHttpInfo($id, $patched_inbound_route = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
+    public function emailInboundRoutesPartialUpdateAsyncWithHttpInfo($id, $patched_inbound_route_create_request = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\InboundRoute';
-        $request = $this->emailInboundRoutesPartialUpdateRequest($id, $patched_inbound_route, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\InboundRouteWriteResponse';
+        $request = $this->emailInboundRoutesPartialUpdateRequest($id, $patched_inbound_route_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4382,13 +4353,13 @@ class EmailApi
      * Create request for operation 'emailInboundRoutesPartialUpdate'
      *
      * @param  int $id A unique integer value identifying this inbound route. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedInboundRoute|null $patched_inbound_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedInboundRouteCreateRequest|null $patched_inbound_route_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailInboundRoutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailInboundRoutesPartialUpdateRequest($id, $patched_inbound_route = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
+    public function emailInboundRoutesPartialUpdateRequest($id, $patched_inbound_route_create_request = null, string $contentType = self::contentTypes['emailInboundRoutesPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -4426,12 +4397,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($patched_inbound_route)) {
+        if (isset($patched_inbound_route_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_inbound_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_inbound_route_create_request));
             } else {
-                $httpBody = $patched_inbound_route;
+                $httpBody = $patched_inbound_route_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4757,11 +4728,12 @@ class EmailApi
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return array<string,mixed>
      */
     public function emailMessagesRetrieve($message_id, string $contentType = self::contentTypes['emailMessagesRetrieve'][0])
     {
-        $this->emailMessagesRetrieveWithHttpInfo($message_id, $contentType);
+        list($response) = $this->emailMessagesRetrieveWithHttpInfo($message_id, $contentType);
+        return $response;
     }
 
     /**
@@ -4772,7 +4744,7 @@ class EmailApi
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
     public function emailMessagesRetrieveWithHttpInfo($message_id, string $contentType = self::contentTypes['emailMessagesRetrieve'][0])
     {
@@ -4801,9 +4773,45 @@ class EmailApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'array<string,mixed>',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'array<string,mixed>',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,mixed>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -4841,14 +4849,27 @@ class EmailApi
      */
     public function emailMessagesRetrieveAsyncWithHttpInfo($message_id, string $contentType = self::contentTypes['emailMessagesRetrieve'][0])
     {
-        $returnType = '';
+        $returnType = 'array<string,mixed>';
         $request = $this->emailMessagesRetrieveRequest($message_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -4907,7 +4928,7 @@ class EmailApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -4967,32 +4988,32 @@ class EmailApi
     /**
      * Operation emailSandboxAddressesCreate
      *
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SandboxAddress
      */
-    public function emailSandboxAddressesCreate($sandbox_address, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
+    public function emailSandboxAddressesCreate($sandbox_address_request, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
     {
-        list($response) = $this->emailSandboxAddressesCreateWithHttpInfo($sandbox_address, $contentType);
+        list($response) = $this->emailSandboxAddressesCreateWithHttpInfo($sandbox_address_request, $contentType);
         return $response;
     }
 
     /**
      * Operation emailSandboxAddressesCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SandboxAddress, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailSandboxAddressesCreateWithHttpInfo($sandbox_address, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
+    public function emailSandboxAddressesCreateWithHttpInfo($sandbox_address_request, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
     {
-        $request = $this->emailSandboxAddressesCreateRequest($sandbox_address, $contentType);
+        $request = $this->emailSandboxAddressesCreateRequest($sandbox_address_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5066,15 +5087,15 @@ class EmailApi
     /**
      * Operation emailSandboxAddressesCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSandboxAddressesCreateAsync($sandbox_address, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
+    public function emailSandboxAddressesCreateAsync($sandbox_address_request, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
     {
-        return $this->emailSandboxAddressesCreateAsyncWithHttpInfo($sandbox_address, $contentType)
+        return $this->emailSandboxAddressesCreateAsyncWithHttpInfo($sandbox_address_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5085,16 +5106,16 @@ class EmailApi
     /**
      * Operation emailSandboxAddressesCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSandboxAddressesCreateAsyncWithHttpInfo($sandbox_address, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
+    public function emailSandboxAddressesCreateAsyncWithHttpInfo($sandbox_address_request, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SandboxAddress';
-        $request = $this->emailSandboxAddressesCreateRequest($sandbox_address, $contentType);
+        $request = $this->emailSandboxAddressesCreateRequest($sandbox_address_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5135,19 +5156,19 @@ class EmailApi
     /**
      * Create request for operation 'emailSandboxAddressesCreate'
      *
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailSandboxAddressesCreateRequest($sandbox_address, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
+    public function emailSandboxAddressesCreateRequest($sandbox_address_request, string $contentType = self::contentTypes['emailSandboxAddressesCreate'][0])
     {
 
-        // verify the required parameter 'sandbox_address' is set
-        if ($sandbox_address === null || (is_array($sandbox_address) && count($sandbox_address) === 0)) {
+        // verify the required parameter 'sandbox_address_request' is set
+        if ($sandbox_address_request === null || (is_array($sandbox_address_request) && count($sandbox_address_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sandbox_address when calling emailSandboxAddressesCreate'
+                'Missing the required parameter $sandbox_address_request when calling emailSandboxAddressesCreate'
             );
         }
 
@@ -5170,12 +5191,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($sandbox_address)) {
+        if (isset($sandbox_address_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sandbox_address));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sandbox_address_request));
             } else {
-                $httpBody = $sandbox_address;
+                $httpBody = $sandbox_address_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5971,29 +5992,32 @@ class EmailApi
     /**
      * Operation emailSendCreate
      *
+     * @param  \PidginHost\Sdk\Model\SendRequest $send_request send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSendCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \PidginHost\Sdk\Model\EmailSendResponse
      */
-    public function emailSendCreate(string $contentType = self::contentTypes['emailSendCreate'][0])
+    public function emailSendCreate($send_request, string $contentType = self::contentTypes['emailSendCreate'][0])
     {
-        $this->emailSendCreateWithHttpInfo($contentType);
+        list($response) = $this->emailSendCreateWithHttpInfo($send_request, $contentType);
+        return $response;
     }
 
     /**
      * Operation emailSendCreateWithHttpInfo
      *
+     * @param  \PidginHost\Sdk\Model\SendRequest $send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSendCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\EmailSendResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailSendCreateWithHttpInfo(string $contentType = self::contentTypes['emailSendCreate'][0])
+    public function emailSendCreateWithHttpInfo($send_request, string $contentType = self::contentTypes['emailSendCreate'][0])
     {
-        $request = $this->emailSendCreateRequest($contentType);
+        $request = $this->emailSendCreateRequest($send_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6018,9 +6042,45 @@ class EmailApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\EmailSendResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\EmailSendResponse',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\EmailSendResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -6031,14 +6091,15 @@ class EmailApi
     /**
      * Operation emailSendCreateAsync
      *
+     * @param  \PidginHost\Sdk\Model\SendRequest $send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSendCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSendCreateAsync(string $contentType = self::contentTypes['emailSendCreate'][0])
+    public function emailSendCreateAsync($send_request, string $contentType = self::contentTypes['emailSendCreate'][0])
     {
-        return $this->emailSendCreateAsyncWithHttpInfo($contentType)
+        return $this->emailSendCreateAsyncWithHttpInfo($send_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6049,21 +6110,35 @@ class EmailApi
     /**
      * Operation emailSendCreateAsyncWithHttpInfo
      *
+     * @param  \PidginHost\Sdk\Model\SendRequest $send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSendCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSendCreateAsyncWithHttpInfo(string $contentType = self::contentTypes['emailSendCreate'][0])
+    public function emailSendCreateAsyncWithHttpInfo($send_request, string $contentType = self::contentTypes['emailSendCreate'][0])
     {
-        $returnType = '';
-        $request = $this->emailSendCreateRequest($contentType);
+        $returnType = '\PidginHost\Sdk\Model\EmailSendResponse';
+        $request = $this->emailSendCreateRequest($send_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -6085,13 +6160,21 @@ class EmailApi
     /**
      * Create request for operation 'emailSendCreate'
      *
+     * @param  \PidginHost\Sdk\Model\SendRequest $send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSendCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailSendCreateRequest(string $contentType = self::contentTypes['emailSendCreate'][0])
+    public function emailSendCreateRequest($send_request, string $contentType = self::contentTypes['emailSendCreate'][0])
     {
+
+        // verify the required parameter 'send_request' is set
+        if ($send_request === null || (is_array($send_request) && count($send_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $send_request when calling emailSendCreate'
+            );
+        }
 
 
         $resourcePath = '/api/email/send/';
@@ -6106,13 +6189,20 @@ class EmailApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($send_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($send_request));
+            } else {
+                $httpBody = $send_request;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -6136,6 +6226,10 @@ class EmailApi
             }
         }
 
+        // this endpoint requires Bearer (phme_<key>) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -6162,16 +6256,16 @@ class EmailApi
      * Operation emailServicesApiCredentialsCreate
      *
      * @param  int $service_pk service_pk (required)
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\ApiCredential
+     * @return \PidginHost\Sdk\Model\ApiCredentialCreated
      */
-    public function emailServicesApiCredentialsCreate($service_pk, $api_credential = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
+    public function emailServicesApiCredentialsCreate($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
     {
-        list($response) = $this->emailServicesApiCredentialsCreateWithHttpInfo($service_pk, $api_credential, $contentType);
+        list($response) = $this->emailServicesApiCredentialsCreateWithHttpInfo($service_pk, $credential_create_request, $contentType);
         return $response;
     }
 
@@ -6179,16 +6273,16 @@ class EmailApi
      * Operation emailServicesApiCredentialsCreateWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\ApiCredential, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\ApiCredentialCreated, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesApiCredentialsCreateWithHttpInfo($service_pk, $api_credential = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
+    public function emailServicesApiCredentialsCreateWithHttpInfo($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
     {
-        $request = $this->emailServicesApiCredentialsCreateRequest($service_pk, $api_credential, $contentType);
+        $request = $this->emailServicesApiCredentialsCreateRequest($service_pk, $credential_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6216,7 +6310,7 @@ class EmailApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\ApiCredential',
+                        '\PidginHost\Sdk\Model\ApiCredentialCreated',
                         $request,
                         $response,
                     );
@@ -6238,7 +6332,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\ApiCredential',
+                '\PidginHost\Sdk\Model\ApiCredentialCreated',
                 $request,
                 $response,
             );
@@ -6247,7 +6341,7 @@ class EmailApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\ApiCredential',
+                        '\PidginHost\Sdk\Model\ApiCredentialCreated',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6263,15 +6357,15 @@ class EmailApi
      * Operation emailServicesApiCredentialsCreateAsync
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesApiCredentialsCreateAsync($service_pk, $api_credential = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
+    public function emailServicesApiCredentialsCreateAsync($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
     {
-        return $this->emailServicesApiCredentialsCreateAsyncWithHttpInfo($service_pk, $api_credential, $contentType)
+        return $this->emailServicesApiCredentialsCreateAsyncWithHttpInfo($service_pk, $credential_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6283,16 +6377,16 @@ class EmailApi
      * Operation emailServicesApiCredentialsCreateAsyncWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesApiCredentialsCreateAsyncWithHttpInfo($service_pk, $api_credential = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
+    public function emailServicesApiCredentialsCreateAsyncWithHttpInfo($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\ApiCredential';
-        $request = $this->emailServicesApiCredentialsCreateRequest($service_pk, $api_credential, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\ApiCredentialCreated';
+        $request = $this->emailServicesApiCredentialsCreateRequest($service_pk, $credential_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6334,13 +6428,13 @@ class EmailApi
      * Create request for operation 'emailServicesApiCredentialsCreate'
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\ApiCredential|null $api_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesApiCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesApiCredentialsCreateRequest($service_pk, $api_credential = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
+    public function emailServicesApiCredentialsCreateRequest($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesApiCredentialsCreate'][0])
     {
 
         // verify the required parameter 'service_pk' is set
@@ -6378,12 +6472,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($api_credential)) {
+        if (isset($credential_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_credential));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($credential_create_request));
             } else {
-                $httpBody = $api_credential;
+                $httpBody = $credential_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6985,16 +7079,16 @@ class EmailApi
      * Operation emailServicesChangeTierPartialUpdate
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSubscribe|null $patched_subscribe patched_subscribe (optional)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesChangeTierPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\EmailService
      */
-    public function emailServicesChangeTierPartialUpdate($id, $patched_subscribe = null, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
+    public function emailServicesChangeTierPartialUpdate($id, $subscribe_request, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
     {
-        list($response) = $this->emailServicesChangeTierPartialUpdateWithHttpInfo($id, $patched_subscribe, $contentType);
+        list($response) = $this->emailServicesChangeTierPartialUpdateWithHttpInfo($id, $subscribe_request, $contentType);
         return $response;
     }
 
@@ -7002,16 +7096,16 @@ class EmailApi
      * Operation emailServicesChangeTierPartialUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSubscribe|null $patched_subscribe (optional)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesChangeTierPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\EmailService, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesChangeTierPartialUpdateWithHttpInfo($id, $patched_subscribe = null, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
+    public function emailServicesChangeTierPartialUpdateWithHttpInfo($id, $subscribe_request, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
     {
-        $request = $this->emailServicesChangeTierPartialUpdateRequest($id, $patched_subscribe, $contentType);
+        $request = $this->emailServicesChangeTierPartialUpdateRequest($id, $subscribe_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7086,15 +7180,15 @@ class EmailApi
      * Operation emailServicesChangeTierPartialUpdateAsync
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSubscribe|null $patched_subscribe (optional)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesChangeTierPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesChangeTierPartialUpdateAsync($id, $patched_subscribe = null, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
+    public function emailServicesChangeTierPartialUpdateAsync($id, $subscribe_request, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
     {
-        return $this->emailServicesChangeTierPartialUpdateAsyncWithHttpInfo($id, $patched_subscribe, $contentType)
+        return $this->emailServicesChangeTierPartialUpdateAsyncWithHttpInfo($id, $subscribe_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7106,16 +7200,16 @@ class EmailApi
      * Operation emailServicesChangeTierPartialUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSubscribe|null $patched_subscribe (optional)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesChangeTierPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesChangeTierPartialUpdateAsyncWithHttpInfo($id, $patched_subscribe = null, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
+    public function emailServicesChangeTierPartialUpdateAsyncWithHttpInfo($id, $subscribe_request, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\EmailService';
-        $request = $this->emailServicesChangeTierPartialUpdateRequest($id, $patched_subscribe, $contentType);
+        $request = $this->emailServicesChangeTierPartialUpdateRequest($id, $subscribe_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7157,13 +7251,13 @@ class EmailApi
      * Create request for operation 'emailServicesChangeTierPartialUpdate'
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSubscribe|null $patched_subscribe (optional)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesChangeTierPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesChangeTierPartialUpdateRequest($id, $patched_subscribe = null, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
+    public function emailServicesChangeTierPartialUpdateRequest($id, $subscribe_request, string $contentType = self::contentTypes['emailServicesChangeTierPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -7173,6 +7267,12 @@ class EmailApi
             );
         }
 
+        // verify the required parameter 'subscribe_request' is set
+        if ($subscribe_request === null || (is_array($subscribe_request) && count($subscribe_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $subscribe_request when calling emailServicesChangeTierPartialUpdate'
+            );
+        }
 
 
         $resourcePath = '/api/email/services/{id}/change_tier/';
@@ -7201,12 +7301,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($patched_subscribe)) {
+        if (isset($subscribe_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_subscribe));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($subscribe_request));
             } else {
-                $httpBody = $patched_subscribe;
+                $httpBody = $subscribe_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7262,32 +7362,32 @@ class EmailApi
     /**
      * Operation emailServicesCreate
      *
-     * @param  \PidginHost\Sdk\Model\Subscribe $subscribe subscribe (required)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\EmailService
      */
-    public function emailServicesCreate($subscribe, string $contentType = self::contentTypes['emailServicesCreate'][0])
+    public function emailServicesCreate($subscribe_request, string $contentType = self::contentTypes['emailServicesCreate'][0])
     {
-        list($response) = $this->emailServicesCreateWithHttpInfo($subscribe, $contentType);
+        list($response) = $this->emailServicesCreateWithHttpInfo($subscribe_request, $contentType);
         return $response;
     }
 
     /**
      * Operation emailServicesCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\Subscribe $subscribe (required)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\EmailService, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesCreateWithHttpInfo($subscribe, string $contentType = self::contentTypes['emailServicesCreate'][0])
+    public function emailServicesCreateWithHttpInfo($subscribe_request, string $contentType = self::contentTypes['emailServicesCreate'][0])
     {
-        $request = $this->emailServicesCreateRequest($subscribe, $contentType);
+        $request = $this->emailServicesCreateRequest($subscribe_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7361,15 +7461,15 @@ class EmailApi
     /**
      * Operation emailServicesCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\Subscribe $subscribe (required)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesCreateAsync($subscribe, string $contentType = self::contentTypes['emailServicesCreate'][0])
+    public function emailServicesCreateAsync($subscribe_request, string $contentType = self::contentTypes['emailServicesCreate'][0])
     {
-        return $this->emailServicesCreateAsyncWithHttpInfo($subscribe, $contentType)
+        return $this->emailServicesCreateAsyncWithHttpInfo($subscribe_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7380,16 +7480,16 @@ class EmailApi
     /**
      * Operation emailServicesCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\Subscribe $subscribe (required)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesCreateAsyncWithHttpInfo($subscribe, string $contentType = self::contentTypes['emailServicesCreate'][0])
+    public function emailServicesCreateAsyncWithHttpInfo($subscribe_request, string $contentType = self::contentTypes['emailServicesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\EmailService';
-        $request = $this->emailServicesCreateRequest($subscribe, $contentType);
+        $request = $this->emailServicesCreateRequest($subscribe_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7430,19 +7530,19 @@ class EmailApi
     /**
      * Create request for operation 'emailServicesCreate'
      *
-     * @param  \PidginHost\Sdk\Model\Subscribe $subscribe (required)
+     * @param  \PidginHost\Sdk\Model\SubscribeRequest $subscribe_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesCreateRequest($subscribe, string $contentType = self::contentTypes['emailServicesCreate'][0])
+    public function emailServicesCreateRequest($subscribe_request, string $contentType = self::contentTypes['emailServicesCreate'][0])
     {
 
-        // verify the required parameter 'subscribe' is set
-        if ($subscribe === null || (is_array($subscribe) && count($subscribe) === 0)) {
+        // verify the required parameter 'subscribe_request' is set
+        if ($subscribe_request === null || (is_array($subscribe_request) && count($subscribe_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $subscribe when calling emailServicesCreate'
+                'Missing the required parameter $subscribe_request when calling emailServicesCreate'
             );
         }
 
@@ -7465,12 +7565,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($subscribe)) {
+        if (isset($subscribe_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($subscribe));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($subscribe_request));
             } else {
-                $httpBody = $subscribe;
+                $httpBody = $subscribe_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7796,11 +7896,12 @@ class EmailApi
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \PidginHost\Sdk\Model\EmailService
      */
     public function emailServicesDedicatedIpDestroy($id, string $contentType = self::contentTypes['emailServicesDedicatedIpDestroy'][0])
     {
-        $this->emailServicesDedicatedIpDestroyWithHttpInfo($id, $contentType);
+        list($response) = $this->emailServicesDedicatedIpDestroyWithHttpInfo($id, $contentType);
+        return $response;
     }
 
     /**
@@ -7811,7 +7912,7 @@ class EmailApi
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\EmailService, HTTP status code, HTTP response headers (array of strings)
      */
     public function emailServicesDedicatedIpDestroyWithHttpInfo($id, string $contentType = self::contentTypes['emailServicesDedicatedIpDestroy'][0])
     {
@@ -7840,9 +7941,45 @@ class EmailApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\EmailService',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\EmailService',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\EmailService',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -7880,14 +8017,27 @@ class EmailApi
      */
     public function emailServicesDedicatedIpDestroyAsyncWithHttpInfo($id, string $contentType = self::contentTypes['emailServicesDedicatedIpDestroy'][0])
     {
-        $returnType = '';
+        $returnType = '\PidginHost\Sdk\Model\EmailService';
         $request = $this->emailServicesDedicatedIpDestroyRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -7946,222 +8096,7 @@ class EmailApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation emailServicesDestroy
-     *
-     * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDestroy'] to see the possible values for this operation
-     *
-     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function emailServicesDestroy($id, string $contentType = self::contentTypes['emailServicesDestroy'][0])
-    {
-        $this->emailServicesDestroyWithHttpInfo($id, $contentType);
-    }
-
-    /**
-     * Operation emailServicesDestroyWithHttpInfo
-     *
-     * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDestroy'] to see the possible values for this operation
-     *
-     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function emailServicesDestroyWithHttpInfo($id, string $contentType = self::contentTypes['emailServicesDestroy'][0])
-    {
-        $request = $this->emailServicesDestroyRequest($id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            return [null, $statusCode, $response->getHeaders()];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation emailServicesDestroyAsync
-     *
-     * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDestroy'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function emailServicesDestroyAsync($id, string $contentType = self::contentTypes['emailServicesDestroy'][0])
-    {
-        return $this->emailServicesDestroyAsyncWithHttpInfo($id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation emailServicesDestroyAsyncWithHttpInfo
-     *
-     * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDestroy'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function emailServicesDestroyAsyncWithHttpInfo($id, string $contentType = self::contentTypes['emailServicesDestroy'][0])
-    {
-        $returnType = '';
-        $request = $this->emailServicesDestroyRequest($id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'emailServicesDestroy'
-     *
-     * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDestroy'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function emailServicesDestroyRequest($id, string $contentType = self::contentTypes['emailServicesDestroy'][0])
-    {
-
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling emailServicesDestroy'
-            );
-        }
-
-
-        $resourcePath = '/api/email/services/{id}/';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{id}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -8222,16 +8157,16 @@ class EmailApi
      * Operation emailServicesDomainsCreate
      *
      * @param  int $service_pk service_pk (required)
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDomainsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SendingDomain
      */
-    public function emailServicesDomainsCreate($service_pk, $domain_add, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
+    public function emailServicesDomainsCreate($service_pk, $domain_add_request, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
     {
-        list($response) = $this->emailServicesDomainsCreateWithHttpInfo($service_pk, $domain_add, $contentType);
+        list($response) = $this->emailServicesDomainsCreateWithHttpInfo($service_pk, $domain_add_request, $contentType);
         return $response;
     }
 
@@ -8239,16 +8174,16 @@ class EmailApi
      * Operation emailServicesDomainsCreateWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDomainsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SendingDomain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesDomainsCreateWithHttpInfo($service_pk, $domain_add, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
+    public function emailServicesDomainsCreateWithHttpInfo($service_pk, $domain_add_request, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
     {
-        $request = $this->emailServicesDomainsCreateRequest($service_pk, $domain_add, $contentType);
+        $request = $this->emailServicesDomainsCreateRequest($service_pk, $domain_add_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8323,15 +8258,15 @@ class EmailApi
      * Operation emailServicesDomainsCreateAsync
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDomainsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesDomainsCreateAsync($service_pk, $domain_add, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
+    public function emailServicesDomainsCreateAsync($service_pk, $domain_add_request, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
     {
-        return $this->emailServicesDomainsCreateAsyncWithHttpInfo($service_pk, $domain_add, $contentType)
+        return $this->emailServicesDomainsCreateAsyncWithHttpInfo($service_pk, $domain_add_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8343,16 +8278,16 @@ class EmailApi
      * Operation emailServicesDomainsCreateAsyncWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDomainsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesDomainsCreateAsyncWithHttpInfo($service_pk, $domain_add, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
+    public function emailServicesDomainsCreateAsyncWithHttpInfo($service_pk, $domain_add_request, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SendingDomain';
-        $request = $this->emailServicesDomainsCreateRequest($service_pk, $domain_add, $contentType);
+        $request = $this->emailServicesDomainsCreateRequest($service_pk, $domain_add_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8394,13 +8329,13 @@ class EmailApi
      * Create request for operation 'emailServicesDomainsCreate'
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\DomainAdd $domain_add (required)
+     * @param  \PidginHost\Sdk\Model\DomainAddRequest $domain_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesDomainsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesDomainsCreateRequest($service_pk, $domain_add, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
+    public function emailServicesDomainsCreateRequest($service_pk, $domain_add_request, string $contentType = self::contentTypes['emailServicesDomainsCreate'][0])
     {
 
         // verify the required parameter 'service_pk' is set
@@ -8410,10 +8345,10 @@ class EmailApi
             );
         }
 
-        // verify the required parameter 'domain_add' is set
-        if ($domain_add === null || (is_array($domain_add) && count($domain_add) === 0)) {
+        // verify the required parameter 'domain_add_request' is set
+        if ($domain_add_request === null || (is_array($domain_add_request) && count($domain_add_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $domain_add when calling emailServicesDomainsCreate'
+                'Missing the required parameter $domain_add_request when calling emailServicesDomainsCreate'
             );
         }
 
@@ -8444,12 +8379,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($domain_add)) {
+        if (isset($domain_add_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_add));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_add_request));
             } else {
-                $httpBody = $domain_add;
+                $httpBody = $domain_add_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -9046,30 +8981,35 @@ class EmailApi
      * Operation emailServicesMessagesRetrieve
      *
      * @param  int $service_pk service_pk (required)
+     * @param  int|null $page Page number, starting at 1. (optional)
+     * @param  int|null $per_page Page size, capped at 200; defaults to 50. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesMessagesRetrieve'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \PidginHost\Sdk\Model\EmailMessageList
      */
-    public function emailServicesMessagesRetrieve($service_pk, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
+    public function emailServicesMessagesRetrieve($service_pk, $page = null, $per_page = null, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
     {
-        $this->emailServicesMessagesRetrieveWithHttpInfo($service_pk, $contentType);
+        list($response) = $this->emailServicesMessagesRetrieveWithHttpInfo($service_pk, $page, $per_page, $contentType);
+        return $response;
     }
 
     /**
      * Operation emailServicesMessagesRetrieveWithHttpInfo
      *
      * @param  int $service_pk (required)
+     * @param  int|null $page Page number, starting at 1. (optional)
+     * @param  int|null $per_page Page size, capped at 200; defaults to 50. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesMessagesRetrieve'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\EmailMessageList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesMessagesRetrieveWithHttpInfo($service_pk, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
+    public function emailServicesMessagesRetrieveWithHttpInfo($service_pk, $page = null, $per_page = null, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
     {
-        $request = $this->emailServicesMessagesRetrieveRequest($service_pk, $contentType);
+        $request = $this->emailServicesMessagesRetrieveRequest($service_pk, $page, $per_page, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9094,9 +9034,45 @@ class EmailApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\EmailMessageList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\EmailMessageList',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\EmailMessageList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -9108,14 +9084,16 @@ class EmailApi
      * Operation emailServicesMessagesRetrieveAsync
      *
      * @param  int $service_pk (required)
+     * @param  int|null $page Page number, starting at 1. (optional)
+     * @param  int|null $per_page Page size, capped at 200; defaults to 50. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesMessagesRetrieve'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesMessagesRetrieveAsync($service_pk, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
+    public function emailServicesMessagesRetrieveAsync($service_pk, $page = null, $per_page = null, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
     {
-        return $this->emailServicesMessagesRetrieveAsyncWithHttpInfo($service_pk, $contentType)
+        return $this->emailServicesMessagesRetrieveAsyncWithHttpInfo($service_pk, $page, $per_page, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9127,21 +9105,36 @@ class EmailApi
      * Operation emailServicesMessagesRetrieveAsyncWithHttpInfo
      *
      * @param  int $service_pk (required)
+     * @param  int|null $page Page number, starting at 1. (optional)
+     * @param  int|null $per_page Page size, capped at 200; defaults to 50. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesMessagesRetrieve'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesMessagesRetrieveAsyncWithHttpInfo($service_pk, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
+    public function emailServicesMessagesRetrieveAsyncWithHttpInfo($service_pk, $page = null, $per_page = null, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
     {
-        $returnType = '';
-        $request = $this->emailServicesMessagesRetrieveRequest($service_pk, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\EmailMessageList';
+        $request = $this->emailServicesMessagesRetrieveRequest($service_pk, $page, $per_page, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -9164,12 +9157,14 @@ class EmailApi
      * Create request for operation 'emailServicesMessagesRetrieve'
      *
      * @param  int $service_pk (required)
+     * @param  int|null $page Page number, starting at 1. (optional)
+     * @param  int|null $per_page Page size, capped at 200; defaults to 50. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesMessagesRetrieve'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesMessagesRetrieveRequest($service_pk, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
+    public function emailServicesMessagesRetrieveRequest($service_pk, $page = null, $per_page = null, string $contentType = self::contentTypes['emailServicesMessagesRetrieve'][0])
     {
 
         // verify the required parameter 'service_pk' is set
@@ -9180,6 +9175,8 @@ class EmailApi
         }
 
 
+
+
         $resourcePath = '/api/email/services/{service_pk}/messages/';
         $formParams = [];
         $queryParams = [];
@@ -9187,6 +9184,24 @@ class EmailApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $per_page,
+            'per_page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -9200,7 +9215,7 @@ class EmailApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -9261,16 +9276,15 @@ class EmailApi
      * Operation emailServicesPartialUpdate
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedEmailService|null $patched_email_service patched_email_service (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\EmailService
      */
-    public function emailServicesPartialUpdate($id, $patched_email_service = null, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
+    public function emailServicesPartialUpdate($id, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
     {
-        list($response) = $this->emailServicesPartialUpdateWithHttpInfo($id, $patched_email_service, $contentType);
+        list($response) = $this->emailServicesPartialUpdateWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -9278,16 +9292,15 @@ class EmailApi
      * Operation emailServicesPartialUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedEmailService|null $patched_email_service (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\EmailService, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesPartialUpdateWithHttpInfo($id, $patched_email_service = null, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
+    public function emailServicesPartialUpdateWithHttpInfo($id, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
     {
-        $request = $this->emailServicesPartialUpdateRequest($id, $patched_email_service, $contentType);
+        $request = $this->emailServicesPartialUpdateRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9362,15 +9375,14 @@ class EmailApi
      * Operation emailServicesPartialUpdateAsync
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedEmailService|null $patched_email_service (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesPartialUpdateAsync($id, $patched_email_service = null, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
+    public function emailServicesPartialUpdateAsync($id, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
     {
-        return $this->emailServicesPartialUpdateAsyncWithHttpInfo($id, $patched_email_service, $contentType)
+        return $this->emailServicesPartialUpdateAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9382,16 +9394,15 @@ class EmailApi
      * Operation emailServicesPartialUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedEmailService|null $patched_email_service (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesPartialUpdateAsyncWithHttpInfo($id, $patched_email_service = null, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
+    public function emailServicesPartialUpdateAsyncWithHttpInfo($id, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\EmailService';
-        $request = $this->emailServicesPartialUpdateRequest($id, $patched_email_service, $contentType);
+        $request = $this->emailServicesPartialUpdateRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9433,13 +9444,12 @@ class EmailApi
      * Create request for operation 'emailServicesPartialUpdate'
      *
      * @param  int $id A unique integer value identifying this email service. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedEmailService|null $patched_email_service (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesPartialUpdateRequest($id, $patched_email_service = null, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
+    public function emailServicesPartialUpdateRequest($id, string $contentType = self::contentTypes['emailServicesPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -9448,7 +9458,6 @@ class EmailApi
                 'Missing the required parameter $id when calling emailServicesPartialUpdate'
             );
         }
-
 
 
         $resourcePath = '/api/email/services/{id}/';
@@ -9477,14 +9486,7 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($patched_email_service)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_email_service));
-            } else {
-                $httpBody = $patched_email_service;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -10069,16 +10071,16 @@ class EmailApi
      * Operation emailServicesSandboxAddressesCreate
      *
      * @param  int $service_pk service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SandboxAddress
      */
-    public function emailServicesSandboxAddressesCreate($service_pk, $sandbox_address, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
+    public function emailServicesSandboxAddressesCreate($service_pk, $sandbox_address_request, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
     {
-        list($response) = $this->emailServicesSandboxAddressesCreateWithHttpInfo($service_pk, $sandbox_address, $contentType);
+        list($response) = $this->emailServicesSandboxAddressesCreateWithHttpInfo($service_pk, $sandbox_address_request, $contentType);
         return $response;
     }
 
@@ -10086,16 +10088,16 @@ class EmailApi
      * Operation emailServicesSandboxAddressesCreateWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SandboxAddress, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesSandboxAddressesCreateWithHttpInfo($service_pk, $sandbox_address, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
+    public function emailServicesSandboxAddressesCreateWithHttpInfo($service_pk, $sandbox_address_request, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
     {
-        $request = $this->emailServicesSandboxAddressesCreateRequest($service_pk, $sandbox_address, $contentType);
+        $request = $this->emailServicesSandboxAddressesCreateRequest($service_pk, $sandbox_address_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10170,15 +10172,15 @@ class EmailApi
      * Operation emailServicesSandboxAddressesCreateAsync
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesSandboxAddressesCreateAsync($service_pk, $sandbox_address, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
+    public function emailServicesSandboxAddressesCreateAsync($service_pk, $sandbox_address_request, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
     {
-        return $this->emailServicesSandboxAddressesCreateAsyncWithHttpInfo($service_pk, $sandbox_address, $contentType)
+        return $this->emailServicesSandboxAddressesCreateAsyncWithHttpInfo($service_pk, $sandbox_address_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10190,16 +10192,16 @@ class EmailApi
      * Operation emailServicesSandboxAddressesCreateAsyncWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesSandboxAddressesCreateAsyncWithHttpInfo($service_pk, $sandbox_address, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
+    public function emailServicesSandboxAddressesCreateAsyncWithHttpInfo($service_pk, $sandbox_address_request, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SandboxAddress';
-        $request = $this->emailServicesSandboxAddressesCreateRequest($service_pk, $sandbox_address, $contentType);
+        $request = $this->emailServicesSandboxAddressesCreateRequest($service_pk, $sandbox_address_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10241,13 +10243,13 @@ class EmailApi
      * Create request for operation 'emailServicesSandboxAddressesCreate'
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SandboxAddress $sandbox_address (required)
+     * @param  \PidginHost\Sdk\Model\SandboxAddressRequest $sandbox_address_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSandboxAddressesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesSandboxAddressesCreateRequest($service_pk, $sandbox_address, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
+    public function emailServicesSandboxAddressesCreateRequest($service_pk, $sandbox_address_request, string $contentType = self::contentTypes['emailServicesSandboxAddressesCreate'][0])
     {
 
         // verify the required parameter 'service_pk' is set
@@ -10257,10 +10259,10 @@ class EmailApi
             );
         }
 
-        // verify the required parameter 'sandbox_address' is set
-        if ($sandbox_address === null || (is_array($sandbox_address) && count($sandbox_address) === 0)) {
+        // verify the required parameter 'sandbox_address_request' is set
+        if ($sandbox_address_request === null || (is_array($sandbox_address_request) && count($sandbox_address_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sandbox_address when calling emailServicesSandboxAddressesCreate'
+                'Missing the required parameter $sandbox_address_request when calling emailServicesSandboxAddressesCreate'
             );
         }
 
@@ -10291,12 +10293,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($sandbox_address)) {
+        if (isset($sandbox_address_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sandbox_address));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sandbox_address_request));
             } else {
-                $httpBody = $sandbox_address;
+                $httpBody = $sandbox_address_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -10633,16 +10635,16 @@ class EmailApi
      * Operation emailServicesSmtpCredentialsCreate
      *
      * @param  int $service_pk service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\SmtpCredential
+     * @return \PidginHost\Sdk\Model\SmtpCredentialCreated
      */
-    public function emailServicesSmtpCredentialsCreate($service_pk, $smtp_credential = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
+    public function emailServicesSmtpCredentialsCreate($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
     {
-        list($response) = $this->emailServicesSmtpCredentialsCreateWithHttpInfo($service_pk, $smtp_credential, $contentType);
+        list($response) = $this->emailServicesSmtpCredentialsCreateWithHttpInfo($service_pk, $credential_create_request, $contentType);
         return $response;
     }
 
@@ -10650,16 +10652,16 @@ class EmailApi
      * Operation emailServicesSmtpCredentialsCreateWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\SmtpCredential, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\SmtpCredentialCreated, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesSmtpCredentialsCreateWithHttpInfo($service_pk, $smtp_credential = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
+    public function emailServicesSmtpCredentialsCreateWithHttpInfo($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
     {
-        $request = $this->emailServicesSmtpCredentialsCreateRequest($service_pk, $smtp_credential, $contentType);
+        $request = $this->emailServicesSmtpCredentialsCreateRequest($service_pk, $credential_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10687,7 +10689,7 @@ class EmailApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\SmtpCredential',
+                        '\PidginHost\Sdk\Model\SmtpCredentialCreated',
                         $request,
                         $response,
                     );
@@ -10709,7 +10711,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\SmtpCredential',
+                '\PidginHost\Sdk\Model\SmtpCredentialCreated',
                 $request,
                 $response,
             );
@@ -10718,7 +10720,7 @@ class EmailApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\SmtpCredential',
+                        '\PidginHost\Sdk\Model\SmtpCredentialCreated',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10734,15 +10736,15 @@ class EmailApi
      * Operation emailServicesSmtpCredentialsCreateAsync
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesSmtpCredentialsCreateAsync($service_pk, $smtp_credential = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
+    public function emailServicesSmtpCredentialsCreateAsync($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
     {
-        return $this->emailServicesSmtpCredentialsCreateAsyncWithHttpInfo($service_pk, $smtp_credential, $contentType)
+        return $this->emailServicesSmtpCredentialsCreateAsyncWithHttpInfo($service_pk, $credential_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10754,16 +10756,16 @@ class EmailApi
      * Operation emailServicesSmtpCredentialsCreateAsyncWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesSmtpCredentialsCreateAsyncWithHttpInfo($service_pk, $smtp_credential = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
+    public function emailServicesSmtpCredentialsCreateAsyncWithHttpInfo($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\SmtpCredential';
-        $request = $this->emailServicesSmtpCredentialsCreateRequest($service_pk, $smtp_credential, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\SmtpCredentialCreated';
+        $request = $this->emailServicesSmtpCredentialsCreateRequest($service_pk, $credential_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10805,13 +10807,13 @@ class EmailApi
      * Create request for operation 'emailServicesSmtpCredentialsCreate'
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesSmtpCredentialsCreateRequest($service_pk, $smtp_credential = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
+    public function emailServicesSmtpCredentialsCreateRequest($service_pk, $credential_create_request = null, string $contentType = self::contentTypes['emailServicesSmtpCredentialsCreate'][0])
     {
 
         // verify the required parameter 'service_pk' is set
@@ -10849,12 +10851,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($smtp_credential)) {
+        if (isset($credential_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($smtp_credential));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($credential_create_request));
             } else {
-                $httpBody = $smtp_credential;
+                $httpBody = $credential_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -11191,30 +11193,35 @@ class EmailApi
      * Operation emailServicesStatsRetrieve
      *
      * @param  int $service_pk service_pk (required)
+     * @param  \DateTime|null $end end (optional)
+     * @param  \DateTime|null $start start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesStatsRetrieve'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \PidginHost\Sdk\Model\EmailStats
      */
-    public function emailServicesStatsRetrieve($service_pk, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
+    public function emailServicesStatsRetrieve($service_pk, $end = null, $start = null, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
     {
-        $this->emailServicesStatsRetrieveWithHttpInfo($service_pk, $contentType);
+        list($response) = $this->emailServicesStatsRetrieveWithHttpInfo($service_pk, $end, $start, $contentType);
+        return $response;
     }
 
     /**
      * Operation emailServicesStatsRetrieveWithHttpInfo
      *
      * @param  int $service_pk (required)
+     * @param  \DateTime|null $end (optional)
+     * @param  \DateTime|null $start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesStatsRetrieve'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\EmailStats, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesStatsRetrieveWithHttpInfo($service_pk, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
+    public function emailServicesStatsRetrieveWithHttpInfo($service_pk, $end = null, $start = null, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
     {
-        $request = $this->emailServicesStatsRetrieveRequest($service_pk, $contentType);
+        $request = $this->emailServicesStatsRetrieveRequest($service_pk, $end, $start, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11239,9 +11246,45 @@ class EmailApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\EmailStats',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\EmailStats',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\EmailStats',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -11253,14 +11296,16 @@ class EmailApi
      * Operation emailServicesStatsRetrieveAsync
      *
      * @param  int $service_pk (required)
+     * @param  \DateTime|null $end (optional)
+     * @param  \DateTime|null $start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesStatsRetrieve'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesStatsRetrieveAsync($service_pk, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
+    public function emailServicesStatsRetrieveAsync($service_pk, $end = null, $start = null, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
     {
-        return $this->emailServicesStatsRetrieveAsyncWithHttpInfo($service_pk, $contentType)
+        return $this->emailServicesStatsRetrieveAsyncWithHttpInfo($service_pk, $end, $start, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11272,21 +11317,36 @@ class EmailApi
      * Operation emailServicesStatsRetrieveAsyncWithHttpInfo
      *
      * @param  int $service_pk (required)
+     * @param  \DateTime|null $end (optional)
+     * @param  \DateTime|null $start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesStatsRetrieve'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesStatsRetrieveAsyncWithHttpInfo($service_pk, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
+    public function emailServicesStatsRetrieveAsyncWithHttpInfo($service_pk, $end = null, $start = null, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
     {
-        $returnType = '';
-        $request = $this->emailServicesStatsRetrieveRequest($service_pk, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\EmailStats';
+        $request = $this->emailServicesStatsRetrieveRequest($service_pk, $end, $start, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -11309,12 +11369,14 @@ class EmailApi
      * Create request for operation 'emailServicesStatsRetrieve'
      *
      * @param  int $service_pk (required)
+     * @param  \DateTime|null $end (optional)
+     * @param  \DateTime|null $start (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesStatsRetrieve'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesStatsRetrieveRequest($service_pk, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
+    public function emailServicesStatsRetrieveRequest($service_pk, $end = null, $start = null, string $contentType = self::contentTypes['emailServicesStatsRetrieve'][0])
     {
 
         // verify the required parameter 'service_pk' is set
@@ -11325,6 +11387,8 @@ class EmailApi
         }
 
 
+
+
         $resourcePath = '/api/email/services/{service_pk}/stats/';
         $formParams = [];
         $queryParams = [];
@@ -11332,6 +11396,24 @@ class EmailApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end,
+            'end', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $start,
+            'start', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -11345,7 +11427,7 @@ class EmailApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -11406,16 +11488,16 @@ class EmailApi
      * Operation emailServicesSuppressionsCreate
      *
      * @param  int $service_pk service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SuppressionEntry
      */
-    public function emailServicesSuppressionsCreate($service_pk, $suppression_entry = null, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
+    public function emailServicesSuppressionsCreate($service_pk, $suppression_add_request, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
     {
-        list($response) = $this->emailServicesSuppressionsCreateWithHttpInfo($service_pk, $suppression_entry, $contentType);
+        list($response) = $this->emailServicesSuppressionsCreateWithHttpInfo($service_pk, $suppression_add_request, $contentType);
         return $response;
     }
 
@@ -11423,16 +11505,16 @@ class EmailApi
      * Operation emailServicesSuppressionsCreateWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SuppressionEntry, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailServicesSuppressionsCreateWithHttpInfo($service_pk, $suppression_entry = null, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
+    public function emailServicesSuppressionsCreateWithHttpInfo($service_pk, $suppression_add_request, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
     {
-        $request = $this->emailServicesSuppressionsCreateRequest($service_pk, $suppression_entry, $contentType);
+        $request = $this->emailServicesSuppressionsCreateRequest($service_pk, $suppression_add_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11507,15 +11589,15 @@ class EmailApi
      * Operation emailServicesSuppressionsCreateAsync
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesSuppressionsCreateAsync($service_pk, $suppression_entry = null, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
+    public function emailServicesSuppressionsCreateAsync($service_pk, $suppression_add_request, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
     {
-        return $this->emailServicesSuppressionsCreateAsyncWithHttpInfo($service_pk, $suppression_entry, $contentType)
+        return $this->emailServicesSuppressionsCreateAsyncWithHttpInfo($service_pk, $suppression_add_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11527,16 +11609,16 @@ class EmailApi
      * Operation emailServicesSuppressionsCreateAsyncWithHttpInfo
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailServicesSuppressionsCreateAsyncWithHttpInfo($service_pk, $suppression_entry = null, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
+    public function emailServicesSuppressionsCreateAsyncWithHttpInfo($service_pk, $suppression_add_request, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SuppressionEntry';
-        $request = $this->emailServicesSuppressionsCreateRequest($service_pk, $suppression_entry, $contentType);
+        $request = $this->emailServicesSuppressionsCreateRequest($service_pk, $suppression_add_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11578,13 +11660,13 @@ class EmailApi
      * Create request for operation 'emailServicesSuppressionsCreate'
      *
      * @param  int $service_pk (required)
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailServicesSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailServicesSuppressionsCreateRequest($service_pk, $suppression_entry = null, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
+    public function emailServicesSuppressionsCreateRequest($service_pk, $suppression_add_request, string $contentType = self::contentTypes['emailServicesSuppressionsCreate'][0])
     {
 
         // verify the required parameter 'service_pk' is set
@@ -11594,6 +11676,12 @@ class EmailApi
             );
         }
 
+        // verify the required parameter 'suppression_add_request' is set
+        if ($suppression_add_request === null || (is_array($suppression_add_request) && count($suppression_add_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $suppression_add_request when calling emailServicesSuppressionsCreate'
+            );
+        }
 
 
         $resourcePath = '/api/email/services/{service_pk}/suppressions/';
@@ -11622,12 +11710,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($suppression_entry)) {
+        if (isset($suppression_add_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($suppression_entry));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($suppression_add_request));
             } else {
-                $httpBody = $suppression_entry;
+                $httpBody = $suppression_add_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -11963,32 +12051,32 @@ class EmailApi
     /**
      * Operation emailSmtpCredentialsCreate
      *
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\SmtpCredential
+     * @return \PidginHost\Sdk\Model\SmtpCredentialCreated
      */
-    public function emailSmtpCredentialsCreate($smtp_credential = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
+    public function emailSmtpCredentialsCreate($credential_create_request = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
     {
-        list($response) = $this->emailSmtpCredentialsCreateWithHttpInfo($smtp_credential, $contentType);
+        list($response) = $this->emailSmtpCredentialsCreateWithHttpInfo($credential_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation emailSmtpCredentialsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\SmtpCredential, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\SmtpCredentialCreated, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailSmtpCredentialsCreateWithHttpInfo($smtp_credential = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
+    public function emailSmtpCredentialsCreateWithHttpInfo($credential_create_request = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
     {
-        $request = $this->emailSmtpCredentialsCreateRequest($smtp_credential, $contentType);
+        $request = $this->emailSmtpCredentialsCreateRequest($credential_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12016,7 +12104,7 @@ class EmailApi
             switch($statusCode) {
                 case 201:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\SmtpCredential',
+                        '\PidginHost\Sdk\Model\SmtpCredentialCreated',
                         $request,
                         $response,
                     );
@@ -12038,7 +12126,7 @@ class EmailApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\SmtpCredential',
+                '\PidginHost\Sdk\Model\SmtpCredentialCreated',
                 $request,
                 $response,
             );
@@ -12047,7 +12135,7 @@ class EmailApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\SmtpCredential',
+                        '\PidginHost\Sdk\Model\SmtpCredentialCreated',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12062,15 +12150,15 @@ class EmailApi
     /**
      * Operation emailSmtpCredentialsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSmtpCredentialsCreateAsync($smtp_credential = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
+    public function emailSmtpCredentialsCreateAsync($credential_create_request = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
     {
-        return $this->emailSmtpCredentialsCreateAsyncWithHttpInfo($smtp_credential, $contentType)
+        return $this->emailSmtpCredentialsCreateAsyncWithHttpInfo($credential_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12081,16 +12169,16 @@ class EmailApi
     /**
      * Operation emailSmtpCredentialsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSmtpCredentialsCreateAsyncWithHttpInfo($smtp_credential = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
+    public function emailSmtpCredentialsCreateAsyncWithHttpInfo($credential_create_request = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\SmtpCredential';
-        $request = $this->emailSmtpCredentialsCreateRequest($smtp_credential, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\SmtpCredentialCreated';
+        $request = $this->emailSmtpCredentialsCreateRequest($credential_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12131,13 +12219,13 @@ class EmailApi
     /**
      * Create request for operation 'emailSmtpCredentialsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\SmtpCredential|null $smtp_credential (optional)
+     * @param  \PidginHost\Sdk\Model\CredentialCreateRequest|null $credential_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSmtpCredentialsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailSmtpCredentialsCreateRequest($smtp_credential = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
+    public function emailSmtpCredentialsCreateRequest($credential_create_request = null, string $contentType = self::contentTypes['emailSmtpCredentialsCreate'][0])
     {
 
 
@@ -12160,12 +12248,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($smtp_credential)) {
+        if (isset($credential_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($smtp_credential));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($credential_create_request));
             } else {
-                $httpBody = $smtp_credential;
+                $httpBody = $credential_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -12961,32 +13049,32 @@ class EmailApi
     /**
      * Operation emailSuppressionsCreate
      *
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SuppressionEntry
      */
-    public function emailSuppressionsCreate($suppression_entry = null, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
+    public function emailSuppressionsCreate($suppression_add_request, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
     {
-        list($response) = $this->emailSuppressionsCreateWithHttpInfo($suppression_entry, $contentType);
+        list($response) = $this->emailSuppressionsCreateWithHttpInfo($suppression_add_request, $contentType);
         return $response;
     }
 
     /**
      * Operation emailSuppressionsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SuppressionEntry, HTTP status code, HTTP response headers (array of strings)
      */
-    public function emailSuppressionsCreateWithHttpInfo($suppression_entry = null, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
+    public function emailSuppressionsCreateWithHttpInfo($suppression_add_request, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
     {
-        $request = $this->emailSuppressionsCreateRequest($suppression_entry, $contentType);
+        $request = $this->emailSuppressionsCreateRequest($suppression_add_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13060,15 +13148,15 @@ class EmailApi
     /**
      * Operation emailSuppressionsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSuppressionsCreateAsync($suppression_entry = null, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
+    public function emailSuppressionsCreateAsync($suppression_add_request, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
     {
-        return $this->emailSuppressionsCreateAsyncWithHttpInfo($suppression_entry, $contentType)
+        return $this->emailSuppressionsCreateAsyncWithHttpInfo($suppression_add_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13079,16 +13167,16 @@ class EmailApi
     /**
      * Operation emailSuppressionsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function emailSuppressionsCreateAsyncWithHttpInfo($suppression_entry = null, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
+    public function emailSuppressionsCreateAsyncWithHttpInfo($suppression_add_request, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SuppressionEntry';
-        $request = $this->emailSuppressionsCreateRequest($suppression_entry, $contentType);
+        $request = $this->emailSuppressionsCreateRequest($suppression_add_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13129,15 +13217,21 @@ class EmailApi
     /**
      * Create request for operation 'emailSuppressionsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\SuppressionEntry|null $suppression_entry (optional)
+     * @param  \PidginHost\Sdk\Model\SuppressionAddRequest $suppression_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['emailSuppressionsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function emailSuppressionsCreateRequest($suppression_entry = null, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
+    public function emailSuppressionsCreateRequest($suppression_add_request, string $contentType = self::contentTypes['emailSuppressionsCreate'][0])
     {
 
+        // verify the required parameter 'suppression_add_request' is set
+        if ($suppression_add_request === null || (is_array($suppression_add_request) && count($suppression_add_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $suppression_add_request when calling emailSuppressionsCreate'
+            );
+        }
 
 
         $resourcePath = '/api/email/suppressions/';
@@ -13158,12 +13252,12 @@ class EmailApi
         );
 
         // for model (json/xml)
-        if (isset($suppression_entry)) {
+        if (isset($suppression_add_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($suppression_entry));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($suppression_add_request));
             } else {
-                $httpBody = $suppression_entry;
+                $httpBody = $suppression_add_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

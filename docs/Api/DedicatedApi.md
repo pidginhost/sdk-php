@@ -83,7 +83,7 @@ try {
 ## `dedicatedServersPowerCreate()`
 
 ```php
-dedicatedServersPowerCreate($id, $power_action): \PidginHost\Sdk\Model\PowerActionResponse
+dedicatedServersPowerCreate($id, $power_action_request): \PidginHost\Sdk\Model\PowerActionResponse
 ```
 
 
@@ -115,10 +115,10 @@ $apiInstance = new PidginHost\Sdk\Api\DedicatedApi(
     $config
 );
 $id = 'id_example'; // string
-$power_action = new \PidginHost\Sdk\Model\PowerAction(); // \PidginHost\Sdk\Model\PowerAction
+$power_action_request = new \PidginHost\Sdk\Model\PowerActionRequest(); // \PidginHost\Sdk\Model\PowerActionRequest
 
 try {
-    $result = $apiInstance->dedicatedServersPowerCreate($id, $power_action);
+    $result = $apiInstance->dedicatedServersPowerCreate($id, $power_action_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DedicatedApi->dedicatedServersPowerCreate: ', $e->getMessage(), PHP_EOL;
@@ -130,7 +130,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **power_action** | [**\PidginHost\Sdk\Model\PowerAction**](../Model/PowerAction.md)|  | |
+| **power_action_request** | [**\PidginHost\Sdk\Model\PowerActionRequest**](../Model/PowerActionRequest.md)|  | |
 
 ### Return type
 
@@ -152,7 +152,7 @@ try {
 ## `dedicatedServersRdnsCreate()`
 
 ```php
-dedicatedServersRdnsCreate($id, $dedicated_rdns): \PidginHost\Sdk\Model\RDNSUpdateResponse
+dedicatedServersRdnsCreate($id, $dedicated_rdns_request): \PidginHost\Sdk\Model\RDNSUpdateResponse
 ```
 
 
@@ -184,10 +184,10 @@ $apiInstance = new PidginHost\Sdk\Api\DedicatedApi(
     $config
 );
 $id = 'id_example'; // string
-$dedicated_rdns = new \PidginHost\Sdk\Model\DedicatedRDNS(); // \PidginHost\Sdk\Model\DedicatedRDNS
+$dedicated_rdns_request = new \PidginHost\Sdk\Model\DedicatedRDNSRequest(); // \PidginHost\Sdk\Model\DedicatedRDNSRequest
 
 try {
-    $result = $apiInstance->dedicatedServersRdnsCreate($id, $dedicated_rdns);
+    $result = $apiInstance->dedicatedServersRdnsCreate($id, $dedicated_rdns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DedicatedApi->dedicatedServersRdnsCreate: ', $e->getMessage(), PHP_EOL;
@@ -199,7 +199,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **dedicated_rdns** | [**\PidginHost\Sdk\Model\DedicatedRDNS**](../Model/DedicatedRDNS.md)|  | |
+| **dedicated_rdns_request** | [**\PidginHost\Sdk\Model\DedicatedRDNSRequest**](../Model/DedicatedRDNSRequest.md)|  | |
 
 ### Return type
 
@@ -221,7 +221,7 @@ try {
 ## `dedicatedServersReinstallCreate()`
 
 ```php
-dedicatedServersReinstallCreate($id, $reinstall): \PidginHost\Sdk\Model\ReinstallResponse
+dedicatedServersReinstallCreate($id, $reinstall_request): \PidginHost\Sdk\Model\ReinstallResponse
 ```
 
 
@@ -253,10 +253,10 @@ $apiInstance = new PidginHost\Sdk\Api\DedicatedApi(
     $config
 );
 $id = 'id_example'; // string
-$reinstall = new \PidginHost\Sdk\Model\Reinstall(); // \PidginHost\Sdk\Model\Reinstall
+$reinstall_request = new \PidginHost\Sdk\Model\ReinstallRequest(); // \PidginHost\Sdk\Model\ReinstallRequest
 
 try {
-    $result = $apiInstance->dedicatedServersReinstallCreate($id, $reinstall);
+    $result = $apiInstance->dedicatedServersReinstallCreate($id, $reinstall_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DedicatedApi->dedicatedServersReinstallCreate: ', $e->getMessage(), PHP_EOL;
@@ -268,7 +268,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **reinstall** | [**\PidginHost\Sdk\Model\Reinstall**](../Model/Reinstall.md)|  | |
+| **reinstall_request** | [**\PidginHost\Sdk\Model\ReinstallRequest**](../Model/ReinstallRequest.md)|  | |
 
 ### Return type
 

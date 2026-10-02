@@ -99,6 +99,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**cloudServersSnapshotsDestroy()**](CloudApi.md#cloudServersSnapshotsDestroy) | **DELETE** /api/cloud/servers/{id}/snapshots/{snapshot_name}/ |  |
 | [**cloudServersSnapshotsList()**](CloudApi.md#cloudServersSnapshotsList) | **GET** /api/cloud/servers/{id}/snapshots/ |  |
 | [**cloudServersSnapshotsRollbackCreate()**](CloudApi.md#cloudServersSnapshotsRollbackCreate) | **POST** /api/cloud/servers/{id}/snapshots/{snapshot_name}/rollback/ |  |
+| [**cloudServersTrafficRetrieve()**](CloudApi.md#cloudServersTrafficRetrieve) | **GET** /api/cloud/servers/{id}/traffic/ |  |
 | [**cloudServersUpdate()**](CloudApi.md#cloudServersUpdate) | **PUT** /api/cloud/servers/{id}/ |  |
 | [**cloudServersUsageRetrieve()**](CloudApi.md#cloudServersUsageRetrieve) | **GET** /api/cloud/servers/{id}/usage/ |  |
 | [**cloudServersVolumesCreate()**](CloudApi.md#cloudServersVolumesCreate) | **POST** /api/cloud/servers/{server_id}/volumes/ |  |
@@ -121,7 +122,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 ## `cloudBucketsCreate()`
 
 ```php
-cloudBucketsCreate($bucket_create): \PidginHost\Sdk\Model\Bucket
+cloudBucketsCreate($bucket_create_request): \PidginHost\Sdk\Model\Bucket
 ```
 
 
@@ -152,10 +153,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     new GuzzleHttp\Client(),
     $config
 );
-$bucket_create = new \PidginHost\Sdk\Model\BucketCreate(); // \PidginHost\Sdk\Model\BucketCreate
+$bucket_create_request = new \PidginHost\Sdk\Model\BucketCreateRequest(); // \PidginHost\Sdk\Model\BucketCreateRequest
 
 try {
-    $result = $apiInstance->cloudBucketsCreate($bucket_create);
+    $result = $apiInstance->cloudBucketsCreate($bucket_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudBucketsCreate: ', $e->getMessage(), PHP_EOL;
@@ -166,7 +167,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **bucket_create** | [**\PidginHost\Sdk\Model\BucketCreate**](../Model/BucketCreate.md)|  | |
+| **bucket_create_request** | [**\PidginHost\Sdk\Model\BucketCreateRequest**](../Model/BucketCreateRequest.md)|  | |
 
 ### Return type
 
@@ -453,7 +454,7 @@ This endpoint does not need any parameter.
 ## `cloudBucketsResizeCreate()`
 
 ```php
-cloudBucketsResizeCreate($id, $bucket_resize): \PidginHost\Sdk\Model\Bucket
+cloudBucketsResizeCreate($id, $bucket_resize_request): \PidginHost\Sdk\Model\Bucket
 ```
 
 
@@ -485,10 +486,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this S3 bucket.
-$bucket_resize = new \PidginHost\Sdk\Model\BucketResize(); // \PidginHost\Sdk\Model\BucketResize
+$bucket_resize_request = new \PidginHost\Sdk\Model\BucketResizeRequest(); // \PidginHost\Sdk\Model\BucketResizeRequest
 
 try {
-    $result = $apiInstance->cloudBucketsResizeCreate($id, $bucket_resize);
+    $result = $apiInstance->cloudBucketsResizeCreate($id, $bucket_resize_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudBucketsResizeCreate: ', $e->getMessage(), PHP_EOL;
@@ -500,7 +501,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this S3 bucket. | |
-| **bucket_resize** | [**\PidginHost\Sdk\Model\BucketResize**](../Model/BucketResize.md)|  | |
+| **bucket_resize_request** | [**\PidginHost\Sdk\Model\BucketResizeRequest**](../Model/BucketResizeRequest.md)|  | |
 
 ### Return type
 
@@ -589,7 +590,7 @@ try {
 ## `cloudBucketsVisibilityCreate()`
 
 ```php
-cloudBucketsVisibilityCreate($id, $bucket_visibility): \PidginHost\Sdk\Model\Bucket
+cloudBucketsVisibilityCreate($id, $bucket_visibility_request): \PidginHost\Sdk\Model\Bucket
 ```
 
 
@@ -621,10 +622,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this S3 bucket.
-$bucket_visibility = new \PidginHost\Sdk\Model\BucketVisibility(); // \PidginHost\Sdk\Model\BucketVisibility
+$bucket_visibility_request = new \PidginHost\Sdk\Model\BucketVisibilityRequest(); // \PidginHost\Sdk\Model\BucketVisibilityRequest
 
 try {
-    $result = $apiInstance->cloudBucketsVisibilityCreate($id, $bucket_visibility);
+    $result = $apiInstance->cloudBucketsVisibilityCreate($id, $bucket_visibility_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudBucketsVisibilityCreate: ', $e->getMessage(), PHP_EOL;
@@ -636,7 +637,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this S3 bucket. | |
-| **bucket_visibility** | [**\PidginHost\Sdk\Model\BucketVisibility**](../Model/BucketVisibility.md)|  | |
+| **bucket_visibility_request** | [**\PidginHost\Sdk\Model\BucketVisibilityRequest**](../Model/BucketVisibilityRequest.md)|  | |
 
 ### Return type
 
@@ -658,7 +659,7 @@ try {
 ## `cloudFirewallRulesSetCreate()`
 
 ```php
-cloudFirewallRulesSetCreate($firewall_rules_set): \PidginHost\Sdk\Model\FirewallRulesSet
+cloudFirewallRulesSetCreate($firewall_rules_set_request): \PidginHost\Sdk\Model\FirewallRulesSet
 ```
 
 
@@ -689,10 +690,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     new GuzzleHttp\Client(),
     $config
 );
-$firewall_rules_set = new \PidginHost\Sdk\Model\FirewallRulesSet(); // \PidginHost\Sdk\Model\FirewallRulesSet
+$firewall_rules_set_request = new \PidginHost\Sdk\Model\FirewallRulesSetRequest(); // \PidginHost\Sdk\Model\FirewallRulesSetRequest
 
 try {
-    $result = $apiInstance->cloudFirewallRulesSetCreate($firewall_rules_set);
+    $result = $apiInstance->cloudFirewallRulesSetCreate($firewall_rules_set_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFirewallRulesSetCreate: ', $e->getMessage(), PHP_EOL;
@@ -703,7 +704,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **firewall_rules_set** | [**\PidginHost\Sdk\Model\FirewallRulesSet**](../Model/FirewallRulesSet.md)|  | |
+| **firewall_rules_set_request** | [**\PidginHost\Sdk\Model\FirewallRulesSetRequest**](../Model/FirewallRulesSetRequest.md)|  | |
 
 ### Return type
 
@@ -855,7 +856,7 @@ This endpoint does not need any parameter.
 ## `cloudFirewallRulesSetPartialUpdate()`
 
 ```php
-cloudFirewallRulesSetPartialUpdate($id, $patched_firewall_rules_set): \PidginHost\Sdk\Model\FirewallRulesSet
+cloudFirewallRulesSetPartialUpdate($id, $patched_firewall_rules_set_request): \PidginHost\Sdk\Model\FirewallRulesSet
 ```
 
 
@@ -887,10 +888,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this firewall rules set.
-$patched_firewall_rules_set = new \PidginHost\Sdk\Model\PatchedFirewallRulesSet(); // \PidginHost\Sdk\Model\PatchedFirewallRulesSet
+$patched_firewall_rules_set_request = new \PidginHost\Sdk\Model\PatchedFirewallRulesSetRequest(); // \PidginHost\Sdk\Model\PatchedFirewallRulesSetRequest
 
 try {
-    $result = $apiInstance->cloudFirewallRulesSetPartialUpdate($id, $patched_firewall_rules_set);
+    $result = $apiInstance->cloudFirewallRulesSetPartialUpdate($id, $patched_firewall_rules_set_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFirewallRulesSetPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -902,7 +903,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this firewall rules set. | |
-| **patched_firewall_rules_set** | [**\PidginHost\Sdk\Model\PatchedFirewallRulesSet**](../Model/PatchedFirewallRulesSet.md)|  | [optional] |
+| **patched_firewall_rules_set_request** | [**\PidginHost\Sdk\Model\PatchedFirewallRulesSetRequest**](../Model/PatchedFirewallRulesSetRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -991,7 +992,7 @@ try {
 ## `cloudFirewallRulesSetRulesCreate()`
 
 ```php
-cloudFirewallRulesSetRulesCreate($rules_set_id, $firewall_rule): \PidginHost\Sdk\Model\FirewallRule
+cloudFirewallRulesSetRulesCreate($rules_set_id, $firewall_rule_request): \PidginHost\Sdk\Model\FirewallRule
 ```
 
 
@@ -1023,10 +1024,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $rules_set_id = 'rules_set_id_example'; // string
-$firewall_rule = new \PidginHost\Sdk\Model\FirewallRule(); // \PidginHost\Sdk\Model\FirewallRule
+$firewall_rule_request = new \PidginHost\Sdk\Model\FirewallRuleRequest(); // \PidginHost\Sdk\Model\FirewallRuleRequest
 
 try {
-    $result = $apiInstance->cloudFirewallRulesSetRulesCreate($rules_set_id, $firewall_rule);
+    $result = $apiInstance->cloudFirewallRulesSetRulesCreate($rules_set_id, $firewall_rule_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFirewallRulesSetRulesCreate: ', $e->getMessage(), PHP_EOL;
@@ -1038,7 +1039,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **rules_set_id** | **string**|  | |
-| **firewall_rule** | [**\PidginHost\Sdk\Model\FirewallRule**](../Model/FirewallRule.md)|  | |
+| **firewall_rule_request** | [**\PidginHost\Sdk\Model\FirewallRuleRequest**](../Model/FirewallRuleRequest.md)|  | |
 
 ### Return type
 
@@ -1195,7 +1196,7 @@ try {
 ## `cloudFirewallRulesSetRulesPartialUpdate()`
 
 ```php
-cloudFirewallRulesSetRulesPartialUpdate($rule_id, $rules_set_id, $patched_firewall_rule): \PidginHost\Sdk\Model\FirewallRule
+cloudFirewallRulesSetRulesPartialUpdate($rule_id, $rules_set_id, $patched_firewall_rule_request): \PidginHost\Sdk\Model\FirewallRule
 ```
 
 
@@ -1228,10 +1229,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
 );
 $rule_id = 'rule_id_example'; // string
 $rules_set_id = 'rules_set_id_example'; // string
-$patched_firewall_rule = new \PidginHost\Sdk\Model\PatchedFirewallRule(); // \PidginHost\Sdk\Model\PatchedFirewallRule
+$patched_firewall_rule_request = new \PidginHost\Sdk\Model\PatchedFirewallRuleRequest(); // \PidginHost\Sdk\Model\PatchedFirewallRuleRequest
 
 try {
-    $result = $apiInstance->cloudFirewallRulesSetRulesPartialUpdate($rule_id, $rules_set_id, $patched_firewall_rule);
+    $result = $apiInstance->cloudFirewallRulesSetRulesPartialUpdate($rule_id, $rules_set_id, $patched_firewall_rule_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFirewallRulesSetRulesPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1244,7 +1245,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **rule_id** | **string**|  | |
 | **rules_set_id** | **string**|  | |
-| **patched_firewall_rule** | [**\PidginHost\Sdk\Model\PatchedFirewallRule**](../Model/PatchedFirewallRule.md)|  | [optional] |
+| **patched_firewall_rule_request** | [**\PidginHost\Sdk\Model\PatchedFirewallRuleRequest**](../Model/PatchedFirewallRuleRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1335,7 +1336,7 @@ try {
 ## `cloudFirewallRulesSetRulesUpdate()`
 
 ```php
-cloudFirewallRulesSetRulesUpdate($rule_id, $rules_set_id, $firewall_rule): \PidginHost\Sdk\Model\FirewallRule
+cloudFirewallRulesSetRulesUpdate($rule_id, $rules_set_id, $firewall_rule_request): \PidginHost\Sdk\Model\FirewallRule
 ```
 
 
@@ -1368,10 +1369,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
 );
 $rule_id = 'rule_id_example'; // string
 $rules_set_id = 'rules_set_id_example'; // string
-$firewall_rule = new \PidginHost\Sdk\Model\FirewallRule(); // \PidginHost\Sdk\Model\FirewallRule
+$firewall_rule_request = new \PidginHost\Sdk\Model\FirewallRuleRequest(); // \PidginHost\Sdk\Model\FirewallRuleRequest
 
 try {
-    $result = $apiInstance->cloudFirewallRulesSetRulesUpdate($rule_id, $rules_set_id, $firewall_rule);
+    $result = $apiInstance->cloudFirewallRulesSetRulesUpdate($rule_id, $rules_set_id, $firewall_rule_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFirewallRulesSetRulesUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1384,7 +1385,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **rule_id** | **string**|  | |
 | **rules_set_id** | **string**|  | |
-| **firewall_rule** | [**\PidginHost\Sdk\Model\FirewallRule**](../Model/FirewallRule.md)|  | |
+| **firewall_rule_request** | [**\PidginHost\Sdk\Model\FirewallRuleRequest**](../Model/FirewallRuleRequest.md)|  | |
 
 ### Return type
 
@@ -1406,7 +1407,7 @@ try {
 ## `cloudFirewallRulesSetUpdate()`
 
 ```php
-cloudFirewallRulesSetUpdate($id, $firewall_rules_set): \PidginHost\Sdk\Model\FirewallRulesSet
+cloudFirewallRulesSetUpdate($id, $firewall_rules_set_request): \PidginHost\Sdk\Model\FirewallRulesSet
 ```
 
 
@@ -1438,10 +1439,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this firewall rules set.
-$firewall_rules_set = new \PidginHost\Sdk\Model\FirewallRulesSet(); // \PidginHost\Sdk\Model\FirewallRulesSet
+$firewall_rules_set_request = new \PidginHost\Sdk\Model\FirewallRulesSetRequest(); // \PidginHost\Sdk\Model\FirewallRulesSetRequest
 
 try {
-    $result = $apiInstance->cloudFirewallRulesSetUpdate($id, $firewall_rules_set);
+    $result = $apiInstance->cloudFirewallRulesSetUpdate($id, $firewall_rules_set_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFirewallRulesSetUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1453,7 +1454,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this firewall rules set. | |
-| **firewall_rules_set** | [**\PidginHost\Sdk\Model\FirewallRulesSet**](../Model/FirewallRulesSet.md)|  | |
+| **firewall_rules_set_request** | [**\PidginHost\Sdk\Model\FirewallRulesSetRequest**](../Model/FirewallRulesSetRequest.md)|  | |
 
 ### Return type
 
@@ -1613,7 +1614,7 @@ try {
 ## `cloudFloatingIpv4Create()`
 
 ```php
-cloudFloatingIpv4Create($floating_ipv4_create): \PidginHost\Sdk\Model\FloatingIPv4
+cloudFloatingIpv4Create($floating_ipv4_create_request): \PidginHost\Sdk\Model\FloatingIPv4
 ```
 
 
@@ -1644,10 +1645,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     new GuzzleHttp\Client(),
     $config
 );
-$floating_ipv4_create = new \PidginHost\Sdk\Model\FloatingIPv4Create(); // \PidginHost\Sdk\Model\FloatingIPv4Create
+$floating_ipv4_create_request = new \PidginHost\Sdk\Model\FloatingIPv4CreateRequest(); // \PidginHost\Sdk\Model\FloatingIPv4CreateRequest
 
 try {
-    $result = $apiInstance->cloudFloatingIpv4Create($floating_ipv4_create);
+    $result = $apiInstance->cloudFloatingIpv4Create($floating_ipv4_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFloatingIpv4Create: ', $e->getMessage(), PHP_EOL;
@@ -1658,7 +1659,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **floating_ipv4_create** | [**\PidginHost\Sdk\Model\FloatingIPv4Create**](../Model/FloatingIPv4Create.md)|  | [optional] |
+| **floating_ipv4_create_request** | [**\PidginHost\Sdk\Model\FloatingIPv4CreateRequest**](../Model/FloatingIPv4CreateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1813,7 +1814,7 @@ try {
 ## `cloudFloatingIpv4RdnsCreate()`
 
 ```php
-cloudFloatingIpv4RdnsCreate($id, $reverse_dns): \PidginHost\Sdk\Model\ReverseDNS
+cloudFloatingIpv4RdnsCreate($id, $reverse_dns_request): \PidginHost\Sdk\Model\ReverseDNS
 ```
 
 
@@ -1845,10 +1846,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this floating IPv4.
-$reverse_dns = new \PidginHost\Sdk\Model\ReverseDNS(); // \PidginHost\Sdk\Model\ReverseDNS
+$reverse_dns_request = new \PidginHost\Sdk\Model\ReverseDNSRequest(); // \PidginHost\Sdk\Model\ReverseDNSRequest
 
 try {
-    $result = $apiInstance->cloudFloatingIpv4RdnsCreate($id, $reverse_dns);
+    $result = $apiInstance->cloudFloatingIpv4RdnsCreate($id, $reverse_dns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFloatingIpv4RdnsCreate: ', $e->getMessage(), PHP_EOL;
@@ -1860,7 +1861,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this floating IPv4. | |
-| **reverse_dns** | [**\PidginHost\Sdk\Model\ReverseDNS**](../Model/ReverseDNS.md)|  | |
+| **reverse_dns_request** | [**\PidginHost\Sdk\Model\ReverseDNSRequest**](../Model/ReverseDNSRequest.md)|  | |
 
 ### Return type
 
@@ -2223,7 +2224,7 @@ try {
 ## `cloudFloatingIpv6Create()`
 
 ```php
-cloudFloatingIpv6Create($floating_ipv6_create): \PidginHost\Sdk\Model\FloatingIPv6
+cloudFloatingIpv6Create($floating_ipv6_create_request): \PidginHost\Sdk\Model\FloatingIPv6
 ```
 
 
@@ -2254,10 +2255,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     new GuzzleHttp\Client(),
     $config
 );
-$floating_ipv6_create = new \PidginHost\Sdk\Model\FloatingIPv6Create(); // \PidginHost\Sdk\Model\FloatingIPv6Create
+$floating_ipv6_create_request = new \PidginHost\Sdk\Model\FloatingIPv6CreateRequest(); // \PidginHost\Sdk\Model\FloatingIPv6CreateRequest
 
 try {
-    $result = $apiInstance->cloudFloatingIpv6Create($floating_ipv6_create);
+    $result = $apiInstance->cloudFloatingIpv6Create($floating_ipv6_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFloatingIpv6Create: ', $e->getMessage(), PHP_EOL;
@@ -2268,7 +2269,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **floating_ipv6_create** | [**\PidginHost\Sdk\Model\FloatingIPv6Create**](../Model/FloatingIPv6Create.md)|  | [optional] |
+| **floating_ipv6_create_request** | [**\PidginHost\Sdk\Model\FloatingIPv6CreateRequest**](../Model/FloatingIPv6CreateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -2423,7 +2424,7 @@ try {
 ## `cloudFloatingIpv6RdnsCreate()`
 
 ```php
-cloudFloatingIpv6RdnsCreate($id, $reverse_dns): \PidginHost\Sdk\Model\ReverseDNS
+cloudFloatingIpv6RdnsCreate($id, $reverse_dns_request): \PidginHost\Sdk\Model\ReverseDNS
 ```
 
 
@@ -2455,10 +2456,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this floating IPv6.
-$reverse_dns = new \PidginHost\Sdk\Model\ReverseDNS(); // \PidginHost\Sdk\Model\ReverseDNS
+$reverse_dns_request = new \PidginHost\Sdk\Model\ReverseDNSRequest(); // \PidginHost\Sdk\Model\ReverseDNSRequest
 
 try {
-    $result = $apiInstance->cloudFloatingIpv6RdnsCreate($id, $reverse_dns);
+    $result = $apiInstance->cloudFloatingIpv6RdnsCreate($id, $reverse_dns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudFloatingIpv6RdnsCreate: ', $e->getMessage(), PHP_EOL;
@@ -2470,7 +2471,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this floating IPv6. | |
-| **reverse_dns** | [**\PidginHost\Sdk\Model\ReverseDNS**](../Model/ReverseDNS.md)|  | |
+| **reverse_dns_request** | [**\PidginHost\Sdk\Model\ReverseDNSRequest**](../Model/ReverseDNSRequest.md)|  | |
 
 ### Return type
 
@@ -2960,7 +2961,7 @@ try {
 ## `cloudIpv4Create()`
 
 ```php
-cloudIpv4Create($public_ipv4): \PidginHost\Sdk\Model\PublicIPv4
+cloudIpv4Create(): \PidginHost\Sdk\Model\PublicIPv4
 ```
 
 
@@ -2991,10 +2992,9 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     new GuzzleHttp\Client(),
     $config
 );
-$public_ipv4 = new \PidginHost\Sdk\Model\PublicIPv4(); // \PidginHost\Sdk\Model\PublicIPv4
 
 try {
-    $result = $apiInstance->cloudIpv4Create($public_ipv4);
+    $result = $apiInstance->cloudIpv4Create();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudIpv4Create: ', $e->getMessage(), PHP_EOL;
@@ -3003,9 +3003,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **public_ipv4** | [**\PidginHost\Sdk\Model\PublicIPv4**](../Model/PublicIPv4.md)|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -3017,7 +3015,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3093,7 +3091,7 @@ void (empty response body)
 ## `cloudIpv4DetachCreate()`
 
 ```php
-cloudIpv4DetachCreate($id, $public_ipv4): \PidginHost\Sdk\Model\DetachIPv4Response
+cloudIpv4DetachCreate($id): \PidginHost\Sdk\Model\DetachIPv4Response
 ```
 
 
@@ -3125,10 +3123,9 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this Public IPv4.
-$public_ipv4 = new \PidginHost\Sdk\Model\PublicIPv4(); // \PidginHost\Sdk\Model\PublicIPv4
 
 try {
-    $result = $apiInstance->cloudIpv4DetachCreate($id, $public_ipv4);
+    $result = $apiInstance->cloudIpv4DetachCreate($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudIpv4DetachCreate: ', $e->getMessage(), PHP_EOL;
@@ -3140,7 +3137,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this Public IPv4. | |
-| **public_ipv4** | [**\PidginHost\Sdk\Model\PublicIPv4**](../Model/PublicIPv4.md)|  | [optional] |
 
 ### Return type
 
@@ -3152,7 +3148,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3229,7 +3225,7 @@ try {
 ## `cloudIpv4RdnsCreate()`
 
 ```php
-cloudIpv4RdnsCreate($id, $reverse_dns): \PidginHost\Sdk\Model\ReverseDNS
+cloudIpv4RdnsCreate($id, $reverse_dns_request): \PidginHost\Sdk\Model\ReverseDNS
 ```
 
 
@@ -3261,10 +3257,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this Public IPv4.
-$reverse_dns = new \PidginHost\Sdk\Model\ReverseDNS(); // \PidginHost\Sdk\Model\ReverseDNS
+$reverse_dns_request = new \PidginHost\Sdk\Model\ReverseDNSRequest(); // \PidginHost\Sdk\Model\ReverseDNSRequest
 
 try {
-    $result = $apiInstance->cloudIpv4RdnsCreate($id, $reverse_dns);
+    $result = $apiInstance->cloudIpv4RdnsCreate($id, $reverse_dns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudIpv4RdnsCreate: ', $e->getMessage(), PHP_EOL;
@@ -3276,7 +3272,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this Public IPv4. | |
-| **reverse_dns** | [**\PidginHost\Sdk\Model\ReverseDNS**](../Model/ReverseDNS.md)|  | |
+| **reverse_dns_request** | [**\PidginHost\Sdk\Model\ReverseDNSRequest**](../Model/ReverseDNSRequest.md)|  | |
 
 ### Return type
 
@@ -3432,7 +3428,7 @@ try {
 ## `cloudIpv6Create()`
 
 ```php
-cloudIpv6Create($public_ipv6): \PidginHost\Sdk\Model\PublicIPv6
+cloudIpv6Create(): \PidginHost\Sdk\Model\PublicIPv6
 ```
 
 
@@ -3463,10 +3459,9 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     new GuzzleHttp\Client(),
     $config
 );
-$public_ipv6 = new \PidginHost\Sdk\Model\PublicIPv6(); // \PidginHost\Sdk\Model\PublicIPv6
 
 try {
-    $result = $apiInstance->cloudIpv6Create($public_ipv6);
+    $result = $apiInstance->cloudIpv6Create();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudIpv6Create: ', $e->getMessage(), PHP_EOL;
@@ -3475,9 +3470,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **public_ipv6** | [**\PidginHost\Sdk\Model\PublicIPv6**](../Model/PublicIPv6.md)|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -3489,7 +3482,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3565,7 +3558,7 @@ void (empty response body)
 ## `cloudIpv6DetachCreate()`
 
 ```php
-cloudIpv6DetachCreate($id, $public_ipv6): \PidginHost\Sdk\Model\DetachIPv6Response
+cloudIpv6DetachCreate($id): \PidginHost\Sdk\Model\DetachIPv6Response
 ```
 
 
@@ -3597,10 +3590,9 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this Public IPv6.
-$public_ipv6 = new \PidginHost\Sdk\Model\PublicIPv6(); // \PidginHost\Sdk\Model\PublicIPv6
 
 try {
-    $result = $apiInstance->cloudIpv6DetachCreate($id, $public_ipv6);
+    $result = $apiInstance->cloudIpv6DetachCreate($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudIpv6DetachCreate: ', $e->getMessage(), PHP_EOL;
@@ -3612,7 +3604,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this Public IPv6. | |
-| **public_ipv6** | [**\PidginHost\Sdk\Model\PublicIPv6**](../Model/PublicIPv6.md)|  | [optional] |
 
 ### Return type
 
@@ -3624,7 +3615,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3701,7 +3692,7 @@ try {
 ## `cloudIpv6RdnsCreate()`
 
 ```php
-cloudIpv6RdnsCreate($id, $reverse_dns): \PidginHost\Sdk\Model\ReverseDNS
+cloudIpv6RdnsCreate($id, $reverse_dns_request): \PidginHost\Sdk\Model\ReverseDNS
 ```
 
 
@@ -3733,10 +3724,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this Public IPv6.
-$reverse_dns = new \PidginHost\Sdk\Model\ReverseDNS(); // \PidginHost\Sdk\Model\ReverseDNS
+$reverse_dns_request = new \PidginHost\Sdk\Model\ReverseDNSRequest(); // \PidginHost\Sdk\Model\ReverseDNSRequest
 
 try {
-    $result = $apiInstance->cloudIpv6RdnsCreate($id, $reverse_dns);
+    $result = $apiInstance->cloudIpv6RdnsCreate($id, $reverse_dns_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudIpv6RdnsCreate: ', $e->getMessage(), PHP_EOL;
@@ -3748,7 +3739,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this Public IPv6. | |
-| **reverse_dns** | [**\PidginHost\Sdk\Model\ReverseDNS**](../Model/ReverseDNS.md)|  | |
+| **reverse_dns_request** | [**\PidginHost\Sdk\Model\ReverseDNSRequest**](../Model/ReverseDNSRequest.md)|  | |
 
 ### Return type
 
@@ -3904,7 +3895,7 @@ try {
 ## `cloudPrivateNetworksAddServerCreate()`
 
 ```php
-cloudPrivateNetworksAddServerCreate($id, $private_network_add_host): \PidginHost\Sdk\Model\AddServerResponse
+cloudPrivateNetworksAddServerCreate($id, $private_network_add_host_request): \PidginHost\Sdk\Model\AddServerResponse
 ```
 
 
@@ -3936,10 +3927,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this private network.
-$private_network_add_host = new \PidginHost\Sdk\Model\PrivateNetworkAddHost(); // \PidginHost\Sdk\Model\PrivateNetworkAddHost
+$private_network_add_host_request = new \PidginHost\Sdk\Model\PrivateNetworkAddHostRequest(); // \PidginHost\Sdk\Model\PrivateNetworkAddHostRequest
 
 try {
-    $result = $apiInstance->cloudPrivateNetworksAddServerCreate($id, $private_network_add_host);
+    $result = $apiInstance->cloudPrivateNetworksAddServerCreate($id, $private_network_add_host_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudPrivateNetworksAddServerCreate: ', $e->getMessage(), PHP_EOL;
@@ -3951,7 +3942,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this private network. | |
-| **private_network_add_host** | [**\PidginHost\Sdk\Model\PrivateNetworkAddHost**](../Model/PrivateNetworkAddHost.md)|  | |
+| **private_network_add_host_request** | [**\PidginHost\Sdk\Model\PrivateNetworkAddHostRequest**](../Model/PrivateNetworkAddHostRequest.md)|  | |
 
 ### Return type
 
@@ -3973,7 +3964,7 @@ try {
 ## `cloudPrivateNetworksCreate()`
 
 ```php
-cloudPrivateNetworksCreate($private_network): \PidginHost\Sdk\Model\PrivateNetwork
+cloudPrivateNetworksCreate($private_network_request): \PidginHost\Sdk\Model\PrivateNetwork
 ```
 
 
@@ -4004,10 +3995,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     new GuzzleHttp\Client(),
     $config
 );
-$private_network = new \PidginHost\Sdk\Model\PrivateNetwork(); // \PidginHost\Sdk\Model\PrivateNetwork
+$private_network_request = new \PidginHost\Sdk\Model\PrivateNetworkRequest(); // \PidginHost\Sdk\Model\PrivateNetworkRequest
 
 try {
-    $result = $apiInstance->cloudPrivateNetworksCreate($private_network);
+    $result = $apiInstance->cloudPrivateNetworksCreate($private_network_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudPrivateNetworksCreate: ', $e->getMessage(), PHP_EOL;
@@ -4018,7 +4009,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **private_network** | [**\PidginHost\Sdk\Model\PrivateNetwork**](../Model/PrivateNetwork.md)|  | |
+| **private_network_request** | [**\PidginHost\Sdk\Model\PrivateNetworkRequest**](../Model/PrivateNetworkRequest.md)|  | |
 
 ### Return type
 
@@ -4173,7 +4164,7 @@ try {
 ## `cloudPrivateNetworksPartialUpdate()`
 
 ```php
-cloudPrivateNetworksPartialUpdate($id, $patched_private_network): \PidginHost\Sdk\Model\PrivateNetwork
+cloudPrivateNetworksPartialUpdate($id, $patched_private_network_update_request): \PidginHost\Sdk\Model\PrivateNetwork
 ```
 
 
@@ -4205,10 +4196,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this private network.
-$patched_private_network = new \PidginHost\Sdk\Model\PatchedPrivateNetwork(); // \PidginHost\Sdk\Model\PatchedPrivateNetwork
+$patched_private_network_update_request = new \PidginHost\Sdk\Model\PatchedPrivateNetworkUpdateRequest(); // \PidginHost\Sdk\Model\PatchedPrivateNetworkUpdateRequest
 
 try {
-    $result = $apiInstance->cloudPrivateNetworksPartialUpdate($id, $patched_private_network);
+    $result = $apiInstance->cloudPrivateNetworksPartialUpdate($id, $patched_private_network_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudPrivateNetworksPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -4220,7 +4211,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this private network. | |
-| **patched_private_network** | [**\PidginHost\Sdk\Model\PatchedPrivateNetwork**](../Model/PatchedPrivateNetwork.md)|  | [optional] |
+| **patched_private_network_update_request** | [**\PidginHost\Sdk\Model\PatchedPrivateNetworkUpdateRequest**](../Model/PatchedPrivateNetworkUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -4242,7 +4233,7 @@ try {
 ## `cloudPrivateNetworksRemoveServerCreate()`
 
 ```php
-cloudPrivateNetworksRemoveServerCreate($id, $private_network_remove_host): \PidginHost\Sdk\Model\RemoveServerResponse
+cloudPrivateNetworksRemoveServerCreate($id, $private_network_remove_host_request): \PidginHost\Sdk\Model\RemoveServerResponse
 ```
 
 
@@ -4274,10 +4265,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this private network.
-$private_network_remove_host = new \PidginHost\Sdk\Model\PrivateNetworkRemoveHost(); // \PidginHost\Sdk\Model\PrivateNetworkRemoveHost
+$private_network_remove_host_request = new \PidginHost\Sdk\Model\PrivateNetworkRemoveHostRequest(); // \PidginHost\Sdk\Model\PrivateNetworkRemoveHostRequest
 
 try {
-    $result = $apiInstance->cloudPrivateNetworksRemoveServerCreate($id, $private_network_remove_host);
+    $result = $apiInstance->cloudPrivateNetworksRemoveServerCreate($id, $private_network_remove_host_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudPrivateNetworksRemoveServerCreate: ', $e->getMessage(), PHP_EOL;
@@ -4289,7 +4280,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this private network. | |
-| **private_network_remove_host** | [**\PidginHost\Sdk\Model\PrivateNetworkRemoveHost**](../Model/PrivateNetworkRemoveHost.md)|  | |
+| **private_network_remove_host_request** | [**\PidginHost\Sdk\Model\PrivateNetworkRemoveHostRequest**](../Model/PrivateNetworkRemoveHostRequest.md)|  | |
 
 ### Return type
 
@@ -4378,7 +4369,7 @@ try {
 ## `cloudPrivateNetworksUpdate()`
 
 ```php
-cloudPrivateNetworksUpdate($id, $private_network): \PidginHost\Sdk\Model\PrivateNetwork
+cloudPrivateNetworksUpdate($id, $private_network_update_request): \PidginHost\Sdk\Model\PrivateNetwork
 ```
 
 
@@ -4410,10 +4401,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this private network.
-$private_network = new \PidginHost\Sdk\Model\PrivateNetwork(); // \PidginHost\Sdk\Model\PrivateNetwork
+$private_network_update_request = new \PidginHost\Sdk\Model\PrivateNetworkUpdateRequest(); // \PidginHost\Sdk\Model\PrivateNetworkUpdateRequest
 
 try {
-    $result = $apiInstance->cloudPrivateNetworksUpdate($id, $private_network);
+    $result = $apiInstance->cloudPrivateNetworksUpdate($id, $private_network_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudPrivateNetworksUpdate: ', $e->getMessage(), PHP_EOL;
@@ -4425,7 +4416,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this private network. | |
-| **private_network** | [**\PidginHost\Sdk\Model\PrivateNetwork**](../Model/PrivateNetwork.md)|  | |
+| **private_network_update_request** | [**\PidginHost\Sdk\Model\PrivateNetworkUpdateRequest**](../Model/PrivateNetworkUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -4852,7 +4843,7 @@ try {
 ## `cloudServersBootIsosList()`
 
 ```php
-cloudServersBootIsosList($id, $page): \PidginHost\Sdk\Model\PaginatedBootISOList
+cloudServersBootIsosList($id): \PidginHost\Sdk\Model\BootISO[]
 ```
 
 
@@ -4884,10 +4875,9 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this virtual machine.
-$page = 56; // int | A page number within the paginated result set.
 
 try {
-    $result = $apiInstance->cloudServersBootIsosList($id, $page);
+    $result = $apiInstance->cloudServersBootIsosList($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersBootIsosList: ', $e->getMessage(), PHP_EOL;
@@ -4899,11 +4889,10 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this virtual machine. | |
-| **page** | **int**| A page number within the paginated result set. | [optional] |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\PaginatedBootISOList**](../Model/PaginatedBootISOList.md)
+[**\PidginHost\Sdk\Model\BootISO[]**](../Model/BootISO.md)
 
 ### Authorization
 
@@ -4988,7 +4977,7 @@ try {
 ## `cloudServersCreate()`
 
 ```php
-cloudServersCreate($server_add): \PidginHost\Sdk\Model\ServerAddResponse
+cloudServersCreate($server_add_request): \PidginHost\Sdk\Model\ServerAddResponse
 ```
 
 
@@ -5019,10 +5008,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     new GuzzleHttp\Client(),
     $config
 );
-$server_add = new \PidginHost\Sdk\Model\ServerAdd(); // \PidginHost\Sdk\Model\ServerAdd
+$server_add_request = new \PidginHost\Sdk\Model\ServerAddRequest(); // \PidginHost\Sdk\Model\ServerAddRequest
 
 try {
-    $result = $apiInstance->cloudServersCreate($server_add);
+    $result = $apiInstance->cloudServersCreate($server_add_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersCreate: ', $e->getMessage(), PHP_EOL;
@@ -5033,7 +5022,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **server_add** | [**\PidginHost\Sdk\Model\ServerAdd**](../Model/ServerAdd.md)|  | |
+| **server_add_request** | [**\PidginHost\Sdk\Model\ServerAddRequest**](../Model/ServerAddRequest.md)|  | |
 
 ### Return type
 
@@ -5121,7 +5110,7 @@ void (empty response body)
 ## `cloudServersDestroyProtectionCreate()`
 
 ```php
-cloudServersDestroyProtectionCreate($id, $destroy_protection): \PidginHost\Sdk\Model\DestroyProtectionResponse
+cloudServersDestroyProtectionCreate($id, $destroy_protection_request): \PidginHost\Sdk\Model\DestroyProtectionResponse
 ```
 
 
@@ -5153,10 +5142,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this virtual machine.
-$destroy_protection = new \PidginHost\Sdk\Model\DestroyProtection(); // \PidginHost\Sdk\Model\DestroyProtection
+$destroy_protection_request = new \PidginHost\Sdk\Model\DestroyProtectionRequest(); // \PidginHost\Sdk\Model\DestroyProtectionRequest
 
 try {
-    $result = $apiInstance->cloudServersDestroyProtectionCreate($id, $destroy_protection);
+    $result = $apiInstance->cloudServersDestroyProtectionCreate($id, $destroy_protection_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersDestroyProtectionCreate: ', $e->getMessage(), PHP_EOL;
@@ -5168,7 +5157,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this virtual machine. | |
-| **destroy_protection** | [**\PidginHost\Sdk\Model\DestroyProtection**](../Model/DestroyProtection.md)|  | |
+| **destroy_protection_request** | [**\PidginHost\Sdk\Model\DestroyProtectionRequest**](../Model/DestroyProtectionRequest.md)|  | |
 
 ### Return type
 
@@ -5393,7 +5382,7 @@ try {
 ## `cloudServersModifyPackageCreate()`
 
 ```php
-cloudServersModifyPackageCreate($id, $server_product_upgrade): \PidginHost\Sdk\Model\ServerUpgradeResponse
+cloudServersModifyPackageCreate($id, $server_product_upgrade_request): \PidginHost\Sdk\Model\ServerUpgradeResponse
 ```
 
 
@@ -5425,10 +5414,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this virtual machine.
-$server_product_upgrade = new \PidginHost\Sdk\Model\ServerProductUpgrade(); // \PidginHost\Sdk\Model\ServerProductUpgrade
+$server_product_upgrade_request = new \PidginHost\Sdk\Model\ServerProductUpgradeRequest(); // \PidginHost\Sdk\Model\ServerProductUpgradeRequest
 
 try {
-    $result = $apiInstance->cloudServersModifyPackageCreate($id, $server_product_upgrade);
+    $result = $apiInstance->cloudServersModifyPackageCreate($id, $server_product_upgrade_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersModifyPackageCreate: ', $e->getMessage(), PHP_EOL;
@@ -5440,7 +5429,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this virtual machine. | |
-| **server_product_upgrade** | [**\PidginHost\Sdk\Model\ServerProductUpgrade**](../Model/ServerProductUpgrade.md)|  | |
+| **server_product_upgrade_request** | [**\PidginHost\Sdk\Model\ServerProductUpgradeRequest**](../Model/ServerProductUpgradeRequest.md)|  | |
 
 ### Return type
 
@@ -5462,7 +5451,7 @@ try {
 ## `cloudServersPartialUpdate()`
 
 ```php
-cloudServersPartialUpdate($id, $patched_server_detail): \PidginHost\Sdk\Model\ServerDetail
+cloudServersPartialUpdate($id, $patched_server_detail_request): \PidginHost\Sdk\Model\ServerDetail
 ```
 
 
@@ -5494,10 +5483,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this virtual machine.
-$patched_server_detail = new \PidginHost\Sdk\Model\PatchedServerDetail(); // \PidginHost\Sdk\Model\PatchedServerDetail
+$patched_server_detail_request = new \PidginHost\Sdk\Model\PatchedServerDetailRequest(); // \PidginHost\Sdk\Model\PatchedServerDetailRequest
 
 try {
-    $result = $apiInstance->cloudServersPartialUpdate($id, $patched_server_detail);
+    $result = $apiInstance->cloudServersPartialUpdate($id, $patched_server_detail_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -5509,7 +5498,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this virtual machine. | |
-| **patched_server_detail** | [**\PidginHost\Sdk\Model\PatchedServerDetail**](../Model/PatchedServerDetail.md)|  | [optional] |
+| **patched_server_detail_request** | [**\PidginHost\Sdk\Model\PatchedServerDetailRequest**](../Model/PatchedServerDetailRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -5667,7 +5656,7 @@ try {
 ## `cloudServersPublicInterfaceCreate()`
 
 ```php
-cloudServersPublicInterfaceCreate($id, $public_interface): \PidginHost\Sdk\Model\PublicInterface
+cloudServersPublicInterfaceCreate($id, $public_interface_request): \PidginHost\Sdk\Model\PublicInterface
 ```
 
 
@@ -5699,10 +5688,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this virtual machine.
-$public_interface = new \PidginHost\Sdk\Model\PublicInterface(); // \PidginHost\Sdk\Model\PublicInterface
+$public_interface_request = new \PidginHost\Sdk\Model\PublicInterfaceRequest(); // \PidginHost\Sdk\Model\PublicInterfaceRequest
 
 try {
-    $result = $apiInstance->cloudServersPublicInterfaceCreate($id, $public_interface);
+    $result = $apiInstance->cloudServersPublicInterfaceCreate($id, $public_interface_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersPublicInterfaceCreate: ', $e->getMessage(), PHP_EOL;
@@ -5714,7 +5703,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this virtual machine. | |
-| **public_interface** | [**\PidginHost\Sdk\Model\PublicInterface**](../Model/PublicInterface.md)|  | [optional] |
+| **public_interface_request** | [**\PidginHost\Sdk\Model\PublicInterfaceRequest**](../Model/PublicInterfaceRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -6139,12 +6128,12 @@ try {
 ## `cloudServersSnapshotsCreate()`
 
 ```php
-cloudServersSnapshotsCreate($id, $snapshot_create, $page): \PidginHost\Sdk\Model\PaginatedSnapshotList
+cloudServersSnapshotsCreate($id, $snapshot_create_request): \PidginHost\Sdk\Model\SnapshotCreateQueued
 ```
 
 
 
-List snapshots for this server or queue a new snapshot.
+Cloud servers
 
 ### Example
 
@@ -6171,11 +6160,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this virtual machine.
-$snapshot_create = new \PidginHost\Sdk\Model\SnapshotCreate(); // \PidginHost\Sdk\Model\SnapshotCreate
-$page = 56; // int | A page number within the paginated result set.
+$snapshot_create_request = new \PidginHost\Sdk\Model\SnapshotCreateRequest(); // \PidginHost\Sdk\Model\SnapshotCreateRequest
 
 try {
-    $result = $apiInstance->cloudServersSnapshotsCreate($id, $snapshot_create, $page);
+    $result = $apiInstance->cloudServersSnapshotsCreate($id, $snapshot_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersSnapshotsCreate: ', $e->getMessage(), PHP_EOL;
@@ -6187,12 +6175,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this virtual machine. | |
-| **snapshot_create** | [**\PidginHost\Sdk\Model\SnapshotCreate**](../Model/SnapshotCreate.md)|  | |
-| **page** | **int**| A page number within the paginated result set. | [optional] |
+| **snapshot_create_request** | [**\PidginHost\Sdk\Model\SnapshotCreateRequest**](../Model/SnapshotCreateRequest.md)|  | |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\PaginatedSnapshotList**](../Model/PaginatedSnapshotList.md)
+[**\PidginHost\Sdk\Model\SnapshotCreateQueued**](../Model/SnapshotCreateQueued.md)
 
 ### Authorization
 
@@ -6279,7 +6266,7 @@ try {
 ## `cloudServersSnapshotsList()`
 
 ```php
-cloudServersSnapshotsList($id, $page): \PidginHost\Sdk\Model\PaginatedSnapshotList
+cloudServersSnapshotsList($id): \PidginHost\Sdk\Model\Snapshot[]
 ```
 
 
@@ -6311,10 +6298,9 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this virtual machine.
-$page = 56; // int | A page number within the paginated result set.
 
 try {
-    $result = $apiInstance->cloudServersSnapshotsList($id, $page);
+    $result = $apiInstance->cloudServersSnapshotsList($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersSnapshotsList: ', $e->getMessage(), PHP_EOL;
@@ -6326,11 +6312,10 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this virtual machine. | |
-| **page** | **int**| A page number within the paginated result set. | [optional] |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\PaginatedSnapshotList**](../Model/PaginatedSnapshotList.md)
+[**\PidginHost\Sdk\Model\Snapshot[]**](../Model/Snapshot.md)
 
 ### Authorization
 
@@ -6414,10 +6399,77 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `cloudServersTrafficRetrieve()`
+
+```php
+cloudServersTrafficRetrieve($id): \PidginHost\Sdk\Model\ServerTrafficResponse
+```
+
+
+
+Get this month's traffic usage for a server.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | A unique integer value identifying this virtual machine.
+
+try {
+    $result = $apiInstance->cloudServersTrafficRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudServersTrafficRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| A unique integer value identifying this virtual machine. | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\ServerTrafficResponse**](../Model/ServerTrafficResponse.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `cloudServersUpdate()`
 
 ```php
-cloudServersUpdate($id, $server_detail): \PidginHost\Sdk\Model\ServerDetail
+cloudServersUpdate($id, $server_detail_request): \PidginHost\Sdk\Model\ServerDetail
 ```
 
 
@@ -6449,10 +6501,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this virtual machine.
-$server_detail = new \PidginHost\Sdk\Model\ServerDetail(); // \PidginHost\Sdk\Model\ServerDetail
+$server_detail_request = new \PidginHost\Sdk\Model\ServerDetailRequest(); // \PidginHost\Sdk\Model\ServerDetailRequest
 
 try {
-    $result = $apiInstance->cloudServersUpdate($id, $server_detail);
+    $result = $apiInstance->cloudServersUpdate($id, $server_detail_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersUpdate: ', $e->getMessage(), PHP_EOL;
@@ -6464,7 +6516,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this virtual machine. | |
-| **server_detail** | [**\PidginHost\Sdk\Model\ServerDetail**](../Model/ServerDetail.md)|  | [optional] |
+| **server_detail_request** | [**\PidginHost\Sdk\Model\ServerDetailRequest**](../Model/ServerDetailRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -6553,7 +6605,7 @@ try {
 ## `cloudServersVolumesCreate()`
 
 ```php
-cloudServersVolumesCreate($server_id, $volume): \PidginHost\Sdk\Model\Volume
+cloudServersVolumesCreate($server_id, $volume_request): \PidginHost\Sdk\Model\Volume
 ```
 
 
@@ -6585,10 +6637,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $server_id = 'server_id_example'; // string
-$volume = new \PidginHost\Sdk\Model\Volume(); // \PidginHost\Sdk\Model\Volume
+$volume_request = new \PidginHost\Sdk\Model\VolumeRequest(); // \PidginHost\Sdk\Model\VolumeRequest
 
 try {
-    $result = $apiInstance->cloudServersVolumesCreate($server_id, $volume);
+    $result = $apiInstance->cloudServersVolumesCreate($server_id, $volume_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersVolumesCreate: ', $e->getMessage(), PHP_EOL;
@@ -6600,7 +6652,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**|  | |
-| **volume** | [**\PidginHost\Sdk\Model\Volume**](../Model/Volume.md)|  | |
+| **volume_request** | [**\PidginHost\Sdk\Model\VolumeRequest**](../Model/VolumeRequest.md)|  | |
 
 ### Return type
 
@@ -6757,7 +6809,7 @@ try {
 ## `cloudServersVolumesPartialUpdate()`
 
 ```php
-cloudServersVolumesPartialUpdate($server_id, $volume_id, $patched_volume): \PidginHost\Sdk\Model\Volume
+cloudServersVolumesPartialUpdate($server_id, $volume_id, $patched_volume_update_request): \PidginHost\Sdk\Model\Volume
 ```
 
 
@@ -6790,10 +6842,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
 );
 $server_id = 'server_id_example'; // string
 $volume_id = 'volume_id_example'; // string
-$patched_volume = new \PidginHost\Sdk\Model\PatchedVolume(); // \PidginHost\Sdk\Model\PatchedVolume
+$patched_volume_update_request = new \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest(); // \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest
 
 try {
-    $result = $apiInstance->cloudServersVolumesPartialUpdate($server_id, $volume_id, $patched_volume);
+    $result = $apiInstance->cloudServersVolumesPartialUpdate($server_id, $volume_id, $patched_volume_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersVolumesPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -6806,7 +6858,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**|  | |
 | **volume_id** | **string**|  | |
-| **patched_volume** | [**\PidginHost\Sdk\Model\PatchedVolume**](../Model/PatchedVolume.md)|  | [optional] |
+| **patched_volume_update_request** | [**\PidginHost\Sdk\Model\PatchedVolumeUpdateRequest**](../Model/PatchedVolumeUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -6897,7 +6949,7 @@ try {
 ## `cloudServersVolumesUpdate()`
 
 ```php
-cloudServersVolumesUpdate($server_id, $volume_id, $volume): \PidginHost\Sdk\Model\Volume
+cloudServersVolumesUpdate($server_id, $volume_id, $volume_update_request): \PidginHost\Sdk\Model\Volume
 ```
 
 
@@ -6930,10 +6982,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
 );
 $server_id = 'server_id_example'; // string
 $volume_id = 'volume_id_example'; // string
-$volume = new \PidginHost\Sdk\Model\Volume(); // \PidginHost\Sdk\Model\Volume
+$volume_update_request = new \PidginHost\Sdk\Model\VolumeUpdateRequest(); // \PidginHost\Sdk\Model\VolumeUpdateRequest
 
 try {
-    $result = $apiInstance->cloudServersVolumesUpdate($server_id, $volume_id, $volume);
+    $result = $apiInstance->cloudServersVolumesUpdate($server_id, $volume_id, $volume_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudServersVolumesUpdate: ', $e->getMessage(), PHP_EOL;
@@ -6946,7 +6998,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **server_id** | **string**|  | |
 | **volume_id** | **string**|  | |
-| **volume** | [**\PidginHost\Sdk\Model\Volume**](../Model/Volume.md)|  | |
+| **volume_update_request** | [**\PidginHost\Sdk\Model\VolumeUpdateRequest**](../Model/VolumeUpdateRequest.md)|  | |
 
 ### Return type
 
@@ -7102,7 +7154,7 @@ try {
 ## `cloudVolumesAttachCreate()`
 
 ```php
-cloudVolumesAttachCreate($id, $attach_volume): \PidginHost\Sdk\Model\AttachVolume
+cloudVolumesAttachCreate($id, $attach_volume_request): \PidginHost\Sdk\Model\AttachVolume
 ```
 
 
@@ -7134,10 +7186,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this storage.
-$attach_volume = new \PidginHost\Sdk\Model\AttachVolume(); // \PidginHost\Sdk\Model\AttachVolume
+$attach_volume_request = new \PidginHost\Sdk\Model\AttachVolumeRequest(); // \PidginHost\Sdk\Model\AttachVolumeRequest
 
 try {
-    $result = $apiInstance->cloudVolumesAttachCreate($id, $attach_volume);
+    $result = $apiInstance->cloudVolumesAttachCreate($id, $attach_volume_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudVolumesAttachCreate: ', $e->getMessage(), PHP_EOL;
@@ -7149,7 +7201,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this storage. | |
-| **attach_volume** | [**\PidginHost\Sdk\Model\AttachVolume**](../Model/AttachVolume.md)|  | |
+| **attach_volume_request** | [**\PidginHost\Sdk\Model\AttachVolumeRequest**](../Model/AttachVolumeRequest.md)|  | |
 
 ### Return type
 
@@ -7237,7 +7289,7 @@ void (empty response body)
 ## `cloudVolumesDetachCreate()`
 
 ```php
-cloudVolumesDetachCreate($id, $volume): \PidginHost\Sdk\Model\DetachVolume
+cloudVolumesDetachCreate($id): \PidginHost\Sdk\Model\DetachVolume
 ```
 
 
@@ -7269,10 +7321,9 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this storage.
-$volume = new \PidginHost\Sdk\Model\Volume(); // \PidginHost\Sdk\Model\Volume
 
 try {
-    $result = $apiInstance->cloudVolumesDetachCreate($id, $volume);
+    $result = $apiInstance->cloudVolumesDetachCreate($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudVolumesDetachCreate: ', $e->getMessage(), PHP_EOL;
@@ -7284,7 +7335,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this storage. | |
-| **volume** | [**\PidginHost\Sdk\Model\Volume**](../Model/Volume.md)|  | |
 
 ### Return type
 
@@ -7296,7 +7346,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -7370,7 +7420,7 @@ This endpoint does not need any parameter.
 ## `cloudVolumesPartialUpdate()`
 
 ```php
-cloudVolumesPartialUpdate($id, $patched_volume): \PidginHost\Sdk\Model\Volume
+cloudVolumesPartialUpdate($id, $patched_volume_update_request): \PidginHost\Sdk\Model\Volume
 ```
 
 
@@ -7402,10 +7452,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this storage.
-$patched_volume = new \PidginHost\Sdk\Model\PatchedVolume(); // \PidginHost\Sdk\Model\PatchedVolume
+$patched_volume_update_request = new \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest(); // \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest
 
 try {
-    $result = $apiInstance->cloudVolumesPartialUpdate($id, $patched_volume);
+    $result = $apiInstance->cloudVolumesPartialUpdate($id, $patched_volume_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudVolumesPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -7417,7 +7467,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this storage. | |
-| **patched_volume** | [**\PidginHost\Sdk\Model\PatchedVolume**](../Model/PatchedVolume.md)|  | [optional] |
+| **patched_volume_update_request** | [**\PidginHost\Sdk\Model\PatchedVolumeUpdateRequest**](../Model/PatchedVolumeUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -7506,7 +7556,7 @@ try {
 ## `cloudVolumesUpdate()`
 
 ```php
-cloudVolumesUpdate($id, $volume): \PidginHost\Sdk\Model\Volume
+cloudVolumesUpdate($id, $volume_update_request): \PidginHost\Sdk\Model\Volume
 ```
 
 
@@ -7538,10 +7588,10 @@ $apiInstance = new PidginHost\Sdk\Api\CloudApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this storage.
-$volume = new \PidginHost\Sdk\Model\Volume(); // \PidginHost\Sdk\Model\Volume
+$volume_update_request = new \PidginHost\Sdk\Model\VolumeUpdateRequest(); // \PidginHost\Sdk\Model\VolumeUpdateRequest
 
 try {
-    $result = $apiInstance->cloudVolumesUpdate($id, $volume);
+    $result = $apiInstance->cloudVolumesUpdate($id, $volume_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CloudApi->cloudVolumesUpdate: ', $e->getMessage(), PHP_EOL;
@@ -7553,7 +7603,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this storage. | |
-| **volume** | [**\PidginHost\Sdk\Model\Volume**](../Model/Volume.md)|  | |
+| **volume_update_request** | [**\PidginHost\Sdk\Model\VolumeUpdateRequest**](../Model/VolumeUpdateRequest.md)|  | |
 
 ### Return type
 

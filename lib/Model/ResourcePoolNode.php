@@ -84,7 +84,7 @@ class ResourcePoolNode implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'id' => false,
         'name' => false,
-        'ip' => false
+        'ip' => true
     ];
 
     /**
@@ -295,8 +295,8 @@ class ResourcePoolNode implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['ip'] === null) {
-            $invalidProperties[] = "'ip' can't be null";
+        if ($this->container['ip'] === null && !$this->isNullableSetToNull('ip')) {
+            $invalidProperties[] = "'ip' is required";
         }
         return $invalidProperties;
     }
@@ -370,7 +370,7 @@ class ResourcePoolNode implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ip
      *
-     * @return string
+     * @return string|null
      */
     public function getIp()
     {
@@ -380,14 +380,21 @@ class ResourcePoolNode implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ip
      *
-     * @param string $ip ip
+     * @param string|null $ip ip
      *
      * @return self
      */
     public function setIp($ip)
     {
         if (is_null($ip)) {
-            throw new \InvalidArgumentException('non-nullable ip cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ip'] = $ip;
 

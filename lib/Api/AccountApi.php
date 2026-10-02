@@ -183,32 +183,32 @@ class AccountApi
     /**
      * Operation accountApiTokensCreate
      *
-     * @param  \PidginHost\Sdk\Model\APITokenCreate $api_token_create api_token_create (required)
+     * @param  \PidginHost\Sdk\Model\APITokenCreateRequest $api_token_create_request api_token_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountApiTokensCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\APITokenCreate
      */
-    public function accountApiTokensCreate($api_token_create, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
+    public function accountApiTokensCreate($api_token_create_request, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
     {
-        list($response) = $this->accountApiTokensCreateWithHttpInfo($api_token_create, $contentType);
+        list($response) = $this->accountApiTokensCreateWithHttpInfo($api_token_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation accountApiTokensCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\APITokenCreate $api_token_create (required)
+     * @param  \PidginHost\Sdk\Model\APITokenCreateRequest $api_token_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountApiTokensCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\APITokenCreate, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountApiTokensCreateWithHttpInfo($api_token_create, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
+    public function accountApiTokensCreateWithHttpInfo($api_token_create_request, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
     {
-        $request = $this->accountApiTokensCreateRequest($api_token_create, $contentType);
+        $request = $this->accountApiTokensCreateRequest($api_token_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -282,15 +282,15 @@ class AccountApi
     /**
      * Operation accountApiTokensCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\APITokenCreate $api_token_create (required)
+     * @param  \PidginHost\Sdk\Model\APITokenCreateRequest $api_token_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountApiTokensCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountApiTokensCreateAsync($api_token_create, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
+    public function accountApiTokensCreateAsync($api_token_create_request, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
     {
-        return $this->accountApiTokensCreateAsyncWithHttpInfo($api_token_create, $contentType)
+        return $this->accountApiTokensCreateAsyncWithHttpInfo($api_token_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -301,16 +301,16 @@ class AccountApi
     /**
      * Operation accountApiTokensCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\APITokenCreate $api_token_create (required)
+     * @param  \PidginHost\Sdk\Model\APITokenCreateRequest $api_token_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountApiTokensCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountApiTokensCreateAsyncWithHttpInfo($api_token_create, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
+    public function accountApiTokensCreateAsyncWithHttpInfo($api_token_create_request, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\APITokenCreate';
-        $request = $this->accountApiTokensCreateRequest($api_token_create, $contentType);
+        $request = $this->accountApiTokensCreateRequest($api_token_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -351,19 +351,19 @@ class AccountApi
     /**
      * Create request for operation 'accountApiTokensCreate'
      *
-     * @param  \PidginHost\Sdk\Model\APITokenCreate $api_token_create (required)
+     * @param  \PidginHost\Sdk\Model\APITokenCreateRequest $api_token_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountApiTokensCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountApiTokensCreateRequest($api_token_create, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
+    public function accountApiTokensCreateRequest($api_token_create_request, string $contentType = self::contentTypes['accountApiTokensCreate'][0])
     {
 
-        // verify the required parameter 'api_token_create' is set
-        if ($api_token_create === null || (is_array($api_token_create) && count($api_token_create) === 0)) {
+        // verify the required parameter 'api_token_create_request' is set
+        if ($api_token_create_request === null || (is_array($api_token_create_request) && count($api_token_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token_create when calling accountApiTokensCreate'
+                'Missing the required parameter $api_token_create_request when calling accountApiTokensCreate'
             );
         }
 
@@ -386,12 +386,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($api_token_create)) {
+        if (isset($api_token_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_token_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_token_create_request));
             } else {
-                $httpBody = $api_token_create;
+                $httpBody = $api_token_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -922,32 +922,32 @@ class AccountApi
     /**
      * Operation accountCompaniesCreate
      *
-     * @param  \PidginHost\Sdk\Model\Company $company company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Company
      */
-    public function accountCompaniesCreate($company, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
+    public function accountCompaniesCreate($company_request, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
     {
-        list($response) = $this->accountCompaniesCreateWithHttpInfo($company, $contentType);
+        list($response) = $this->accountCompaniesCreateWithHttpInfo($company_request, $contentType);
         return $response;
     }
 
     /**
      * Operation accountCompaniesCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\Company $company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Company, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountCompaniesCreateWithHttpInfo($company, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
+    public function accountCompaniesCreateWithHttpInfo($company_request, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
     {
-        $request = $this->accountCompaniesCreateRequest($company, $contentType);
+        $request = $this->accountCompaniesCreateRequest($company_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1021,15 +1021,15 @@ class AccountApi
     /**
      * Operation accountCompaniesCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\Company $company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountCompaniesCreateAsync($company, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
+    public function accountCompaniesCreateAsync($company_request, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
     {
-        return $this->accountCompaniesCreateAsyncWithHttpInfo($company, $contentType)
+        return $this->accountCompaniesCreateAsyncWithHttpInfo($company_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1040,16 +1040,16 @@ class AccountApi
     /**
      * Operation accountCompaniesCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\Company $company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountCompaniesCreateAsyncWithHttpInfo($company, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
+    public function accountCompaniesCreateAsyncWithHttpInfo($company_request, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Company';
-        $request = $this->accountCompaniesCreateRequest($company, $contentType);
+        $request = $this->accountCompaniesCreateRequest($company_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1090,19 +1090,19 @@ class AccountApi
     /**
      * Create request for operation 'accountCompaniesCreate'
      *
-     * @param  \PidginHost\Sdk\Model\Company $company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountCompaniesCreateRequest($company, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
+    public function accountCompaniesCreateRequest($company_request, string $contentType = self::contentTypes['accountCompaniesCreate'][0])
     {
 
-        // verify the required parameter 'company' is set
-        if ($company === null || (is_array($company) && count($company) === 0)) {
+        // verify the required parameter 'company_request' is set
+        if ($company_request === null || (is_array($company_request) && count($company_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company when calling accountCompaniesCreate'
+                'Missing the required parameter $company_request when calling accountCompaniesCreate'
             );
         }
 
@@ -1125,12 +1125,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($company)) {
+        if (isset($company_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($company));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($company_request));
             } else {
-                $httpBody = $company;
+                $httpBody = $company_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1662,16 +1662,16 @@ class AccountApi
      * Operation accountCompaniesPartialUpdate
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedCompany|null $patched_company patched_company (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedCompanyRequest|null $patched_company_request patched_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Company
      */
-    public function accountCompaniesPartialUpdate($id, $patched_company = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
+    public function accountCompaniesPartialUpdate($id, $patched_company_request = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
     {
-        list($response) = $this->accountCompaniesPartialUpdateWithHttpInfo($id, $patched_company, $contentType);
+        list($response) = $this->accountCompaniesPartialUpdateWithHttpInfo($id, $patched_company_request, $contentType);
         return $response;
     }
 
@@ -1679,16 +1679,16 @@ class AccountApi
      * Operation accountCompaniesPartialUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedCompany|null $patched_company (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedCompanyRequest|null $patched_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Company, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountCompaniesPartialUpdateWithHttpInfo($id, $patched_company = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
+    public function accountCompaniesPartialUpdateWithHttpInfo($id, $patched_company_request = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
     {
-        $request = $this->accountCompaniesPartialUpdateRequest($id, $patched_company, $contentType);
+        $request = $this->accountCompaniesPartialUpdateRequest($id, $patched_company_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1763,15 +1763,15 @@ class AccountApi
      * Operation accountCompaniesPartialUpdateAsync
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedCompany|null $patched_company (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedCompanyRequest|null $patched_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountCompaniesPartialUpdateAsync($id, $patched_company = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
+    public function accountCompaniesPartialUpdateAsync($id, $patched_company_request = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
     {
-        return $this->accountCompaniesPartialUpdateAsyncWithHttpInfo($id, $patched_company, $contentType)
+        return $this->accountCompaniesPartialUpdateAsyncWithHttpInfo($id, $patched_company_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1783,16 +1783,16 @@ class AccountApi
      * Operation accountCompaniesPartialUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedCompany|null $patched_company (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedCompanyRequest|null $patched_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountCompaniesPartialUpdateAsyncWithHttpInfo($id, $patched_company = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
+    public function accountCompaniesPartialUpdateAsyncWithHttpInfo($id, $patched_company_request = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Company';
-        $request = $this->accountCompaniesPartialUpdateRequest($id, $patched_company, $contentType);
+        $request = $this->accountCompaniesPartialUpdateRequest($id, $patched_company_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1834,13 +1834,13 @@ class AccountApi
      * Create request for operation 'accountCompaniesPartialUpdate'
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedCompany|null $patched_company (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedCompanyRequest|null $patched_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountCompaniesPartialUpdateRequest($id, $patched_company = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
+    public function accountCompaniesPartialUpdateRequest($id, $patched_company_request = null, string $contentType = self::contentTypes['accountCompaniesPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1878,12 +1878,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($patched_company)) {
+        if (isset($patched_company_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_company));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_company_request));
             } else {
-                $httpBody = $patched_company;
+                $httpBody = $patched_company_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2205,16 +2205,16 @@ class AccountApi
      * Operation accountCompaniesUpdate
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\Company $company company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Company
      */
-    public function accountCompaniesUpdate($id, $company, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
+    public function accountCompaniesUpdate($id, $company_request, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
     {
-        list($response) = $this->accountCompaniesUpdateWithHttpInfo($id, $company, $contentType);
+        list($response) = $this->accountCompaniesUpdateWithHttpInfo($id, $company_request, $contentType);
         return $response;
     }
 
@@ -2222,16 +2222,16 @@ class AccountApi
      * Operation accountCompaniesUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\Company $company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Company, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountCompaniesUpdateWithHttpInfo($id, $company, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
+    public function accountCompaniesUpdateWithHttpInfo($id, $company_request, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
     {
-        $request = $this->accountCompaniesUpdateRequest($id, $company, $contentType);
+        $request = $this->accountCompaniesUpdateRequest($id, $company_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2306,15 +2306,15 @@ class AccountApi
      * Operation accountCompaniesUpdateAsync
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\Company $company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountCompaniesUpdateAsync($id, $company, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
+    public function accountCompaniesUpdateAsync($id, $company_request, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
     {
-        return $this->accountCompaniesUpdateAsyncWithHttpInfo($id, $company, $contentType)
+        return $this->accountCompaniesUpdateAsyncWithHttpInfo($id, $company_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2326,16 +2326,16 @@ class AccountApi
      * Operation accountCompaniesUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\Company $company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountCompaniesUpdateAsyncWithHttpInfo($id, $company, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
+    public function accountCompaniesUpdateAsyncWithHttpInfo($id, $company_request, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Company';
-        $request = $this->accountCompaniesUpdateRequest($id, $company, $contentType);
+        $request = $this->accountCompaniesUpdateRequest($id, $company_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2377,13 +2377,13 @@ class AccountApi
      * Create request for operation 'accountCompaniesUpdate'
      *
      * @param  int $id A unique integer value identifying this company. (required)
-     * @param  \PidginHost\Sdk\Model\Company $company (required)
+     * @param  \PidginHost\Sdk\Model\CompanyRequest $company_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCompaniesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountCompaniesUpdateRequest($id, $company, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
+    public function accountCompaniesUpdateRequest($id, $company_request, string $contentType = self::contentTypes['accountCompaniesUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2393,10 +2393,10 @@ class AccountApi
             );
         }
 
-        // verify the required parameter 'company' is set
-        if ($company === null || (is_array($company) && count($company) === 0)) {
+        // verify the required parameter 'company_request' is set
+        if ($company_request === null || (is_array($company_request) && count($company_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $company when calling accountCompaniesUpdate'
+                'Missing the required parameter $company_request when calling accountCompaniesUpdate'
             );
         }
 
@@ -2427,12 +2427,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($company)) {
+        if (isset($company_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($company));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($company_request));
             } else {
-                $httpBody = $company;
+                $httpBody = $company_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2748,32 +2748,32 @@ class AccountApi
     /**
      * Operation accountProfilePartialUpdate
      *
-     * @param  \PidginHost\Sdk\Model\PatchedProfile|null $patched_profile patched_profile (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedProfileRequest|null $patched_profile_request patched_profile_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfilePartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Profile
      */
-    public function accountProfilePartialUpdate($patched_profile = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
+    public function accountProfilePartialUpdate($patched_profile_request = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
     {
-        list($response) = $this->accountProfilePartialUpdateWithHttpInfo($patched_profile, $contentType);
+        list($response) = $this->accountProfilePartialUpdateWithHttpInfo($patched_profile_request, $contentType);
         return $response;
     }
 
     /**
      * Operation accountProfilePartialUpdateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\PatchedProfile|null $patched_profile (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedProfileRequest|null $patched_profile_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfilePartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Profile, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountProfilePartialUpdateWithHttpInfo($patched_profile = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
+    public function accountProfilePartialUpdateWithHttpInfo($patched_profile_request = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
     {
-        $request = $this->accountProfilePartialUpdateRequest($patched_profile, $contentType);
+        $request = $this->accountProfilePartialUpdateRequest($patched_profile_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2847,15 +2847,15 @@ class AccountApi
     /**
      * Operation accountProfilePartialUpdateAsync
      *
-     * @param  \PidginHost\Sdk\Model\PatchedProfile|null $patched_profile (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedProfileRequest|null $patched_profile_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfilePartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountProfilePartialUpdateAsync($patched_profile = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
+    public function accountProfilePartialUpdateAsync($patched_profile_request = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
     {
-        return $this->accountProfilePartialUpdateAsyncWithHttpInfo($patched_profile, $contentType)
+        return $this->accountProfilePartialUpdateAsyncWithHttpInfo($patched_profile_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2866,16 +2866,16 @@ class AccountApi
     /**
      * Operation accountProfilePartialUpdateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\PatchedProfile|null $patched_profile (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedProfileRequest|null $patched_profile_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfilePartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountProfilePartialUpdateAsyncWithHttpInfo($patched_profile = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
+    public function accountProfilePartialUpdateAsyncWithHttpInfo($patched_profile_request = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Profile';
-        $request = $this->accountProfilePartialUpdateRequest($patched_profile, $contentType);
+        $request = $this->accountProfilePartialUpdateRequest($patched_profile_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2916,13 +2916,13 @@ class AccountApi
     /**
      * Create request for operation 'accountProfilePartialUpdate'
      *
-     * @param  \PidginHost\Sdk\Model\PatchedProfile|null $patched_profile (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedProfileRequest|null $patched_profile_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfilePartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountProfilePartialUpdateRequest($patched_profile = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
+    public function accountProfilePartialUpdateRequest($patched_profile_request = null, string $contentType = self::contentTypes['accountProfilePartialUpdate'][0])
     {
 
 
@@ -2945,12 +2945,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($patched_profile)) {
+        if (isset($patched_profile_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_profile));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_profile_request));
             } else {
-                $httpBody = $patched_profile;
+                $httpBody = $patched_profile_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3251,32 +3251,32 @@ class AccountApi
     /**
      * Operation accountProfileUpdate
      *
-     * @param  \PidginHost\Sdk\Model\Profile $profile profile (required)
+     * @param  \PidginHost\Sdk\Model\ProfileRequest $profile_request profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfileUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Profile
      */
-    public function accountProfileUpdate($profile, string $contentType = self::contentTypes['accountProfileUpdate'][0])
+    public function accountProfileUpdate($profile_request, string $contentType = self::contentTypes['accountProfileUpdate'][0])
     {
-        list($response) = $this->accountProfileUpdateWithHttpInfo($profile, $contentType);
+        list($response) = $this->accountProfileUpdateWithHttpInfo($profile_request, $contentType);
         return $response;
     }
 
     /**
      * Operation accountProfileUpdateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\Profile $profile (required)
+     * @param  \PidginHost\Sdk\Model\ProfileRequest $profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfileUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Profile, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountProfileUpdateWithHttpInfo($profile, string $contentType = self::contentTypes['accountProfileUpdate'][0])
+    public function accountProfileUpdateWithHttpInfo($profile_request, string $contentType = self::contentTypes['accountProfileUpdate'][0])
     {
-        $request = $this->accountProfileUpdateRequest($profile, $contentType);
+        $request = $this->accountProfileUpdateRequest($profile_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3350,15 +3350,15 @@ class AccountApi
     /**
      * Operation accountProfileUpdateAsync
      *
-     * @param  \PidginHost\Sdk\Model\Profile $profile (required)
+     * @param  \PidginHost\Sdk\Model\ProfileRequest $profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfileUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountProfileUpdateAsync($profile, string $contentType = self::contentTypes['accountProfileUpdate'][0])
+    public function accountProfileUpdateAsync($profile_request, string $contentType = self::contentTypes['accountProfileUpdate'][0])
     {
-        return $this->accountProfileUpdateAsyncWithHttpInfo($profile, $contentType)
+        return $this->accountProfileUpdateAsyncWithHttpInfo($profile_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3369,16 +3369,16 @@ class AccountApi
     /**
      * Operation accountProfileUpdateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\Profile $profile (required)
+     * @param  \PidginHost\Sdk\Model\ProfileRequest $profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfileUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountProfileUpdateAsyncWithHttpInfo($profile, string $contentType = self::contentTypes['accountProfileUpdate'][0])
+    public function accountProfileUpdateAsyncWithHttpInfo($profile_request, string $contentType = self::contentTypes['accountProfileUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Profile';
-        $request = $this->accountProfileUpdateRequest($profile, $contentType);
+        $request = $this->accountProfileUpdateRequest($profile_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3419,19 +3419,19 @@ class AccountApi
     /**
      * Create request for operation 'accountProfileUpdate'
      *
-     * @param  \PidginHost\Sdk\Model\Profile $profile (required)
+     * @param  \PidginHost\Sdk\Model\ProfileRequest $profile_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountProfileUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountProfileUpdateRequest($profile, string $contentType = self::contentTypes['accountProfileUpdate'][0])
+    public function accountProfileUpdateRequest($profile_request, string $contentType = self::contentTypes['accountProfileUpdate'][0])
     {
 
-        // verify the required parameter 'profile' is set
-        if ($profile === null || (is_array($profile) && count($profile) === 0)) {
+        // verify the required parameter 'profile_request' is set
+        if ($profile_request === null || (is_array($profile_request) && count($profile_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $profile when calling accountProfileUpdate'
+                'Missing the required parameter $profile_request when calling accountProfileUpdate'
             );
         }
 
@@ -3454,12 +3454,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($profile)) {
+        if (isset($profile_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($profile));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($profile_request));
             } else {
-                $httpBody = $profile;
+                $httpBody = $profile_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3515,32 +3515,32 @@ class AccountApi
     /**
      * Operation accountSshKeysCreate
      *
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyRequest $ssh_key_request ssh_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SSHKey
      */
-    public function accountSshKeysCreate($ssh_key = null, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
+    public function accountSshKeysCreate($ssh_key_request, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
     {
-        list($response) = $this->accountSshKeysCreateWithHttpInfo($ssh_key, $contentType);
+        list($response) = $this->accountSshKeysCreateWithHttpInfo($ssh_key_request, $contentType);
         return $response;
     }
 
     /**
      * Operation accountSshKeysCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyRequest $ssh_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SSHKey, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountSshKeysCreateWithHttpInfo($ssh_key = null, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
+    public function accountSshKeysCreateWithHttpInfo($ssh_key_request, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
     {
-        $request = $this->accountSshKeysCreateRequest($ssh_key, $contentType);
+        $request = $this->accountSshKeysCreateRequest($ssh_key_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3614,15 +3614,15 @@ class AccountApi
     /**
      * Operation accountSshKeysCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyRequest $ssh_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountSshKeysCreateAsync($ssh_key = null, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
+    public function accountSshKeysCreateAsync($ssh_key_request, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
     {
-        return $this->accountSshKeysCreateAsyncWithHttpInfo($ssh_key, $contentType)
+        return $this->accountSshKeysCreateAsyncWithHttpInfo($ssh_key_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3633,16 +3633,16 @@ class AccountApi
     /**
      * Operation accountSshKeysCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyRequest $ssh_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountSshKeysCreateAsyncWithHttpInfo($ssh_key = null, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
+    public function accountSshKeysCreateAsyncWithHttpInfo($ssh_key_request, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SSHKey';
-        $request = $this->accountSshKeysCreateRequest($ssh_key, $contentType);
+        $request = $this->accountSshKeysCreateRequest($ssh_key_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3683,15 +3683,21 @@ class AccountApi
     /**
      * Create request for operation 'accountSshKeysCreate'
      *
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyRequest $ssh_key_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountSshKeysCreateRequest($ssh_key = null, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
+    public function accountSshKeysCreateRequest($ssh_key_request, string $contentType = self::contentTypes['accountSshKeysCreate'][0])
     {
 
+        // verify the required parameter 'ssh_key_request' is set
+        if ($ssh_key_request === null || (is_array($ssh_key_request) && count($ssh_key_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ssh_key_request when calling accountSshKeysCreate'
+            );
+        }
 
 
         $resourcePath = '/api/account/ssh-keys/';
@@ -3712,12 +3718,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($ssh_key)) {
+        if (isset($ssh_key_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ssh_key));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ssh_key_request));
             } else {
-                $httpBody = $ssh_key;
+                $httpBody = $ssh_key_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4249,16 +4255,16 @@ class AccountApi
      * Operation accountSshKeysPartialUpdate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSSHKey|null $patched_ssh_key patched_ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedSSHKeyUpdateRequest|null $patched_ssh_key_update_request patched_ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SSHKey
      */
-    public function accountSshKeysPartialUpdate($id, $patched_ssh_key = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
+    public function accountSshKeysPartialUpdate($id, $patched_ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
     {
-        list($response) = $this->accountSshKeysPartialUpdateWithHttpInfo($id, $patched_ssh_key, $contentType);
+        list($response) = $this->accountSshKeysPartialUpdateWithHttpInfo($id, $patched_ssh_key_update_request, $contentType);
         return $response;
     }
 
@@ -4266,16 +4272,16 @@ class AccountApi
      * Operation accountSshKeysPartialUpdateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSSHKey|null $patched_ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedSSHKeyUpdateRequest|null $patched_ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SSHKey, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountSshKeysPartialUpdateWithHttpInfo($id, $patched_ssh_key = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
+    public function accountSshKeysPartialUpdateWithHttpInfo($id, $patched_ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
     {
-        $request = $this->accountSshKeysPartialUpdateRequest($id, $patched_ssh_key, $contentType);
+        $request = $this->accountSshKeysPartialUpdateRequest($id, $patched_ssh_key_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4350,15 +4356,15 @@ class AccountApi
      * Operation accountSshKeysPartialUpdateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSSHKey|null $patched_ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedSSHKeyUpdateRequest|null $patched_ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountSshKeysPartialUpdateAsync($id, $patched_ssh_key = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
+    public function accountSshKeysPartialUpdateAsync($id, $patched_ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
     {
-        return $this->accountSshKeysPartialUpdateAsyncWithHttpInfo($id, $patched_ssh_key, $contentType)
+        return $this->accountSshKeysPartialUpdateAsyncWithHttpInfo($id, $patched_ssh_key_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4370,16 +4376,16 @@ class AccountApi
      * Operation accountSshKeysPartialUpdateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSSHKey|null $patched_ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedSSHKeyUpdateRequest|null $patched_ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountSshKeysPartialUpdateAsyncWithHttpInfo($id, $patched_ssh_key = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
+    public function accountSshKeysPartialUpdateAsyncWithHttpInfo($id, $patched_ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SSHKey';
-        $request = $this->accountSshKeysPartialUpdateRequest($id, $patched_ssh_key, $contentType);
+        $request = $this->accountSshKeysPartialUpdateRequest($id, $patched_ssh_key_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4421,13 +4427,13 @@ class AccountApi
      * Create request for operation 'accountSshKeysPartialUpdate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedSSHKey|null $patched_ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedSSHKeyUpdateRequest|null $patched_ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountSshKeysPartialUpdateRequest($id, $patched_ssh_key = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
+    public function accountSshKeysPartialUpdateRequest($id, $patched_ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -4465,12 +4471,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($patched_ssh_key)) {
+        if (isset($patched_ssh_key_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_ssh_key));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_ssh_key_update_request));
             } else {
-                $httpBody = $patched_ssh_key;
+                $httpBody = $patched_ssh_key_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4792,16 +4798,16 @@ class AccountApi
      * Operation accountSshKeysUpdate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyUpdateRequest|null $ssh_key_update_request ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\SSHKey
      */
-    public function accountSshKeysUpdate($id, $ssh_key = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
+    public function accountSshKeysUpdate($id, $ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
     {
-        list($response) = $this->accountSshKeysUpdateWithHttpInfo($id, $ssh_key, $contentType);
+        list($response) = $this->accountSshKeysUpdateWithHttpInfo($id, $ssh_key_update_request, $contentType);
         return $response;
     }
 
@@ -4809,16 +4815,16 @@ class AccountApi
      * Operation accountSshKeysUpdateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyUpdateRequest|null $ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\SSHKey, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountSshKeysUpdateWithHttpInfo($id, $ssh_key = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
+    public function accountSshKeysUpdateWithHttpInfo($id, $ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
     {
-        $request = $this->accountSshKeysUpdateRequest($id, $ssh_key, $contentType);
+        $request = $this->accountSshKeysUpdateRequest($id, $ssh_key_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4893,15 +4899,15 @@ class AccountApi
      * Operation accountSshKeysUpdateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyUpdateRequest|null $ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountSshKeysUpdateAsync($id, $ssh_key = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
+    public function accountSshKeysUpdateAsync($id, $ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
     {
-        return $this->accountSshKeysUpdateAsyncWithHttpInfo($id, $ssh_key, $contentType)
+        return $this->accountSshKeysUpdateAsyncWithHttpInfo($id, $ssh_key_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4913,16 +4919,16 @@ class AccountApi
      * Operation accountSshKeysUpdateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyUpdateRequest|null $ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountSshKeysUpdateAsyncWithHttpInfo($id, $ssh_key = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
+    public function accountSshKeysUpdateAsyncWithHttpInfo($id, $ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\SSHKey';
-        $request = $this->accountSshKeysUpdateRequest($id, $ssh_key, $contentType);
+        $request = $this->accountSshKeysUpdateRequest($id, $ssh_key_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4964,13 +4970,13 @@ class AccountApi
      * Create request for operation 'accountSshKeysUpdate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\SSHKey|null $ssh_key (optional)
+     * @param  \PidginHost\Sdk\Model\SSHKeyUpdateRequest|null $ssh_key_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSshKeysUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountSshKeysUpdateRequest($id, $ssh_key = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
+    public function accountSshKeysUpdateRequest($id, $ssh_key_update_request = null, string $contentType = self::contentTypes['accountSshKeysUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -5008,12 +5014,12 @@ class AccountApi
         );
 
         // for model (json/xml)
-        if (isset($ssh_key)) {
+        if (isset($ssh_key_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ssh_key));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ssh_key_update_request));
             } else {
-                $httpBody = $ssh_key;
+                $httpBody = $ssh_key_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -30,7 +30,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 ## `accountApiTokensCreate()`
 
 ```php
-accountApiTokensCreate($api_token_create): \PidginHost\Sdk\Model\APITokenCreate
+accountApiTokensCreate($api_token_create_request): \PidginHost\Sdk\Model\APITokenCreate
 ```
 
 
@@ -61,10 +61,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$api_token_create = new \PidginHost\Sdk\Model\APITokenCreate(); // \PidginHost\Sdk\Model\APITokenCreate
+$api_token_create_request = new \PidginHost\Sdk\Model\APITokenCreateRequest(); // \PidginHost\Sdk\Model\APITokenCreateRequest
 
 try {
-    $result = $apiInstance->accountApiTokensCreate($api_token_create);
+    $result = $apiInstance->accountApiTokensCreate($api_token_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountApiTokensCreate: ', $e->getMessage(), PHP_EOL;
@@ -75,7 +75,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **api_token_create** | [**\PidginHost\Sdk\Model\APITokenCreate**](../Model/APITokenCreate.md)|  | |
+| **api_token_create_request** | [**\PidginHost\Sdk\Model\APITokenCreateRequest**](../Model/APITokenCreateRequest.md)|  | |
 
 ### Return type
 
@@ -230,7 +230,7 @@ try {
 ## `accountCompaniesCreate()`
 
 ```php
-accountCompaniesCreate($company): \PidginHost\Sdk\Model\Company
+accountCompaniesCreate($company_request): \PidginHost\Sdk\Model\Company
 ```
 
 
@@ -261,10 +261,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$company = new \PidginHost\Sdk\Model\Company(); // \PidginHost\Sdk\Model\Company
+$company_request = new \PidginHost\Sdk\Model\CompanyRequest(); // \PidginHost\Sdk\Model\CompanyRequest
 
 try {
-    $result = $apiInstance->accountCompaniesCreate($company);
+    $result = $apiInstance->accountCompaniesCreate($company_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountCompaniesCreate: ', $e->getMessage(), PHP_EOL;
@@ -275,7 +275,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **company** | [**\PidginHost\Sdk\Model\Company**](../Model/Company.md)|  | |
+| **company_request** | [**\PidginHost\Sdk\Model\CompanyRequest**](../Model/CompanyRequest.md)|  | |
 
 ### Return type
 
@@ -430,7 +430,7 @@ try {
 ## `accountCompaniesPartialUpdate()`
 
 ```php
-accountCompaniesPartialUpdate($id, $patched_company): \PidginHost\Sdk\Model\Company
+accountCompaniesPartialUpdate($id, $patched_company_request): \PidginHost\Sdk\Model\Company
 ```
 
 
@@ -462,10 +462,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this company.
-$patched_company = new \PidginHost\Sdk\Model\PatchedCompany(); // \PidginHost\Sdk\Model\PatchedCompany
+$patched_company_request = new \PidginHost\Sdk\Model\PatchedCompanyRequest(); // \PidginHost\Sdk\Model\PatchedCompanyRequest
 
 try {
-    $result = $apiInstance->accountCompaniesPartialUpdate($id, $patched_company);
+    $result = $apiInstance->accountCompaniesPartialUpdate($id, $patched_company_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountCompaniesPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -477,7 +477,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this company. | |
-| **patched_company** | [**\PidginHost\Sdk\Model\PatchedCompany**](../Model/PatchedCompany.md)|  | [optional] |
+| **patched_company_request** | [**\PidginHost\Sdk\Model\PatchedCompanyRequest**](../Model/PatchedCompanyRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -566,7 +566,7 @@ try {
 ## `accountCompaniesUpdate()`
 
 ```php
-accountCompaniesUpdate($id, $company): \PidginHost\Sdk\Model\Company
+accountCompaniesUpdate($id, $company_request): \PidginHost\Sdk\Model\Company
 ```
 
 
@@ -598,10 +598,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this company.
-$company = new \PidginHost\Sdk\Model\Company(); // \PidginHost\Sdk\Model\Company
+$company_request = new \PidginHost\Sdk\Model\CompanyRequest(); // \PidginHost\Sdk\Model\CompanyRequest
 
 try {
-    $result = $apiInstance->accountCompaniesUpdate($id, $company);
+    $result = $apiInstance->accountCompaniesUpdate($id, $company_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountCompaniesUpdate: ', $e->getMessage(), PHP_EOL;
@@ -613,7 +613,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this company. | |
-| **company** | [**\PidginHost\Sdk\Model\Company**](../Model/Company.md)|  | |
+| **company_request** | [**\PidginHost\Sdk\Model\CompanyRequest**](../Model/CompanyRequest.md)|  | |
 
 ### Return type
 
@@ -702,7 +702,7 @@ try {
 ## `accountProfilePartialUpdate()`
 
 ```php
-accountProfilePartialUpdate($patched_profile): \PidginHost\Sdk\Model\Profile
+accountProfilePartialUpdate($patched_profile_request): \PidginHost\Sdk\Model\Profile
 ```
 
 
@@ -733,10 +733,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$patched_profile = new \PidginHost\Sdk\Model\PatchedProfile(); // \PidginHost\Sdk\Model\PatchedProfile
+$patched_profile_request = new \PidginHost\Sdk\Model\PatchedProfileRequest(); // \PidginHost\Sdk\Model\PatchedProfileRequest
 
 try {
-    $result = $apiInstance->accountProfilePartialUpdate($patched_profile);
+    $result = $apiInstance->accountProfilePartialUpdate($patched_profile_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountProfilePartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -747,7 +747,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **patched_profile** | [**\PidginHost\Sdk\Model\PatchedProfile**](../Model/PatchedProfile.md)|  | [optional] |
+| **patched_profile_request** | [**\PidginHost\Sdk\Model\PatchedProfileRequest**](../Model/PatchedProfileRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -833,7 +833,7 @@ This endpoint does not need any parameter.
 ## `accountProfileUpdate()`
 
 ```php
-accountProfileUpdate($profile): \PidginHost\Sdk\Model\Profile
+accountProfileUpdate($profile_request): \PidginHost\Sdk\Model\Profile
 ```
 
 
@@ -864,10 +864,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$profile = new \PidginHost\Sdk\Model\Profile(); // \PidginHost\Sdk\Model\Profile
+$profile_request = new \PidginHost\Sdk\Model\ProfileRequest(); // \PidginHost\Sdk\Model\ProfileRequest
 
 try {
-    $result = $apiInstance->accountProfileUpdate($profile);
+    $result = $apiInstance->accountProfileUpdate($profile_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountProfileUpdate: ', $e->getMessage(), PHP_EOL;
@@ -878,7 +878,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **profile** | [**\PidginHost\Sdk\Model\Profile**](../Model/Profile.md)|  | |
+| **profile_request** | [**\PidginHost\Sdk\Model\ProfileRequest**](../Model/ProfileRequest.md)|  | |
 
 ### Return type
 
@@ -900,7 +900,7 @@ try {
 ## `accountSshKeysCreate()`
 
 ```php
-accountSshKeysCreate($ssh_key): \PidginHost\Sdk\Model\SSHKey
+accountSshKeysCreate($ssh_key_request): \PidginHost\Sdk\Model\SSHKey
 ```
 
 
@@ -931,10 +931,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ssh_key = new \PidginHost\Sdk\Model\SSHKey(); // \PidginHost\Sdk\Model\SSHKey
+$ssh_key_request = new \PidginHost\Sdk\Model\SSHKeyRequest(); // \PidginHost\Sdk\Model\SSHKeyRequest
 
 try {
-    $result = $apiInstance->accountSshKeysCreate($ssh_key);
+    $result = $apiInstance->accountSshKeysCreate($ssh_key_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountSshKeysCreate: ', $e->getMessage(), PHP_EOL;
@@ -945,7 +945,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ssh_key** | [**\PidginHost\Sdk\Model\SSHKey**](../Model/SSHKey.md)|  | [optional] |
+| **ssh_key_request** | [**\PidginHost\Sdk\Model\SSHKeyRequest**](../Model/SSHKeyRequest.md)|  | |
 
 ### Return type
 
@@ -1100,7 +1100,7 @@ try {
 ## `accountSshKeysPartialUpdate()`
 
 ```php
-accountSshKeysPartialUpdate($id, $patched_ssh_key): \PidginHost\Sdk\Model\SSHKey
+accountSshKeysPartialUpdate($id, $patched_ssh_key_update_request): \PidginHost\Sdk\Model\SSHKey
 ```
 
 
@@ -1132,10 +1132,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     $config
 );
 $id = 'id_example'; // string
-$patched_ssh_key = new \PidginHost\Sdk\Model\PatchedSSHKey(); // \PidginHost\Sdk\Model\PatchedSSHKey
+$patched_ssh_key_update_request = new \PidginHost\Sdk\Model\PatchedSSHKeyUpdateRequest(); // \PidginHost\Sdk\Model\PatchedSSHKeyUpdateRequest
 
 try {
-    $result = $apiInstance->accountSshKeysPartialUpdate($id, $patched_ssh_key);
+    $result = $apiInstance->accountSshKeysPartialUpdate($id, $patched_ssh_key_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountSshKeysPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1147,7 +1147,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **patched_ssh_key** | [**\PidginHost\Sdk\Model\PatchedSSHKey**](../Model/PatchedSSHKey.md)|  | [optional] |
+| **patched_ssh_key_update_request** | [**\PidginHost\Sdk\Model\PatchedSSHKeyUpdateRequest**](../Model/PatchedSSHKeyUpdateRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1236,7 +1236,7 @@ try {
 ## `accountSshKeysUpdate()`
 
 ```php
-accountSshKeysUpdate($id, $ssh_key): \PidginHost\Sdk\Model\SSHKey
+accountSshKeysUpdate($id, $ssh_key_update_request): \PidginHost\Sdk\Model\SSHKey
 ```
 
 
@@ -1268,10 +1268,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     $config
 );
 $id = 'id_example'; // string
-$ssh_key = new \PidginHost\Sdk\Model\SSHKey(); // \PidginHost\Sdk\Model\SSHKey
+$ssh_key_update_request = new \PidginHost\Sdk\Model\SSHKeyUpdateRequest(); // \PidginHost\Sdk\Model\SSHKeyUpdateRequest
 
 try {
-    $result = $apiInstance->accountSshKeysUpdate($id, $ssh_key);
+    $result = $apiInstance->accountSshKeysUpdate($id, $ssh_key_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountSshKeysUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1283,7 +1283,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **ssh_key** | [**\PidginHost\Sdk\Model\SSHKey**](../Model/SSHKey.md)|  | [optional] |
+| **ssh_key_update_request** | [**\PidginHost\Sdk\Model\SSHKeyUpdateRequest**](../Model/SSHKeyUpdateRequest.md)|  | [optional] |
 
 ### Return type
 

@@ -100,7 +100,7 @@ try {
 ## `domainDomainCheckAvailabilityCreate()`
 
 ```php
-domainDomainCheckAvailabilityCreate($check_availability): \PidginHost\Sdk\Model\CheckAvailability
+domainDomainCheckAvailabilityCreate($check_availability_request): \PidginHost\Sdk\Model\CheckAvailability
 ```
 
 
@@ -131,10 +131,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     new GuzzleHttp\Client(),
     $config
 );
-$check_availability = new \PidginHost\Sdk\Model\CheckAvailability(); // \PidginHost\Sdk\Model\CheckAvailability
+$check_availability_request = new \PidginHost\Sdk\Model\CheckAvailabilityRequest(); // \PidginHost\Sdk\Model\CheckAvailabilityRequest
 
 try {
-    $result = $apiInstance->domainDomainCheckAvailabilityCreate($check_availability);
+    $result = $apiInstance->domainDomainCheckAvailabilityCreate($check_availability_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainCheckAvailabilityCreate: ', $e->getMessage(), PHP_EOL;
@@ -145,7 +145,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **check_availability** | [**\PidginHost\Sdk\Model\CheckAvailability**](../Model/CheckAvailability.md)|  | |
+| **check_availability_request** | [**\PidginHost\Sdk\Model\CheckAvailabilityRequest**](../Model/CheckAvailabilityRequest.md)|  | |
 
 ### Return type
 
@@ -167,7 +167,7 @@ try {
 ## `domainDomainContactsCreate()`
 
 ```php
-domainDomainContactsCreate($domain, $contacts_update): \PidginHost\Sdk\Model\ContactsUpdateResponse
+domainDomainContactsCreate($domain, $contacts_update_request): \PidginHost\Sdk\Model\ContactsUpdateResponse
 ```
 
 
@@ -199,10 +199,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $domain = 'domain_example'; // string
-$contacts_update = new \PidginHost\Sdk\Model\ContactsUpdate(); // \PidginHost\Sdk\Model\ContactsUpdate
+$contacts_update_request = new \PidginHost\Sdk\Model\ContactsUpdateRequest(); // \PidginHost\Sdk\Model\ContactsUpdateRequest
 
 try {
-    $result = $apiInstance->domainDomainContactsCreate($domain, $contacts_update);
+    $result = $apiInstance->domainDomainContactsCreate($domain, $contacts_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainContactsCreate: ', $e->getMessage(), PHP_EOL;
@@ -214,7 +214,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**|  | |
-| **contacts_update** | [**\PidginHost\Sdk\Model\ContactsUpdate**](../Model/ContactsUpdate.md)|  | |
+| **contacts_update_request** | [**\PidginHost\Sdk\Model\ContactsUpdateRequest**](../Model/ContactsUpdateRequest.md)|  | |
 
 ### Return type
 
@@ -236,7 +236,7 @@ try {
 ## `domainDomainCreate()`
 
 ```php
-domainDomainCreate($domain_create): \PidginHost\Sdk\Model\DomainCreate
+domainDomainCreate($domain_create_request): \PidginHost\Sdk\Model\DomainCreate
 ```
 
 
@@ -267,10 +267,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     new GuzzleHttp\Client(),
     $config
 );
-$domain_create = new \PidginHost\Sdk\Model\DomainCreate(); // \PidginHost\Sdk\Model\DomainCreate
+$domain_create_request = new \PidginHost\Sdk\Model\DomainCreateRequest(); // \PidginHost\Sdk\Model\DomainCreateRequest
 
 try {
-    $result = $apiInstance->domainDomainCreate($domain_create);
+    $result = $apiInstance->domainDomainCreate($domain_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainCreate: ', $e->getMessage(), PHP_EOL;
@@ -281,7 +281,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **domain_create** | [**\PidginHost\Sdk\Model\DomainCreate**](../Model/DomainCreate.md)|  | |
+| **domain_create_request** | [**\PidginHost\Sdk\Model\DomainCreateRequest**](../Model/DomainCreateRequest.md)|  | |
 
 ### Return type
 
@@ -303,7 +303,7 @@ try {
 ## `domainDomainDnsCreate()`
 
 ```php
-domainDomainDnsCreate($domain, $dns_glue): \PidginHost\Sdk\Model\DNSGlue
+domainDomainDnsCreate($domain, $dns_glue_request): \PidginHost\Sdk\Model\DNSGlue
 ```
 
 
@@ -335,10 +335,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $domain = 'domain_example'; // string
-$dns_glue = new \PidginHost\Sdk\Model\DNSGlue(); // \PidginHost\Sdk\Model\DNSGlue
+$dns_glue_request = new \PidginHost\Sdk\Model\DNSGlueRequest(); // \PidginHost\Sdk\Model\DNSGlueRequest
 
 try {
-    $result = $apiInstance->domainDomainDnsCreate($domain, $dns_glue);
+    $result = $apiInstance->domainDomainDnsCreate($domain, $dns_glue_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainDnsCreate: ', $e->getMessage(), PHP_EOL;
@@ -350,7 +350,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**|  | |
-| **dns_glue** | [**\PidginHost\Sdk\Model\DNSGlue**](../Model/DNSGlue.md)|  | |
+| **dns_glue_request** | [**\PidginHost\Sdk\Model\DNSGlueRequest**](../Model/DNSGlueRequest.md)|  | |
 
 ### Return type
 
@@ -576,7 +576,7 @@ try {
 ## `domainDomainNameserversCreate()`
 
 ```php
-domainDomainNameserversCreate($domain, $nameservers_update): \PidginHost\Sdk\Model\NameserversUpdateResponse
+domainDomainNameserversCreate($domain, $nameservers_update_request): \PidginHost\Sdk\Model\NameserversUpdateResponse
 ```
 
 
@@ -608,10 +608,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $domain = 'domain_example'; // string
-$nameservers_update = new \PidginHost\Sdk\Model\NameserversUpdate(); // \PidginHost\Sdk\Model\NameserversUpdate
+$nameservers_update_request = new \PidginHost\Sdk\Model\NameserversUpdateRequest(); // \PidginHost\Sdk\Model\NameserversUpdateRequest
 
 try {
-    $result = $apiInstance->domainDomainNameserversCreate($domain, $nameservers_update);
+    $result = $apiInstance->domainDomainNameserversCreate($domain, $nameservers_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainNameserversCreate: ', $e->getMessage(), PHP_EOL;
@@ -623,7 +623,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**|  | |
-| **nameservers_update** | [**\PidginHost\Sdk\Model\NameserversUpdate**](../Model/NameserversUpdate.md)|  | |
+| **nameservers_update_request** | [**\PidginHost\Sdk\Model\NameserversUpdateRequest**](../Model/NameserversUpdateRequest.md)|  | |
 
 ### Return type
 
@@ -645,7 +645,7 @@ try {
 ## `domainDomainPartialUpdate()`
 
 ```php
-domainDomainPartialUpdate($domain, $patched_domain): \PidginHost\Sdk\Model\Domain
+domainDomainPartialUpdate($domain, $patched_domain_request): \PidginHost\Sdk\Model\Domain
 ```
 
 
@@ -677,10 +677,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $domain = 'domain_example'; // string
-$patched_domain = new \PidginHost\Sdk\Model\PatchedDomain(); // \PidginHost\Sdk\Model\PatchedDomain
+$patched_domain_request = new \PidginHost\Sdk\Model\PatchedDomainRequest(); // \PidginHost\Sdk\Model\PatchedDomainRequest
 
 try {
-    $result = $apiInstance->domainDomainPartialUpdate($domain, $patched_domain);
+    $result = $apiInstance->domainDomainPartialUpdate($domain, $patched_domain_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -692,7 +692,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**|  | |
-| **patched_domain** | [**\PidginHost\Sdk\Model\PatchedDomain**](../Model/PatchedDomain.md)|  | [optional] |
+| **patched_domain_request** | [**\PidginHost\Sdk\Model\PatchedDomainRequest**](../Model/PatchedDomainRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -714,7 +714,7 @@ try {
 ## `domainDomainRenewCreate()`
 
 ```php
-domainDomainRenewCreate($domain, $renew_domain): \PidginHost\Sdk\Model\RenewDomain
+domainDomainRenewCreate($domain, $renew_domain_request): \PidginHost\Sdk\Model\RenewDomain
 ```
 
 
@@ -746,10 +746,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $domain = 'domain_example'; // string
-$renew_domain = new \PidginHost\Sdk\Model\RenewDomain(); // \PidginHost\Sdk\Model\RenewDomain
+$renew_domain_request = new \PidginHost\Sdk\Model\RenewDomainRequest(); // \PidginHost\Sdk\Model\RenewDomainRequest
 
 try {
-    $result = $apiInstance->domainDomainRenewCreate($domain, $renew_domain);
+    $result = $apiInstance->domainDomainRenewCreate($domain, $renew_domain_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainRenewCreate: ', $e->getMessage(), PHP_EOL;
@@ -761,7 +761,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**|  | |
-| **renew_domain** | [**\PidginHost\Sdk\Model\RenewDomain**](../Model/RenewDomain.md)|  | |
+| **renew_domain_request** | [**\PidginHost\Sdk\Model\RenewDomainRequest**](../Model/RenewDomainRequest.md)|  | |
 
 ### Return type
 
@@ -850,7 +850,7 @@ try {
 ## `domainDomainTransferRoDomainCreate()`
 
 ```php
-domainDomainTransferRoDomainCreate($transfer_ro_domain): \PidginHost\Sdk\Model\TransferRoDomain
+domainDomainTransferRoDomainCreate($transfer_ro_domain_request): \PidginHost\Sdk\Model\TransferRoDomain
 ```
 
 
@@ -881,10 +881,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     new GuzzleHttp\Client(),
     $config
 );
-$transfer_ro_domain = new \PidginHost\Sdk\Model\TransferRoDomain(); // \PidginHost\Sdk\Model\TransferRoDomain
+$transfer_ro_domain_request = new \PidginHost\Sdk\Model\TransferRoDomainRequest(); // \PidginHost\Sdk\Model\TransferRoDomainRequest
 
 try {
-    $result = $apiInstance->domainDomainTransferRoDomainCreate($transfer_ro_domain);
+    $result = $apiInstance->domainDomainTransferRoDomainCreate($transfer_ro_domain_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainTransferRoDomainCreate: ', $e->getMessage(), PHP_EOL;
@@ -895,7 +895,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **transfer_ro_domain** | [**\PidginHost\Sdk\Model\TransferRoDomain**](../Model/TransferRoDomain.md)|  | |
+| **transfer_ro_domain_request** | [**\PidginHost\Sdk\Model\TransferRoDomainRequest**](../Model/TransferRoDomainRequest.md)|  | |
 
 ### Return type
 
@@ -917,7 +917,7 @@ try {
 ## `domainDomainUpdate()`
 
 ```php
-domainDomainUpdate($domain, $domain2): \PidginHost\Sdk\Model\Domain
+domainDomainUpdate($domain, $domain_request): \PidginHost\Sdk\Model\Domain
 ```
 
 
@@ -949,10 +949,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $domain = 'domain_example'; // string
-$domain2 = new \PidginHost\Sdk\Model\Domain(); // \PidginHost\Sdk\Model\Domain
+$domain_request = new \PidginHost\Sdk\Model\DomainRequest(); // \PidginHost\Sdk\Model\DomainRequest
 
 try {
-    $result = $apiInstance->domainDomainUpdate($domain, $domain2);
+    $result = $apiInstance->domainDomainUpdate($domain, $domain_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainUpdate: ', $e->getMessage(), PHP_EOL;
@@ -964,7 +964,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain** | **string**|  | |
-| **domain2** | [**\PidginHost\Sdk\Model\Domain**](../Model/Domain.md)|  | [optional] |
+| **domain_request** | [**\PidginHost\Sdk\Model\DomainRequest**](../Model/DomainRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -986,7 +986,7 @@ try {
 ## `domainRegistrantsCreate()`
 
 ```php
-domainRegistrantsCreate($domain_registrant): \PidginHost\Sdk\Model\DomainRegistrant
+domainRegistrantsCreate($domain_registrant_request): \PidginHost\Sdk\Model\DomainRegistrant
 ```
 
 
@@ -1017,10 +1017,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     new GuzzleHttp\Client(),
     $config
 );
-$domain_registrant = new \PidginHost\Sdk\Model\DomainRegistrant(); // \PidginHost\Sdk\Model\DomainRegistrant
+$domain_registrant_request = new \PidginHost\Sdk\Model\DomainRegistrantRequest(); // \PidginHost\Sdk\Model\DomainRegistrantRequest
 
 try {
-    $result = $apiInstance->domainRegistrantsCreate($domain_registrant);
+    $result = $apiInstance->domainRegistrantsCreate($domain_registrant_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainRegistrantsCreate: ', $e->getMessage(), PHP_EOL;
@@ -1031,7 +1031,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **domain_registrant** | [**\PidginHost\Sdk\Model\DomainRegistrant**](../Model/DomainRegistrant.md)|  | |
+| **domain_registrant_request** | [**\PidginHost\Sdk\Model\DomainRegistrantRequest**](../Model/DomainRegistrantRequest.md)|  | |
 
 ### Return type
 
@@ -1186,7 +1186,7 @@ try {
 ## `domainRegistrantsPartialUpdate()`
 
 ```php
-domainRegistrantsPartialUpdate($id, $patched_domain_registrant): \PidginHost\Sdk\Model\DomainRegistrant
+domainRegistrantsPartialUpdate($id, $patched_domain_registrant_request): \PidginHost\Sdk\Model\DomainRegistrant
 ```
 
 
@@ -1218,10 +1218,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $id = 'id_example'; // string
-$patched_domain_registrant = new \PidginHost\Sdk\Model\PatchedDomainRegistrant(); // \PidginHost\Sdk\Model\PatchedDomainRegistrant
+$patched_domain_registrant_request = new \PidginHost\Sdk\Model\PatchedDomainRegistrantRequest(); // \PidginHost\Sdk\Model\PatchedDomainRegistrantRequest
 
 try {
-    $result = $apiInstance->domainRegistrantsPartialUpdate($id, $patched_domain_registrant);
+    $result = $apiInstance->domainRegistrantsPartialUpdate($id, $patched_domain_registrant_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainRegistrantsPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1233,7 +1233,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **patched_domain_registrant** | [**\PidginHost\Sdk\Model\PatchedDomainRegistrant**](../Model/PatchedDomainRegistrant.md)|  | [optional] |
+| **patched_domain_registrant_request** | [**\PidginHost\Sdk\Model\PatchedDomainRegistrantRequest**](../Model/PatchedDomainRegistrantRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1322,7 +1322,7 @@ try {
 ## `domainRegistrantsUpdate()`
 
 ```php
-domainRegistrantsUpdate($id, $domain_registrant): \PidginHost\Sdk\Model\DomainRegistrant
+domainRegistrantsUpdate($id, $domain_registrant_request): \PidginHost\Sdk\Model\DomainRegistrant
 ```
 
 
@@ -1354,10 +1354,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $id = 'id_example'; // string
-$domain_registrant = new \PidginHost\Sdk\Model\DomainRegistrant(); // \PidginHost\Sdk\Model\DomainRegistrant
+$domain_registrant_request = new \PidginHost\Sdk\Model\DomainRegistrantRequest(); // \PidginHost\Sdk\Model\DomainRegistrantRequest
 
 try {
-    $result = $apiInstance->domainRegistrantsUpdate($id, $domain_registrant);
+    $result = $apiInstance->domainRegistrantsUpdate($id, $domain_registrant_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainRegistrantsUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1369,7 +1369,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **domain_registrant** | [**\PidginHost\Sdk\Model\DomainRegistrant**](../Model/DomainRegistrant.md)|  | |
+| **domain_registrant_request** | [**\PidginHost\Sdk\Model\DomainRegistrantRequest**](../Model/DomainRegistrantRequest.md)|  | |
 
 ### Return type
 

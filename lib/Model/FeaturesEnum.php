@@ -34,7 +34,7 @@ use \PidginHost\Sdk\ObjectSerializer;
  * FeaturesEnum Class Doc Comment
  *
  * @category Class
- * @description * &#x60;cert-manager&#x60; - Certificate manager * &#x60;ceph-csi&#x60; - Ceph CSI * &#x60;metrics-server&#x60; - Metrics Server * &#x60;cloudnative-pg&#x60; - CloudNative PG * &#x60;mariadb-operator&#x60; - MariaDB Operator * &#x60;mongodb-operator&#x60; - MongoDB Operator
+ * @description * &#x60;cert-manager&#x60; - Certificate manager * &#x60;ceph-csi&#x60; - Ceph CSI * &#x60;metrics-server&#x60; - Metrics Server * &#x60;cloudnative-pg&#x60; - CloudNative PG * &#x60;mariadb-operator&#x60; - MariaDB Operator * &#x60;mongodb-operator&#x60; - MongoDB Operator * &#x60;lb-envoy-metrics&#x60; - Load balancer metrics
  * @package  PidginHost\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -56,6 +56,8 @@ class FeaturesEnum
 
     public const MONGODB_OPERATOR = 'mongodb-operator';
 
+    public const LB_ENVOY_METRICS = 'lb-envoy-metrics';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -68,7 +70,8 @@ class FeaturesEnum
             self::METRICS_SERVER,
             self::CLOUDNATIVE_PG,
             self::MARIADB_OPERATOR,
-            self::MONGODB_OPERATOR
+            self::MONGODB_OPERATOR,
+            self::LB_ENVOY_METRICS
         ];
     }
 }

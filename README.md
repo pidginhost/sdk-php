@@ -67,10 +67,10 @@ $apiInstance = new PidginHost\Sdk\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$api_token_create = new \PidginHost\Sdk\Model\APITokenCreate(); // \PidginHost\Sdk\Model\APITokenCreate
+$api_token_create_request = new \PidginHost\Sdk\Model\APITokenCreateRequest(); // \PidginHost\Sdk\Model\APITokenCreateRequest
 
 try {
-    $result = $apiInstance->accountApiTokensCreate($api_token_create);
+    $result = $apiInstance->accountApiTokensCreate($api_token_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->accountApiTokensCreate: ', $e->getMessage(), PHP_EOL;
@@ -248,6 +248,7 @@ Class | Method | HTTP request | Description
 *CloudApi* | [**cloudServersSnapshotsDestroy**](docs/Api/CloudApi.md#cloudserverssnapshotsdestroy) | **DELETE** /api/cloud/servers/{id}/snapshots/{snapshot_name}/ | 
 *CloudApi* | [**cloudServersSnapshotsList**](docs/Api/CloudApi.md#cloudserverssnapshotslist) | **GET** /api/cloud/servers/{id}/snapshots/ | 
 *CloudApi* | [**cloudServersSnapshotsRollbackCreate**](docs/Api/CloudApi.md#cloudserverssnapshotsrollbackcreate) | **POST** /api/cloud/servers/{id}/snapshots/{snapshot_name}/rollback/ | 
+*CloudApi* | [**cloudServersTrafficRetrieve**](docs/Api/CloudApi.md#cloudserverstrafficretrieve) | **GET** /api/cloud/servers/{id}/traffic/ | 
 *CloudApi* | [**cloudServersUpdate**](docs/Api/CloudApi.md#cloudserversupdate) | **PUT** /api/cloud/servers/{id}/ | 
 *CloudApi* | [**cloudServersUsageRetrieve**](docs/Api/CloudApi.md#cloudserversusageretrieve) | **GET** /api/cloud/servers/{id}/usage/ | 
 *CloudApi* | [**cloudServersVolumesCreate**](docs/Api/CloudApi.md#cloudserversvolumescreate) | **POST** /api/cloud/servers/{server_id}/volumes/ | 
@@ -322,7 +323,6 @@ Class | Method | HTTP request | Description
 *EmailApi* | [**emailServicesCreate**](docs/Api/EmailApi.md#emailservicescreate) | **POST** /api/email/services/ | 
 *EmailApi* | [**emailServicesDedicatedIpCreate**](docs/Api/EmailApi.md#emailservicesdedicatedipcreate) | **POST** /api/email/services/{id}/dedicated_ip/ | 
 *EmailApi* | [**emailServicesDedicatedIpDestroy**](docs/Api/EmailApi.md#emailservicesdedicatedipdestroy) | **DELETE** /api/email/services/{id}/dedicated_ip/ | 
-*EmailApi* | [**emailServicesDestroy**](docs/Api/EmailApi.md#emailservicesdestroy) | **DELETE** /api/email/services/{id}/ | 
 *EmailApi* | [**emailServicesDomainsCreate**](docs/Api/EmailApi.md#emailservicesdomainscreate) | **POST** /api/email/services/{service_pk}/domains/ | 
 *EmailApi* | [**emailServicesDomainsList**](docs/Api/EmailApi.md#emailservicesdomainslist) | **GET** /api/email/services/{service_pk}/domains/ | 
 *EmailApi* | [**emailServicesList**](docs/Api/EmailApi.md#emailserviceslist) | **GET** /api/email/services/ | 
@@ -361,6 +361,10 @@ Class | Method | HTTP request | Description
 *KubernetesApi* | [**kubernetesClustersDestroy**](docs/Api/KubernetesApi.md#kubernetesclustersdestroy) | **DELETE** /api/kubernetes/clusters/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersDisconnectVmCreate**](docs/Api/KubernetesApi.md#kubernetesclustersdisconnectvmcreate) | **POST** /api/kubernetes/clusters/{id}/disconnect-vm/ | 
 *KubernetesApi* | [**kubernetesClustersEligibleVmsRetrieve**](docs/Api/KubernetesApi.md#kubernetesclusterseligiblevmsretrieve) | **GET** /api/kubernetes/clusters/{id}/eligible-vms/ | 
+*KubernetesApi* | [**kubernetesClustersEncryptionCreate**](docs/Api/KubernetesApi.md#kubernetesclustersencryptioncreate) | **POST** /api/kubernetes/clusters/{id}/encryption/ | 
+*KubernetesApi* | [**kubernetesClustersEncryptionRecheckCreate**](docs/Api/KubernetesApi.md#kubernetesclustersencryptionrecheckcreate) | **POST** /api/kubernetes/clusters/{id}/encryption/recheck/ | 
+*KubernetesApi* | [**kubernetesClustersEncryptionReconcileCreate**](docs/Api/KubernetesApi.md#kubernetesclustersencryptionreconcilecreate) | **POST** /api/kubernetes/clusters/{id}/encryption/reconcile/ | 
+*KubernetesApi* | [**kubernetesClustersEncryptionRetrieve**](docs/Api/KubernetesApi.md#kubernetesclustersencryptionretrieve) | **GET** /api/kubernetes/clusters/{id}/encryption/ | 
 *KubernetesApi* | [**kubernetesClustersHttproutesCreate**](docs/Api/KubernetesApi.md#kubernetesclustershttproutescreate) | **POST** /api/kubernetes/clusters/{cluster_id}/httproutes/ | 
 *KubernetesApi* | [**kubernetesClustersHttproutesDestroy**](docs/Api/KubernetesApi.md#kubernetesclustershttproutesdestroy) | **DELETE** /api/kubernetes/clusters/{cluster_id}/httproutes/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersHttproutesList**](docs/Api/KubernetesApi.md#kubernetesclustershttprouteslist) | **GET** /api/kubernetes/clusters/{cluster_id}/httproutes/ | 
@@ -377,7 +381,15 @@ Class | Method | HTTP request | Description
 *KubernetesApi* | [**kubernetesClustersLbFirewallRetrieve**](docs/Api/KubernetesApi.md#kubernetesclusterslbfirewallretrieve) | **GET** /api/kubernetes/clusters/{cluster_id}/lb-firewall/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersLbFirewallUpdate**](docs/Api/KubernetesApi.md#kubernetesclusterslbfirewallupdate) | **PUT** /api/kubernetes/clusters/{cluster_id}/lb-firewall/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersList**](docs/Api/KubernetesApi.md#kubernetesclusterslist) | **GET** /api/kubernetes/clusters/ | 
+*KubernetesApi* | [**kubernetesClustersNodeOperationsCancelCreate**](docs/Api/KubernetesApi.md#kubernetesclustersnodeoperationscancelcreate) | **POST** /api/kubernetes/clusters/{cluster_id}/node-operations/{id}/cancel/ | 
+*KubernetesApi* | [**kubernetesClustersNodeOperationsList**](docs/Api/KubernetesApi.md#kubernetesclustersnodeoperationslist) | **GET** /api/kubernetes/clusters/{cluster_id}/node-operations/ | 
+*KubernetesApi* | [**kubernetesClustersNodeOperationsResumeCreate**](docs/Api/KubernetesApi.md#kubernetesclustersnodeoperationsresumecreate) | **POST** /api/kubernetes/clusters/{cluster_id}/node-operations/{id}/resume/ | 
+*KubernetesApi* | [**kubernetesClustersNodeOperationsRetrieve**](docs/Api/KubernetesApi.md#kubernetesclustersnodeoperationsretrieve) | **GET** /api/kubernetes/clusters/{cluster_id}/node-operations/{id}/ | 
+*KubernetesApi* | [**kubernetesClustersNodeOperationsRetryCreate**](docs/Api/KubernetesApi.md#kubernetesclustersnodeoperationsretrycreate) | **POST** /api/kubernetes/clusters/{cluster_id}/node-operations/{id}/retry/ | 
 *KubernetesApi* | [**kubernetesClustersPartialUpdate**](docs/Api/KubernetesApi.md#kubernetesclusterspartialupdate) | **PATCH** /api/kubernetes/clusters/{id}/ | 
+*KubernetesApi* | [**kubernetesClustersPoolRemovalJournalsList**](docs/Api/KubernetesApi.md#kubernetesclusterspoolremovaljournalslist) | **GET** /api/kubernetes/clusters/{cluster_id}/pool-removal-journals/ | 
+*KubernetesApi* | [**kubernetesClustersPoolRemovalJournalsResumeCreate**](docs/Api/KubernetesApi.md#kubernetesclusterspoolremovaljournalsresumecreate) | **POST** /api/kubernetes/clusters/{cluster_id}/pool-removal-journals/{id}/resume/ | 
+*KubernetesApi* | [**kubernetesClustersPoolRemovalJournalsRetrieve**](docs/Api/KubernetesApi.md#kubernetesclusterspoolremovaljournalsretrieve) | **GET** /api/kubernetes/clusters/{cluster_id}/pool-removal-journals/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersPortForwardsCreate**](docs/Api/KubernetesApi.md#kubernetesclustersportforwardscreate) | **POST** /api/kubernetes/clusters/{cluster_id}/port-forwards/ | 
 *KubernetesApi* | [**kubernetesClustersPortForwardsDestroy**](docs/Api/KubernetesApi.md#kubernetesclustersportforwardsdestroy) | **DELETE** /api/kubernetes/clusters/{cluster_id}/port-forwards/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersPortForwardsList**](docs/Api/KubernetesApi.md#kubernetesclustersportforwardslist) | **GET** /api/kubernetes/clusters/{cluster_id}/port-forwards/ | 
@@ -390,6 +402,7 @@ Class | Method | HTTP request | Description
 *KubernetesApi* | [**kubernetesClustersResourcePoolsNodesDestroy**](docs/Api/KubernetesApi.md#kubernetesclustersresourcepoolsnodesdestroy) | **DELETE** /api/kubernetes/clusters/{cluster_id}/resource-pools/{pool_id}/nodes/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersResourcePoolsNodesList**](docs/Api/KubernetesApi.md#kubernetesclustersresourcepoolsnodeslist) | **GET** /api/kubernetes/clusters/{cluster_id}/resource-pools/{pool_id}/nodes/ | 
 *KubernetesApi* | [**kubernetesClustersResourcePoolsNodesMetricsRetrieve**](docs/Api/KubernetesApi.md#kubernetesclustersresourcepoolsnodesmetricsretrieve) | **GET** /api/kubernetes/clusters/{cluster_id}/resource-pools/{pool_id}/nodes/{id}/metrics/ | 
+*KubernetesApi* | [**kubernetesClustersResourcePoolsNodesRebootCreate**](docs/Api/KubernetesApi.md#kubernetesclustersresourcepoolsnodesrebootcreate) | **POST** /api/kubernetes/clusters/{cluster_id}/resource-pools/{pool_id}/nodes/{id}/reboot/ | 
 *KubernetesApi* | [**kubernetesClustersResourcePoolsNodesRetrieve**](docs/Api/KubernetesApi.md#kubernetesclustersresourcepoolsnodesretrieve) | **GET** /api/kubernetes/clusters/{cluster_id}/resource-pools/{pool_id}/nodes/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersResourcePoolsNodesRrdRetrieve**](docs/Api/KubernetesApi.md#kubernetesclustersresourcepoolsnodesrrdretrieve) | **GET** /api/kubernetes/clusters/{cluster_id}/resource-pools/{pool_id}/nodes/{id}/rrd/ | 
 *KubernetesApi* | [**kubernetesClustersResourcePoolsPartialUpdate**](docs/Api/KubernetesApi.md#kubernetesclustersresourcepoolspartialupdate) | **PATCH** /api/kubernetes/clusters/{cluster_id}/resource-pools/{id}/ | 
@@ -412,6 +425,7 @@ Class | Method | HTTP request | Description
 *KubernetesApi* | [**kubernetesClustersUdproutesUpdate**](docs/Api/KubernetesApi.md#kubernetesclustersudproutesupdate) | **PUT** /api/kubernetes/clusters/{cluster_id}/udproutes/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersUpdate**](docs/Api/KubernetesApi.md#kubernetesclustersupdate) | **PUT** /api/kubernetes/clusters/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersUpgradeFeatureCreate**](docs/Api/KubernetesApi.md#kubernetesclustersupgradefeaturecreate) | **POST** /api/kubernetes/clusters/{id}/upgrade-feature/ | 
+*KubernetesApi* | [**kubernetesClustersUpgradeLbCreate**](docs/Api/KubernetesApi.md#kubernetesclustersupgradelbcreate) | **POST** /api/kubernetes/clusters/{id}/upgrade-lb/ | 
 *OApi* | [**oRegisterCreate**](docs/Api/OApi.md#oregistercreate) | **POST** /o/register | 
 *SchemaApi* | [**schemaRetrieve**](docs/Api/SchemaApi.md#schemaretrieve) | **GET** /api/schema/ | 
 *SupportApi* | [**supportDepartmentsList**](docs/Api/SupportApi.md#supportdepartmentslist) | **GET** /api/support/departments/ | 
@@ -426,69 +440,89 @@ Class | Method | HTTP request | Description
 ## Models
 
 - [APITokenCreate](docs/Model/APITokenCreate.md)
+- [APITokenCreateRequest](docs/Model/APITokenCreateRequest.md)
 - [APITokenList](docs/Model/APITokenList.md)
-- [ActivateFreeDNS](docs/Model/ActivateFreeDNS.md)
+- [ActivateFreeDNSRequest](docs/Model/ActivateFreeDNSRequest.md)
 - [ActivateFreeDNSResponse](docs/Model/ActivateFreeDNSResponse.md)
 - [ActivityLogEntry](docs/Model/ActivityLogEntry.md)
 - [ActivityLogResponse](docs/Model/ActivityLogResponse.md)
 - [AddServerResponse](docs/Model/AddServerResponse.md)
 - [Address](docs/Model/Address.md)
+- [AddressRequest](docs/Model/AddressRequest.md)
 - [ApiCredential](docs/Model/ApiCredential.md)
+- [ApiCredentialCreated](docs/Model/ApiCredentialCreated.md)
 - [AttachIPv4Request](docs/Model/AttachIPv4Request.md)
 - [AttachIPv4Response](docs/Model/AttachIPv4Response.md)
 - [AttachIPv6Request](docs/Model/AttachIPv6Request.md)
 - [AttachIPv6Response](docs/Model/AttachIPv6Response.md)
 - [AttachVolume](docs/Model/AttachVolume.md)
+- [AttachVolumeRequest](docs/Model/AttachVolumeRequest.md)
+- [AttachmentRequest](docs/Model/AttachmentRequest.md)
+- [BlankEnum](docs/Model/BlankEnum.md)
 - [BootISO](docs/Model/BootISO.md)
 - [Bucket](docs/Model/Bucket.md)
 - [BucketCancelResponse](docs/Model/BucketCancelResponse.md)
-- [BucketCreate](docs/Model/BucketCreate.md)
+- [BucketCreateRequest](docs/Model/BucketCreateRequest.md)
 - [BucketCredentials](docs/Model/BucketCredentials.md)
-- [BucketResize](docs/Model/BucketResize.md)
-- [BucketVisibility](docs/Model/BucketVisibility.md)
+- [BucketResizeRequest](docs/Model/BucketResizeRequest.md)
+- [BucketVisibilityRequest](docs/Model/BucketVisibilityRequest.md)
 - [CLISessionCreateResponse](docs/Model/CLISessionCreateResponse.md)
 - [CLISessionPollResponse](docs/Model/CLISessionPollResponse.md)
 - [CLISessionPollResponseStatusEnum](docs/Model/CLISessionPollResponseStatusEnum.md)
 - [CancelServiceResponse](docs/Model/CancelServiceResponse.md)
 - [CategoryEnum](docs/Model/CategoryEnum.md)
-- [ChangeBillingCycle](docs/Model/ChangeBillingCycle.md)
+- [ChangeBillingCycleRequest](docs/Model/ChangeBillingCycleRequest.md)
 - [ChangeBillingCycleResponse](docs/Model/ChangeBillingCycleResponse.md)
-- [ChangeCompany](docs/Model/ChangeCompany.md)
+- [ChangeCompanyRequest](docs/Model/ChangeCompanyRequest.md)
 - [ChangeCompanyResponse](docs/Model/ChangeCompanyResponse.md)
-- [ChangePassword](docs/Model/ChangePassword.md)
+- [ChangePasswordRequest](docs/Model/ChangePasswordRequest.md)
 - [CheckAvailability](docs/Model/CheckAvailability.md)
-- [ClusterAdd](docs/Model/ClusterAdd.md)
+- [CheckAvailabilityRequest](docs/Model/CheckAvailabilityRequest.md)
+- [ClusterAddRequest](docs/Model/ClusterAddRequest.md)
 - [ClusterAddResponse](docs/Model/ClusterAddResponse.md)
 - [ClusterDetail](docs/Model/ClusterDetail.md)
+- [ClusterDetailRequest](docs/Model/ClusterDetailRequest.md)
+- [ClusterEncryption](docs/Model/ClusterEncryption.md)
+- [ClusterEncryptionError](docs/Model/ClusterEncryptionError.md)
+- [ClusterEncryptionOperation](docs/Model/ClusterEncryptionOperation.md)
+- [ClusterEncryptionReconcileRequest](docs/Model/ClusterEncryptionReconcileRequest.md)
+- [ClusterEncryptionRefusal](docs/Model/ClusterEncryptionRefusal.md)
+- [ClusterEncryptionRequest](docs/Model/ClusterEncryptionRequest.md)
+- [ClusterEncryptionStatusEnum](docs/Model/ClusterEncryptionStatusEnum.md)
 - [ClusterPackage](docs/Model/ClusterPackage.md)
 - [ClusterType](docs/Model/ClusterType.md)
 - [ClusterTypeEnum](docs/Model/ClusterTypeEnum.md)
 - [Company](docs/Model/Company.md)
+- [CompanyRequest](docs/Model/CompanyRequest.md)
 - [ConnectVMRequest](docs/Model/ConnectVMRequest.md)
 - [ConnectVMResponse](docs/Model/ConnectVMResponse.md)
 - [ConnectedVM](docs/Model/ConnectedVM.md)
 - [ConnectedVMsResponse](docs/Model/ConnectedVMsResponse.md)
 - [ConsoleToken](docs/Model/ConsoleToken.md)
 - [ContactTypeEnum](docs/Model/ContactTypeEnum.md)
-- [ContactsUpdate](docs/Model/ContactsUpdate.md)
+- [ContactsUpdateRequest](docs/Model/ContactsUpdateRequest.md)
 - [ContactsUpdateResponse](docs/Model/ContactsUpdateResponse.md)
 - [CountryEnum](docs/Model/CountryEnum.md)
+- [CredentialCreateRequest](docs/Model/CredentialCreateRequest.md)
 - [DNSGlue](docs/Model/DNSGlue.md)
+- [DNSGlueRequest](docs/Model/DNSGlueRequest.md)
 - [DNSRecord](docs/Model/DNSRecord.md)
-- [DNSRecordCreate](docs/Model/DNSRecordCreate.md)
+- [DNSRecordCreateRequest](docs/Model/DNSRecordCreateRequest.md)
 - [DNSRecordCreateTypeEnum](docs/Model/DNSRecordCreateTypeEnum.md)
 - [DNSRecordMutateResponse](docs/Model/DNSRecordMutateResponse.md)
-- [DeactivateFreeDNS](docs/Model/DeactivateFreeDNS.md)
+- [DeactivateFreeDNSRequest](docs/Model/DeactivateFreeDNSRequest.md)
 - [DeactivateFreeDNSResponse](docs/Model/DeactivateFreeDNSResponse.md)
-- [DedicatedRDNS](docs/Model/DedicatedRDNS.md)
+- [DedicatedRDNSRequest](docs/Model/DedicatedRDNSRequest.md)
 - [DedicatedServer](docs/Model/DedicatedServer.md)
-- [DeleteRecord](docs/Model/DeleteRecord.md)
+- [DedicatedServerIP](docs/Model/DedicatedServerIP.md)
+- [DedicatedServerStatus](docs/Model/DedicatedServerStatus.md)
+- [DeleteRecordRequest](docs/Model/DeleteRecordRequest.md)
 - [DeleteRecordResponse](docs/Model/DeleteRecordResponse.md)
 - [Department](docs/Model/Department.md)
 - [Deposit](docs/Model/Deposit.md)
-- [DepositCreate](docs/Model/DepositCreate.md)
+- [DepositCreateRequest](docs/Model/DepositCreateRequest.md)
 - [DepositStatusEnum](docs/Model/DepositStatusEnum.md)
-- [DestroyProtection](docs/Model/DestroyProtection.md)
+- [DestroyProtectionRequest](docs/Model/DestroyProtectionRequest.md)
 - [DestroyProtectionResponse](docs/Model/DestroyProtectionResponse.md)
 - [DetachIPv4Response](docs/Model/DetachIPv4Response.md)
 - [DetachIPv6](docs/Model/DetachIPv6.md)
@@ -498,63 +532,90 @@ Class | Method | HTTP request | Description
 - [DisconnectVMResponse](docs/Model/DisconnectVMResponse.md)
 - [DnsSourceEnum](docs/Model/DnsSourceEnum.md)
 - [Domain](docs/Model/Domain.md)
-- [DomainAdd](docs/Model/DomainAdd.md)
+- [DomainAddRequest](docs/Model/DomainAddRequest.md)
 - [DomainCancelResponse](docs/Model/DomainCancelResponse.md)
 - [DomainCreate](docs/Model/DomainCreate.md)
+- [DomainCreateRequest](docs/Model/DomainCreateRequest.md)
 - [DomainRegistrant](docs/Model/DomainRegistrant.md)
+- [DomainRegistrantRequest](docs/Model/DomainRegistrantRequest.md)
+- [DomainRequest](docs/Model/DomainRequest.md)
 - [EligibleVM](docs/Model/EligibleVM.md)
 - [EligibleVMsResponse](docs/Model/EligibleVMsResponse.md)
 - [EmailHistory](docs/Model/EmailHistory.md)
+- [EmailMessageList](docs/Model/EmailMessageList.md)
+- [EmailMessageSummary](docs/Model/EmailMessageSummary.md)
+- [EmailReputation](docs/Model/EmailReputation.md)
+- [EmailSendResponse](docs/Model/EmailSendResponse.md)
+- [EmailSendResponseStatusEnum](docs/Model/EmailSendResponseStatusEnum.md)
 - [EmailService](docs/Model/EmailService.md)
+- [EmailStats](docs/Model/EmailStats.md)
+- [EncryptionModeEnum](docs/Model/EncryptionModeEnum.md)
+- [EncryptionReasonCodeEnum](docs/Model/EncryptionReasonCodeEnum.md)
 - [FeatureUpgradeRequest](docs/Model/FeatureUpgradeRequest.md)
 - [FeatureUpgradeResponse](docs/Model/FeatureUpgradeResponse.md)
 - [FeaturesEnum](docs/Model/FeaturesEnum.md)
 - [FirewallRule](docs/Model/FirewallRule.md)
 - [FirewallRuleDirectionEnum](docs/Model/FirewallRuleDirectionEnum.md)
+- [FirewallRuleRequest](docs/Model/FirewallRuleRequest.md)
 - [FirewallRulesSet](docs/Model/FirewallRulesSet.md)
+- [FirewallRulesSetRequest](docs/Model/FirewallRulesSetRequest.md)
 - [FirewallRulesSetStatusEnum](docs/Model/FirewallRulesSetStatusEnum.md)
 - [FloatingIPAuthorization](docs/Model/FloatingIPAuthorization.md)
 - [FloatingIPAuthorizeRequest](docs/Model/FloatingIPAuthorizeRequest.md)
 - [FloatingIPSummary](docs/Model/FloatingIPSummary.md)
 - [FloatingIPv4](docs/Model/FloatingIPv4.md)
 - [FloatingIPv4AuthorizeResponse](docs/Model/FloatingIPv4AuthorizeResponse.md)
-- [FloatingIPv4Create](docs/Model/FloatingIPv4Create.md)
+- [FloatingIPv4CreateRequest](docs/Model/FloatingIPv4CreateRequest.md)
 - [FloatingIPv4UnauthorizeResponse](docs/Model/FloatingIPv4UnauthorizeResponse.md)
 - [FloatingIPv6](docs/Model/FloatingIPv6.md)
 - [FloatingIPv6AuthorizeResponse](docs/Model/FloatingIPv6AuthorizeResponse.md)
-- [FloatingIPv6Create](docs/Model/FloatingIPv6Create.md)
+- [FloatingIPv6CreateRequest](docs/Model/FloatingIPv6CreateRequest.md)
 - [FloatingIPv6UnauthorizeResponse](docs/Model/FloatingIPv6UnauthorizeResponse.md)
 - [FreeDNSDomain](docs/Model/FreeDNSDomain.md)
 - [FundsBalanceResponse](docs/Model/FundsBalanceResponse.md)
 - [FundsLog](docs/Model/FundsLog.md)
 - [FwPolicyOutEnum](docs/Model/FwPolicyOutEnum.md)
 - [HTTPRoute](docs/Model/HTTPRoute.md)
+- [HTTPRouteRequest](docs/Model/HTTPRouteRequest.md)
 - [HardwareGeneration](docs/Model/HardwareGeneration.md)
 - [HostingChangePasswordResponse](docs/Model/HostingChangePasswordResponse.md)
 - [HostingService](docs/Model/HostingService.md)
 - [InboundRoute](docs/Model/InboundRoute.md)
+- [InboundRouteCreateRequest](docs/Model/InboundRouteCreateRequest.md)
+- [InboundRouteWriteResponse](docs/Model/InboundRouteWriteResponse.md)
 - [InvoiceDetail](docs/Model/InvoiceDetail.md)
 - [InvoiceList](docs/Model/InvoiceList.md)
+- [InvoiceService](docs/Model/InvoiceService.md)
 - [InvoiceStatusEnum](docs/Model/InvoiceStatusEnum.md)
 - [IsoBootRequest](docs/Model/IsoBootRequest.md)
 - [K8sPortForward](docs/Model/K8sPortForward.md)
+- [K8sPortForwardRequest](docs/Model/K8sPortForwardRequest.md)
 - [KubeUpgradeResponse](docs/Model/KubeUpgradeResponse.md)
 - [KubeVersionEnum](docs/Model/KubeVersionEnum.md)
 - [LBFirewallRule](docs/Model/LBFirewallRule.md)
 - [LBFirewallRuleActionEnum](docs/Model/LBFirewallRuleActionEnum.md)
 - [LBFirewallRuleDirectionEnum](docs/Model/LBFirewallRuleDirectionEnum.md)
-- [LowBalanceSettings](docs/Model/LowBalanceSettings.md)
+- [LBFirewallRuleRequest](docs/Model/LBFirewallRuleRequest.md)
+- [LBUpgradeDispatchResponse](docs/Model/LBUpgradeDispatchResponse.md)
+- [LBUpgradePlanResponse](docs/Model/LBUpgradePlanResponse.md)
+- [LBUpgradeRequest](docs/Model/LBUpgradeRequest.md)
+- [LowBalanceSettingsRequest](docs/Model/LowBalanceSettingsRequest.md)
 - [ModeEnum](docs/Model/ModeEnum.md)
-- [NameserversUpdate](docs/Model/NameserversUpdate.md)
+- [NameserversUpdateRequest](docs/Model/NameserversUpdateRequest.md)
 - [NameserversUpdateResponse](docs/Model/NameserversUpdateResponse.md)
 - [NodeMetricsResponse](docs/Model/NodeMetricsResponse.md)
+- [NodeOperation](docs/Model/NodeOperation.md)
+- [NodeOperationKindEnum](docs/Model/NodeOperationKindEnum.md)
+- [NodeOperationRebootRequest](docs/Model/NodeOperationRebootRequest.md)
+- [NodeOperationRetryRequest](docs/Model/NodeOperationRetryRequest.md)
+- [NodeOperationSourceEnum](docs/Model/NodeOperationSourceEnum.md)
+- [NodeOperationStatusEnum](docs/Model/NodeOperationStatusEnum.md)
 - [NodeRRDResponse](docs/Model/NodeRRDResponse.md)
 - [NotificationSettingsResponse](docs/Model/NotificationSettingsResponse.md)
 - [OSImage](docs/Model/OSImage.md)
 - [OperationEnum](docs/Model/OperationEnum.md)
 - [PaginatedAPITokenListList](docs/Model/PaginatedAPITokenListList.md)
 - [PaginatedApiCredentialList](docs/Model/PaginatedApiCredentialList.md)
-- [PaginatedBootISOList](docs/Model/PaginatedBootISOList.md)
 - [PaginatedClusterDetailList](docs/Model/PaginatedClusterDetailList.md)
 - [PaginatedClusterTypeList](docs/Model/PaginatedClusterTypeList.md)
 - [PaginatedCompanyList](docs/Model/PaginatedCompanyList.md)
@@ -575,7 +636,9 @@ Class | Method | HTTP request | Description
 - [PaginatedInvoiceListList](docs/Model/PaginatedInvoiceListList.md)
 - [PaginatedK8sPortForwardList](docs/Model/PaginatedK8sPortForwardList.md)
 - [PaginatedLBFirewallRuleList](docs/Model/PaginatedLBFirewallRuleList.md)
+- [PaginatedNodeOperationList](docs/Model/PaginatedNodeOperationList.md)
 - [PaginatedOSImageList](docs/Model/PaginatedOSImageList.md)
+- [PaginatedPoolRemovalJournalList](docs/Model/PaginatedPoolRemovalJournalList.md)
 - [PaginatedPrivateNetworkList](docs/Model/PaginatedPrivateNetworkList.md)
 - [PaginatedPublicIPv4List](docs/Model/PaginatedPublicIPv4List.md)
 - [PaginatedPublicIPv6List](docs/Model/PaginatedPublicIPv6List.md)
@@ -588,7 +651,6 @@ Class | Method | HTTP request | Description
 - [PaginatedServerProductList](docs/Model/PaginatedServerProductList.md)
 - [PaginatedServiceListList](docs/Model/PaginatedServiceListList.md)
 - [PaginatedSmtpCredentialList](docs/Model/PaginatedSmtpCredentialList.md)
-- [PaginatedSnapshotList](docs/Model/PaginatedSnapshotList.md)
 - [PaginatedStorageProductList](docs/Model/PaginatedStorageProductList.md)
 - [PaginatedSubscriptionList](docs/Model/PaginatedSubscriptionList.md)
 - [PaginatedSuppressionEntryList](docs/Model/PaginatedSuppressionEntryList.md)
@@ -596,68 +658,87 @@ Class | Method | HTTP request | Description
 - [PaginatedTLDList](docs/Model/PaginatedTLDList.md)
 - [PaginatedTicketListList](docs/Model/PaginatedTicketListList.md)
 - [PaginatedUDPRouteList](docs/Model/PaginatedUDPRouteList.md)
-- [PatchedClusterDetail](docs/Model/PatchedClusterDetail.md)
-- [PatchedCompany](docs/Model/PatchedCompany.md)
-- [PatchedDomain](docs/Model/PatchedDomain.md)
-- [PatchedDomainRegistrant](docs/Model/PatchedDomainRegistrant.md)
-- [PatchedEmailService](docs/Model/PatchedEmailService.md)
-- [PatchedFirewallRule](docs/Model/PatchedFirewallRule.md)
-- [PatchedFirewallRulesSet](docs/Model/PatchedFirewallRulesSet.md)
-- [PatchedHTTPRoute](docs/Model/PatchedHTTPRoute.md)
-- [PatchedInboundRoute](docs/Model/PatchedInboundRoute.md)
-- [PatchedK8sPortForward](docs/Model/PatchedK8sPortForward.md)
-- [PatchedLBFirewallRule](docs/Model/PatchedLBFirewallRule.md)
-- [PatchedPrivateNetwork](docs/Model/PatchedPrivateNetwork.md)
-- [PatchedProfile](docs/Model/PatchedProfile.md)
-- [PatchedResourcePool](docs/Model/PatchedResourcePool.md)
-- [PatchedSSHKey](docs/Model/PatchedSSHKey.md)
-- [PatchedServerDetail](docs/Model/PatchedServerDetail.md)
-- [PatchedSubscribe](docs/Model/PatchedSubscribe.md)
-- [PatchedTCPRoute](docs/Model/PatchedTCPRoute.md)
-- [PatchedUDPRoute](docs/Model/PatchedUDPRoute.md)
-- [PatchedVolume](docs/Model/PatchedVolume.md)
+- [PatchedClusterDetailRequest](docs/Model/PatchedClusterDetailRequest.md)
+- [PatchedCompanyRequest](docs/Model/PatchedCompanyRequest.md)
+- [PatchedDomainRegistrantRequest](docs/Model/PatchedDomainRegistrantRequest.md)
+- [PatchedDomainRequest](docs/Model/PatchedDomainRequest.md)
+- [PatchedFirewallRuleRequest](docs/Model/PatchedFirewallRuleRequest.md)
+- [PatchedFirewallRulesSetRequest](docs/Model/PatchedFirewallRulesSetRequest.md)
+- [PatchedHTTPRouteRequest](docs/Model/PatchedHTTPRouteRequest.md)
+- [PatchedInboundRouteCreateRequest](docs/Model/PatchedInboundRouteCreateRequest.md)
+- [PatchedK8sPortForwardRequest](docs/Model/PatchedK8sPortForwardRequest.md)
+- [PatchedLBFirewallRuleRequest](docs/Model/PatchedLBFirewallRuleRequest.md)
+- [PatchedPrivateNetworkUpdateRequest](docs/Model/PatchedPrivateNetworkUpdateRequest.md)
+- [PatchedProfileRequest](docs/Model/PatchedProfileRequest.md)
+- [PatchedResourcePoolRequest](docs/Model/PatchedResourcePoolRequest.md)
+- [PatchedSSHKeyUpdateRequest](docs/Model/PatchedSSHKeyUpdateRequest.md)
+- [PatchedServerDetailRequest](docs/Model/PatchedServerDetailRequest.md)
+- [PatchedTCPRouteRequest](docs/Model/PatchedTCPRouteRequest.md)
+- [PatchedUDPRouteRequest](docs/Model/PatchedUDPRouteRequest.md)
+- [PatchedVolumeUpdateRequest](docs/Model/PatchedVolumeUpdateRequest.md)
 - [PayWithFundsResponse](docs/Model/PayWithFundsResponse.md)
-- [PowerAction](docs/Model/PowerAction.md)
+- [PoolRemovalItem](docs/Model/PoolRemovalItem.md)
+- [PoolRemovalJournal](docs/Model/PoolRemovalJournal.md)
+- [PoolRemovalJournalKindEnum](docs/Model/PoolRemovalJournalKindEnum.md)
+- [PoolRemovalJournalStatusEnum](docs/Model/PoolRemovalJournalStatusEnum.md)
 - [PowerActionActionEnum](docs/Model/PowerActionActionEnum.md)
+- [PowerActionRequest](docs/Model/PowerActionRequest.md)
 - [PowerActionResponse](docs/Model/PowerActionResponse.md)
 - [PowerManagement](docs/Model/PowerManagement.md)
 - [PowerManagementRequest](docs/Model/PowerManagementRequest.md)
 - [PowerManagementRequestActionEnum](docs/Model/PowerManagementRequestActionEnum.md)
 - [PrivateNetwork](docs/Model/PrivateNetwork.md)
-- [PrivateNetworkAddHost](docs/Model/PrivateNetworkAddHost.md)
-- [PrivateNetworkRemoveHost](docs/Model/PrivateNetworkRemoveHost.md)
+- [PrivateNetworkAddHostRequest](docs/Model/PrivateNetworkAddHostRequest.md)
+- [PrivateNetworkRemoveHostRequest](docs/Model/PrivateNetworkRemoveHostRequest.md)
+- [PrivateNetworkRequest](docs/Model/PrivateNetworkRequest.md)
+- [PrivateNetworkUpdateRequest](docs/Model/PrivateNetworkUpdateRequest.md)
 - [Profile](docs/Model/Profile.md)
+- [ProfileRequest](docs/Model/ProfileRequest.md)
 - [ProtocolEnum](docs/Model/ProtocolEnum.md)
 - [PublicIPv4](docs/Model/PublicIPv4.md)
 - [PublicIPv6](docs/Model/PublicIPv6.md)
 - [PublicInterface](docs/Model/PublicInterface.md)
+- [PublicInterfaceRequest](docs/Model/PublicInterfaceRequest.md)
 - [RDNSUpdateResponse](docs/Model/RDNSUpdateResponse.md)
 - [ReasonEnum](docs/Model/ReasonEnum.md)
-- [Reinstall](docs/Model/Reinstall.md)
+- [ReinstallRequest](docs/Model/ReinstallRequest.md)
 - [ReinstallResponse](docs/Model/ReinstallResponse.md)
 - [RemoveServerResponse](docs/Model/RemoveServerResponse.md)
 - [RenewDomain](docs/Model/RenewDomain.md)
+- [RenewDomainRequest](docs/Model/RenewDomainRequest.md)
 - [RescueEnterQueued](docs/Model/RescueEnterQueued.md)
 - [RescueExitQueued](docs/Model/RescueExitQueued.md)
 - [ResourcePool](docs/Model/ResourcePool.md)
-- [ResourcePoolAdd](docs/Model/ResourcePoolAdd.md)
+- [ResourcePoolAddRequest](docs/Model/ResourcePoolAddRequest.md)
 - [ResourcePoolAddResponse](docs/Model/ResourcePoolAddResponse.md)
 - [ResourcePoolNode](docs/Model/ResourcePoolNode.md)
+- [ResourcePoolRequest](docs/Model/ResourcePoolRequest.md)
 - [ResourceStatusEnum](docs/Model/ResourceStatusEnum.md)
 - [RetryProvision](docs/Model/RetryProvision.md)
 - [ReverseDNS](docs/Model/ReverseDNS.md)
+- [ReverseDNSRequest](docs/Model/ReverseDNSRequest.md)
 - [SSHKey](docs/Model/SSHKey.md)
+- [SSHKeyRequest](docs/Model/SSHKeyRequest.md)
+- [SSHKeyUpdateRequest](docs/Model/SSHKeyUpdateRequest.md)
 - [SandboxAddress](docs/Model/SandboxAddress.md)
+- [SandboxAddressRequest](docs/Model/SandboxAddressRequest.md)
 - [ScopeEnum](docs/Model/ScopeEnum.md)
+- [SendRequest](docs/Model/SendRequest.md)
 - [SendingDomain](docs/Model/SendingDomain.md)
 - [SendingDomainStatusEnum](docs/Model/SendingDomainStatusEnum.md)
 - [Server](docs/Model/Server.md)
-- [ServerAdd](docs/Model/ServerAdd.md)
+- [ServerAddRequest](docs/Model/ServerAddRequest.md)
 - [ServerAddResponse](docs/Model/ServerAddResponse.md)
 - [ServerDetachIPv4Response](docs/Model/ServerDetachIPv4Response.md)
 - [ServerDetail](docs/Model/ServerDetail.md)
+- [ServerDetailRequest](docs/Model/ServerDetailRequest.md)
+- [ServerNetworks](docs/Model/ServerNetworks.md)
+- [ServerPrivateInterface](docs/Model/ServerPrivateInterface.md)
 - [ServerProduct](docs/Model/ServerProduct.md)
-- [ServerProductUpgrade](docs/Model/ServerProductUpgrade.md)
+- [ServerProductUpgradeRequest](docs/Model/ServerProductUpgradeRequest.md)
+- [ServerPublicInterface](docs/Model/ServerPublicInterface.md)
+- [ServerPublicNetwork](docs/Model/ServerPublicNetwork.md)
+- [ServerTrafficResponse](docs/Model/ServerTrafficResponse.md)
 - [ServerUpgradeResponse](docs/Model/ServerUpgradeResponse.md)
 - [ServerUsageResponse](docs/Model/ServerUsageResponse.md)
 - [Service](docs/Model/Service.md)
@@ -665,39 +746,49 @@ Class | Method | HTTP request | Description
 - [ServiceList](docs/Model/ServiceList.md)
 - [ServiceStatusEnum](docs/Model/ServiceStatusEnum.md)
 - [SmtpCredential](docs/Model/SmtpCredential.md)
+- [SmtpCredentialCreated](docs/Model/SmtpCredentialCreated.md)
 - [Snapshot](docs/Model/Snapshot.md)
-- [SnapshotCreate](docs/Model/SnapshotCreate.md)
 - [SnapshotCreateQueued](docs/Model/SnapshotCreateQueued.md)
+- [SnapshotCreateRequest](docs/Model/SnapshotCreateRequest.md)
 - [SnapshotDeleteQueued](docs/Model/SnapshotDeleteQueued.md)
 - [SnapshotRollbackQueued](docs/Model/SnapshotRollbackQueued.md)
 - [SourceEnum](docs/Model/SourceEnum.md)
+- [StatsDay](docs/Model/StatsDay.md)
+- [StatsTotals](docs/Model/StatsTotals.md)
 - [StorageProduct](docs/Model/StorageProduct.md)
-- [Subscribe](docs/Model/Subscribe.md)
+- [SubscribeRequest](docs/Model/SubscribeRequest.md)
 - [Subscription](docs/Model/Subscription.md)
 - [SubscriptionStatusEnum](docs/Model/SubscriptionStatusEnum.md)
+- [SuppressionAddRequest](docs/Model/SuppressionAddRequest.md)
 - [SuppressionEntry](docs/Model/SuppressionEntry.md)
 - [TCPRoute](docs/Model/TCPRoute.md)
+- [TCPRouteRequest](docs/Model/TCPRouteRequest.md)
 - [TLD](docs/Model/TLD.md)
 - [TalosUpgradeResponse](docs/Model/TalosUpgradeResponse.md)
 - [ThresholdTypeEnum](docs/Model/ThresholdTypeEnum.md)
 - [TicketCloseResponse](docs/Model/TicketCloseResponse.md)
-- [TicketCreate](docs/Model/TicketCreate.md)
 - [TicketCreatePriorityEnum](docs/Model/TicketCreatePriorityEnum.md)
+- [TicketCreateRequest](docs/Model/TicketCreateRequest.md)
 - [TicketDetail](docs/Model/TicketDetail.md)
 - [TicketList](docs/Model/TicketList.md)
 - [TicketMessage](docs/Model/TicketMessage.md)
 - [TicketPriorityEnum](docs/Model/TicketPriorityEnum.md)
 - [TicketReopenResponse](docs/Model/TicketReopenResponse.md)
-- [TicketReply](docs/Model/TicketReply.md)
+- [TicketReplyRequest](docs/Model/TicketReplyRequest.md)
 - [TicketReplyResponse](docs/Model/TicketReplyResponse.md)
 - [TicketStatusEnum](docs/Model/TicketStatusEnum.md)
 - [TierEnum](docs/Model/TierEnum.md)
 - [ToggleAutoPaymentResponse](docs/Model/ToggleAutoPaymentResponse.md)
 - [ToggleCloudVMAccessResponse](docs/Model/ToggleCloudVMAccessResponse.md)
+- [ToggleInboundRequest](docs/Model/ToggleInboundRequest.md)
 - [TransferRoDomain](docs/Model/TransferRoDomain.md)
+- [TransferRoDomainRequest](docs/Model/TransferRoDomainRequest.md)
 - [UDPRoute](docs/Model/UDPRoute.md)
+- [UDPRouteRequest](docs/Model/UDPRouteRequest.md)
 - [VersionEnum](docs/Model/VersionEnum.md)
 - [Volume](docs/Model/Volume.md)
+- [VolumeRequest](docs/Model/VolumeRequest.md)
+- [VolumeUpdateRequest](docs/Model/VolumeUpdateRequest.md)
 
 ## Authorization
 
@@ -708,6 +799,10 @@ Authentication schemes defined for the API:
 - **API key parameter name**: sessionid
 - **Location**: 
 
+
+### emailApiKey
+
+- **Type**: Bearer authentication (phme_<key>)
 
 ### tokenAuth
 
@@ -734,6 +829,6 @@ support@pidginhost.com
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.0.0 (v1)`
-    - Package version: `0.13.0`
+    - Package version: `0.14.0`
     - Generator version: `7.24.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

@@ -142,4 +142,13 @@ class PublicIPv4Test extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "server_id"
+     */
+    public function testPropertyServerId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

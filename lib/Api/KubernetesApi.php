@@ -96,6 +96,18 @@ class KubernetesApi
         'kubernetesClustersEligibleVmsRetrieve' => [
             'application/json',
         ],
+        'kubernetesClustersEncryptionCreate' => [
+            'application/json',
+        ],
+        'kubernetesClustersEncryptionRecheckCreate' => [
+            'application/json',
+        ],
+        'kubernetesClustersEncryptionReconcileCreate' => [
+            'application/json',
+        ],
+        'kubernetesClustersEncryptionRetrieve' => [
+            'application/json',
+        ],
         'kubernetesClustersHttproutesCreate' => [
             'application/json',
         ],
@@ -144,7 +156,31 @@ class KubernetesApi
         'kubernetesClustersList' => [
             'application/json',
         ],
+        'kubernetesClustersNodeOperationsCancelCreate' => [
+            'application/json',
+        ],
+        'kubernetesClustersNodeOperationsList' => [
+            'application/json',
+        ],
+        'kubernetesClustersNodeOperationsResumeCreate' => [
+            'application/json',
+        ],
+        'kubernetesClustersNodeOperationsRetrieve' => [
+            'application/json',
+        ],
+        'kubernetesClustersNodeOperationsRetryCreate' => [
+            'application/json',
+        ],
         'kubernetesClustersPartialUpdate' => [
+            'application/json',
+        ],
+        'kubernetesClustersPoolRemovalJournalsList' => [
+            'application/json',
+        ],
+        'kubernetesClustersPoolRemovalJournalsResumeCreate' => [
+            'application/json',
+        ],
+        'kubernetesClustersPoolRemovalJournalsRetrieve' => [
             'application/json',
         ],
         'kubernetesClustersPortForwardsCreate' => [
@@ -181,6 +217,9 @@ class KubernetesApi
             'application/json',
         ],
         'kubernetesClustersResourcePoolsNodesMetricsRetrieve' => [
+            'application/json',
+        ],
+        'kubernetesClustersResourcePoolsNodesRebootCreate' => [
             'application/json',
         ],
         'kubernetesClustersResourcePoolsNodesRetrieve' => [
@@ -247,6 +286,9 @@ class KubernetesApi
             'application/json',
         ],
         'kubernetesClustersUpgradeFeatureCreate' => [
+            'application/json',
+        ],
+        'kubernetesClustersUpgradeLbCreate' => [
             'application/json',
         ],
     ];
@@ -1109,32 +1151,32 @@ class KubernetesApi
     /**
      * Operation kubernetesClustersCreate
      *
-     * @param  \PidginHost\Sdk\Model\ClusterAdd $cluster_add cluster_add (required)
+     * @param  \PidginHost\Sdk\Model\ClusterAddRequest $cluster_add_request cluster_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ClusterAddResponse
      */
-    public function kubernetesClustersCreate($cluster_add, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
+    public function kubernetesClustersCreate($cluster_add_request, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
     {
-        list($response) = $this->kubernetesClustersCreateWithHttpInfo($cluster_add, $contentType);
+        list($response) = $this->kubernetesClustersCreateWithHttpInfo($cluster_add_request, $contentType);
         return $response;
     }
 
     /**
      * Operation kubernetesClustersCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\ClusterAdd $cluster_add (required)
+     * @param  \PidginHost\Sdk\Model\ClusterAddRequest $cluster_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ClusterAddResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersCreateWithHttpInfo($cluster_add, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
+    public function kubernetesClustersCreateWithHttpInfo($cluster_add_request, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
     {
-        $request = $this->kubernetesClustersCreateRequest($cluster_add, $contentType);
+        $request = $this->kubernetesClustersCreateRequest($cluster_add_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1208,15 +1250,15 @@ class KubernetesApi
     /**
      * Operation kubernetesClustersCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\ClusterAdd $cluster_add (required)
+     * @param  \PidginHost\Sdk\Model\ClusterAddRequest $cluster_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersCreateAsync($cluster_add, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
+    public function kubernetesClustersCreateAsync($cluster_add_request, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
     {
-        return $this->kubernetesClustersCreateAsyncWithHttpInfo($cluster_add, $contentType)
+        return $this->kubernetesClustersCreateAsyncWithHttpInfo($cluster_add_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1227,16 +1269,16 @@ class KubernetesApi
     /**
      * Operation kubernetesClustersCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\ClusterAdd $cluster_add (required)
+     * @param  \PidginHost\Sdk\Model\ClusterAddRequest $cluster_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersCreateAsyncWithHttpInfo($cluster_add, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
+    public function kubernetesClustersCreateAsyncWithHttpInfo($cluster_add_request, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ClusterAddResponse';
-        $request = $this->kubernetesClustersCreateRequest($cluster_add, $contentType);
+        $request = $this->kubernetesClustersCreateRequest($cluster_add_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1277,19 +1319,19 @@ class KubernetesApi
     /**
      * Create request for operation 'kubernetesClustersCreate'
      *
-     * @param  \PidginHost\Sdk\Model\ClusterAdd $cluster_add (required)
+     * @param  \PidginHost\Sdk\Model\ClusterAddRequest $cluster_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersCreateRequest($cluster_add, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
+    public function kubernetesClustersCreateRequest($cluster_add_request, string $contentType = self::contentTypes['kubernetesClustersCreate'][0])
     {
 
-        // verify the required parameter 'cluster_add' is set
-        if ($cluster_add === null || (is_array($cluster_add) && count($cluster_add) === 0)) {
+        // verify the required parameter 'cluster_add_request' is set
+        if ($cluster_add_request === null || (is_array($cluster_add_request) && count($cluster_add_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cluster_add when calling kubernetesClustersCreate'
+                'Missing the required parameter $cluster_add_request when calling kubernetesClustersCreate'
             );
         }
 
@@ -1312,12 +1354,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($cluster_add)) {
+        if (isset($cluster_add_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_add));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_add_request));
             } else {
-                $httpBody = $cluster_add;
+                $httpBody = $cluster_add_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2135,19 +2177,1355 @@ class KubernetesApi
     }
 
     /**
+     * Operation kubernetesClustersEncryptionCreate
+     *
+     * @param  string $id id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionRequest $cluster_encryption_request cluster_encryption_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\ClusterEncryptionOperation|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError
+     */
+    public function kubernetesClustersEncryptionCreate($id, $cluster_encryption_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersEncryptionCreateWithHttpInfo($id, $cluster_encryption_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionCreateWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionRequest $cluster_encryption_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\ClusterEncryptionOperation|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersEncryptionCreateWithHttpInfo($id, $cluster_encryption_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionCreate'][0])
+    {
+        $request = $this->kubernetesClustersEncryptionCreateRequest($id, $cluster_encryption_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionOperation',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\ClusterEncryptionOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionCreateAsync
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionRequest $cluster_encryption_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersEncryptionCreateAsync($id, $cluster_encryption_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionCreate'][0])
+    {
+        return $this->kubernetesClustersEncryptionCreateAsyncWithHttpInfo($id, $cluster_encryption_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionCreateAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionRequest $cluster_encryption_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersEncryptionCreateAsyncWithHttpInfo($id, $cluster_encryption_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\ClusterEncryptionOperation';
+        $request = $this->kubernetesClustersEncryptionCreateRequest($id, $cluster_encryption_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersEncryptionCreate'
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionRequest $cluster_encryption_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersEncryptionCreateRequest($id, $cluster_encryption_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionCreate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersEncryptionCreate'
+            );
+        }
+
+        // verify the required parameter 'cluster_encryption_request' is set
+        if ($cluster_encryption_request === null || (is_array($cluster_encryption_request) && count($cluster_encryption_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_encryption_request when calling kubernetesClustersEncryptionCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{id}/encryption/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($cluster_encryption_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_encryption_request));
+            } else {
+                $httpBody = $cluster_encryption_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionRecheckCreate
+     *
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRecheckCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\ClusterEncryption|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionRefusal
+     */
+    public function kubernetesClustersEncryptionRecheckCreate($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRecheckCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersEncryptionRecheckCreateWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionRecheckCreateWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRecheckCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\ClusterEncryption|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionRefusal, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersEncryptionRecheckCreateWithHttpInfo($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRecheckCreate'][0])
+    {
+        $request = $this->kubernetesClustersEncryptionRecheckCreateRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryption',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 503:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionRefusal',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\ClusterEncryption',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryption',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionRefusal',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionRecheckCreateAsync
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRecheckCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersEncryptionRecheckCreateAsync($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRecheckCreate'][0])
+    {
+        return $this->kubernetesClustersEncryptionRecheckCreateAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionRecheckCreateAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRecheckCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersEncryptionRecheckCreateAsyncWithHttpInfo($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRecheckCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\ClusterEncryption';
+        $request = $this->kubernetesClustersEncryptionRecheckCreateRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersEncryptionRecheckCreate'
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRecheckCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersEncryptionRecheckCreateRequest($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRecheckCreate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersEncryptionRecheckCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{id}/encryption/recheck/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionReconcileCreate
+     *
+     * @param  string $id id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionReconcileRequest $cluster_encryption_reconcile_request cluster_encryption_reconcile_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionReconcileCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\ClusterEncryptionOperation|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError
+     */
+    public function kubernetesClustersEncryptionReconcileCreate($id, $cluster_encryption_reconcile_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionReconcileCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersEncryptionReconcileCreateWithHttpInfo($id, $cluster_encryption_reconcile_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionReconcileCreateWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionReconcileRequest $cluster_encryption_reconcile_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionReconcileCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\ClusterEncryptionOperation|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersEncryptionReconcileCreateWithHttpInfo($id, $cluster_encryption_reconcile_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionReconcileCreate'][0])
+    {
+        $request = $this->kubernetesClustersEncryptionReconcileCreateRequest($id, $cluster_encryption_reconcile_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionOperation',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\ClusterEncryptionOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionReconcileCreateAsync
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionReconcileRequest $cluster_encryption_reconcile_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionReconcileCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersEncryptionReconcileCreateAsync($id, $cluster_encryption_reconcile_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionReconcileCreate'][0])
+    {
+        return $this->kubernetesClustersEncryptionReconcileCreateAsyncWithHttpInfo($id, $cluster_encryption_reconcile_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionReconcileCreateAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionReconcileRequest $cluster_encryption_reconcile_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionReconcileCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersEncryptionReconcileCreateAsyncWithHttpInfo($id, $cluster_encryption_reconcile_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionReconcileCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\ClusterEncryptionOperation';
+        $request = $this->kubernetesClustersEncryptionReconcileCreateRequest($id, $cluster_encryption_reconcile_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersEncryptionReconcileCreate'
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\ClusterEncryptionReconcileRequest $cluster_encryption_reconcile_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionReconcileCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersEncryptionReconcileCreateRequest($id, $cluster_encryption_reconcile_request, string $contentType = self::contentTypes['kubernetesClustersEncryptionReconcileCreate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersEncryptionReconcileCreate'
+            );
+        }
+
+        // verify the required parameter 'cluster_encryption_reconcile_request' is set
+        if ($cluster_encryption_reconcile_request === null || (is_array($cluster_encryption_reconcile_request) && count($cluster_encryption_reconcile_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_encryption_reconcile_request when calling kubernetesClustersEncryptionReconcileCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{id}/encryption/reconcile/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($cluster_encryption_reconcile_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_encryption_reconcile_request));
+            } else {
+                $httpBody = $cluster_encryption_reconcile_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionRetrieve
+     *
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\ClusterEncryption|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError
+     */
+    public function kubernetesClustersEncryptionRetrieve($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRetrieve'][0])
+    {
+        list($response) = $this->kubernetesClustersEncryptionRetrieveWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionRetrieveWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\ClusterEncryption|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError|\PidginHost\Sdk\Model\ClusterEncryptionError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersEncryptionRetrieveWithHttpInfo($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRetrieve'][0])
+    {
+        $request = $this->kubernetesClustersEncryptionRetrieveRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryption',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\ClusterEncryption',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryption',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ClusterEncryptionError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionRetrieveAsync
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersEncryptionRetrieveAsync($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRetrieve'][0])
+    {
+        return $this->kubernetesClustersEncryptionRetrieveAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersEncryptionRetrieveAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersEncryptionRetrieveAsyncWithHttpInfo($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\ClusterEncryption';
+        $request = $this->kubernetesClustersEncryptionRetrieveRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersEncryptionRetrieve'
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersEncryptionRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersEncryptionRetrieveRequest($id, string $contentType = self::contentTypes['kubernetesClustersEncryptionRetrieve'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersEncryptionRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{id}/encryption/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation kubernetesClustersHttproutesCreate
      *
      * @param  int $cluster_id cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\HTTPRoute
      */
-    public function kubernetesClustersHttproutesCreate($cluster_id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
+    public function kubernetesClustersHttproutesCreate($cluster_id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
     {
-        list($response) = $this->kubernetesClustersHttproutesCreateWithHttpInfo($cluster_id, $http_route, $contentType);
+        list($response) = $this->kubernetesClustersHttproutesCreateWithHttpInfo($cluster_id, $http_route_request, $contentType);
         return $response;
     }
 
@@ -2155,16 +3533,16 @@ class KubernetesApi
      * Operation kubernetesClustersHttproutesCreateWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\HTTPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersHttproutesCreateWithHttpInfo($cluster_id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
+    public function kubernetesClustersHttproutesCreateWithHttpInfo($cluster_id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
     {
-        $request = $this->kubernetesClustersHttproutesCreateRequest($cluster_id, $http_route, $contentType);
+        $request = $this->kubernetesClustersHttproutesCreateRequest($cluster_id, $http_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2239,15 +3617,15 @@ class KubernetesApi
      * Operation kubernetesClustersHttproutesCreateAsync
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersHttproutesCreateAsync($cluster_id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
+    public function kubernetesClustersHttproutesCreateAsync($cluster_id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
     {
-        return $this->kubernetesClustersHttproutesCreateAsyncWithHttpInfo($cluster_id, $http_route, $contentType)
+        return $this->kubernetesClustersHttproutesCreateAsyncWithHttpInfo($cluster_id, $http_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2259,16 +3637,16 @@ class KubernetesApi
      * Operation kubernetesClustersHttproutesCreateAsyncWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersHttproutesCreateAsyncWithHttpInfo($cluster_id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
+    public function kubernetesClustersHttproutesCreateAsyncWithHttpInfo($cluster_id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\HTTPRoute';
-        $request = $this->kubernetesClustersHttproutesCreateRequest($cluster_id, $http_route, $contentType);
+        $request = $this->kubernetesClustersHttproutesCreateRequest($cluster_id, $http_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2310,13 +3688,13 @@ class KubernetesApi
      * Create request for operation 'kubernetesClustersHttproutesCreate'
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersHttproutesCreateRequest($cluster_id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
+    public function kubernetesClustersHttproutesCreateRequest($cluster_id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesCreate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -2326,10 +3704,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'http_route' is set
-        if ($http_route === null || (is_array($http_route) && count($http_route) === 0)) {
+        // verify the required parameter 'http_route_request' is set
+        if ($http_route_request === null || (is_array($http_route_request) && count($http_route_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $http_route when calling kubernetesClustersHttproutesCreate'
+                'Missing the required parameter $http_route_request when calling kubernetesClustersHttproutesCreate'
             );
         }
 
@@ -2360,12 +3738,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($http_route)) {
+        if (isset($http_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($http_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($http_route_request));
             } else {
-                $httpBody = $http_route;
+                $httpBody = $http_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2938,16 +4316,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedHTTPRoute|null $patched_http_route patched_http_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedHTTPRouteRequest|null $patched_http_route_request patched_http_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\HTTPRoute
      */
-    public function kubernetesClustersHttproutesPartialUpdate($cluster_id, $id, $patched_http_route = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
+    public function kubernetesClustersHttproutesPartialUpdate($cluster_id, $id, $patched_http_route_request = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersHttproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_http_route, $contentType);
+        list($response) = $this->kubernetesClustersHttproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_http_route_request, $contentType);
         return $response;
     }
 
@@ -2956,16 +4334,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedHTTPRoute|null $patched_http_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedHTTPRouteRequest|null $patched_http_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\HTTPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersHttproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_http_route = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
+    public function kubernetesClustersHttproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_http_route_request = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
     {
-        $request = $this->kubernetesClustersHttproutesPartialUpdateRequest($cluster_id, $id, $patched_http_route, $contentType);
+        $request = $this->kubernetesClustersHttproutesPartialUpdateRequest($cluster_id, $id, $patched_http_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3041,15 +4419,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedHTTPRoute|null $patched_http_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedHTTPRouteRequest|null $patched_http_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersHttproutesPartialUpdateAsync($cluster_id, $id, $patched_http_route = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
+    public function kubernetesClustersHttproutesPartialUpdateAsync($cluster_id, $id, $patched_http_route_request = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
     {
-        return $this->kubernetesClustersHttproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_http_route, $contentType)
+        return $this->kubernetesClustersHttproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_http_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3062,16 +4440,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedHTTPRoute|null $patched_http_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedHTTPRouteRequest|null $patched_http_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersHttproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_http_route = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
+    public function kubernetesClustersHttproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_http_route_request = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\HTTPRoute';
-        $request = $this->kubernetesClustersHttproutesPartialUpdateRequest($cluster_id, $id, $patched_http_route, $contentType);
+        $request = $this->kubernetesClustersHttproutesPartialUpdateRequest($cluster_id, $id, $patched_http_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3114,13 +4492,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedHTTPRoute|null $patched_http_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedHTTPRouteRequest|null $patched_http_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersHttproutesPartialUpdateRequest($cluster_id, $id, $patched_http_route = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
+    public function kubernetesClustersHttproutesPartialUpdateRequest($cluster_id, $id, $patched_http_route_request = null, string $contentType = self::contentTypes['kubernetesClustersHttproutesPartialUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -3173,12 +4551,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($patched_http_route)) {
+        if (isset($patched_http_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_http_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_http_route_request));
             } else {
-                $httpBody = $patched_http_route;
+                $httpBody = $patched_http_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3521,16 +4899,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\HTTPRoute
      */
-    public function kubernetesClustersHttproutesUpdate($cluster_id, $id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
+    public function kubernetesClustersHttproutesUpdate($cluster_id, $id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersHttproutesUpdateWithHttpInfo($cluster_id, $id, $http_route, $contentType);
+        list($response) = $this->kubernetesClustersHttproutesUpdateWithHttpInfo($cluster_id, $id, $http_route_request, $contentType);
         return $response;
     }
 
@@ -3539,16 +4917,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\HTTPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersHttproutesUpdateWithHttpInfo($cluster_id, $id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
+    public function kubernetesClustersHttproutesUpdateWithHttpInfo($cluster_id, $id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
     {
-        $request = $this->kubernetesClustersHttproutesUpdateRequest($cluster_id, $id, $http_route, $contentType);
+        $request = $this->kubernetesClustersHttproutesUpdateRequest($cluster_id, $id, $http_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3624,15 +5002,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersHttproutesUpdateAsync($cluster_id, $id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
+    public function kubernetesClustersHttproutesUpdateAsync($cluster_id, $id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
     {
-        return $this->kubernetesClustersHttproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $http_route, $contentType)
+        return $this->kubernetesClustersHttproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $http_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3645,16 +5023,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersHttproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
+    public function kubernetesClustersHttproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\HTTPRoute';
-        $request = $this->kubernetesClustersHttproutesUpdateRequest($cluster_id, $id, $http_route, $contentType);
+        $request = $this->kubernetesClustersHttproutesUpdateRequest($cluster_id, $id, $http_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3697,13 +5075,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\HTTPRoute $http_route (required)
+     * @param  \PidginHost\Sdk\Model\HTTPRouteRequest $http_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersHttproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersHttproutesUpdateRequest($cluster_id, $id, $http_route, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
+    public function kubernetesClustersHttproutesUpdateRequest($cluster_id, $id, $http_route_request, string $contentType = self::contentTypes['kubernetesClustersHttproutesUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -3720,10 +5098,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'http_route' is set
-        if ($http_route === null || (is_array($http_route) && count($http_route) === 0)) {
+        // verify the required parameter 'http_route_request' is set
+        if ($http_route_request === null || (is_array($http_route_request) && count($http_route_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $http_route when calling kubernetesClustersHttproutesUpdate'
+                'Missing the required parameter $http_route_request when calling kubernetesClustersHttproutesUpdate'
             );
         }
 
@@ -3762,12 +5140,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($http_route)) {
+        if (isset($http_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($http_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($http_route_request));
             } else {
-                $httpBody = $http_route;
+                $httpBody = $http_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4619,16 +5997,16 @@ class KubernetesApi
      * Operation kubernetesClustersLbFirewallCreate
      *
      * @param  int $cluster_id cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\LBFirewallRule
      */
-    public function kubernetesClustersLbFirewallCreate($cluster_id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
+    public function kubernetesClustersLbFirewallCreate($cluster_id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
     {
-        list($response) = $this->kubernetesClustersLbFirewallCreateWithHttpInfo($cluster_id, $lb_firewall_rule, $contentType);
+        list($response) = $this->kubernetesClustersLbFirewallCreateWithHttpInfo($cluster_id, $lb_firewall_rule_request, $contentType);
         return $response;
     }
 
@@ -4636,16 +6014,16 @@ class KubernetesApi
      * Operation kubernetesClustersLbFirewallCreateWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\LBFirewallRule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersLbFirewallCreateWithHttpInfo($cluster_id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
+    public function kubernetesClustersLbFirewallCreateWithHttpInfo($cluster_id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
     {
-        $request = $this->kubernetesClustersLbFirewallCreateRequest($cluster_id, $lb_firewall_rule, $contentType);
+        $request = $this->kubernetesClustersLbFirewallCreateRequest($cluster_id, $lb_firewall_rule_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4720,15 +6098,15 @@ class KubernetesApi
      * Operation kubernetesClustersLbFirewallCreateAsync
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersLbFirewallCreateAsync($cluster_id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
+    public function kubernetesClustersLbFirewallCreateAsync($cluster_id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
     {
-        return $this->kubernetesClustersLbFirewallCreateAsyncWithHttpInfo($cluster_id, $lb_firewall_rule, $contentType)
+        return $this->kubernetesClustersLbFirewallCreateAsyncWithHttpInfo($cluster_id, $lb_firewall_rule_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4740,16 +6118,16 @@ class KubernetesApi
      * Operation kubernetesClustersLbFirewallCreateAsyncWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersLbFirewallCreateAsyncWithHttpInfo($cluster_id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
+    public function kubernetesClustersLbFirewallCreateAsyncWithHttpInfo($cluster_id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\LBFirewallRule';
-        $request = $this->kubernetesClustersLbFirewallCreateRequest($cluster_id, $lb_firewall_rule, $contentType);
+        $request = $this->kubernetesClustersLbFirewallCreateRequest($cluster_id, $lb_firewall_rule_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4791,13 +6169,13 @@ class KubernetesApi
      * Create request for operation 'kubernetesClustersLbFirewallCreate'
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersLbFirewallCreateRequest($cluster_id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
+    public function kubernetesClustersLbFirewallCreateRequest($cluster_id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallCreate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -4835,12 +6213,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($lb_firewall_rule)) {
+        if (isset($lb_firewall_rule_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($lb_firewall_rule));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($lb_firewall_rule_request));
             } else {
-                $httpBody = $lb_firewall_rule;
+                $httpBody = $lb_firewall_rule_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5413,16 +6791,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRule|null $patched_lb_firewall_rule patched_lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRuleRequest|null $patched_lb_firewall_rule_request patched_lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\LBFirewallRule
      */
-    public function kubernetesClustersLbFirewallPartialUpdate($cluster_id, $id, $patched_lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
+    public function kubernetesClustersLbFirewallPartialUpdate($cluster_id, $id, $patched_lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersLbFirewallPartialUpdateWithHttpInfo($cluster_id, $id, $patched_lb_firewall_rule, $contentType);
+        list($response) = $this->kubernetesClustersLbFirewallPartialUpdateWithHttpInfo($cluster_id, $id, $patched_lb_firewall_rule_request, $contentType);
         return $response;
     }
 
@@ -5431,16 +6809,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRule|null $patched_lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRuleRequest|null $patched_lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\LBFirewallRule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersLbFirewallPartialUpdateWithHttpInfo($cluster_id, $id, $patched_lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
+    public function kubernetesClustersLbFirewallPartialUpdateWithHttpInfo($cluster_id, $id, $patched_lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
     {
-        $request = $this->kubernetesClustersLbFirewallPartialUpdateRequest($cluster_id, $id, $patched_lb_firewall_rule, $contentType);
+        $request = $this->kubernetesClustersLbFirewallPartialUpdateRequest($cluster_id, $id, $patched_lb_firewall_rule_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5516,15 +6894,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRule|null $patched_lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRuleRequest|null $patched_lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersLbFirewallPartialUpdateAsync($cluster_id, $id, $patched_lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
+    public function kubernetesClustersLbFirewallPartialUpdateAsync($cluster_id, $id, $patched_lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
     {
-        return $this->kubernetesClustersLbFirewallPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_lb_firewall_rule, $contentType)
+        return $this->kubernetesClustersLbFirewallPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_lb_firewall_rule_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5537,16 +6915,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRule|null $patched_lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRuleRequest|null $patched_lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersLbFirewallPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
+    public function kubernetesClustersLbFirewallPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\LBFirewallRule';
-        $request = $this->kubernetesClustersLbFirewallPartialUpdateRequest($cluster_id, $id, $patched_lb_firewall_rule, $contentType);
+        $request = $this->kubernetesClustersLbFirewallPartialUpdateRequest($cluster_id, $id, $patched_lb_firewall_rule_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5589,13 +6967,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRule|null $patched_lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedLBFirewallRuleRequest|null $patched_lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersLbFirewallPartialUpdateRequest($cluster_id, $id, $patched_lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
+    public function kubernetesClustersLbFirewallPartialUpdateRequest($cluster_id, $id, $patched_lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallPartialUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -5648,12 +7026,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($patched_lb_firewall_rule)) {
+        if (isset($patched_lb_firewall_rule_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_lb_firewall_rule));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_lb_firewall_rule_request));
             } else {
-                $httpBody = $patched_lb_firewall_rule;
+                $httpBody = $patched_lb_firewall_rule_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5996,16 +7374,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\LBFirewallRule
      */
-    public function kubernetesClustersLbFirewallUpdate($cluster_id, $id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
+    public function kubernetesClustersLbFirewallUpdate($cluster_id, $id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersLbFirewallUpdateWithHttpInfo($cluster_id, $id, $lb_firewall_rule, $contentType);
+        list($response) = $this->kubernetesClustersLbFirewallUpdateWithHttpInfo($cluster_id, $id, $lb_firewall_rule_request, $contentType);
         return $response;
     }
 
@@ -6014,16 +7392,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\LBFirewallRule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersLbFirewallUpdateWithHttpInfo($cluster_id, $id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
+    public function kubernetesClustersLbFirewallUpdateWithHttpInfo($cluster_id, $id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
     {
-        $request = $this->kubernetesClustersLbFirewallUpdateRequest($cluster_id, $id, $lb_firewall_rule, $contentType);
+        $request = $this->kubernetesClustersLbFirewallUpdateRequest($cluster_id, $id, $lb_firewall_rule_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6099,15 +7477,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersLbFirewallUpdateAsync($cluster_id, $id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
+    public function kubernetesClustersLbFirewallUpdateAsync($cluster_id, $id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
     {
-        return $this->kubernetesClustersLbFirewallUpdateAsyncWithHttpInfo($cluster_id, $id, $lb_firewall_rule, $contentType)
+        return $this->kubernetesClustersLbFirewallUpdateAsyncWithHttpInfo($cluster_id, $id, $lb_firewall_rule_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6120,16 +7498,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersLbFirewallUpdateAsyncWithHttpInfo($cluster_id, $id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
+    public function kubernetesClustersLbFirewallUpdateAsyncWithHttpInfo($cluster_id, $id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\LBFirewallRule';
-        $request = $this->kubernetesClustersLbFirewallUpdateRequest($cluster_id, $id, $lb_firewall_rule, $contentType);
+        $request = $this->kubernetesClustersLbFirewallUpdateRequest($cluster_id, $id, $lb_firewall_rule_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6172,13 +7550,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\LBFirewallRule|null $lb_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\LBFirewallRuleRequest|null $lb_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersLbFirewallUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersLbFirewallUpdateRequest($cluster_id, $id, $lb_firewall_rule = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
+    public function kubernetesClustersLbFirewallUpdateRequest($cluster_id, $id, $lb_firewall_rule_request = null, string $contentType = self::contentTypes['kubernetesClustersLbFirewallUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -6231,12 +7609,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($lb_firewall_rule)) {
+        if (isset($lb_firewall_rule_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($lb_firewall_rule));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($lb_firewall_rule_request));
             } else {
-                $httpBody = $lb_firewall_rule;
+                $httpBody = $lb_firewall_rule_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6550,19 +7928,1452 @@ class KubernetesApi
     }
 
     /**
+     * Operation kubernetesClustersNodeOperationsCancelCreate
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\NodeOperation
+     */
+    public function kubernetesClustersNodeOperationsCancelCreate($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersNodeOperationsCancelCreateWithHttpInfo($cluster_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsCancelCreateWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\NodeOperation, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersNodeOperationsCancelCreateWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'][0])
+    {
+        $request = $this->kubernetesClustersNodeOperationsCancelCreateRequest($cluster_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\NodeOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsCancelCreateAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsCancelCreateAsync($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'][0])
+    {
+        return $this->kubernetesClustersNodeOperationsCancelCreateAsyncWithHttpInfo($cluster_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsCancelCreateAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsCancelCreateAsyncWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\NodeOperation';
+        $request = $this->kubernetesClustersNodeOperationsCancelCreateRequest($cluster_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersNodeOperationsCancelCreate'
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersNodeOperationsCancelCreateRequest($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsCancelCreate'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersNodeOperationsCancelCreate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersNodeOperationsCancelCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/node-operations/{id}/cancel/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsList
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedNodeOperationList
+     */
+    public function kubernetesClustersNodeOperationsList($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsList'][0])
+    {
+        list($response) = $this->kubernetesClustersNodeOperationsListWithHttpInfo($cluster_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsListWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedNodeOperationList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersNodeOperationsListWithHttpInfo($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsList'][0])
+    {
+        $request = $this->kubernetesClustersNodeOperationsListRequest($cluster_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedNodeOperationList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedNodeOperationList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedNodeOperationList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsListAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsListAsync($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsList'][0])
+    {
+        return $this->kubernetesClustersNodeOperationsListAsyncWithHttpInfo($cluster_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsListAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsListAsyncWithHttpInfo($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedNodeOperationList';
+        $request = $this->kubernetesClustersNodeOperationsListRequest($cluster_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersNodeOperationsList'
+     *
+     * @param  int $cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersNodeOperationsListRequest($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsList'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersNodeOperationsList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/node-operations/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsResumeCreate
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\NodeOperation
+     */
+    public function kubernetesClustersNodeOperationsResumeCreate($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersNodeOperationsResumeCreateWithHttpInfo($cluster_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsResumeCreateWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\NodeOperation, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersNodeOperationsResumeCreateWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'][0])
+    {
+        $request = $this->kubernetesClustersNodeOperationsResumeCreateRequest($cluster_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\NodeOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsResumeCreateAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsResumeCreateAsync($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'][0])
+    {
+        return $this->kubernetesClustersNodeOperationsResumeCreateAsyncWithHttpInfo($cluster_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsResumeCreateAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsResumeCreateAsyncWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\NodeOperation';
+        $request = $this->kubernetesClustersNodeOperationsResumeCreateRequest($cluster_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersNodeOperationsResumeCreate'
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersNodeOperationsResumeCreateRequest($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsResumeCreate'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersNodeOperationsResumeCreate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersNodeOperationsResumeCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/node-operations/{id}/resume/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsRetrieve
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\NodeOperation
+     */
+    public function kubernetesClustersNodeOperationsRetrieve($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetrieve'][0])
+    {
+        list($response) = $this->kubernetesClustersNodeOperationsRetrieveWithHttpInfo($cluster_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsRetrieveWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\NodeOperation, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersNodeOperationsRetrieveWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetrieve'][0])
+    {
+        $request = $this->kubernetesClustersNodeOperationsRetrieveRequest($cluster_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\NodeOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsRetrieveAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsRetrieveAsync($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetrieve'][0])
+    {
+        return $this->kubernetesClustersNodeOperationsRetrieveAsyncWithHttpInfo($cluster_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsRetrieveAsyncWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\NodeOperation';
+        $request = $this->kubernetesClustersNodeOperationsRetrieveRequest($cluster_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersNodeOperationsRetrieve'
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersNodeOperationsRetrieveRequest($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetrieve'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersNodeOperationsRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersNodeOperationsRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/node-operations/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsRetryCreate
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  string $id id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRetryRequest|null $node_operation_retry_request node_operation_retry_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\NodeOperation
+     */
+    public function kubernetesClustersNodeOperationsRetryCreate($cluster_id, $id, $node_operation_retry_request = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersNodeOperationsRetryCreateWithHttpInfo($cluster_id, $id, $node_operation_retry_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsRetryCreateWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRetryRequest|null $node_operation_retry_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\NodeOperation, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersNodeOperationsRetryCreateWithHttpInfo($cluster_id, $id, $node_operation_retry_request = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'][0])
+    {
+        $request = $this->kubernetesClustersNodeOperationsRetryCreateRequest($cluster_id, $id, $node_operation_retry_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\NodeOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsRetryCreateAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRetryRequest|null $node_operation_retry_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsRetryCreateAsync($cluster_id, $id, $node_operation_retry_request = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'][0])
+    {
+        return $this->kubernetesClustersNodeOperationsRetryCreateAsyncWithHttpInfo($cluster_id, $id, $node_operation_retry_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersNodeOperationsRetryCreateAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRetryRequest|null $node_operation_retry_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersNodeOperationsRetryCreateAsyncWithHttpInfo($cluster_id, $id, $node_operation_retry_request = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\NodeOperation';
+        $request = $this->kubernetesClustersNodeOperationsRetryCreateRequest($cluster_id, $id, $node_operation_retry_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersNodeOperationsRetryCreate'
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRetryRequest|null $node_operation_retry_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersNodeOperationsRetryCreateRequest($cluster_id, $id, $node_operation_retry_request = null, string $contentType = self::contentTypes['kubernetesClustersNodeOperationsRetryCreate'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersNodeOperationsRetryCreate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersNodeOperationsRetryCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/node-operations/{id}/retry/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($node_operation_retry_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($node_operation_retry_request));
+            } else {
+                $httpBody = $node_operation_retry_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation kubernetesClustersPartialUpdate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedClusterDetail|null $patched_cluster_detail patched_cluster_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedClusterDetailRequest|null $patched_cluster_detail_request patched_cluster_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ClusterDetail
      */
-    public function kubernetesClustersPartialUpdate($id, $patched_cluster_detail = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
+    public function kubernetesClustersPartialUpdate($id, $patched_cluster_detail_request = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersPartialUpdateWithHttpInfo($id, $patched_cluster_detail, $contentType);
+        list($response) = $this->kubernetesClustersPartialUpdateWithHttpInfo($id, $patched_cluster_detail_request, $contentType);
         return $response;
     }
 
@@ -6570,16 +9381,16 @@ class KubernetesApi
      * Operation kubernetesClustersPartialUpdateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedClusterDetail|null $patched_cluster_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedClusterDetailRequest|null $patched_cluster_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ClusterDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersPartialUpdateWithHttpInfo($id, $patched_cluster_detail = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
+    public function kubernetesClustersPartialUpdateWithHttpInfo($id, $patched_cluster_detail_request = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
     {
-        $request = $this->kubernetesClustersPartialUpdateRequest($id, $patched_cluster_detail, $contentType);
+        $request = $this->kubernetesClustersPartialUpdateRequest($id, $patched_cluster_detail_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6654,15 +9465,15 @@ class KubernetesApi
      * Operation kubernetesClustersPartialUpdateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedClusterDetail|null $patched_cluster_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedClusterDetailRequest|null $patched_cluster_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersPartialUpdateAsync($id, $patched_cluster_detail = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
+    public function kubernetesClustersPartialUpdateAsync($id, $patched_cluster_detail_request = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
     {
-        return $this->kubernetesClustersPartialUpdateAsyncWithHttpInfo($id, $patched_cluster_detail, $contentType)
+        return $this->kubernetesClustersPartialUpdateAsyncWithHttpInfo($id, $patched_cluster_detail_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6674,16 +9485,16 @@ class KubernetesApi
      * Operation kubernetesClustersPartialUpdateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedClusterDetail|null $patched_cluster_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedClusterDetailRequest|null $patched_cluster_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersPartialUpdateAsyncWithHttpInfo($id, $patched_cluster_detail = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
+    public function kubernetesClustersPartialUpdateAsyncWithHttpInfo($id, $patched_cluster_detail_request = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ClusterDetail';
-        $request = $this->kubernetesClustersPartialUpdateRequest($id, $patched_cluster_detail, $contentType);
+        $request = $this->kubernetesClustersPartialUpdateRequest($id, $patched_cluster_detail_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6725,13 +9536,13 @@ class KubernetesApi
      * Create request for operation 'kubernetesClustersPartialUpdate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedClusterDetail|null $patched_cluster_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedClusterDetailRequest|null $patched_cluster_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersPartialUpdateRequest($id, $patched_cluster_detail = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
+    public function kubernetesClustersPartialUpdateRequest($id, $patched_cluster_detail_request = null, string $contentType = self::contentTypes['kubernetesClustersPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -6769,12 +9580,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($patched_cluster_detail)) {
+        if (isset($patched_cluster_detail_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_cluster_detail));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_cluster_detail_request));
             } else {
-                $httpBody = $patched_cluster_detail;
+                $httpBody = $patched_cluster_detail_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6828,19 +9639,869 @@ class KubernetesApi
     }
 
     /**
+     * Operation kubernetesClustersPoolRemovalJournalsList
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedPoolRemovalJournalList
+     */
+    public function kubernetesClustersPoolRemovalJournalsList($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsList'][0])
+    {
+        list($response) = $this->kubernetesClustersPoolRemovalJournalsListWithHttpInfo($cluster_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsListWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedPoolRemovalJournalList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersPoolRemovalJournalsListWithHttpInfo($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsList'][0])
+    {
+        $request = $this->kubernetesClustersPoolRemovalJournalsListRequest($cluster_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedPoolRemovalJournalList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedPoolRemovalJournalList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedPoolRemovalJournalList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsListAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersPoolRemovalJournalsListAsync($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsList'][0])
+    {
+        return $this->kubernetesClustersPoolRemovalJournalsListAsyncWithHttpInfo($cluster_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsListAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersPoolRemovalJournalsListAsyncWithHttpInfo($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedPoolRemovalJournalList';
+        $request = $this->kubernetesClustersPoolRemovalJournalsListRequest($cluster_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersPoolRemovalJournalsList'
+     *
+     * @param  int $cluster_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersPoolRemovalJournalsListRequest($cluster_id, $page = null, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsList'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersPoolRemovalJournalsList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/pool-removal-journals/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsResumeCreate
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PoolRemovalJournal
+     */
+    public function kubernetesClustersPoolRemovalJournalsResumeCreate($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersPoolRemovalJournalsResumeCreateWithHttpInfo($cluster_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsResumeCreateWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PoolRemovalJournal, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersPoolRemovalJournalsResumeCreateWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'][0])
+    {
+        $request = $this->kubernetesClustersPoolRemovalJournalsResumeCreateRequest($cluster_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PoolRemovalJournal',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PoolRemovalJournal',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PoolRemovalJournal',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsResumeCreateAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersPoolRemovalJournalsResumeCreateAsync($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'][0])
+    {
+        return $this->kubernetesClustersPoolRemovalJournalsResumeCreateAsyncWithHttpInfo($cluster_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsResumeCreateAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersPoolRemovalJournalsResumeCreateAsyncWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PoolRemovalJournal';
+        $request = $this->kubernetesClustersPoolRemovalJournalsResumeCreateRequest($cluster_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersPoolRemovalJournalsResumeCreate'
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersPoolRemovalJournalsResumeCreateRequest($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsResumeCreate'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersPoolRemovalJournalsResumeCreate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersPoolRemovalJournalsResumeCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/pool-removal-journals/{id}/resume/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsRetrieve
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PoolRemovalJournal
+     */
+    public function kubernetesClustersPoolRemovalJournalsRetrieve($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'][0])
+    {
+        list($response) = $this->kubernetesClustersPoolRemovalJournalsRetrieveWithHttpInfo($cluster_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsRetrieveWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PoolRemovalJournal, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersPoolRemovalJournalsRetrieveWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'][0])
+    {
+        $request = $this->kubernetesClustersPoolRemovalJournalsRetrieveRequest($cluster_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PoolRemovalJournal',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PoolRemovalJournal',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PoolRemovalJournal',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsRetrieveAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersPoolRemovalJournalsRetrieveAsync($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'][0])
+    {
+        return $this->kubernetesClustersPoolRemovalJournalsRetrieveAsyncWithHttpInfo($cluster_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersPoolRemovalJournalsRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersPoolRemovalJournalsRetrieveAsyncWithHttpInfo($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PoolRemovalJournal';
+        $request = $this->kubernetesClustersPoolRemovalJournalsRetrieveRequest($cluster_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersPoolRemovalJournalsRetrieve'
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersPoolRemovalJournalsRetrieveRequest($cluster_id, $id, string $contentType = self::contentTypes['kubernetesClustersPoolRemovalJournalsRetrieve'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersPoolRemovalJournalsRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersPoolRemovalJournalsRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/pool-removal-journals/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation kubernetesClustersPortForwardsCreate
      *
      * @param  int $cluster_id cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\K8sPortForward
      */
-    public function kubernetesClustersPortForwardsCreate($cluster_id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
+    public function kubernetesClustersPortForwardsCreate($cluster_id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
     {
-        list($response) = $this->kubernetesClustersPortForwardsCreateWithHttpInfo($cluster_id, $k8s_port_forward, $contentType);
+        list($response) = $this->kubernetesClustersPortForwardsCreateWithHttpInfo($cluster_id, $k8s_port_forward_request, $contentType);
         return $response;
     }
 
@@ -6848,16 +10509,16 @@ class KubernetesApi
      * Operation kubernetesClustersPortForwardsCreateWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\K8sPortForward, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersPortForwardsCreateWithHttpInfo($cluster_id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
+    public function kubernetesClustersPortForwardsCreateWithHttpInfo($cluster_id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
     {
-        $request = $this->kubernetesClustersPortForwardsCreateRequest($cluster_id, $k8s_port_forward, $contentType);
+        $request = $this->kubernetesClustersPortForwardsCreateRequest($cluster_id, $k8s_port_forward_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6932,15 +10593,15 @@ class KubernetesApi
      * Operation kubernetesClustersPortForwardsCreateAsync
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersPortForwardsCreateAsync($cluster_id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
+    public function kubernetesClustersPortForwardsCreateAsync($cluster_id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
     {
-        return $this->kubernetesClustersPortForwardsCreateAsyncWithHttpInfo($cluster_id, $k8s_port_forward, $contentType)
+        return $this->kubernetesClustersPortForwardsCreateAsyncWithHttpInfo($cluster_id, $k8s_port_forward_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6952,16 +10613,16 @@ class KubernetesApi
      * Operation kubernetesClustersPortForwardsCreateAsyncWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersPortForwardsCreateAsyncWithHttpInfo($cluster_id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
+    public function kubernetesClustersPortForwardsCreateAsyncWithHttpInfo($cluster_id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\K8sPortForward';
-        $request = $this->kubernetesClustersPortForwardsCreateRequest($cluster_id, $k8s_port_forward, $contentType);
+        $request = $this->kubernetesClustersPortForwardsCreateRequest($cluster_id, $k8s_port_forward_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7003,13 +10664,13 @@ class KubernetesApi
      * Create request for operation 'kubernetesClustersPortForwardsCreate'
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersPortForwardsCreateRequest($cluster_id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
+    public function kubernetesClustersPortForwardsCreateRequest($cluster_id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsCreate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -7019,10 +10680,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'k8s_port_forward' is set
-        if ($k8s_port_forward === null || (is_array($k8s_port_forward) && count($k8s_port_forward) === 0)) {
+        // verify the required parameter 'k8s_port_forward_request' is set
+        if ($k8s_port_forward_request === null || (is_array($k8s_port_forward_request) && count($k8s_port_forward_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $k8s_port_forward when calling kubernetesClustersPortForwardsCreate'
+                'Missing the required parameter $k8s_port_forward_request when calling kubernetesClustersPortForwardsCreate'
             );
         }
 
@@ -7053,12 +10714,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($k8s_port_forward)) {
+        if (isset($k8s_port_forward_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($k8s_port_forward));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($k8s_port_forward_request));
             } else {
-                $httpBody = $k8s_port_forward;
+                $httpBody = $k8s_port_forward_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7631,16 +11292,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForward|null $patched_k8s_port_forward patched_k8s_port_forward (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForwardRequest|null $patched_k8s_port_forward_request patched_k8s_port_forward_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\K8sPortForward
      */
-    public function kubernetesClustersPortForwardsPartialUpdate($cluster_id, $id, $patched_k8s_port_forward = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
+    public function kubernetesClustersPortForwardsPartialUpdate($cluster_id, $id, $patched_k8s_port_forward_request = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersPortForwardsPartialUpdateWithHttpInfo($cluster_id, $id, $patched_k8s_port_forward, $contentType);
+        list($response) = $this->kubernetesClustersPortForwardsPartialUpdateWithHttpInfo($cluster_id, $id, $patched_k8s_port_forward_request, $contentType);
         return $response;
     }
 
@@ -7649,16 +11310,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForward|null $patched_k8s_port_forward (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForwardRequest|null $patched_k8s_port_forward_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\K8sPortForward, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersPortForwardsPartialUpdateWithHttpInfo($cluster_id, $id, $patched_k8s_port_forward = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
+    public function kubernetesClustersPortForwardsPartialUpdateWithHttpInfo($cluster_id, $id, $patched_k8s_port_forward_request = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
     {
-        $request = $this->kubernetesClustersPortForwardsPartialUpdateRequest($cluster_id, $id, $patched_k8s_port_forward, $contentType);
+        $request = $this->kubernetesClustersPortForwardsPartialUpdateRequest($cluster_id, $id, $patched_k8s_port_forward_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7734,15 +11395,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForward|null $patched_k8s_port_forward (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForwardRequest|null $patched_k8s_port_forward_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersPortForwardsPartialUpdateAsync($cluster_id, $id, $patched_k8s_port_forward = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
+    public function kubernetesClustersPortForwardsPartialUpdateAsync($cluster_id, $id, $patched_k8s_port_forward_request = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
     {
-        return $this->kubernetesClustersPortForwardsPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_k8s_port_forward, $contentType)
+        return $this->kubernetesClustersPortForwardsPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_k8s_port_forward_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7755,16 +11416,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForward|null $patched_k8s_port_forward (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForwardRequest|null $patched_k8s_port_forward_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersPortForwardsPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_k8s_port_forward = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
+    public function kubernetesClustersPortForwardsPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_k8s_port_forward_request = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\K8sPortForward';
-        $request = $this->kubernetesClustersPortForwardsPartialUpdateRequest($cluster_id, $id, $patched_k8s_port_forward, $contentType);
+        $request = $this->kubernetesClustersPortForwardsPartialUpdateRequest($cluster_id, $id, $patched_k8s_port_forward_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7807,13 +11468,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForward|null $patched_k8s_port_forward (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedK8sPortForwardRequest|null $patched_k8s_port_forward_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersPortForwardsPartialUpdateRequest($cluster_id, $id, $patched_k8s_port_forward = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
+    public function kubernetesClustersPortForwardsPartialUpdateRequest($cluster_id, $id, $patched_k8s_port_forward_request = null, string $contentType = self::contentTypes['kubernetesClustersPortForwardsPartialUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -7866,12 +11527,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($patched_k8s_port_forward)) {
+        if (isset($patched_k8s_port_forward_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_k8s_port_forward));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_k8s_port_forward_request));
             } else {
-                $httpBody = $patched_k8s_port_forward;
+                $httpBody = $patched_k8s_port_forward_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -8214,16 +11875,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\K8sPortForward
      */
-    public function kubernetesClustersPortForwardsUpdate($cluster_id, $id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
+    public function kubernetesClustersPortForwardsUpdate($cluster_id, $id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersPortForwardsUpdateWithHttpInfo($cluster_id, $id, $k8s_port_forward, $contentType);
+        list($response) = $this->kubernetesClustersPortForwardsUpdateWithHttpInfo($cluster_id, $id, $k8s_port_forward_request, $contentType);
         return $response;
     }
 
@@ -8232,16 +11893,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\K8sPortForward, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersPortForwardsUpdateWithHttpInfo($cluster_id, $id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
+    public function kubernetesClustersPortForwardsUpdateWithHttpInfo($cluster_id, $id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
     {
-        $request = $this->kubernetesClustersPortForwardsUpdateRequest($cluster_id, $id, $k8s_port_forward, $contentType);
+        $request = $this->kubernetesClustersPortForwardsUpdateRequest($cluster_id, $id, $k8s_port_forward_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8317,15 +11978,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersPortForwardsUpdateAsync($cluster_id, $id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
+    public function kubernetesClustersPortForwardsUpdateAsync($cluster_id, $id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
     {
-        return $this->kubernetesClustersPortForwardsUpdateAsyncWithHttpInfo($cluster_id, $id, $k8s_port_forward, $contentType)
+        return $this->kubernetesClustersPortForwardsUpdateAsyncWithHttpInfo($cluster_id, $id, $k8s_port_forward_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8338,16 +11999,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersPortForwardsUpdateAsyncWithHttpInfo($cluster_id, $id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
+    public function kubernetesClustersPortForwardsUpdateAsyncWithHttpInfo($cluster_id, $id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\K8sPortForward';
-        $request = $this->kubernetesClustersPortForwardsUpdateRequest($cluster_id, $id, $k8s_port_forward, $contentType);
+        $request = $this->kubernetesClustersPortForwardsUpdateRequest($cluster_id, $id, $k8s_port_forward_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8390,13 +12051,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\K8sPortForward $k8s_port_forward (required)
+     * @param  \PidginHost\Sdk\Model\K8sPortForwardRequest $k8s_port_forward_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersPortForwardsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersPortForwardsUpdateRequest($cluster_id, $id, $k8s_port_forward, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
+    public function kubernetesClustersPortForwardsUpdateRequest($cluster_id, $id, $k8s_port_forward_request, string $contentType = self::contentTypes['kubernetesClustersPortForwardsUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -8413,10 +12074,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'k8s_port_forward' is set
-        if ($k8s_port_forward === null || (is_array($k8s_port_forward) && count($k8s_port_forward) === 0)) {
+        // verify the required parameter 'k8s_port_forward_request' is set
+        if ($k8s_port_forward_request === null || (is_array($k8s_port_forward_request) && count($k8s_port_forward_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $k8s_port_forward when calling kubernetesClustersPortForwardsUpdate'
+                'Missing the required parameter $k8s_port_forward_request when calling kubernetesClustersPortForwardsUpdate'
             );
         }
 
@@ -8455,12 +12116,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($k8s_port_forward)) {
+        if (isset($k8s_port_forward_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($k8s_port_forward));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($k8s_port_forward_request));
             } else {
-                $httpBody = $k8s_port_forward;
+                $httpBody = $k8s_port_forward_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -8517,16 +12178,16 @@ class KubernetesApi
      * Operation kubernetesClustersResourcePoolsCreate
      *
      * @param  int $cluster_id cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePoolAdd $resource_pool_add resource_pool_add (required)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolAddRequest $resource_pool_add_request resource_pool_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ResourcePoolAddResponse
      */
-    public function kubernetesClustersResourcePoolsCreate($cluster_id, $resource_pool_add, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
+    public function kubernetesClustersResourcePoolsCreate($cluster_id, $resource_pool_add_request, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
     {
-        list($response) = $this->kubernetesClustersResourcePoolsCreateWithHttpInfo($cluster_id, $resource_pool_add, $contentType);
+        list($response) = $this->kubernetesClustersResourcePoolsCreateWithHttpInfo($cluster_id, $resource_pool_add_request, $contentType);
         return $response;
     }
 
@@ -8534,16 +12195,16 @@ class KubernetesApi
      * Operation kubernetesClustersResourcePoolsCreateWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePoolAdd $resource_pool_add (required)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolAddRequest $resource_pool_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ResourcePoolAddResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersResourcePoolsCreateWithHttpInfo($cluster_id, $resource_pool_add, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
+    public function kubernetesClustersResourcePoolsCreateWithHttpInfo($cluster_id, $resource_pool_add_request, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
     {
-        $request = $this->kubernetesClustersResourcePoolsCreateRequest($cluster_id, $resource_pool_add, $contentType);
+        $request = $this->kubernetesClustersResourcePoolsCreateRequest($cluster_id, $resource_pool_add_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8618,15 +12279,15 @@ class KubernetesApi
      * Operation kubernetesClustersResourcePoolsCreateAsync
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePoolAdd $resource_pool_add (required)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolAddRequest $resource_pool_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersResourcePoolsCreateAsync($cluster_id, $resource_pool_add, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
+    public function kubernetesClustersResourcePoolsCreateAsync($cluster_id, $resource_pool_add_request, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
     {
-        return $this->kubernetesClustersResourcePoolsCreateAsyncWithHttpInfo($cluster_id, $resource_pool_add, $contentType)
+        return $this->kubernetesClustersResourcePoolsCreateAsyncWithHttpInfo($cluster_id, $resource_pool_add_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8638,16 +12299,16 @@ class KubernetesApi
      * Operation kubernetesClustersResourcePoolsCreateAsyncWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePoolAdd $resource_pool_add (required)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolAddRequest $resource_pool_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersResourcePoolsCreateAsyncWithHttpInfo($cluster_id, $resource_pool_add, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
+    public function kubernetesClustersResourcePoolsCreateAsyncWithHttpInfo($cluster_id, $resource_pool_add_request, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ResourcePoolAddResponse';
-        $request = $this->kubernetesClustersResourcePoolsCreateRequest($cluster_id, $resource_pool_add, $contentType);
+        $request = $this->kubernetesClustersResourcePoolsCreateRequest($cluster_id, $resource_pool_add_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8689,13 +12350,13 @@ class KubernetesApi
      * Create request for operation 'kubernetesClustersResourcePoolsCreate'
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePoolAdd $resource_pool_add (required)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolAddRequest $resource_pool_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersResourcePoolsCreateRequest($cluster_id, $resource_pool_add, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
+    public function kubernetesClustersResourcePoolsCreateRequest($cluster_id, $resource_pool_add_request, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsCreate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -8705,10 +12366,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'resource_pool_add' is set
-        if ($resource_pool_add === null || (is_array($resource_pool_add) && count($resource_pool_add) === 0)) {
+        // verify the required parameter 'resource_pool_add_request' is set
+        if ($resource_pool_add_request === null || (is_array($resource_pool_add_request) && count($resource_pool_add_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $resource_pool_add when calling kubernetesClustersResourcePoolsCreate'
+                'Missing the required parameter $resource_pool_add_request when calling kubernetesClustersResourcePoolsCreate'
             );
         }
 
@@ -8739,12 +12400,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($resource_pool_add)) {
+        if (isset($resource_pool_add_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($resource_pool_add));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($resource_pool_add_request));
             } else {
-                $httpBody = $resource_pool_add;
+                $httpBody = $resource_pool_add_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -9322,11 +12983,12 @@ class KubernetesApi
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \PidginHost\Sdk\Model\NodeOperation
      */
     public function kubernetesClustersResourcePoolsNodesDestroy($cluster_id, $id, $pool_id, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsNodesDestroy'][0])
     {
-        $this->kubernetesClustersResourcePoolsNodesDestroyWithHttpInfo($cluster_id, $id, $pool_id, $contentType);
+        list($response) = $this->kubernetesClustersResourcePoolsNodesDestroyWithHttpInfo($cluster_id, $id, $pool_id, $contentType);
+        return $response;
     }
 
     /**
@@ -9339,7 +13001,7 @@ class KubernetesApi
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\NodeOperation, HTTP status code, HTTP response headers (array of strings)
      */
     public function kubernetesClustersResourcePoolsNodesDestroyWithHttpInfo($cluster_id, $id, $pool_id, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsNodesDestroy'][0])
     {
@@ -9368,9 +13030,45 @@ class KubernetesApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\NodeOperation',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -9412,14 +13110,27 @@ class KubernetesApi
      */
     public function kubernetesClustersResourcePoolsNodesDestroyAsyncWithHttpInfo($cluster_id, $id, $pool_id, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsNodesDestroy'][0])
     {
-        $returnType = '';
+        $returnType = '\PidginHost\Sdk\Model\NodeOperation';
         $request = $this->kubernetesClustersResourcePoolsNodesDestroyRequest($cluster_id, $id, $pool_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -9510,7 +13221,7 @@ class KubernetesApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );
@@ -10173,6 +13884,324 @@ class KubernetesApi
     }
 
     /**
+     * Operation kubernetesClustersResourcePoolsNodesRebootCreate
+     *
+     * @param  int $cluster_id cluster_id (required)
+     * @param  string $id id (required)
+     * @param  int $pool_id pool_id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRebootRequest|null $node_operation_reboot_request node_operation_reboot_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\NodeOperation
+     */
+    public function kubernetesClustersResourcePoolsNodesRebootCreate($cluster_id, $id, $pool_id, $node_operation_reboot_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersResourcePoolsNodesRebootCreateWithHttpInfo($cluster_id, $id, $pool_id, $node_operation_reboot_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersResourcePoolsNodesRebootCreateWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRebootRequest|null $node_operation_reboot_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\NodeOperation, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersResourcePoolsNodesRebootCreateWithHttpInfo($cluster_id, $id, $pool_id, $node_operation_reboot_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'][0])
+    {
+        $request = $this->kubernetesClustersResourcePoolsNodesRebootCreateRequest($cluster_id, $id, $pool_id, $node_operation_reboot_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\NodeOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\NodeOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersResourcePoolsNodesRebootCreateAsync
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRebootRequest|null $node_operation_reboot_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersResourcePoolsNodesRebootCreateAsync($cluster_id, $id, $pool_id, $node_operation_reboot_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'][0])
+    {
+        return $this->kubernetesClustersResourcePoolsNodesRebootCreateAsyncWithHttpInfo($cluster_id, $id, $pool_id, $node_operation_reboot_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersResourcePoolsNodesRebootCreateAsyncWithHttpInfo
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRebootRequest|null $node_operation_reboot_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersResourcePoolsNodesRebootCreateAsyncWithHttpInfo($cluster_id, $id, $pool_id, $node_operation_reboot_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\NodeOperation';
+        $request = $this->kubernetesClustersResourcePoolsNodesRebootCreateRequest($cluster_id, $id, $pool_id, $node_operation_reboot_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersResourcePoolsNodesRebootCreate'
+     *
+     * @param  int $cluster_id (required)
+     * @param  string $id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\NodeOperationRebootRequest|null $node_operation_reboot_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersResourcePoolsNodesRebootCreateRequest($cluster_id, $id, $pool_id, $node_operation_reboot_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsNodesRebootCreate'][0])
+    {
+
+        // verify the required parameter 'cluster_id' is set
+        if ($cluster_id === null || (is_array($cluster_id) && count($cluster_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $cluster_id when calling kubernetesClustersResourcePoolsNodesRebootCreate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersResourcePoolsNodesRebootCreate'
+            );
+        }
+
+        // verify the required parameter 'pool_id' is set
+        if ($pool_id === null || (is_array($pool_id) && count($pool_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pool_id when calling kubernetesClustersResourcePoolsNodesRebootCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/kubernetes/clusters/{cluster_id}/resource-pools/{pool_id}/nodes/{id}/reboot/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($cluster_id !== null) {
+            $resourcePath = str_replace(
+                '{cluster_id}',
+                ObjectSerializer::toPathValue($cluster_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($pool_id !== null) {
+            $resourcePath = str_replace(
+                '{pool_id}',
+                ObjectSerializer::toPathValue($pool_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($node_operation_reboot_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($node_operation_reboot_request));
+            } else {
+                $httpBody = $node_operation_reboot_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation kubernetesClustersResourcePoolsNodesRetrieve
      *
      * @param  int $cluster_id cluster_id (required)
@@ -10802,16 +14831,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedResourcePool|null $patched_resource_pool patched_resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedResourcePoolRequest|null $patched_resource_pool_request patched_resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ResourcePool
      */
-    public function kubernetesClustersResourcePoolsPartialUpdate($cluster_id, $id, $patched_resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
+    public function kubernetesClustersResourcePoolsPartialUpdate($cluster_id, $id, $patched_resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersResourcePoolsPartialUpdateWithHttpInfo($cluster_id, $id, $patched_resource_pool, $contentType);
+        list($response) = $this->kubernetesClustersResourcePoolsPartialUpdateWithHttpInfo($cluster_id, $id, $patched_resource_pool_request, $contentType);
         return $response;
     }
 
@@ -10820,16 +14849,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedResourcePool|null $patched_resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedResourcePoolRequest|null $patched_resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ResourcePool, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersResourcePoolsPartialUpdateWithHttpInfo($cluster_id, $id, $patched_resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
+    public function kubernetesClustersResourcePoolsPartialUpdateWithHttpInfo($cluster_id, $id, $patched_resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
     {
-        $request = $this->kubernetesClustersResourcePoolsPartialUpdateRequest($cluster_id, $id, $patched_resource_pool, $contentType);
+        $request = $this->kubernetesClustersResourcePoolsPartialUpdateRequest($cluster_id, $id, $patched_resource_pool_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10905,15 +14934,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedResourcePool|null $patched_resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedResourcePoolRequest|null $patched_resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersResourcePoolsPartialUpdateAsync($cluster_id, $id, $patched_resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
+    public function kubernetesClustersResourcePoolsPartialUpdateAsync($cluster_id, $id, $patched_resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
     {
-        return $this->kubernetesClustersResourcePoolsPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_resource_pool, $contentType)
+        return $this->kubernetesClustersResourcePoolsPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_resource_pool_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10926,16 +14955,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedResourcePool|null $patched_resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedResourcePoolRequest|null $patched_resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersResourcePoolsPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
+    public function kubernetesClustersResourcePoolsPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ResourcePool';
-        $request = $this->kubernetesClustersResourcePoolsPartialUpdateRequest($cluster_id, $id, $patched_resource_pool, $contentType);
+        $request = $this->kubernetesClustersResourcePoolsPartialUpdateRequest($cluster_id, $id, $patched_resource_pool_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10978,13 +15007,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedResourcePool|null $patched_resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedResourcePoolRequest|null $patched_resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersResourcePoolsPartialUpdateRequest($cluster_id, $id, $patched_resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
+    public function kubernetesClustersResourcePoolsPartialUpdateRequest($cluster_id, $id, $patched_resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsPartialUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -11037,12 +15066,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($patched_resource_pool)) {
+        if (isset($patched_resource_pool_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_resource_pool));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_resource_pool_request));
             } else {
-                $httpBody = $patched_resource_pool;
+                $httpBody = $patched_resource_pool_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -11385,16 +15414,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePool|null $resource_pool resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolRequest|null $resource_pool_request resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ResourcePool
      */
-    public function kubernetesClustersResourcePoolsUpdate($cluster_id, $id, $resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
+    public function kubernetesClustersResourcePoolsUpdate($cluster_id, $id, $resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersResourcePoolsUpdateWithHttpInfo($cluster_id, $id, $resource_pool, $contentType);
+        list($response) = $this->kubernetesClustersResourcePoolsUpdateWithHttpInfo($cluster_id, $id, $resource_pool_request, $contentType);
         return $response;
     }
 
@@ -11403,16 +15432,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePool|null $resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolRequest|null $resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ResourcePool, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersResourcePoolsUpdateWithHttpInfo($cluster_id, $id, $resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
+    public function kubernetesClustersResourcePoolsUpdateWithHttpInfo($cluster_id, $id, $resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
     {
-        $request = $this->kubernetesClustersResourcePoolsUpdateRequest($cluster_id, $id, $resource_pool, $contentType);
+        $request = $this->kubernetesClustersResourcePoolsUpdateRequest($cluster_id, $id, $resource_pool_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11488,15 +15517,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePool|null $resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolRequest|null $resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersResourcePoolsUpdateAsync($cluster_id, $id, $resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
+    public function kubernetesClustersResourcePoolsUpdateAsync($cluster_id, $id, $resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
     {
-        return $this->kubernetesClustersResourcePoolsUpdateAsyncWithHttpInfo($cluster_id, $id, $resource_pool, $contentType)
+        return $this->kubernetesClustersResourcePoolsUpdateAsyncWithHttpInfo($cluster_id, $id, $resource_pool_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11509,16 +15538,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePool|null $resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolRequest|null $resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersResourcePoolsUpdateAsyncWithHttpInfo($cluster_id, $id, $resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
+    public function kubernetesClustersResourcePoolsUpdateAsyncWithHttpInfo($cluster_id, $id, $resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ResourcePool';
-        $request = $this->kubernetesClustersResourcePoolsUpdateRequest($cluster_id, $id, $resource_pool, $contentType);
+        $request = $this->kubernetesClustersResourcePoolsUpdateRequest($cluster_id, $id, $resource_pool_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11561,13 +15590,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ResourcePool|null $resource_pool (optional)
+     * @param  \PidginHost\Sdk\Model\ResourcePoolRequest|null $resource_pool_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersResourcePoolsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersResourcePoolsUpdateRequest($cluster_id, $id, $resource_pool = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
+    public function kubernetesClustersResourcePoolsUpdateRequest($cluster_id, $id, $resource_pool_request = null, string $contentType = self::contentTypes['kubernetesClustersResourcePoolsUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -11620,12 +15649,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($resource_pool)) {
+        if (isset($resource_pool_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($resource_pool));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($resource_pool_request));
             } else {
-                $httpBody = $resource_pool;
+                $httpBody = $resource_pool_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -12212,16 +16241,16 @@ class KubernetesApi
      * Operation kubernetesClustersTcproutesCreate
      *
      * @param  int $cluster_id cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\TCPRoute
      */
-    public function kubernetesClustersTcproutesCreate($cluster_id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
+    public function kubernetesClustersTcproutesCreate($cluster_id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
     {
-        list($response) = $this->kubernetesClustersTcproutesCreateWithHttpInfo($cluster_id, $tcp_route, $contentType);
+        list($response) = $this->kubernetesClustersTcproutesCreateWithHttpInfo($cluster_id, $tcp_route_request, $contentType);
         return $response;
     }
 
@@ -12229,16 +16258,16 @@ class KubernetesApi
      * Operation kubernetesClustersTcproutesCreateWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\TCPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersTcproutesCreateWithHttpInfo($cluster_id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
+    public function kubernetesClustersTcproutesCreateWithHttpInfo($cluster_id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
     {
-        $request = $this->kubernetesClustersTcproutesCreateRequest($cluster_id, $tcp_route, $contentType);
+        $request = $this->kubernetesClustersTcproutesCreateRequest($cluster_id, $tcp_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12313,15 +16342,15 @@ class KubernetesApi
      * Operation kubernetesClustersTcproutesCreateAsync
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersTcproutesCreateAsync($cluster_id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
+    public function kubernetesClustersTcproutesCreateAsync($cluster_id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
     {
-        return $this->kubernetesClustersTcproutesCreateAsyncWithHttpInfo($cluster_id, $tcp_route, $contentType)
+        return $this->kubernetesClustersTcproutesCreateAsyncWithHttpInfo($cluster_id, $tcp_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12333,16 +16362,16 @@ class KubernetesApi
      * Operation kubernetesClustersTcproutesCreateAsyncWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersTcproutesCreateAsyncWithHttpInfo($cluster_id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
+    public function kubernetesClustersTcproutesCreateAsyncWithHttpInfo($cluster_id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\TCPRoute';
-        $request = $this->kubernetesClustersTcproutesCreateRequest($cluster_id, $tcp_route, $contentType);
+        $request = $this->kubernetesClustersTcproutesCreateRequest($cluster_id, $tcp_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12384,13 +16413,13 @@ class KubernetesApi
      * Create request for operation 'kubernetesClustersTcproutesCreate'
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersTcproutesCreateRequest($cluster_id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
+    public function kubernetesClustersTcproutesCreateRequest($cluster_id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesCreate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -12400,10 +16429,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'tcp_route' is set
-        if ($tcp_route === null || (is_array($tcp_route) && count($tcp_route) === 0)) {
+        // verify the required parameter 'tcp_route_request' is set
+        if ($tcp_route_request === null || (is_array($tcp_route_request) && count($tcp_route_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tcp_route when calling kubernetesClustersTcproutesCreate'
+                'Missing the required parameter $tcp_route_request when calling kubernetesClustersTcproutesCreate'
             );
         }
 
@@ -12434,12 +16463,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($tcp_route)) {
+        if (isset($tcp_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tcp_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tcp_route_request));
             } else {
-                $httpBody = $tcp_route;
+                $httpBody = $tcp_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -13012,16 +17041,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedTCPRoute|null $patched_tcp_route patched_tcp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedTCPRouteRequest|null $patched_tcp_route_request patched_tcp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\TCPRoute
      */
-    public function kubernetesClustersTcproutesPartialUpdate($cluster_id, $id, $patched_tcp_route = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
+    public function kubernetesClustersTcproutesPartialUpdate($cluster_id, $id, $patched_tcp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersTcproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_tcp_route, $contentType);
+        list($response) = $this->kubernetesClustersTcproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_tcp_route_request, $contentType);
         return $response;
     }
 
@@ -13030,16 +17059,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedTCPRoute|null $patched_tcp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedTCPRouteRequest|null $patched_tcp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\TCPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersTcproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_tcp_route = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
+    public function kubernetesClustersTcproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_tcp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
     {
-        $request = $this->kubernetesClustersTcproutesPartialUpdateRequest($cluster_id, $id, $patched_tcp_route, $contentType);
+        $request = $this->kubernetesClustersTcproutesPartialUpdateRequest($cluster_id, $id, $patched_tcp_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13115,15 +17144,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedTCPRoute|null $patched_tcp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedTCPRouteRequest|null $patched_tcp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersTcproutesPartialUpdateAsync($cluster_id, $id, $patched_tcp_route = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
+    public function kubernetesClustersTcproutesPartialUpdateAsync($cluster_id, $id, $patched_tcp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
     {
-        return $this->kubernetesClustersTcproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_tcp_route, $contentType)
+        return $this->kubernetesClustersTcproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_tcp_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13136,16 +17165,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedTCPRoute|null $patched_tcp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedTCPRouteRequest|null $patched_tcp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersTcproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_tcp_route = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
+    public function kubernetesClustersTcproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_tcp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\TCPRoute';
-        $request = $this->kubernetesClustersTcproutesPartialUpdateRequest($cluster_id, $id, $patched_tcp_route, $contentType);
+        $request = $this->kubernetesClustersTcproutesPartialUpdateRequest($cluster_id, $id, $patched_tcp_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13188,13 +17217,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedTCPRoute|null $patched_tcp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedTCPRouteRequest|null $patched_tcp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersTcproutesPartialUpdateRequest($cluster_id, $id, $patched_tcp_route = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
+    public function kubernetesClustersTcproutesPartialUpdateRequest($cluster_id, $id, $patched_tcp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersTcproutesPartialUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -13247,12 +17276,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($patched_tcp_route)) {
+        if (isset($patched_tcp_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_tcp_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_tcp_route_request));
             } else {
-                $httpBody = $patched_tcp_route;
+                $httpBody = $patched_tcp_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -13595,16 +17624,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\TCPRoute
      */
-    public function kubernetesClustersTcproutesUpdate($cluster_id, $id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
+    public function kubernetesClustersTcproutesUpdate($cluster_id, $id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersTcproutesUpdateWithHttpInfo($cluster_id, $id, $tcp_route, $contentType);
+        list($response) = $this->kubernetesClustersTcproutesUpdateWithHttpInfo($cluster_id, $id, $tcp_route_request, $contentType);
         return $response;
     }
 
@@ -13613,16 +17642,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\TCPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersTcproutesUpdateWithHttpInfo($cluster_id, $id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
+    public function kubernetesClustersTcproutesUpdateWithHttpInfo($cluster_id, $id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
     {
-        $request = $this->kubernetesClustersTcproutesUpdateRequest($cluster_id, $id, $tcp_route, $contentType);
+        $request = $this->kubernetesClustersTcproutesUpdateRequest($cluster_id, $id, $tcp_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13698,15 +17727,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersTcproutesUpdateAsync($cluster_id, $id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
+    public function kubernetesClustersTcproutesUpdateAsync($cluster_id, $id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
     {
-        return $this->kubernetesClustersTcproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $tcp_route, $contentType)
+        return $this->kubernetesClustersTcproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $tcp_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13719,16 +17748,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersTcproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
+    public function kubernetesClustersTcproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\TCPRoute';
-        $request = $this->kubernetesClustersTcproutesUpdateRequest($cluster_id, $id, $tcp_route, $contentType);
+        $request = $this->kubernetesClustersTcproutesUpdateRequest($cluster_id, $id, $tcp_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13771,13 +17800,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\TCPRoute $tcp_route (required)
+     * @param  \PidginHost\Sdk\Model\TCPRouteRequest $tcp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersTcproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersTcproutesUpdateRequest($cluster_id, $id, $tcp_route, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
+    public function kubernetesClustersTcproutesUpdateRequest($cluster_id, $id, $tcp_route_request, string $contentType = self::contentTypes['kubernetesClustersTcproutesUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -13794,10 +17823,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'tcp_route' is set
-        if ($tcp_route === null || (is_array($tcp_route) && count($tcp_route) === 0)) {
+        // verify the required parameter 'tcp_route_request' is set
+        if ($tcp_route_request === null || (is_array($tcp_route_request) && count($tcp_route_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tcp_route when calling kubernetesClustersTcproutesUpdate'
+                'Missing the required parameter $tcp_route_request when calling kubernetesClustersTcproutesUpdate'
             );
         }
 
@@ -13836,12 +17865,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($tcp_route)) {
+        if (isset($tcp_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tcp_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tcp_route_request));
             } else {
-                $httpBody = $tcp_route;
+                $httpBody = $tcp_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -14163,16 +18192,16 @@ class KubernetesApi
      * Operation kubernetesClustersUdproutesCreate
      *
      * @param  int $cluster_id cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\UDPRoute
      */
-    public function kubernetesClustersUdproutesCreate($cluster_id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
+    public function kubernetesClustersUdproutesCreate($cluster_id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
     {
-        list($response) = $this->kubernetesClustersUdproutesCreateWithHttpInfo($cluster_id, $udp_route, $contentType);
+        list($response) = $this->kubernetesClustersUdproutesCreateWithHttpInfo($cluster_id, $udp_route_request, $contentType);
         return $response;
     }
 
@@ -14180,16 +18209,16 @@ class KubernetesApi
      * Operation kubernetesClustersUdproutesCreateWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\UDPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersUdproutesCreateWithHttpInfo($cluster_id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
+    public function kubernetesClustersUdproutesCreateWithHttpInfo($cluster_id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
     {
-        $request = $this->kubernetesClustersUdproutesCreateRequest($cluster_id, $udp_route, $contentType);
+        $request = $this->kubernetesClustersUdproutesCreateRequest($cluster_id, $udp_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14264,15 +18293,15 @@ class KubernetesApi
      * Operation kubernetesClustersUdproutesCreateAsync
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersUdproutesCreateAsync($cluster_id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
+    public function kubernetesClustersUdproutesCreateAsync($cluster_id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
     {
-        return $this->kubernetesClustersUdproutesCreateAsyncWithHttpInfo($cluster_id, $udp_route, $contentType)
+        return $this->kubernetesClustersUdproutesCreateAsyncWithHttpInfo($cluster_id, $udp_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14284,16 +18313,16 @@ class KubernetesApi
      * Operation kubernetesClustersUdproutesCreateAsyncWithHttpInfo
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersUdproutesCreateAsyncWithHttpInfo($cluster_id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
+    public function kubernetesClustersUdproutesCreateAsyncWithHttpInfo($cluster_id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\UDPRoute';
-        $request = $this->kubernetesClustersUdproutesCreateRequest($cluster_id, $udp_route, $contentType);
+        $request = $this->kubernetesClustersUdproutesCreateRequest($cluster_id, $udp_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14335,13 +18364,13 @@ class KubernetesApi
      * Create request for operation 'kubernetesClustersUdproutesCreate'
      *
      * @param  int $cluster_id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersUdproutesCreateRequest($cluster_id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
+    public function kubernetesClustersUdproutesCreateRequest($cluster_id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesCreate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -14351,10 +18380,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'udp_route' is set
-        if ($udp_route === null || (is_array($udp_route) && count($udp_route) === 0)) {
+        // verify the required parameter 'udp_route_request' is set
+        if ($udp_route_request === null || (is_array($udp_route_request) && count($udp_route_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $udp_route when calling kubernetesClustersUdproutesCreate'
+                'Missing the required parameter $udp_route_request when calling kubernetesClustersUdproutesCreate'
             );
         }
 
@@ -14385,12 +18414,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($udp_route)) {
+        if (isset($udp_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($udp_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($udp_route_request));
             } else {
-                $httpBody = $udp_route;
+                $httpBody = $udp_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -14963,16 +18992,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedUDPRoute|null $patched_udp_route patched_udp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedUDPRouteRequest|null $patched_udp_route_request patched_udp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\UDPRoute
      */
-    public function kubernetesClustersUdproutesPartialUpdate($cluster_id, $id, $patched_udp_route = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
+    public function kubernetesClustersUdproutesPartialUpdate($cluster_id, $id, $patched_udp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersUdproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_udp_route, $contentType);
+        list($response) = $this->kubernetesClustersUdproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_udp_route_request, $contentType);
         return $response;
     }
 
@@ -14981,16 +19010,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedUDPRoute|null $patched_udp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedUDPRouteRequest|null $patched_udp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\UDPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersUdproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_udp_route = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
+    public function kubernetesClustersUdproutesPartialUpdateWithHttpInfo($cluster_id, $id, $patched_udp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
     {
-        $request = $this->kubernetesClustersUdproutesPartialUpdateRequest($cluster_id, $id, $patched_udp_route, $contentType);
+        $request = $this->kubernetesClustersUdproutesPartialUpdateRequest($cluster_id, $id, $patched_udp_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15066,15 +19095,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedUDPRoute|null $patched_udp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedUDPRouteRequest|null $patched_udp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersUdproutesPartialUpdateAsync($cluster_id, $id, $patched_udp_route = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
+    public function kubernetesClustersUdproutesPartialUpdateAsync($cluster_id, $id, $patched_udp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
     {
-        return $this->kubernetesClustersUdproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_udp_route, $contentType)
+        return $this->kubernetesClustersUdproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_udp_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15087,16 +19116,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedUDPRoute|null $patched_udp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedUDPRouteRequest|null $patched_udp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersUdproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_udp_route = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
+    public function kubernetesClustersUdproutesPartialUpdateAsyncWithHttpInfo($cluster_id, $id, $patched_udp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\UDPRoute';
-        $request = $this->kubernetesClustersUdproutesPartialUpdateRequest($cluster_id, $id, $patched_udp_route, $contentType);
+        $request = $this->kubernetesClustersUdproutesPartialUpdateRequest($cluster_id, $id, $patched_udp_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15139,13 +19168,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedUDPRoute|null $patched_udp_route (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedUDPRouteRequest|null $patched_udp_route_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersUdproutesPartialUpdateRequest($cluster_id, $id, $patched_udp_route = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
+    public function kubernetesClustersUdproutesPartialUpdateRequest($cluster_id, $id, $patched_udp_route_request = null, string $contentType = self::contentTypes['kubernetesClustersUdproutesPartialUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -15198,12 +19227,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($patched_udp_route)) {
+        if (isset($patched_udp_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_udp_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_udp_route_request));
             } else {
-                $httpBody = $patched_udp_route;
+                $httpBody = $patched_udp_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -15546,16 +19575,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id cluster_id (required)
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\UDPRoute
      */
-    public function kubernetesClustersUdproutesUpdate($cluster_id, $id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
+    public function kubernetesClustersUdproutesUpdate($cluster_id, $id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersUdproutesUpdateWithHttpInfo($cluster_id, $id, $udp_route, $contentType);
+        list($response) = $this->kubernetesClustersUdproutesUpdateWithHttpInfo($cluster_id, $id, $udp_route_request, $contentType);
         return $response;
     }
 
@@ -15564,16 +19593,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\UDPRoute, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersUdproutesUpdateWithHttpInfo($cluster_id, $id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
+    public function kubernetesClustersUdproutesUpdateWithHttpInfo($cluster_id, $id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
     {
-        $request = $this->kubernetesClustersUdproutesUpdateRequest($cluster_id, $id, $udp_route, $contentType);
+        $request = $this->kubernetesClustersUdproutesUpdateRequest($cluster_id, $id, $udp_route_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15649,15 +19678,15 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersUdproutesUpdateAsync($cluster_id, $id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
+    public function kubernetesClustersUdproutesUpdateAsync($cluster_id, $id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
     {
-        return $this->kubernetesClustersUdproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $udp_route, $contentType)
+        return $this->kubernetesClustersUdproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $udp_route_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15670,16 +19699,16 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersUdproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
+    public function kubernetesClustersUdproutesUpdateAsyncWithHttpInfo($cluster_id, $id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\UDPRoute';
-        $request = $this->kubernetesClustersUdproutesUpdateRequest($cluster_id, $id, $udp_route, $contentType);
+        $request = $this->kubernetesClustersUdproutesUpdateRequest($cluster_id, $id, $udp_route_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15722,13 +19751,13 @@ class KubernetesApi
      *
      * @param  int $cluster_id (required)
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\UDPRoute $udp_route (required)
+     * @param  \PidginHost\Sdk\Model\UDPRouteRequest $udp_route_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUdproutesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersUdproutesUpdateRequest($cluster_id, $id, $udp_route, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
+    public function kubernetesClustersUdproutesUpdateRequest($cluster_id, $id, $udp_route_request, string $contentType = self::contentTypes['kubernetesClustersUdproutesUpdate'][0])
     {
 
         // verify the required parameter 'cluster_id' is set
@@ -15745,10 +19774,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'udp_route' is set
-        if ($udp_route === null || (is_array($udp_route) && count($udp_route) === 0)) {
+        // verify the required parameter 'udp_route_request' is set
+        if ($udp_route_request === null || (is_array($udp_route_request) && count($udp_route_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $udp_route when calling kubernetesClustersUdproutesUpdate'
+                'Missing the required parameter $udp_route_request when calling kubernetesClustersUdproutesUpdate'
             );
         }
 
@@ -15787,12 +19816,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($udp_route)) {
+        if (isset($udp_route_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($udp_route));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($udp_route_request));
             } else {
-                $httpBody = $udp_route;
+                $httpBody = $udp_route_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -15849,16 +19878,16 @@ class KubernetesApi
      * Operation kubernetesClustersUpdate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\ClusterDetail $cluster_detail cluster_detail (required)
+     * @param  \PidginHost\Sdk\Model\ClusterDetailRequest $cluster_detail_request cluster_detail_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ClusterDetail
      */
-    public function kubernetesClustersUpdate($id, $cluster_detail, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
+    public function kubernetesClustersUpdate($id, $cluster_detail_request, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
     {
-        list($response) = $this->kubernetesClustersUpdateWithHttpInfo($id, $cluster_detail, $contentType);
+        list($response) = $this->kubernetesClustersUpdateWithHttpInfo($id, $cluster_detail_request, $contentType);
         return $response;
     }
 
@@ -15866,16 +19895,16 @@ class KubernetesApi
      * Operation kubernetesClustersUpdateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ClusterDetail $cluster_detail (required)
+     * @param  \PidginHost\Sdk\Model\ClusterDetailRequest $cluster_detail_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ClusterDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function kubernetesClustersUpdateWithHttpInfo($id, $cluster_detail, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
+    public function kubernetesClustersUpdateWithHttpInfo($id, $cluster_detail_request, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
     {
-        $request = $this->kubernetesClustersUpdateRequest($id, $cluster_detail, $contentType);
+        $request = $this->kubernetesClustersUpdateRequest($id, $cluster_detail_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15950,15 +19979,15 @@ class KubernetesApi
      * Operation kubernetesClustersUpdateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ClusterDetail $cluster_detail (required)
+     * @param  \PidginHost\Sdk\Model\ClusterDetailRequest $cluster_detail_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersUpdateAsync($id, $cluster_detail, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
+    public function kubernetesClustersUpdateAsync($id, $cluster_detail_request, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
     {
-        return $this->kubernetesClustersUpdateAsyncWithHttpInfo($id, $cluster_detail, $contentType)
+        return $this->kubernetesClustersUpdateAsyncWithHttpInfo($id, $cluster_detail_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15970,16 +19999,16 @@ class KubernetesApi
      * Operation kubernetesClustersUpdateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ClusterDetail $cluster_detail (required)
+     * @param  \PidginHost\Sdk\Model\ClusterDetailRequest $cluster_detail_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function kubernetesClustersUpdateAsyncWithHttpInfo($id, $cluster_detail, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
+    public function kubernetesClustersUpdateAsyncWithHttpInfo($id, $cluster_detail_request, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ClusterDetail';
-        $request = $this->kubernetesClustersUpdateRequest($id, $cluster_detail, $contentType);
+        $request = $this->kubernetesClustersUpdateRequest($id, $cluster_detail_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16021,13 +20050,13 @@ class KubernetesApi
      * Create request for operation 'kubernetesClustersUpdate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ClusterDetail $cluster_detail (required)
+     * @param  \PidginHost\Sdk\Model\ClusterDetailRequest $cluster_detail_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function kubernetesClustersUpdateRequest($id, $cluster_detail, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
+    public function kubernetesClustersUpdateRequest($id, $cluster_detail_request, string $contentType = self::contentTypes['kubernetesClustersUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -16037,10 +20066,10 @@ class KubernetesApi
             );
         }
 
-        // verify the required parameter 'cluster_detail' is set
-        if ($cluster_detail === null || (is_array($cluster_detail) && count($cluster_detail) === 0)) {
+        // verify the required parameter 'cluster_detail_request' is set
+        if ($cluster_detail_request === null || (is_array($cluster_detail_request) && count($cluster_detail_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cluster_detail when calling kubernetesClustersUpdate'
+                'Missing the required parameter $cluster_detail_request when calling kubernetesClustersUpdate'
             );
         }
 
@@ -16071,12 +20100,12 @@ class KubernetesApi
         );
 
         // for model (json/xml)
-        if (isset($cluster_detail)) {
+        if (isset($cluster_detail_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_detail));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cluster_detail_request));
             } else {
-                $httpBody = $cluster_detail;
+                $httpBody = $cluster_detail_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -16361,6 +20390,298 @@ class KubernetesApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($feature_upgrade_request));
             } else {
                 $httpBody = $feature_upgrade_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation kubernetesClustersUpgradeLbCreate
+     *
+     * @param  string $id id (required)
+     * @param  \PidginHost\Sdk\Model\LBUpgradeRequest|null $lb_upgrade_request lb_upgrade_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpgradeLbCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\LBUpgradePlanResponse|\PidginHost\Sdk\Model\LBUpgradeDispatchResponse
+     */
+    public function kubernetesClustersUpgradeLbCreate($id, $lb_upgrade_request = null, string $contentType = self::contentTypes['kubernetesClustersUpgradeLbCreate'][0])
+    {
+        list($response) = $this->kubernetesClustersUpgradeLbCreateWithHttpInfo($id, $lb_upgrade_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation kubernetesClustersUpgradeLbCreateWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\LBUpgradeRequest|null $lb_upgrade_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpgradeLbCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\LBUpgradePlanResponse|\PidginHost\Sdk\Model\LBUpgradeDispatchResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function kubernetesClustersUpgradeLbCreateWithHttpInfo($id, $lb_upgrade_request = null, string $contentType = self::contentTypes['kubernetesClustersUpgradeLbCreate'][0])
+    {
+        $request = $this->kubernetesClustersUpgradeLbCreateRequest($id, $lb_upgrade_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\LBUpgradePlanResponse',
+                        $request,
+                        $response,
+                    );
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\LBUpgradeDispatchResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\LBUpgradePlanResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\LBUpgradePlanResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\LBUpgradeDispatchResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation kubernetesClustersUpgradeLbCreateAsync
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\LBUpgradeRequest|null $lb_upgrade_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpgradeLbCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersUpgradeLbCreateAsync($id, $lb_upgrade_request = null, string $contentType = self::contentTypes['kubernetesClustersUpgradeLbCreate'][0])
+    {
+        return $this->kubernetesClustersUpgradeLbCreateAsyncWithHttpInfo($id, $lb_upgrade_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation kubernetesClustersUpgradeLbCreateAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\LBUpgradeRequest|null $lb_upgrade_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpgradeLbCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function kubernetesClustersUpgradeLbCreateAsyncWithHttpInfo($id, $lb_upgrade_request = null, string $contentType = self::contentTypes['kubernetesClustersUpgradeLbCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\LBUpgradePlanResponse';
+        $request = $this->kubernetesClustersUpgradeLbCreateRequest($id, $lb_upgrade_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'kubernetesClustersUpgradeLbCreate'
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\LBUpgradeRequest|null $lb_upgrade_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['kubernetesClustersUpgradeLbCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function kubernetesClustersUpgradeLbCreateRequest($id, $lb_upgrade_request = null, string $contentType = self::contentTypes['kubernetesClustersUpgradeLbCreate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling kubernetesClustersUpgradeLbCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/kubernetes/clusters/{id}/upgrade-lb/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($lb_upgrade_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($lb_upgrade_request));
+            } else {
+                $httpBody = $lb_upgrade_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -20,6 +20,6 @@ Name | Type | Description | Notes
 **client_info** | **mixed** |  | [readonly]
 **invoice_info** | **mixed** |  | [readonly]
 **payment_method** | **string** |  | [readonly]
-**services** | **string** |  | [readonly]
+**services** | [**\PidginHost\Sdk\Model\InvoiceService[]**](InvoiceService.md) |  | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

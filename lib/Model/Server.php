@@ -71,7 +71,7 @@ class Server implements ModelInterface, ArrayAccess, \JsonSerializable
         'destroy_protection' => 'bool',
         'ha_enabled' => 'bool',
         'custom_os' => 'bool',
-        'networks' => 'array<string,mixed>',
+        'networks' => '\PidginHost\Sdk\Model\ServerNetworks',
         'rescue_mode' => 'bool',
         'boot_iso' => 'string',
         'rescue_supported' => 'bool'
@@ -814,7 +814,7 @@ class Server implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets networks
      *
-     * @return array<string,mixed>
+     * @return \PidginHost\Sdk\Model\ServerNetworks
      */
     public function getNetworks()
     {
@@ -824,7 +824,7 @@ class Server implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets networks
      *
-     * @param array<string,mixed> $networks networks
+     * @param \PidginHost\Sdk\Model\ServerNetworks $networks networks
      *
      * @return self
      */

@@ -285,6 +285,10 @@ class AttachIPv4Request implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['ipv4'] === null) {
             $invalidProperties[] = "'ipv4' can't be null";
         }
+        if ((mb_strlen($this->container['ipv4']) < 1)) {
+            $invalidProperties[] = "invalid value for 'ipv4', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -322,6 +326,11 @@ class AttachIPv4Request implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($ipv4)) {
             throw new \InvalidArgumentException('non-nullable ipv4 cannot be null');
         }
+
+        if ((mb_strlen($ipv4) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $ipv4 when calling AttachIPv4Request., must be bigger than or equal to 1.');
+        }
+
         $this->container['ipv4'] = $ipv4;
 
         return $this;

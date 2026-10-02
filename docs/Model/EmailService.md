@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **bounce_rate_pct** | **string** |  | [readonly]
 **complaint_rate_pct** | **string** |  | [readonly]
 **dedicated_ip_addon** | **bool** |  | [readonly]
-**quota_monthly** | **string** |  | [readonly]
-**price_monthly_eur** | **string** |  | [readonly]
+**quota_monthly** | **int** |  | [readonly]
+**price_monthly_eur** | **float** |  | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

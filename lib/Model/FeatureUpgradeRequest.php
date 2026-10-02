@@ -285,6 +285,10 @@ class FeatureUpgradeRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['feature_name'] === null) {
             $invalidProperties[] = "'feature_name' can't be null";
         }
+        if ((mb_strlen($this->container['feature_name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'feature_name', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -322,6 +326,11 @@ class FeatureUpgradeRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($feature_name)) {
             throw new \InvalidArgumentException('non-nullable feature_name cannot be null');
         }
+
+        if ((mb_strlen($feature_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $feature_name when calling FeatureUpgradeRequest., must be bigger than or equal to 1.');
+        }
+
         $this->container['feature_name'] = $feature_name;
 
         return $this;

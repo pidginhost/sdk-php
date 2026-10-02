@@ -104,9 +104,9 @@ class HostingService implements ModelInterface, ArrayAccess, \JsonSerializable
         'next_invoice' => false,
         'created' => false,
         'billing_cycle' => false,
-        'package_name' => false,
-        'node_url' => false,
-        'username' => false
+        'package_name' => true,
+        'node_url' => true,
+        'username' => true
     ];
 
     /**
@@ -364,14 +364,14 @@ class HostingService implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['billing_cycle'] === null) {
             $invalidProperties[] = "'billing_cycle' can't be null";
         }
-        if ($this->container['package_name'] === null) {
-            $invalidProperties[] = "'package_name' can't be null";
+        if ($this->container['package_name'] === null && !$this->isNullableSetToNull('package_name')) {
+            $invalidProperties[] = "'package_name' is required";
         }
-        if ($this->container['node_url'] === null) {
-            $invalidProperties[] = "'node_url' can't be null";
+        if ($this->container['node_url'] === null && !$this->isNullableSetToNull('node_url')) {
+            $invalidProperties[] = "'node_url' is required";
         }
-        if ($this->container['username'] === null) {
-            $invalidProperties[] = "'username' can't be null";
+        if ($this->container['username'] === null && !$this->isNullableSetToNull('username')) {
+            $invalidProperties[] = "'username' is required";
         }
         return $invalidProperties;
     }
@@ -585,7 +585,7 @@ class HostingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets package_name
      *
-     * @return string
+     * @return string|null
      */
     public function getPackageName()
     {
@@ -595,14 +595,21 @@ class HostingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets package_name
      *
-     * @param string $package_name package_name
+     * @param string|null $package_name package_name
      *
      * @return self
      */
     public function setPackageName($package_name)
     {
         if (is_null($package_name)) {
-            throw new \InvalidArgumentException('non-nullable package_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'package_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('package_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['package_name'] = $package_name;
 
@@ -612,7 +619,7 @@ class HostingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets node_url
      *
-     * @return string
+     * @return string|null
      */
     public function getNodeUrl()
     {
@@ -622,14 +629,21 @@ class HostingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets node_url
      *
-     * @param string $node_url node_url
+     * @param string|null $node_url node_url
      *
      * @return self
      */
     public function setNodeUrl($node_url)
     {
         if (is_null($node_url)) {
-            throw new \InvalidArgumentException('non-nullable node_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'node_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('node_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['node_url'] = $node_url;
 
@@ -639,7 +653,7 @@ class HostingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets username
      *
-     * @return string
+     * @return string|null
      */
     public function getUsername()
     {
@@ -649,14 +663,21 @@ class HostingService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets username
      *
-     * @param string $username username
+     * @param string|null $username username
      *
      * @return self
      */
     public function setUsername($username)
     {
         if (is_null($username)) {
-            throw new \InvalidArgumentException('non-nullable username cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'username');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('username', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['username'] = $username;
 

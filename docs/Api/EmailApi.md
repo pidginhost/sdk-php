@@ -36,7 +36,6 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**emailServicesCreate()**](EmailApi.md#emailServicesCreate) | **POST** /api/email/services/ |  |
 | [**emailServicesDedicatedIpCreate()**](EmailApi.md#emailServicesDedicatedIpCreate) | **POST** /api/email/services/{id}/dedicated_ip/ |  |
 | [**emailServicesDedicatedIpDestroy()**](EmailApi.md#emailServicesDedicatedIpDestroy) | **DELETE** /api/email/services/{id}/dedicated_ip/ |  |
-| [**emailServicesDestroy()**](EmailApi.md#emailServicesDestroy) | **DELETE** /api/email/services/{id}/ |  |
 | [**emailServicesDomainsCreate()**](EmailApi.md#emailServicesDomainsCreate) | **POST** /api/email/services/{service_pk}/domains/ |  |
 | [**emailServicesDomainsList()**](EmailApi.md#emailServicesDomainsList) | **GET** /api/email/services/{service_pk}/domains/ |  |
 | [**emailServicesList()**](EmailApi.md#emailServicesList) | **GET** /api/email/services/ |  |
@@ -64,7 +63,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 ## `emailApiCredentialsCreate()`
 
 ```php
-emailApiCredentialsCreate($api_credential): \PidginHost\Sdk\Model\ApiCredential
+emailApiCredentialsCreate($credential_create_request): \PidginHost\Sdk\Model\ApiCredentialCreated
 ```
 
 
@@ -95,10 +94,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$api_credential = new \PidginHost\Sdk\Model\ApiCredential(); // \PidginHost\Sdk\Model\ApiCredential
+$credential_create_request = new \PidginHost\Sdk\Model\CredentialCreateRequest(); // \PidginHost\Sdk\Model\CredentialCreateRequest
 
 try {
-    $result = $apiInstance->emailApiCredentialsCreate($api_credential);
+    $result = $apiInstance->emailApiCredentialsCreate($credential_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailApiCredentialsCreate: ', $e->getMessage(), PHP_EOL;
@@ -109,11 +108,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **api_credential** | [**\PidginHost\Sdk\Model\ApiCredential**](../Model/ApiCredential.md)|  | [optional] |
+| **credential_create_request** | [**\PidginHost\Sdk\Model\CredentialCreateRequest**](../Model/CredentialCreateRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\ApiCredential**](../Model/ApiCredential.md)
+[**\PidginHost\Sdk\Model\ApiCredentialCreated**](../Model/ApiCredentialCreated.md)
 
 ### Authorization
 
@@ -331,7 +330,7 @@ try {
 ## `emailDomainsCreate()`
 
 ```php
-emailDomainsCreate($domain_add): \PidginHost\Sdk\Model\SendingDomain
+emailDomainsCreate($domain_add_request): \PidginHost\Sdk\Model\SendingDomain
 ```
 
 
@@ -362,10 +361,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$domain_add = new \PidginHost\Sdk\Model\DomainAdd(); // \PidginHost\Sdk\Model\DomainAdd
+$domain_add_request = new \PidginHost\Sdk\Model\DomainAddRequest(); // \PidginHost\Sdk\Model\DomainAddRequest
 
 try {
-    $result = $apiInstance->emailDomainsCreate($domain_add);
+    $result = $apiInstance->emailDomainsCreate($domain_add_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailDomainsCreate: ', $e->getMessage(), PHP_EOL;
@@ -376,7 +375,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **domain_add** | [**\PidginHost\Sdk\Model\DomainAdd**](../Model/DomainAdd.md)|  | |
+| **domain_add_request** | [**\PidginHost\Sdk\Model\DomainAddRequest**](../Model/DomainAddRequest.md)|  | |
 
 ### Return type
 
@@ -398,7 +397,7 @@ try {
 ## `emailDomainsInboundRoutesCreate()`
 
 ```php
-emailDomainsInboundRoutesCreate($domain_pk, $inbound_route): \PidginHost\Sdk\Model\InboundRoute
+emailDomainsInboundRoutesCreate($domain_pk, $inbound_route_create_request): \PidginHost\Sdk\Model\InboundRouteWriteResponse
 ```
 
 
@@ -430,10 +429,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $domain_pk = 56; // int
-$inbound_route = new \PidginHost\Sdk\Model\InboundRoute(); // \PidginHost\Sdk\Model\InboundRoute
+$inbound_route_create_request = new \PidginHost\Sdk\Model\InboundRouteCreateRequest(); // \PidginHost\Sdk\Model\InboundRouteCreateRequest
 
 try {
-    $result = $apiInstance->emailDomainsInboundRoutesCreate($domain_pk, $inbound_route);
+    $result = $apiInstance->emailDomainsInboundRoutesCreate($domain_pk, $inbound_route_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailDomainsInboundRoutesCreate: ', $e->getMessage(), PHP_EOL;
@@ -445,11 +444,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **domain_pk** | **int**|  | |
-| **inbound_route** | [**\PidginHost\Sdk\Model\InboundRoute**](../Model/InboundRoute.md)|  | |
+| **inbound_route_create_request** | [**\PidginHost\Sdk\Model\InboundRouteCreateRequest**](../Model/InboundRouteCreateRequest.md)|  | |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\InboundRoute**](../Model/InboundRoute.md)
+[**\PidginHost\Sdk\Model\InboundRouteWriteResponse**](../Model/InboundRouteWriteResponse.md)
 
 ### Authorization
 
@@ -670,7 +669,7 @@ try {
 ## `emailDomainsRotateDkimCreate()`
 
 ```php
-emailDomainsRotateDkimCreate($id, $sending_domain): \PidginHost\Sdk\Model\SendingDomain
+emailDomainsRotateDkimCreate($id): \PidginHost\Sdk\Model\SendingDomain
 ```
 
 
@@ -702,10 +701,9 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this sending domain.
-$sending_domain = new \PidginHost\Sdk\Model\SendingDomain(); // \PidginHost\Sdk\Model\SendingDomain
 
 try {
-    $result = $apiInstance->emailDomainsRotateDkimCreate($id, $sending_domain);
+    $result = $apiInstance->emailDomainsRotateDkimCreate($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailDomainsRotateDkimCreate: ', $e->getMessage(), PHP_EOL;
@@ -717,7 +715,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this sending domain. | |
-| **sending_domain** | [**\PidginHost\Sdk\Model\SendingDomain**](../Model/SendingDomain.md)|  | [optional] |
 
 ### Return type
 
@@ -729,7 +726,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -739,7 +736,7 @@ try {
 ## `emailDomainsToggleInboundCreate()`
 
 ```php
-emailDomainsToggleInboundCreate($id, $sending_domain): \PidginHost\Sdk\Model\SendingDomain
+emailDomainsToggleInboundCreate($id, $toggle_inbound_request): \PidginHost\Sdk\Model\SendingDomain
 ```
 
 
@@ -771,10 +768,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this sending domain.
-$sending_domain = new \PidginHost\Sdk\Model\SendingDomain(); // \PidginHost\Sdk\Model\SendingDomain
+$toggle_inbound_request = new \PidginHost\Sdk\Model\ToggleInboundRequest(); // \PidginHost\Sdk\Model\ToggleInboundRequest
 
 try {
-    $result = $apiInstance->emailDomainsToggleInboundCreate($id, $sending_domain);
+    $result = $apiInstance->emailDomainsToggleInboundCreate($id, $toggle_inbound_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailDomainsToggleInboundCreate: ', $e->getMessage(), PHP_EOL;
@@ -786,7 +783,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this sending domain. | |
-| **sending_domain** | [**\PidginHost\Sdk\Model\SendingDomain**](../Model/SendingDomain.md)|  | [optional] |
+| **toggle_inbound_request** | [**\PidginHost\Sdk\Model\ToggleInboundRequest**](../Model/ToggleInboundRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -808,7 +805,7 @@ try {
 ## `emailDomainsVerifyCreate()`
 
 ```php
-emailDomainsVerifyCreate($id, $sending_domain): \PidginHost\Sdk\Model\SendingDomain
+emailDomainsVerifyCreate($id): \PidginHost\Sdk\Model\SendingDomain
 ```
 
 
@@ -840,10 +837,9 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this sending domain.
-$sending_domain = new \PidginHost\Sdk\Model\SendingDomain(); // \PidginHost\Sdk\Model\SendingDomain
 
 try {
-    $result = $apiInstance->emailDomainsVerifyCreate($id, $sending_domain);
+    $result = $apiInstance->emailDomainsVerifyCreate($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailDomainsVerifyCreate: ', $e->getMessage(), PHP_EOL;
@@ -855,7 +851,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this sending domain. | |
-| **sending_domain** | [**\PidginHost\Sdk\Model\SendingDomain**](../Model/SendingDomain.md)|  | [optional] |
 
 ### Return type
 
@@ -867,7 +862,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -877,7 +872,7 @@ try {
 ## `emailInboundRoutesCreate()`
 
 ```php
-emailInboundRoutesCreate($inbound_route): \PidginHost\Sdk\Model\InboundRoute
+emailInboundRoutesCreate($inbound_route_create_request): \PidginHost\Sdk\Model\InboundRouteWriteResponse
 ```
 
 
@@ -908,10 +903,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$inbound_route = new \PidginHost\Sdk\Model\InboundRoute(); // \PidginHost\Sdk\Model\InboundRoute
+$inbound_route_create_request = new \PidginHost\Sdk\Model\InboundRouteCreateRequest(); // \PidginHost\Sdk\Model\InboundRouteCreateRequest
 
 try {
-    $result = $apiInstance->emailInboundRoutesCreate($inbound_route);
+    $result = $apiInstance->emailInboundRoutesCreate($inbound_route_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailInboundRoutesCreate: ', $e->getMessage(), PHP_EOL;
@@ -922,11 +917,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **inbound_route** | [**\PidginHost\Sdk\Model\InboundRoute**](../Model/InboundRoute.md)|  | |
+| **inbound_route_create_request** | [**\PidginHost\Sdk\Model\InboundRouteCreateRequest**](../Model/InboundRouteCreateRequest.md)|  | |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\InboundRoute**](../Model/InboundRoute.md)
+[**\PidginHost\Sdk\Model\InboundRouteWriteResponse**](../Model/InboundRouteWriteResponse.md)
 
 ### Authorization
 
@@ -1077,7 +1072,7 @@ try {
 ## `emailInboundRoutesPartialUpdate()`
 
 ```php
-emailInboundRoutesPartialUpdate($id, $patched_inbound_route): \PidginHost\Sdk\Model\InboundRoute
+emailInboundRoutesPartialUpdate($id, $patched_inbound_route_create_request): \PidginHost\Sdk\Model\InboundRouteWriteResponse
 ```
 
 
@@ -1109,10 +1104,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this inbound route.
-$patched_inbound_route = new \PidginHost\Sdk\Model\PatchedInboundRoute(); // \PidginHost\Sdk\Model\PatchedInboundRoute
+$patched_inbound_route_create_request = new \PidginHost\Sdk\Model\PatchedInboundRouteCreateRequest(); // \PidginHost\Sdk\Model\PatchedInboundRouteCreateRequest
 
 try {
-    $result = $apiInstance->emailInboundRoutesPartialUpdate($id, $patched_inbound_route);
+    $result = $apiInstance->emailInboundRoutesPartialUpdate($id, $patched_inbound_route_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailInboundRoutesPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1124,11 +1119,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this inbound route. | |
-| **patched_inbound_route** | [**\PidginHost\Sdk\Model\PatchedInboundRoute**](../Model/PatchedInboundRoute.md)|  | [optional] |
+| **patched_inbound_route_create_request** | [**\PidginHost\Sdk\Model\PatchedInboundRouteCreateRequest**](../Model/PatchedInboundRouteCreateRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\InboundRoute**](../Model/InboundRoute.md)
+[**\PidginHost\Sdk\Model\InboundRouteWriteResponse**](../Model/InboundRouteWriteResponse.md)
 
 ### Authorization
 
@@ -1213,7 +1208,7 @@ try {
 ## `emailMessagesRetrieve()`
 
 ```php
-emailMessagesRetrieve($message_id)
+emailMessagesRetrieve($message_id): array<string,mixed>
 ```
 
 
@@ -1247,7 +1242,8 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
 $message_id = 'message_id_example'; // string
 
 try {
-    $apiInstance->emailMessagesRetrieve($message_id);
+    $result = $apiInstance->emailMessagesRetrieve($message_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailMessagesRetrieve: ', $e->getMessage(), PHP_EOL;
 }
@@ -1261,7 +1257,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+**array<string,mixed>**
 
 ### Authorization
 
@@ -1270,7 +1266,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1279,7 +1275,7 @@ void (empty response body)
 ## `emailSandboxAddressesCreate()`
 
 ```php
-emailSandboxAddressesCreate($sandbox_address): \PidginHost\Sdk\Model\SandboxAddress
+emailSandboxAddressesCreate($sandbox_address_request): \PidginHost\Sdk\Model\SandboxAddress
 ```
 
 
@@ -1310,10 +1306,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sandbox_address = new \PidginHost\Sdk\Model\SandboxAddress(); // \PidginHost\Sdk\Model\SandboxAddress
+$sandbox_address_request = new \PidginHost\Sdk\Model\SandboxAddressRequest(); // \PidginHost\Sdk\Model\SandboxAddressRequest
 
 try {
-    $result = $apiInstance->emailSandboxAddressesCreate($sandbox_address);
+    $result = $apiInstance->emailSandboxAddressesCreate($sandbox_address_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailSandboxAddressesCreate: ', $e->getMessage(), PHP_EOL;
@@ -1324,7 +1320,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sandbox_address** | [**\PidginHost\Sdk\Model\SandboxAddress**](../Model/SandboxAddress.md)|  | |
+| **sandbox_address_request** | [**\PidginHost\Sdk\Model\SandboxAddressRequest**](../Model/SandboxAddressRequest.md)|  | |
 
 ### Return type
 
@@ -1546,7 +1542,7 @@ try {
 ## `emailSendCreate()`
 
 ```php
-emailSendCreate()
+emailSendCreate($send_request): \PidginHost\Sdk\Model\EmailSendResponse
 ```
 
 
@@ -1558,15 +1554,21 @@ emailSendCreate()
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure Bearer (phme_<key>) authorization: emailApiKey
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
+$send_request = new \PidginHost\Sdk\Model\SendRequest(); // \PidginHost\Sdk\Model\SendRequest
 
 try {
-    $apiInstance->emailSendCreate();
+    $result = $apiInstance->emailSendCreate($send_request);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailSendCreate: ', $e->getMessage(), PHP_EOL;
 }
@@ -1574,20 +1576,22 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **send_request** | [**\PidginHost\Sdk\Model\SendRequest**](../Model/SendRequest.md)|  | |
 
 ### Return type
 
-void (empty response body)
+[**\PidginHost\Sdk\Model\EmailSendResponse**](../Model/EmailSendResponse.md)
 
 ### Authorization
 
-No authorization required
+[emailApiKey](../../README.md#emailApiKey)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1596,7 +1600,7 @@ No authorization required
 ## `emailServicesApiCredentialsCreate()`
 
 ```php
-emailServicesApiCredentialsCreate($service_pk, $api_credential): \PidginHost\Sdk\Model\ApiCredential
+emailServicesApiCredentialsCreate($service_pk, $credential_create_request): \PidginHost\Sdk\Model\ApiCredentialCreated
 ```
 
 
@@ -1628,10 +1632,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $service_pk = 56; // int
-$api_credential = new \PidginHost\Sdk\Model\ApiCredential(); // \PidginHost\Sdk\Model\ApiCredential
+$credential_create_request = new \PidginHost\Sdk\Model\CredentialCreateRequest(); // \PidginHost\Sdk\Model\CredentialCreateRequest
 
 try {
-    $result = $apiInstance->emailServicesApiCredentialsCreate($service_pk, $api_credential);
+    $result = $apiInstance->emailServicesApiCredentialsCreate($service_pk, $credential_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesApiCredentialsCreate: ', $e->getMessage(), PHP_EOL;
@@ -1643,11 +1647,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **service_pk** | **int**|  | |
-| **api_credential** | [**\PidginHost\Sdk\Model\ApiCredential**](../Model/ApiCredential.md)|  | [optional] |
+| **credential_create_request** | [**\PidginHost\Sdk\Model\CredentialCreateRequest**](../Model/CredentialCreateRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\ApiCredential**](../Model/ApiCredential.md)
+[**\PidginHost\Sdk\Model\ApiCredentialCreated**](../Model/ApiCredentialCreated.md)
 
 ### Authorization
 
@@ -1801,7 +1805,7 @@ try {
 ## `emailServicesChangeTierPartialUpdate()`
 
 ```php
-emailServicesChangeTierPartialUpdate($id, $patched_subscribe): \PidginHost\Sdk\Model\EmailService
+emailServicesChangeTierPartialUpdate($id, $subscribe_request): \PidginHost\Sdk\Model\EmailService
 ```
 
 
@@ -1833,10 +1837,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this email service.
-$patched_subscribe = new \PidginHost\Sdk\Model\PatchedSubscribe(); // \PidginHost\Sdk\Model\PatchedSubscribe
+$subscribe_request = new \PidginHost\Sdk\Model\SubscribeRequest(); // \PidginHost\Sdk\Model\SubscribeRequest
 
 try {
-    $result = $apiInstance->emailServicesChangeTierPartialUpdate($id, $patched_subscribe);
+    $result = $apiInstance->emailServicesChangeTierPartialUpdate($id, $subscribe_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesChangeTierPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -1848,7 +1852,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this email service. | |
-| **patched_subscribe** | [**\PidginHost\Sdk\Model\PatchedSubscribe**](../Model/PatchedSubscribe.md)|  | [optional] |
+| **subscribe_request** | [**\PidginHost\Sdk\Model\SubscribeRequest**](../Model/SubscribeRequest.md)|  | |
 
 ### Return type
 
@@ -1870,7 +1874,7 @@ try {
 ## `emailServicesCreate()`
 
 ```php
-emailServicesCreate($subscribe): \PidginHost\Sdk\Model\EmailService
+emailServicesCreate($subscribe_request): \PidginHost\Sdk\Model\EmailService
 ```
 
 
@@ -1901,10 +1905,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$subscribe = new \PidginHost\Sdk\Model\Subscribe(); // \PidginHost\Sdk\Model\Subscribe
+$subscribe_request = new \PidginHost\Sdk\Model\SubscribeRequest(); // \PidginHost\Sdk\Model\SubscribeRequest
 
 try {
-    $result = $apiInstance->emailServicesCreate($subscribe);
+    $result = $apiInstance->emailServicesCreate($subscribe_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesCreate: ', $e->getMessage(), PHP_EOL;
@@ -1915,7 +1919,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **subscribe** | [**\PidginHost\Sdk\Model\Subscribe**](../Model/Subscribe.md)|  | |
+| **subscribe_request** | [**\PidginHost\Sdk\Model\SubscribeRequest**](../Model/SubscribeRequest.md)|  | |
 
 ### Return type
 
@@ -2004,7 +2008,7 @@ try {
 ## `emailServicesDedicatedIpDestroy()`
 
 ```php
-emailServicesDedicatedIpDestroy($id)
+emailServicesDedicatedIpDestroy($id): \PidginHost\Sdk\Model\EmailService
 ```
 
 
@@ -2038,7 +2042,8 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
 $id = 56; // int | A unique integer value identifying this email service.
 
 try {
-    $apiInstance->emailServicesDedicatedIpDestroy($id);
+    $result = $apiInstance->emailServicesDedicatedIpDestroy($id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesDedicatedIpDestroy: ', $e->getMessage(), PHP_EOL;
 }
@@ -2052,7 +2057,7 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\PidginHost\Sdk\Model\EmailService**](../Model/EmailService.md)
 
 ### Authorization
 
@@ -2061,73 +2066,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `emailServicesDestroy()`
-
-```php
-emailServicesDestroy($id)
-```
-
-
-
-Intersect the beta gate and IAM with the configured API permissions.  Keeping the gate additive preserves authentication, custom-token scope, and OAuth scope checks when the customer-facing feature flag is open. Per-action permission overrides (the staff-only restore action) remain in the same intersection.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: tokenAuth
-$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure API key authorization: cookieAuth
-$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
-
-
-$apiInstance = new PidginHost\Sdk\Api\EmailApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 56; // int | A unique integer value identifying this email service.
-
-try {
-    $apiInstance->emailServicesDestroy($id);
-} catch (Exception $e) {
-    echo 'Exception when calling EmailApi->emailServicesDestroy: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| A unique integer value identifying this email service. | |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -2136,7 +2075,7 @@ void (empty response body)
 ## `emailServicesDomainsCreate()`
 
 ```php
-emailServicesDomainsCreate($service_pk, $domain_add): \PidginHost\Sdk\Model\SendingDomain
+emailServicesDomainsCreate($service_pk, $domain_add_request): \PidginHost\Sdk\Model\SendingDomain
 ```
 
 
@@ -2168,10 +2107,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $service_pk = 56; // int
-$domain_add = new \PidginHost\Sdk\Model\DomainAdd(); // \PidginHost\Sdk\Model\DomainAdd
+$domain_add_request = new \PidginHost\Sdk\Model\DomainAddRequest(); // \PidginHost\Sdk\Model\DomainAddRequest
 
 try {
-    $result = $apiInstance->emailServicesDomainsCreate($service_pk, $domain_add);
+    $result = $apiInstance->emailServicesDomainsCreate($service_pk, $domain_add_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesDomainsCreate: ', $e->getMessage(), PHP_EOL;
@@ -2183,7 +2122,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **service_pk** | **int**|  | |
-| **domain_add** | [**\PidginHost\Sdk\Model\DomainAdd**](../Model/DomainAdd.md)|  | |
+| **domain_add_request** | [**\PidginHost\Sdk\Model\DomainAddRequest**](../Model/DomainAddRequest.md)|  | |
 
 ### Return type
 
@@ -2341,7 +2280,7 @@ try {
 ## `emailServicesMessagesRetrieve()`
 
 ```php
-emailServicesMessagesRetrieve($service_pk)
+emailServicesMessagesRetrieve($service_pk, $page, $per_page): \PidginHost\Sdk\Model\EmailMessageList
 ```
 
 
@@ -2373,9 +2312,12 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $service_pk = 56; // int
+$page = 56; // int | Page number, starting at 1.
+$per_page = 56; // int | Page size, capped at 200; defaults to 50.
 
 try {
-    $apiInstance->emailServicesMessagesRetrieve($service_pk);
+    $result = $apiInstance->emailServicesMessagesRetrieve($service_pk, $page, $per_page);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesMessagesRetrieve: ', $e->getMessage(), PHP_EOL;
 }
@@ -2386,10 +2328,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **service_pk** | **int**|  | |
+| **page** | **int**| Page number, starting at 1. | [optional] |
+| **per_page** | **int**| Page size, capped at 200; defaults to 50. | [optional] |
 
 ### Return type
 
-void (empty response body)
+[**\PidginHost\Sdk\Model\EmailMessageList**](../Model/EmailMessageList.md)
 
 ### Authorization
 
@@ -2398,7 +2342,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -2407,7 +2351,7 @@ void (empty response body)
 ## `emailServicesPartialUpdate()`
 
 ```php
-emailServicesPartialUpdate($id, $patched_email_service): \PidginHost\Sdk\Model\EmailService
+emailServicesPartialUpdate($id): \PidginHost\Sdk\Model\EmailService
 ```
 
 
@@ -2439,10 +2383,9 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $id = 56; // int | A unique integer value identifying this email service.
-$patched_email_service = new \PidginHost\Sdk\Model\PatchedEmailService(); // \PidginHost\Sdk\Model\PatchedEmailService
 
 try {
-    $result = $apiInstance->emailServicesPartialUpdate($id, $patched_email_service);
+    $result = $apiInstance->emailServicesPartialUpdate($id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesPartialUpdate: ', $e->getMessage(), PHP_EOL;
@@ -2454,7 +2397,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int**| A unique integer value identifying this email service. | |
-| **patched_email_service** | [**\PidginHost\Sdk\Model\PatchedEmailService**](../Model/PatchedEmailService.md)|  | [optional] |
 
 ### Return type
 
@@ -2466,7 +2408,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -2610,7 +2552,7 @@ try {
 ## `emailServicesSandboxAddressesCreate()`
 
 ```php
-emailServicesSandboxAddressesCreate($service_pk, $sandbox_address): \PidginHost\Sdk\Model\SandboxAddress
+emailServicesSandboxAddressesCreate($service_pk, $sandbox_address_request): \PidginHost\Sdk\Model\SandboxAddress
 ```
 
 
@@ -2642,10 +2584,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $service_pk = 56; // int
-$sandbox_address = new \PidginHost\Sdk\Model\SandboxAddress(); // \PidginHost\Sdk\Model\SandboxAddress
+$sandbox_address_request = new \PidginHost\Sdk\Model\SandboxAddressRequest(); // \PidginHost\Sdk\Model\SandboxAddressRequest
 
 try {
-    $result = $apiInstance->emailServicesSandboxAddressesCreate($service_pk, $sandbox_address);
+    $result = $apiInstance->emailServicesSandboxAddressesCreate($service_pk, $sandbox_address_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesSandboxAddressesCreate: ', $e->getMessage(), PHP_EOL;
@@ -2657,7 +2599,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **service_pk** | **int**|  | |
-| **sandbox_address** | [**\PidginHost\Sdk\Model\SandboxAddress**](../Model/SandboxAddress.md)|  | |
+| **sandbox_address_request** | [**\PidginHost\Sdk\Model\SandboxAddressRequest**](../Model/SandboxAddressRequest.md)|  | |
 
 ### Return type
 
@@ -2748,7 +2690,7 @@ try {
 ## `emailServicesSmtpCredentialsCreate()`
 
 ```php
-emailServicesSmtpCredentialsCreate($service_pk, $smtp_credential): \PidginHost\Sdk\Model\SmtpCredential
+emailServicesSmtpCredentialsCreate($service_pk, $credential_create_request): \PidginHost\Sdk\Model\SmtpCredentialCreated
 ```
 
 
@@ -2780,10 +2722,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $service_pk = 56; // int
-$smtp_credential = new \PidginHost\Sdk\Model\SmtpCredential(); // \PidginHost\Sdk\Model\SmtpCredential
+$credential_create_request = new \PidginHost\Sdk\Model\CredentialCreateRequest(); // \PidginHost\Sdk\Model\CredentialCreateRequest
 
 try {
-    $result = $apiInstance->emailServicesSmtpCredentialsCreate($service_pk, $smtp_credential);
+    $result = $apiInstance->emailServicesSmtpCredentialsCreate($service_pk, $credential_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesSmtpCredentialsCreate: ', $e->getMessage(), PHP_EOL;
@@ -2795,11 +2737,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **service_pk** | **int**|  | |
-| **smtp_credential** | [**\PidginHost\Sdk\Model\SmtpCredential**](../Model/SmtpCredential.md)|  | [optional] |
+| **credential_create_request** | [**\PidginHost\Sdk\Model\CredentialCreateRequest**](../Model/CredentialCreateRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\SmtpCredential**](../Model/SmtpCredential.md)
+[**\PidginHost\Sdk\Model\SmtpCredentialCreated**](../Model/SmtpCredentialCreated.md)
 
 ### Authorization
 
@@ -2886,7 +2828,7 @@ try {
 ## `emailServicesStatsRetrieve()`
 
 ```php
-emailServicesStatsRetrieve($service_pk)
+emailServicesStatsRetrieve($service_pk, $end, $start): \PidginHost\Sdk\Model\EmailStats
 ```
 
 
@@ -2918,9 +2860,12 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $service_pk = 56; // int
+$end = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
+$start = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime
 
 try {
-    $apiInstance->emailServicesStatsRetrieve($service_pk);
+    $result = $apiInstance->emailServicesStatsRetrieve($service_pk, $end, $start);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesStatsRetrieve: ', $e->getMessage(), PHP_EOL;
 }
@@ -2931,10 +2876,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **service_pk** | **int**|  | |
+| **end** | **\DateTime**|  | [optional] |
+| **start** | **\DateTime**|  | [optional] |
 
 ### Return type
 
-void (empty response body)
+[**\PidginHost\Sdk\Model\EmailStats**](../Model/EmailStats.md)
 
 ### Authorization
 
@@ -2943,7 +2890,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -2952,7 +2899,7 @@ void (empty response body)
 ## `emailServicesSuppressionsCreate()`
 
 ```php
-emailServicesSuppressionsCreate($service_pk, $suppression_entry): \PidginHost\Sdk\Model\SuppressionEntry
+emailServicesSuppressionsCreate($service_pk, $suppression_add_request): \PidginHost\Sdk\Model\SuppressionEntry
 ```
 
 
@@ -2984,10 +2931,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     $config
 );
 $service_pk = 56; // int
-$suppression_entry = new \PidginHost\Sdk\Model\SuppressionEntry(); // \PidginHost\Sdk\Model\SuppressionEntry
+$suppression_add_request = new \PidginHost\Sdk\Model\SuppressionAddRequest(); // \PidginHost\Sdk\Model\SuppressionAddRequest
 
 try {
-    $result = $apiInstance->emailServicesSuppressionsCreate($service_pk, $suppression_entry);
+    $result = $apiInstance->emailServicesSuppressionsCreate($service_pk, $suppression_add_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailServicesSuppressionsCreate: ', $e->getMessage(), PHP_EOL;
@@ -2999,7 +2946,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **service_pk** | **int**|  | |
-| **suppression_entry** | [**\PidginHost\Sdk\Model\SuppressionEntry**](../Model/SuppressionEntry.md)|  | [optional] |
+| **suppression_add_request** | [**\PidginHost\Sdk\Model\SuppressionAddRequest**](../Model/SuppressionAddRequest.md)|  | |
 
 ### Return type
 
@@ -3090,7 +3037,7 @@ try {
 ## `emailSmtpCredentialsCreate()`
 
 ```php
-emailSmtpCredentialsCreate($smtp_credential): \PidginHost\Sdk\Model\SmtpCredential
+emailSmtpCredentialsCreate($credential_create_request): \PidginHost\Sdk\Model\SmtpCredentialCreated
 ```
 
 
@@ -3121,10 +3068,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$smtp_credential = new \PidginHost\Sdk\Model\SmtpCredential(); // \PidginHost\Sdk\Model\SmtpCredential
+$credential_create_request = new \PidginHost\Sdk\Model\CredentialCreateRequest(); // \PidginHost\Sdk\Model\CredentialCreateRequest
 
 try {
-    $result = $apiInstance->emailSmtpCredentialsCreate($smtp_credential);
+    $result = $apiInstance->emailSmtpCredentialsCreate($credential_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailSmtpCredentialsCreate: ', $e->getMessage(), PHP_EOL;
@@ -3135,11 +3082,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **smtp_credential** | [**\PidginHost\Sdk\Model\SmtpCredential**](../Model/SmtpCredential.md)|  | [optional] |
+| **credential_create_request** | [**\PidginHost\Sdk\Model\CredentialCreateRequest**](../Model/CredentialCreateRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\SmtpCredential**](../Model/SmtpCredential.md)
+[**\PidginHost\Sdk\Model\SmtpCredentialCreated**](../Model/SmtpCredentialCreated.md)
 
 ### Authorization
 
@@ -3357,7 +3304,7 @@ try {
 ## `emailSuppressionsCreate()`
 
 ```php
-emailSuppressionsCreate($suppression_entry): \PidginHost\Sdk\Model\SuppressionEntry
+emailSuppressionsCreate($suppression_add_request): \PidginHost\Sdk\Model\SuppressionEntry
 ```
 
 
@@ -3388,10 +3335,10 @@ $apiInstance = new PidginHost\Sdk\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$suppression_entry = new \PidginHost\Sdk\Model\SuppressionEntry(); // \PidginHost\Sdk\Model\SuppressionEntry
+$suppression_add_request = new \PidginHost\Sdk\Model\SuppressionAddRequest(); // \PidginHost\Sdk\Model\SuppressionAddRequest
 
 try {
-    $result = $apiInstance->emailSuppressionsCreate($suppression_entry);
+    $result = $apiInstance->emailSuppressionsCreate($suppression_add_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmailApi->emailSuppressionsCreate: ', $e->getMessage(), PHP_EOL;
@@ -3402,7 +3349,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **suppression_entry** | [**\PidginHost\Sdk\Model\SuppressionEntry**](../Model/SuppressionEntry.md)|  | [optional] |
+| **suppression_add_request** | [**\PidginHost\Sdk\Model\SuppressionAddRequest**](../Model/SuppressionAddRequest.md)|  | |
 
 ### Return type
 

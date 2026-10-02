@@ -198,15 +198,6 @@ class ServerDetailTest extends TestCase
     }
 
     /**
-     * Test attribute "password"
-     */
-    public function testPropertyPassword()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "ssh_pub_key"
      */
     public function testPropertySshPubKey()

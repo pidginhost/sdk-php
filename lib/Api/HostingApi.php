@@ -136,16 +136,16 @@ class HostingApi
      * Operation hostingHostingChangePasswordCreate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\ChangePassword $change_password change_password (required)
+     * @param  \PidginHost\Sdk\Model\ChangePasswordRequest $change_password_request change_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hostingHostingChangePasswordCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\HostingChangePasswordResponse
      */
-    public function hostingHostingChangePasswordCreate($id, $change_password, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
+    public function hostingHostingChangePasswordCreate($id, $change_password_request, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
     {
-        list($response) = $this->hostingHostingChangePasswordCreateWithHttpInfo($id, $change_password, $contentType);
+        list($response) = $this->hostingHostingChangePasswordCreateWithHttpInfo($id, $change_password_request, $contentType);
         return $response;
     }
 
@@ -153,16 +153,16 @@ class HostingApi
      * Operation hostingHostingChangePasswordCreateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangePassword $change_password (required)
+     * @param  \PidginHost\Sdk\Model\ChangePasswordRequest $change_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hostingHostingChangePasswordCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\HostingChangePasswordResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function hostingHostingChangePasswordCreateWithHttpInfo($id, $change_password, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
+    public function hostingHostingChangePasswordCreateWithHttpInfo($id, $change_password_request, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
     {
-        $request = $this->hostingHostingChangePasswordCreateRequest($id, $change_password, $contentType);
+        $request = $this->hostingHostingChangePasswordCreateRequest($id, $change_password_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -237,15 +237,15 @@ class HostingApi
      * Operation hostingHostingChangePasswordCreateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangePassword $change_password (required)
+     * @param  \PidginHost\Sdk\Model\ChangePasswordRequest $change_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hostingHostingChangePasswordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function hostingHostingChangePasswordCreateAsync($id, $change_password, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
+    public function hostingHostingChangePasswordCreateAsync($id, $change_password_request, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
     {
-        return $this->hostingHostingChangePasswordCreateAsyncWithHttpInfo($id, $change_password, $contentType)
+        return $this->hostingHostingChangePasswordCreateAsyncWithHttpInfo($id, $change_password_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -257,16 +257,16 @@ class HostingApi
      * Operation hostingHostingChangePasswordCreateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangePassword $change_password (required)
+     * @param  \PidginHost\Sdk\Model\ChangePasswordRequest $change_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hostingHostingChangePasswordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function hostingHostingChangePasswordCreateAsyncWithHttpInfo($id, $change_password, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
+    public function hostingHostingChangePasswordCreateAsyncWithHttpInfo($id, $change_password_request, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\HostingChangePasswordResponse';
-        $request = $this->hostingHostingChangePasswordCreateRequest($id, $change_password, $contentType);
+        $request = $this->hostingHostingChangePasswordCreateRequest($id, $change_password_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -308,13 +308,13 @@ class HostingApi
      * Create request for operation 'hostingHostingChangePasswordCreate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangePassword $change_password (required)
+     * @param  \PidginHost\Sdk\Model\ChangePasswordRequest $change_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['hostingHostingChangePasswordCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function hostingHostingChangePasswordCreateRequest($id, $change_password, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
+    public function hostingHostingChangePasswordCreateRequest($id, $change_password_request, string $contentType = self::contentTypes['hostingHostingChangePasswordCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -324,10 +324,10 @@ class HostingApi
             );
         }
 
-        // verify the required parameter 'change_password' is set
-        if ($change_password === null || (is_array($change_password) && count($change_password) === 0)) {
+        // verify the required parameter 'change_password_request' is set
+        if ($change_password_request === null || (is_array($change_password_request) && count($change_password_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $change_password when calling hostingHostingChangePasswordCreate'
+                'Missing the required parameter $change_password_request when calling hostingHostingChangePasswordCreate'
             );
         }
 
@@ -358,12 +358,12 @@ class HostingApi
         );
 
         // for model (json/xml)
-        if (isset($change_password)) {
+        if (isset($change_password_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($change_password));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($change_password_request));
             } else {
-                $httpBody = $change_password;
+                $httpBody = $change_password_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

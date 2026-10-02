@@ -180,32 +180,32 @@ class BillingApi
     /**
      * Operation billingDepositsCreate
      *
-     * @param  \PidginHost\Sdk\Model\DepositCreate $deposit_create deposit_create (required)
+     * @param  \PidginHost\Sdk\Model\DepositCreateRequest $deposit_create_request deposit_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingDepositsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Deposit
      */
-    public function billingDepositsCreate($deposit_create, string $contentType = self::contentTypes['billingDepositsCreate'][0])
+    public function billingDepositsCreate($deposit_create_request, string $contentType = self::contentTypes['billingDepositsCreate'][0])
     {
-        list($response) = $this->billingDepositsCreateWithHttpInfo($deposit_create, $contentType);
+        list($response) = $this->billingDepositsCreateWithHttpInfo($deposit_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation billingDepositsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DepositCreate $deposit_create (required)
+     * @param  \PidginHost\Sdk\Model\DepositCreateRequest $deposit_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingDepositsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Deposit, HTTP status code, HTTP response headers (array of strings)
      */
-    public function billingDepositsCreateWithHttpInfo($deposit_create, string $contentType = self::contentTypes['billingDepositsCreate'][0])
+    public function billingDepositsCreateWithHttpInfo($deposit_create_request, string $contentType = self::contentTypes['billingDepositsCreate'][0])
     {
-        $request = $this->billingDepositsCreateRequest($deposit_create, $contentType);
+        $request = $this->billingDepositsCreateRequest($deposit_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -279,15 +279,15 @@ class BillingApi
     /**
      * Operation billingDepositsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\DepositCreate $deposit_create (required)
+     * @param  \PidginHost\Sdk\Model\DepositCreateRequest $deposit_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingDepositsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingDepositsCreateAsync($deposit_create, string $contentType = self::contentTypes['billingDepositsCreate'][0])
+    public function billingDepositsCreateAsync($deposit_create_request, string $contentType = self::contentTypes['billingDepositsCreate'][0])
     {
-        return $this->billingDepositsCreateAsyncWithHttpInfo($deposit_create, $contentType)
+        return $this->billingDepositsCreateAsyncWithHttpInfo($deposit_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -298,16 +298,16 @@ class BillingApi
     /**
      * Operation billingDepositsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DepositCreate $deposit_create (required)
+     * @param  \PidginHost\Sdk\Model\DepositCreateRequest $deposit_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingDepositsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingDepositsCreateAsyncWithHttpInfo($deposit_create, string $contentType = self::contentTypes['billingDepositsCreate'][0])
+    public function billingDepositsCreateAsyncWithHttpInfo($deposit_create_request, string $contentType = self::contentTypes['billingDepositsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Deposit';
-        $request = $this->billingDepositsCreateRequest($deposit_create, $contentType);
+        $request = $this->billingDepositsCreateRequest($deposit_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -348,19 +348,19 @@ class BillingApi
     /**
      * Create request for operation 'billingDepositsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\DepositCreate $deposit_create (required)
+     * @param  \PidginHost\Sdk\Model\DepositCreateRequest $deposit_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingDepositsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function billingDepositsCreateRequest($deposit_create, string $contentType = self::contentTypes['billingDepositsCreate'][0])
+    public function billingDepositsCreateRequest($deposit_create_request, string $contentType = self::contentTypes['billingDepositsCreate'][0])
     {
 
-        // verify the required parameter 'deposit_create' is set
-        if ($deposit_create === null || (is_array($deposit_create) && count($deposit_create) === 0)) {
+        // verify the required parameter 'deposit_create_request' is set
+        if ($deposit_create_request === null || (is_array($deposit_create_request) && count($deposit_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $deposit_create when calling billingDepositsCreate'
+                'Missing the required parameter $deposit_create_request when calling billingDepositsCreate'
             );
         }
 
@@ -383,12 +383,12 @@ class BillingApi
         );
 
         // for model (json/xml)
-        if (isset($deposit_create)) {
+        if (isset($deposit_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deposit_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($deposit_create_request));
             } else {
-                $httpBody = $deposit_create;
+                $httpBody = $deposit_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1474,32 +1474,32 @@ class BillingApi
     /**
      * Operation billingFundsNotificationSettingsCreate
      *
-     * @param  \PidginHost\Sdk\Model\LowBalanceSettings $low_balance_settings low_balance_settings (required)
+     * @param  \PidginHost\Sdk\Model\LowBalanceSettingsRequest $low_balance_settings_request low_balance_settings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingFundsNotificationSettingsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\NotificationSettingsResponse
      */
-    public function billingFundsNotificationSettingsCreate($low_balance_settings, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
+    public function billingFundsNotificationSettingsCreate($low_balance_settings_request, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
     {
-        list($response) = $this->billingFundsNotificationSettingsCreateWithHttpInfo($low_balance_settings, $contentType);
+        list($response) = $this->billingFundsNotificationSettingsCreateWithHttpInfo($low_balance_settings_request, $contentType);
         return $response;
     }
 
     /**
      * Operation billingFundsNotificationSettingsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\LowBalanceSettings $low_balance_settings (required)
+     * @param  \PidginHost\Sdk\Model\LowBalanceSettingsRequest $low_balance_settings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingFundsNotificationSettingsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\NotificationSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function billingFundsNotificationSettingsCreateWithHttpInfo($low_balance_settings, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
+    public function billingFundsNotificationSettingsCreateWithHttpInfo($low_balance_settings_request, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
     {
-        $request = $this->billingFundsNotificationSettingsCreateRequest($low_balance_settings, $contentType);
+        $request = $this->billingFundsNotificationSettingsCreateRequest($low_balance_settings_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1573,15 +1573,15 @@ class BillingApi
     /**
      * Operation billingFundsNotificationSettingsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\LowBalanceSettings $low_balance_settings (required)
+     * @param  \PidginHost\Sdk\Model\LowBalanceSettingsRequest $low_balance_settings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingFundsNotificationSettingsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingFundsNotificationSettingsCreateAsync($low_balance_settings, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
+    public function billingFundsNotificationSettingsCreateAsync($low_balance_settings_request, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
     {
-        return $this->billingFundsNotificationSettingsCreateAsyncWithHttpInfo($low_balance_settings, $contentType)
+        return $this->billingFundsNotificationSettingsCreateAsyncWithHttpInfo($low_balance_settings_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1592,16 +1592,16 @@ class BillingApi
     /**
      * Operation billingFundsNotificationSettingsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\LowBalanceSettings $low_balance_settings (required)
+     * @param  \PidginHost\Sdk\Model\LowBalanceSettingsRequest $low_balance_settings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingFundsNotificationSettingsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingFundsNotificationSettingsCreateAsyncWithHttpInfo($low_balance_settings, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
+    public function billingFundsNotificationSettingsCreateAsyncWithHttpInfo($low_balance_settings_request, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\NotificationSettingsResponse';
-        $request = $this->billingFundsNotificationSettingsCreateRequest($low_balance_settings, $contentType);
+        $request = $this->billingFundsNotificationSettingsCreateRequest($low_balance_settings_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1642,19 +1642,19 @@ class BillingApi
     /**
      * Create request for operation 'billingFundsNotificationSettingsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\LowBalanceSettings $low_balance_settings (required)
+     * @param  \PidginHost\Sdk\Model\LowBalanceSettingsRequest $low_balance_settings_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingFundsNotificationSettingsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function billingFundsNotificationSettingsCreateRequest($low_balance_settings, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
+    public function billingFundsNotificationSettingsCreateRequest($low_balance_settings_request, string $contentType = self::contentTypes['billingFundsNotificationSettingsCreate'][0])
     {
 
-        // verify the required parameter 'low_balance_settings' is set
-        if ($low_balance_settings === null || (is_array($low_balance_settings) && count($low_balance_settings) === 0)) {
+        // verify the required parameter 'low_balance_settings_request' is set
+        if ($low_balance_settings_request === null || (is_array($low_balance_settings_request) && count($low_balance_settings_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $low_balance_settings when calling billingFundsNotificationSettingsCreate'
+                'Missing the required parameter $low_balance_settings_request when calling billingFundsNotificationSettingsCreate'
             );
         }
 
@@ -1677,12 +1677,12 @@ class BillingApi
         );
 
         // for model (json/xml)
-        if (isset($low_balance_settings)) {
+        if (isset($low_balance_settings_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($low_balance_settings));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($low_balance_settings_request));
             } else {
-                $httpBody = $low_balance_settings;
+                $httpBody = $low_balance_settings_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3059,16 +3059,16 @@ class BillingApi
      * Operation billingServicesChangeBillingCycleCreate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeBillingCycle $change_billing_cycle change_billing_cycle (required)
+     * @param  \PidginHost\Sdk\Model\ChangeBillingCycleRequest $change_billing_cycle_request change_billing_cycle_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeBillingCycleCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ChangeBillingCycleResponse
      */
-    public function billingServicesChangeBillingCycleCreate($id, $change_billing_cycle, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
+    public function billingServicesChangeBillingCycleCreate($id, $change_billing_cycle_request, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
     {
-        list($response) = $this->billingServicesChangeBillingCycleCreateWithHttpInfo($id, $change_billing_cycle, $contentType);
+        list($response) = $this->billingServicesChangeBillingCycleCreateWithHttpInfo($id, $change_billing_cycle_request, $contentType);
         return $response;
     }
 
@@ -3076,16 +3076,16 @@ class BillingApi
      * Operation billingServicesChangeBillingCycleCreateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeBillingCycle $change_billing_cycle (required)
+     * @param  \PidginHost\Sdk\Model\ChangeBillingCycleRequest $change_billing_cycle_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeBillingCycleCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ChangeBillingCycleResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function billingServicesChangeBillingCycleCreateWithHttpInfo($id, $change_billing_cycle, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
+    public function billingServicesChangeBillingCycleCreateWithHttpInfo($id, $change_billing_cycle_request, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
     {
-        $request = $this->billingServicesChangeBillingCycleCreateRequest($id, $change_billing_cycle, $contentType);
+        $request = $this->billingServicesChangeBillingCycleCreateRequest($id, $change_billing_cycle_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3160,15 +3160,15 @@ class BillingApi
      * Operation billingServicesChangeBillingCycleCreateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeBillingCycle $change_billing_cycle (required)
+     * @param  \PidginHost\Sdk\Model\ChangeBillingCycleRequest $change_billing_cycle_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeBillingCycleCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingServicesChangeBillingCycleCreateAsync($id, $change_billing_cycle, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
+    public function billingServicesChangeBillingCycleCreateAsync($id, $change_billing_cycle_request, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
     {
-        return $this->billingServicesChangeBillingCycleCreateAsyncWithHttpInfo($id, $change_billing_cycle, $contentType)
+        return $this->billingServicesChangeBillingCycleCreateAsyncWithHttpInfo($id, $change_billing_cycle_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3180,16 +3180,16 @@ class BillingApi
      * Operation billingServicesChangeBillingCycleCreateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeBillingCycle $change_billing_cycle (required)
+     * @param  \PidginHost\Sdk\Model\ChangeBillingCycleRequest $change_billing_cycle_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeBillingCycleCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingServicesChangeBillingCycleCreateAsyncWithHttpInfo($id, $change_billing_cycle, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
+    public function billingServicesChangeBillingCycleCreateAsyncWithHttpInfo($id, $change_billing_cycle_request, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ChangeBillingCycleResponse';
-        $request = $this->billingServicesChangeBillingCycleCreateRequest($id, $change_billing_cycle, $contentType);
+        $request = $this->billingServicesChangeBillingCycleCreateRequest($id, $change_billing_cycle_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3231,13 +3231,13 @@ class BillingApi
      * Create request for operation 'billingServicesChangeBillingCycleCreate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeBillingCycle $change_billing_cycle (required)
+     * @param  \PidginHost\Sdk\Model\ChangeBillingCycleRequest $change_billing_cycle_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeBillingCycleCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function billingServicesChangeBillingCycleCreateRequest($id, $change_billing_cycle, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
+    public function billingServicesChangeBillingCycleCreateRequest($id, $change_billing_cycle_request, string $contentType = self::contentTypes['billingServicesChangeBillingCycleCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -3247,10 +3247,10 @@ class BillingApi
             );
         }
 
-        // verify the required parameter 'change_billing_cycle' is set
-        if ($change_billing_cycle === null || (is_array($change_billing_cycle) && count($change_billing_cycle) === 0)) {
+        // verify the required parameter 'change_billing_cycle_request' is set
+        if ($change_billing_cycle_request === null || (is_array($change_billing_cycle_request) && count($change_billing_cycle_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $change_billing_cycle when calling billingServicesChangeBillingCycleCreate'
+                'Missing the required parameter $change_billing_cycle_request when calling billingServicesChangeBillingCycleCreate'
             );
         }
 
@@ -3281,12 +3281,12 @@ class BillingApi
         );
 
         // for model (json/xml)
-        if (isset($change_billing_cycle)) {
+        if (isset($change_billing_cycle_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($change_billing_cycle));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($change_billing_cycle_request));
             } else {
-                $httpBody = $change_billing_cycle;
+                $httpBody = $change_billing_cycle_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3343,16 +3343,16 @@ class BillingApi
      * Operation billingServicesChangeCompanyCreate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeCompany|null $change_company change_company (optional)
+     * @param  \PidginHost\Sdk\Model\ChangeCompanyRequest|null $change_company_request change_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeCompanyCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ChangeCompanyResponse
      */
-    public function billingServicesChangeCompanyCreate($id, $change_company = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
+    public function billingServicesChangeCompanyCreate($id, $change_company_request = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
     {
-        list($response) = $this->billingServicesChangeCompanyCreateWithHttpInfo($id, $change_company, $contentType);
+        list($response) = $this->billingServicesChangeCompanyCreateWithHttpInfo($id, $change_company_request, $contentType);
         return $response;
     }
 
@@ -3360,16 +3360,16 @@ class BillingApi
      * Operation billingServicesChangeCompanyCreateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeCompany|null $change_company (optional)
+     * @param  \PidginHost\Sdk\Model\ChangeCompanyRequest|null $change_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeCompanyCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ChangeCompanyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function billingServicesChangeCompanyCreateWithHttpInfo($id, $change_company = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
+    public function billingServicesChangeCompanyCreateWithHttpInfo($id, $change_company_request = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
     {
-        $request = $this->billingServicesChangeCompanyCreateRequest($id, $change_company, $contentType);
+        $request = $this->billingServicesChangeCompanyCreateRequest($id, $change_company_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3444,15 +3444,15 @@ class BillingApi
      * Operation billingServicesChangeCompanyCreateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeCompany|null $change_company (optional)
+     * @param  \PidginHost\Sdk\Model\ChangeCompanyRequest|null $change_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeCompanyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingServicesChangeCompanyCreateAsync($id, $change_company = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
+    public function billingServicesChangeCompanyCreateAsync($id, $change_company_request = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
     {
-        return $this->billingServicesChangeCompanyCreateAsyncWithHttpInfo($id, $change_company, $contentType)
+        return $this->billingServicesChangeCompanyCreateAsyncWithHttpInfo($id, $change_company_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3464,16 +3464,16 @@ class BillingApi
      * Operation billingServicesChangeCompanyCreateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeCompany|null $change_company (optional)
+     * @param  \PidginHost\Sdk\Model\ChangeCompanyRequest|null $change_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeCompanyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function billingServicesChangeCompanyCreateAsyncWithHttpInfo($id, $change_company = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
+    public function billingServicesChangeCompanyCreateAsyncWithHttpInfo($id, $change_company_request = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ChangeCompanyResponse';
-        $request = $this->billingServicesChangeCompanyCreateRequest($id, $change_company, $contentType);
+        $request = $this->billingServicesChangeCompanyCreateRequest($id, $change_company_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3515,13 +3515,13 @@ class BillingApi
      * Create request for operation 'billingServicesChangeCompanyCreate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\ChangeCompany|null $change_company (optional)
+     * @param  \PidginHost\Sdk\Model\ChangeCompanyRequest|null $change_company_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['billingServicesChangeCompanyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function billingServicesChangeCompanyCreateRequest($id, $change_company = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
+    public function billingServicesChangeCompanyCreateRequest($id, $change_company_request = null, string $contentType = self::contentTypes['billingServicesChangeCompanyCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -3559,12 +3559,12 @@ class BillingApi
         );
 
         // for model (json/xml)
-        if (isset($change_company)) {
+        if (isset($change_company_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($change_company));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($change_company_request));
             } else {
-                $httpBody = $change_company;
+                $httpBody = $change_company_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

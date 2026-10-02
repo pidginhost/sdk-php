@@ -66,8 +66,8 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'next_invoice' => '\DateTime',
         'created' => 'string',
         'billing_cycle' => 'string',
-        'server_status' => 'string',
-        'ips' => 'string',
+        'server_status' => '\PidginHost\Sdk\Model\DedicatedServerStatus',
+        'ips' => '\PidginHost\Sdk\Model\DedicatedServerIP[]',
         'os_name' => 'string'
     ];
 
@@ -104,9 +104,9 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         'next_invoice' => false,
         'created' => false,
         'billing_cycle' => false,
-        'server_status' => false,
+        'server_status' => true,
         'ips' => false,
-        'os_name' => false
+        'os_name' => true
     ];
 
     /**
@@ -364,14 +364,14 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['billing_cycle'] === null) {
             $invalidProperties[] = "'billing_cycle' can't be null";
         }
-        if ($this->container['server_status'] === null) {
-            $invalidProperties[] = "'server_status' can't be null";
+        if ($this->container['server_status'] === null && !$this->isNullableSetToNull('server_status')) {
+            $invalidProperties[] = "'server_status' is required";
         }
         if ($this->container['ips'] === null) {
             $invalidProperties[] = "'ips' can't be null";
         }
-        if ($this->container['os_name'] === null) {
-            $invalidProperties[] = "'os_name' can't be null";
+        if ($this->container['os_name'] === null && !$this->isNullableSetToNull('os_name')) {
+            $invalidProperties[] = "'os_name' is required";
         }
         return $invalidProperties;
     }
@@ -585,7 +585,7 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets server_status
      *
-     * @return string
+     * @return \PidginHost\Sdk\Model\DedicatedServerStatus|null
      */
     public function getServerStatus()
     {
@@ -595,14 +595,21 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets server_status
      *
-     * @param string $server_status server_status
+     * @param \PidginHost\Sdk\Model\DedicatedServerStatus|null $server_status server_status
      *
      * @return self
      */
     public function setServerStatus($server_status)
     {
         if (is_null($server_status)) {
-            throw new \InvalidArgumentException('non-nullable server_status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'server_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('server_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['server_status'] = $server_status;
 
@@ -612,7 +619,7 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ips
      *
-     * @return string
+     * @return \PidginHost\Sdk\Model\DedicatedServerIP[]
      */
     public function getIps()
     {
@@ -622,7 +629,7 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ips
      *
-     * @param string $ips ips
+     * @param \PidginHost\Sdk\Model\DedicatedServerIP[] $ips ips
      *
      * @return self
      */
@@ -639,7 +646,7 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets os_name
      *
-     * @return string
+     * @return string|null
      */
     public function getOsName()
     {
@@ -649,14 +656,21 @@ class DedicatedServer implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets os_name
      *
-     * @param string $os_name os_name
+     * @param string|null $os_name os_name
      *
      * @return self
      */
     public function setOsName($os_name)
     {
         if (is_null($os_name)) {
-            throw new \InvalidArgumentException('non-nullable os_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'os_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('os_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['os_name'] = $os_name;
 

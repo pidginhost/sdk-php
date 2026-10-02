@@ -460,32 +460,32 @@ class DomainApi
     /**
      * Operation domainDomainCheckAvailabilityCreate
      *
-     * @param  \PidginHost\Sdk\Model\CheckAvailability $check_availability check_availability (required)
+     * @param  \PidginHost\Sdk\Model\CheckAvailabilityRequest $check_availability_request check_availability_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCheckAvailabilityCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\CheckAvailability
      */
-    public function domainDomainCheckAvailabilityCreate($check_availability, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
+    public function domainDomainCheckAvailabilityCreate($check_availability_request, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
     {
-        list($response) = $this->domainDomainCheckAvailabilityCreateWithHttpInfo($check_availability, $contentType);
+        list($response) = $this->domainDomainCheckAvailabilityCreateWithHttpInfo($check_availability_request, $contentType);
         return $response;
     }
 
     /**
      * Operation domainDomainCheckAvailabilityCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\CheckAvailability $check_availability (required)
+     * @param  \PidginHost\Sdk\Model\CheckAvailabilityRequest $check_availability_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCheckAvailabilityCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\CheckAvailability, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainCheckAvailabilityCreateWithHttpInfo($check_availability, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
+    public function domainDomainCheckAvailabilityCreateWithHttpInfo($check_availability_request, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
     {
-        $request = $this->domainDomainCheckAvailabilityCreateRequest($check_availability, $contentType);
+        $request = $this->domainDomainCheckAvailabilityCreateRequest($check_availability_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -559,15 +559,15 @@ class DomainApi
     /**
      * Operation domainDomainCheckAvailabilityCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\CheckAvailability $check_availability (required)
+     * @param  \PidginHost\Sdk\Model\CheckAvailabilityRequest $check_availability_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCheckAvailabilityCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainCheckAvailabilityCreateAsync($check_availability, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
+    public function domainDomainCheckAvailabilityCreateAsync($check_availability_request, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
     {
-        return $this->domainDomainCheckAvailabilityCreateAsyncWithHttpInfo($check_availability, $contentType)
+        return $this->domainDomainCheckAvailabilityCreateAsyncWithHttpInfo($check_availability_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -578,16 +578,16 @@ class DomainApi
     /**
      * Operation domainDomainCheckAvailabilityCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\CheckAvailability $check_availability (required)
+     * @param  \PidginHost\Sdk\Model\CheckAvailabilityRequest $check_availability_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCheckAvailabilityCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainCheckAvailabilityCreateAsyncWithHttpInfo($check_availability, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
+    public function domainDomainCheckAvailabilityCreateAsyncWithHttpInfo($check_availability_request, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\CheckAvailability';
-        $request = $this->domainDomainCheckAvailabilityCreateRequest($check_availability, $contentType);
+        $request = $this->domainDomainCheckAvailabilityCreateRequest($check_availability_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -628,19 +628,19 @@ class DomainApi
     /**
      * Create request for operation 'domainDomainCheckAvailabilityCreate'
      *
-     * @param  \PidginHost\Sdk\Model\CheckAvailability $check_availability (required)
+     * @param  \PidginHost\Sdk\Model\CheckAvailabilityRequest $check_availability_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCheckAvailabilityCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainCheckAvailabilityCreateRequest($check_availability, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
+    public function domainDomainCheckAvailabilityCreateRequest($check_availability_request, string $contentType = self::contentTypes['domainDomainCheckAvailabilityCreate'][0])
     {
 
-        // verify the required parameter 'check_availability' is set
-        if ($check_availability === null || (is_array($check_availability) && count($check_availability) === 0)) {
+        // verify the required parameter 'check_availability_request' is set
+        if ($check_availability_request === null || (is_array($check_availability_request) && count($check_availability_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $check_availability when calling domainDomainCheckAvailabilityCreate'
+                'Missing the required parameter $check_availability_request when calling domainDomainCheckAvailabilityCreate'
             );
         }
 
@@ -663,12 +663,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($check_availability)) {
+        if (isset($check_availability_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($check_availability));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($check_availability_request));
             } else {
-                $httpBody = $check_availability;
+                $httpBody = $check_availability_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -725,16 +725,16 @@ class DomainApi
      * Operation domainDomainContactsCreate
      *
      * @param  string $domain domain (required)
-     * @param  \PidginHost\Sdk\Model\ContactsUpdate $contacts_update contacts_update (required)
+     * @param  \PidginHost\Sdk\Model\ContactsUpdateRequest $contacts_update_request contacts_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainContactsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ContactsUpdateResponse
      */
-    public function domainDomainContactsCreate($domain, $contacts_update, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
+    public function domainDomainContactsCreate($domain, $contacts_update_request, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
     {
-        list($response) = $this->domainDomainContactsCreateWithHttpInfo($domain, $contacts_update, $contentType);
+        list($response) = $this->domainDomainContactsCreateWithHttpInfo($domain, $contacts_update_request, $contentType);
         return $response;
     }
 
@@ -742,16 +742,16 @@ class DomainApi
      * Operation domainDomainContactsCreateWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\ContactsUpdate $contacts_update (required)
+     * @param  \PidginHost\Sdk\Model\ContactsUpdateRequest $contacts_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainContactsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ContactsUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainContactsCreateWithHttpInfo($domain, $contacts_update, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
+    public function domainDomainContactsCreateWithHttpInfo($domain, $contacts_update_request, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
     {
-        $request = $this->domainDomainContactsCreateRequest($domain, $contacts_update, $contentType);
+        $request = $this->domainDomainContactsCreateRequest($domain, $contacts_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -826,15 +826,15 @@ class DomainApi
      * Operation domainDomainContactsCreateAsync
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\ContactsUpdate $contacts_update (required)
+     * @param  \PidginHost\Sdk\Model\ContactsUpdateRequest $contacts_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainContactsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainContactsCreateAsync($domain, $contacts_update, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
+    public function domainDomainContactsCreateAsync($domain, $contacts_update_request, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
     {
-        return $this->domainDomainContactsCreateAsyncWithHttpInfo($domain, $contacts_update, $contentType)
+        return $this->domainDomainContactsCreateAsyncWithHttpInfo($domain, $contacts_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -846,16 +846,16 @@ class DomainApi
      * Operation domainDomainContactsCreateAsyncWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\ContactsUpdate $contacts_update (required)
+     * @param  \PidginHost\Sdk\Model\ContactsUpdateRequest $contacts_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainContactsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainContactsCreateAsyncWithHttpInfo($domain, $contacts_update, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
+    public function domainDomainContactsCreateAsyncWithHttpInfo($domain, $contacts_update_request, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ContactsUpdateResponse';
-        $request = $this->domainDomainContactsCreateRequest($domain, $contacts_update, $contentType);
+        $request = $this->domainDomainContactsCreateRequest($domain, $contacts_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -897,13 +897,13 @@ class DomainApi
      * Create request for operation 'domainDomainContactsCreate'
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\ContactsUpdate $contacts_update (required)
+     * @param  \PidginHost\Sdk\Model\ContactsUpdateRequest $contacts_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainContactsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainContactsCreateRequest($domain, $contacts_update, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
+    public function domainDomainContactsCreateRequest($domain, $contacts_update_request, string $contentType = self::contentTypes['domainDomainContactsCreate'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -916,10 +916,10 @@ class DomainApi
             throw new \InvalidArgumentException("invalid value for \"domain\" when calling DomainApi.domainDomainContactsCreate, must conform to the pattern /^[^\/]+$/.");
         }
         
-        // verify the required parameter 'contacts_update' is set
-        if ($contacts_update === null || (is_array($contacts_update) && count($contacts_update) === 0)) {
+        // verify the required parameter 'contacts_update_request' is set
+        if ($contacts_update_request === null || (is_array($contacts_update_request) && count($contacts_update_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contacts_update when calling domainDomainContactsCreate'
+                'Missing the required parameter $contacts_update_request when calling domainDomainContactsCreate'
             );
         }
 
@@ -950,12 +950,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($contacts_update)) {
+        if (isset($contacts_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contacts_update));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contacts_update_request));
             } else {
-                $httpBody = $contacts_update;
+                $httpBody = $contacts_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1011,32 +1011,32 @@ class DomainApi
     /**
      * Operation domainDomainCreate
      *
-     * @param  \PidginHost\Sdk\Model\DomainCreate $domain_create domain_create (required)
+     * @param  \PidginHost\Sdk\Model\DomainCreateRequest $domain_create_request domain_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DomainCreate
      */
-    public function domainDomainCreate($domain_create, string $contentType = self::contentTypes['domainDomainCreate'][0])
+    public function domainDomainCreate($domain_create_request, string $contentType = self::contentTypes['domainDomainCreate'][0])
     {
-        list($response) = $this->domainDomainCreateWithHttpInfo($domain_create, $contentType);
+        list($response) = $this->domainDomainCreateWithHttpInfo($domain_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation domainDomainCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DomainCreate $domain_create (required)
+     * @param  \PidginHost\Sdk\Model\DomainCreateRequest $domain_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DomainCreate, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainCreateWithHttpInfo($domain_create, string $contentType = self::contentTypes['domainDomainCreate'][0])
+    public function domainDomainCreateWithHttpInfo($domain_create_request, string $contentType = self::contentTypes['domainDomainCreate'][0])
     {
-        $request = $this->domainDomainCreateRequest($domain_create, $contentType);
+        $request = $this->domainDomainCreateRequest($domain_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1110,15 +1110,15 @@ class DomainApi
     /**
      * Operation domainDomainCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\DomainCreate $domain_create (required)
+     * @param  \PidginHost\Sdk\Model\DomainCreateRequest $domain_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainCreateAsync($domain_create, string $contentType = self::contentTypes['domainDomainCreate'][0])
+    public function domainDomainCreateAsync($domain_create_request, string $contentType = self::contentTypes['domainDomainCreate'][0])
     {
-        return $this->domainDomainCreateAsyncWithHttpInfo($domain_create, $contentType)
+        return $this->domainDomainCreateAsyncWithHttpInfo($domain_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1129,16 +1129,16 @@ class DomainApi
     /**
      * Operation domainDomainCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DomainCreate $domain_create (required)
+     * @param  \PidginHost\Sdk\Model\DomainCreateRequest $domain_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainCreateAsyncWithHttpInfo($domain_create, string $contentType = self::contentTypes['domainDomainCreate'][0])
+    public function domainDomainCreateAsyncWithHttpInfo($domain_create_request, string $contentType = self::contentTypes['domainDomainCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DomainCreate';
-        $request = $this->domainDomainCreateRequest($domain_create, $contentType);
+        $request = $this->domainDomainCreateRequest($domain_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1179,19 +1179,19 @@ class DomainApi
     /**
      * Create request for operation 'domainDomainCreate'
      *
-     * @param  \PidginHost\Sdk\Model\DomainCreate $domain_create (required)
+     * @param  \PidginHost\Sdk\Model\DomainCreateRequest $domain_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainCreateRequest($domain_create, string $contentType = self::contentTypes['domainDomainCreate'][0])
+    public function domainDomainCreateRequest($domain_create_request, string $contentType = self::contentTypes['domainDomainCreate'][0])
     {
 
-        // verify the required parameter 'domain_create' is set
-        if ($domain_create === null || (is_array($domain_create) && count($domain_create) === 0)) {
+        // verify the required parameter 'domain_create_request' is set
+        if ($domain_create_request === null || (is_array($domain_create_request) && count($domain_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $domain_create when calling domainDomainCreate'
+                'Missing the required parameter $domain_create_request when calling domainDomainCreate'
             );
         }
 
@@ -1214,12 +1214,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($domain_create)) {
+        if (isset($domain_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_create_request));
             } else {
-                $httpBody = $domain_create;
+                $httpBody = $domain_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1276,16 +1276,16 @@ class DomainApi
      * Operation domainDomainDnsCreate
      *
      * @param  string $domain domain (required)
-     * @param  \PidginHost\Sdk\Model\DNSGlue $dns_glue dns_glue (required)
+     * @param  \PidginHost\Sdk\Model\DNSGlueRequest $dns_glue_request dns_glue_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainDnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DNSGlue
      */
-    public function domainDomainDnsCreate($domain, $dns_glue, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
+    public function domainDomainDnsCreate($domain, $dns_glue_request, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
     {
-        list($response) = $this->domainDomainDnsCreateWithHttpInfo($domain, $dns_glue, $contentType);
+        list($response) = $this->domainDomainDnsCreateWithHttpInfo($domain, $dns_glue_request, $contentType);
         return $response;
     }
 
@@ -1293,16 +1293,16 @@ class DomainApi
      * Operation domainDomainDnsCreateWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\DNSGlue $dns_glue (required)
+     * @param  \PidginHost\Sdk\Model\DNSGlueRequest $dns_glue_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainDnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DNSGlue, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainDnsCreateWithHttpInfo($domain, $dns_glue, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
+    public function domainDomainDnsCreateWithHttpInfo($domain, $dns_glue_request, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
     {
-        $request = $this->domainDomainDnsCreateRequest($domain, $dns_glue, $contentType);
+        $request = $this->domainDomainDnsCreateRequest($domain, $dns_glue_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1377,15 +1377,15 @@ class DomainApi
      * Operation domainDomainDnsCreateAsync
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\DNSGlue $dns_glue (required)
+     * @param  \PidginHost\Sdk\Model\DNSGlueRequest $dns_glue_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainDnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainDnsCreateAsync($domain, $dns_glue, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
+    public function domainDomainDnsCreateAsync($domain, $dns_glue_request, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
     {
-        return $this->domainDomainDnsCreateAsyncWithHttpInfo($domain, $dns_glue, $contentType)
+        return $this->domainDomainDnsCreateAsyncWithHttpInfo($domain, $dns_glue_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1397,16 +1397,16 @@ class DomainApi
      * Operation domainDomainDnsCreateAsyncWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\DNSGlue $dns_glue (required)
+     * @param  \PidginHost\Sdk\Model\DNSGlueRequest $dns_glue_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainDnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainDnsCreateAsyncWithHttpInfo($domain, $dns_glue, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
+    public function domainDomainDnsCreateAsyncWithHttpInfo($domain, $dns_glue_request, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DNSGlue';
-        $request = $this->domainDomainDnsCreateRequest($domain, $dns_glue, $contentType);
+        $request = $this->domainDomainDnsCreateRequest($domain, $dns_glue_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1448,13 +1448,13 @@ class DomainApi
      * Create request for operation 'domainDomainDnsCreate'
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\DNSGlue $dns_glue (required)
+     * @param  \PidginHost\Sdk\Model\DNSGlueRequest $dns_glue_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainDnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainDnsCreateRequest($domain, $dns_glue, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
+    public function domainDomainDnsCreateRequest($domain, $dns_glue_request, string $contentType = self::contentTypes['domainDomainDnsCreate'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -1467,10 +1467,10 @@ class DomainApi
             throw new \InvalidArgumentException("invalid value for \"domain\" when calling DomainApi.domainDomainDnsCreate, must conform to the pattern /^[^\/]+$/.");
         }
         
-        // verify the required parameter 'dns_glue' is set
-        if ($dns_glue === null || (is_array($dns_glue) && count($dns_glue) === 0)) {
+        // verify the required parameter 'dns_glue_request' is set
+        if ($dns_glue_request === null || (is_array($dns_glue_request) && count($dns_glue_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $dns_glue when calling domainDomainDnsCreate'
+                'Missing the required parameter $dns_glue_request when calling domainDomainDnsCreate'
             );
         }
 
@@ -1501,12 +1501,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($dns_glue)) {
+        if (isset($dns_glue_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dns_glue));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dns_glue_request));
             } else {
-                $httpBody = $dns_glue;
+                $httpBody = $dns_glue_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2347,16 +2347,16 @@ class DomainApi
      * Operation domainDomainNameserversCreate
      *
      * @param  string $domain domain (required)
-     * @param  \PidginHost\Sdk\Model\NameserversUpdate $nameservers_update nameservers_update (required)
+     * @param  \PidginHost\Sdk\Model\NameserversUpdateRequest $nameservers_update_request nameservers_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainNameserversCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\NameserversUpdateResponse
      */
-    public function domainDomainNameserversCreate($domain, $nameservers_update, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
+    public function domainDomainNameserversCreate($domain, $nameservers_update_request, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
     {
-        list($response) = $this->domainDomainNameserversCreateWithHttpInfo($domain, $nameservers_update, $contentType);
+        list($response) = $this->domainDomainNameserversCreateWithHttpInfo($domain, $nameservers_update_request, $contentType);
         return $response;
     }
 
@@ -2364,16 +2364,16 @@ class DomainApi
      * Operation domainDomainNameserversCreateWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\NameserversUpdate $nameservers_update (required)
+     * @param  \PidginHost\Sdk\Model\NameserversUpdateRequest $nameservers_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainNameserversCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\NameserversUpdateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainNameserversCreateWithHttpInfo($domain, $nameservers_update, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
+    public function domainDomainNameserversCreateWithHttpInfo($domain, $nameservers_update_request, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
     {
-        $request = $this->domainDomainNameserversCreateRequest($domain, $nameservers_update, $contentType);
+        $request = $this->domainDomainNameserversCreateRequest($domain, $nameservers_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2448,15 +2448,15 @@ class DomainApi
      * Operation domainDomainNameserversCreateAsync
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\NameserversUpdate $nameservers_update (required)
+     * @param  \PidginHost\Sdk\Model\NameserversUpdateRequest $nameservers_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainNameserversCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainNameserversCreateAsync($domain, $nameservers_update, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
+    public function domainDomainNameserversCreateAsync($domain, $nameservers_update_request, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
     {
-        return $this->domainDomainNameserversCreateAsyncWithHttpInfo($domain, $nameservers_update, $contentType)
+        return $this->domainDomainNameserversCreateAsyncWithHttpInfo($domain, $nameservers_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2468,16 +2468,16 @@ class DomainApi
      * Operation domainDomainNameserversCreateAsyncWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\NameserversUpdate $nameservers_update (required)
+     * @param  \PidginHost\Sdk\Model\NameserversUpdateRequest $nameservers_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainNameserversCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainNameserversCreateAsyncWithHttpInfo($domain, $nameservers_update, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
+    public function domainDomainNameserversCreateAsyncWithHttpInfo($domain, $nameservers_update_request, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\NameserversUpdateResponse';
-        $request = $this->domainDomainNameserversCreateRequest($domain, $nameservers_update, $contentType);
+        $request = $this->domainDomainNameserversCreateRequest($domain, $nameservers_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2519,13 +2519,13 @@ class DomainApi
      * Create request for operation 'domainDomainNameserversCreate'
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\NameserversUpdate $nameservers_update (required)
+     * @param  \PidginHost\Sdk\Model\NameserversUpdateRequest $nameservers_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainNameserversCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainNameserversCreateRequest($domain, $nameservers_update, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
+    public function domainDomainNameserversCreateRequest($domain, $nameservers_update_request, string $contentType = self::contentTypes['domainDomainNameserversCreate'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -2538,10 +2538,10 @@ class DomainApi
             throw new \InvalidArgumentException("invalid value for \"domain\" when calling DomainApi.domainDomainNameserversCreate, must conform to the pattern /^[^\/]+$/.");
         }
         
-        // verify the required parameter 'nameservers_update' is set
-        if ($nameservers_update === null || (is_array($nameservers_update) && count($nameservers_update) === 0)) {
+        // verify the required parameter 'nameservers_update_request' is set
+        if ($nameservers_update_request === null || (is_array($nameservers_update_request) && count($nameservers_update_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $nameservers_update when calling domainDomainNameserversCreate'
+                'Missing the required parameter $nameservers_update_request when calling domainDomainNameserversCreate'
             );
         }
 
@@ -2572,12 +2572,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($nameservers_update)) {
+        if (isset($nameservers_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($nameservers_update));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($nameservers_update_request));
             } else {
-                $httpBody = $nameservers_update;
+                $httpBody = $nameservers_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2634,16 +2634,16 @@ class DomainApi
      * Operation domainDomainPartialUpdate
      *
      * @param  string $domain domain (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomain|null $patched_domain patched_domain (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRequest|null $patched_domain_request patched_domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Domain
      */
-    public function domainDomainPartialUpdate($domain, $patched_domain = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
+    public function domainDomainPartialUpdate($domain, $patched_domain_request = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
     {
-        list($response) = $this->domainDomainPartialUpdateWithHttpInfo($domain, $patched_domain, $contentType);
+        list($response) = $this->domainDomainPartialUpdateWithHttpInfo($domain, $patched_domain_request, $contentType);
         return $response;
     }
 
@@ -2651,16 +2651,16 @@ class DomainApi
      * Operation domainDomainPartialUpdateWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomain|null $patched_domain (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRequest|null $patched_domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Domain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainPartialUpdateWithHttpInfo($domain, $patched_domain = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
+    public function domainDomainPartialUpdateWithHttpInfo($domain, $patched_domain_request = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
     {
-        $request = $this->domainDomainPartialUpdateRequest($domain, $patched_domain, $contentType);
+        $request = $this->domainDomainPartialUpdateRequest($domain, $patched_domain_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2735,15 +2735,15 @@ class DomainApi
      * Operation domainDomainPartialUpdateAsync
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomain|null $patched_domain (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRequest|null $patched_domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainPartialUpdateAsync($domain, $patched_domain = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
+    public function domainDomainPartialUpdateAsync($domain, $patched_domain_request = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
     {
-        return $this->domainDomainPartialUpdateAsyncWithHttpInfo($domain, $patched_domain, $contentType)
+        return $this->domainDomainPartialUpdateAsyncWithHttpInfo($domain, $patched_domain_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2755,16 +2755,16 @@ class DomainApi
      * Operation domainDomainPartialUpdateAsyncWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomain|null $patched_domain (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRequest|null $patched_domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainPartialUpdateAsyncWithHttpInfo($domain, $patched_domain = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
+    public function domainDomainPartialUpdateAsyncWithHttpInfo($domain, $patched_domain_request = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Domain';
-        $request = $this->domainDomainPartialUpdateRequest($domain, $patched_domain, $contentType);
+        $request = $this->domainDomainPartialUpdateRequest($domain, $patched_domain_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2806,13 +2806,13 @@ class DomainApi
      * Create request for operation 'domainDomainPartialUpdate'
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomain|null $patched_domain (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRequest|null $patched_domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainPartialUpdateRequest($domain, $patched_domain = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
+    public function domainDomainPartialUpdateRequest($domain, $patched_domain_request = null, string $contentType = self::contentTypes['domainDomainPartialUpdate'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -2853,12 +2853,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($patched_domain)) {
+        if (isset($patched_domain_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_domain));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_domain_request));
             } else {
-                $httpBody = $patched_domain;
+                $httpBody = $patched_domain_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2915,16 +2915,16 @@ class DomainApi
      * Operation domainDomainRenewCreate
      *
      * @param  string $domain domain (required)
-     * @param  \PidginHost\Sdk\Model\RenewDomain $renew_domain renew_domain (required)
+     * @param  \PidginHost\Sdk\Model\RenewDomainRequest $renew_domain_request renew_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainRenewCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\RenewDomain
      */
-    public function domainDomainRenewCreate($domain, $renew_domain, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
+    public function domainDomainRenewCreate($domain, $renew_domain_request, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
     {
-        list($response) = $this->domainDomainRenewCreateWithHttpInfo($domain, $renew_domain, $contentType);
+        list($response) = $this->domainDomainRenewCreateWithHttpInfo($domain, $renew_domain_request, $contentType);
         return $response;
     }
 
@@ -2932,16 +2932,16 @@ class DomainApi
      * Operation domainDomainRenewCreateWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\RenewDomain $renew_domain (required)
+     * @param  \PidginHost\Sdk\Model\RenewDomainRequest $renew_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainRenewCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\RenewDomain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainRenewCreateWithHttpInfo($domain, $renew_domain, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
+    public function domainDomainRenewCreateWithHttpInfo($domain, $renew_domain_request, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
     {
-        $request = $this->domainDomainRenewCreateRequest($domain, $renew_domain, $contentType);
+        $request = $this->domainDomainRenewCreateRequest($domain, $renew_domain_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3016,15 +3016,15 @@ class DomainApi
      * Operation domainDomainRenewCreateAsync
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\RenewDomain $renew_domain (required)
+     * @param  \PidginHost\Sdk\Model\RenewDomainRequest $renew_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainRenewCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainRenewCreateAsync($domain, $renew_domain, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
+    public function domainDomainRenewCreateAsync($domain, $renew_domain_request, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
     {
-        return $this->domainDomainRenewCreateAsyncWithHttpInfo($domain, $renew_domain, $contentType)
+        return $this->domainDomainRenewCreateAsyncWithHttpInfo($domain, $renew_domain_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3036,16 +3036,16 @@ class DomainApi
      * Operation domainDomainRenewCreateAsyncWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\RenewDomain $renew_domain (required)
+     * @param  \PidginHost\Sdk\Model\RenewDomainRequest $renew_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainRenewCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainRenewCreateAsyncWithHttpInfo($domain, $renew_domain, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
+    public function domainDomainRenewCreateAsyncWithHttpInfo($domain, $renew_domain_request, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\RenewDomain';
-        $request = $this->domainDomainRenewCreateRequest($domain, $renew_domain, $contentType);
+        $request = $this->domainDomainRenewCreateRequest($domain, $renew_domain_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3087,13 +3087,13 @@ class DomainApi
      * Create request for operation 'domainDomainRenewCreate'
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\RenewDomain $renew_domain (required)
+     * @param  \PidginHost\Sdk\Model\RenewDomainRequest $renew_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainRenewCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainRenewCreateRequest($domain, $renew_domain, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
+    public function domainDomainRenewCreateRequest($domain, $renew_domain_request, string $contentType = self::contentTypes['domainDomainRenewCreate'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -3106,10 +3106,10 @@ class DomainApi
             throw new \InvalidArgumentException("invalid value for \"domain\" when calling DomainApi.domainDomainRenewCreate, must conform to the pattern /^[^\/]+$/.");
         }
         
-        // verify the required parameter 'renew_domain' is set
-        if ($renew_domain === null || (is_array($renew_domain) && count($renew_domain) === 0)) {
+        // verify the required parameter 'renew_domain_request' is set
+        if ($renew_domain_request === null || (is_array($renew_domain_request) && count($renew_domain_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $renew_domain when calling domainDomainRenewCreate'
+                'Missing the required parameter $renew_domain_request when calling domainDomainRenewCreate'
             );
         }
 
@@ -3140,12 +3140,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($renew_domain)) {
+        if (isset($renew_domain_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($renew_domain));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($renew_domain_request));
             } else {
-                $httpBody = $renew_domain;
+                $httpBody = $renew_domain_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3469,32 +3469,32 @@ class DomainApi
     /**
      * Operation domainDomainTransferRoDomainCreate
      *
-     * @param  \PidginHost\Sdk\Model\TransferRoDomain $transfer_ro_domain transfer_ro_domain (required)
+     * @param  \PidginHost\Sdk\Model\TransferRoDomainRequest $transfer_ro_domain_request transfer_ro_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainTransferRoDomainCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\TransferRoDomain
      */
-    public function domainDomainTransferRoDomainCreate($transfer_ro_domain, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
+    public function domainDomainTransferRoDomainCreate($transfer_ro_domain_request, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
     {
-        list($response) = $this->domainDomainTransferRoDomainCreateWithHttpInfo($transfer_ro_domain, $contentType);
+        list($response) = $this->domainDomainTransferRoDomainCreateWithHttpInfo($transfer_ro_domain_request, $contentType);
         return $response;
     }
 
     /**
      * Operation domainDomainTransferRoDomainCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\TransferRoDomain $transfer_ro_domain (required)
+     * @param  \PidginHost\Sdk\Model\TransferRoDomainRequest $transfer_ro_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainTransferRoDomainCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\TransferRoDomain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainTransferRoDomainCreateWithHttpInfo($transfer_ro_domain, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
+    public function domainDomainTransferRoDomainCreateWithHttpInfo($transfer_ro_domain_request, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
     {
-        $request = $this->domainDomainTransferRoDomainCreateRequest($transfer_ro_domain, $contentType);
+        $request = $this->domainDomainTransferRoDomainCreateRequest($transfer_ro_domain_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3568,15 +3568,15 @@ class DomainApi
     /**
      * Operation domainDomainTransferRoDomainCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\TransferRoDomain $transfer_ro_domain (required)
+     * @param  \PidginHost\Sdk\Model\TransferRoDomainRequest $transfer_ro_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainTransferRoDomainCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainTransferRoDomainCreateAsync($transfer_ro_domain, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
+    public function domainDomainTransferRoDomainCreateAsync($transfer_ro_domain_request, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
     {
-        return $this->domainDomainTransferRoDomainCreateAsyncWithHttpInfo($transfer_ro_domain, $contentType)
+        return $this->domainDomainTransferRoDomainCreateAsyncWithHttpInfo($transfer_ro_domain_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3587,16 +3587,16 @@ class DomainApi
     /**
      * Operation domainDomainTransferRoDomainCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\TransferRoDomain $transfer_ro_domain (required)
+     * @param  \PidginHost\Sdk\Model\TransferRoDomainRequest $transfer_ro_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainTransferRoDomainCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainTransferRoDomainCreateAsyncWithHttpInfo($transfer_ro_domain, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
+    public function domainDomainTransferRoDomainCreateAsyncWithHttpInfo($transfer_ro_domain_request, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\TransferRoDomain';
-        $request = $this->domainDomainTransferRoDomainCreateRequest($transfer_ro_domain, $contentType);
+        $request = $this->domainDomainTransferRoDomainCreateRequest($transfer_ro_domain_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3637,19 +3637,19 @@ class DomainApi
     /**
      * Create request for operation 'domainDomainTransferRoDomainCreate'
      *
-     * @param  \PidginHost\Sdk\Model\TransferRoDomain $transfer_ro_domain (required)
+     * @param  \PidginHost\Sdk\Model\TransferRoDomainRequest $transfer_ro_domain_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainTransferRoDomainCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainTransferRoDomainCreateRequest($transfer_ro_domain, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
+    public function domainDomainTransferRoDomainCreateRequest($transfer_ro_domain_request, string $contentType = self::contentTypes['domainDomainTransferRoDomainCreate'][0])
     {
 
-        // verify the required parameter 'transfer_ro_domain' is set
-        if ($transfer_ro_domain === null || (is_array($transfer_ro_domain) && count($transfer_ro_domain) === 0)) {
+        // verify the required parameter 'transfer_ro_domain_request' is set
+        if ($transfer_ro_domain_request === null || (is_array($transfer_ro_domain_request) && count($transfer_ro_domain_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $transfer_ro_domain when calling domainDomainTransferRoDomainCreate'
+                'Missing the required parameter $transfer_ro_domain_request when calling domainDomainTransferRoDomainCreate'
             );
         }
 
@@ -3672,12 +3672,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($transfer_ro_domain)) {
+        if (isset($transfer_ro_domain_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_ro_domain));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_ro_domain_request));
             } else {
-                $httpBody = $transfer_ro_domain;
+                $httpBody = $transfer_ro_domain_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3734,16 +3734,16 @@ class DomainApi
      * Operation domainDomainUpdate
      *
      * @param  string $domain domain (required)
-     * @param  \PidginHost\Sdk\Model\Domain|null $domain2 domain2 (optional)
+     * @param  \PidginHost\Sdk\Model\DomainRequest|null $domain_request domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Domain
      */
-    public function domainDomainUpdate($domain, $domain2 = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
+    public function domainDomainUpdate($domain, $domain_request = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
     {
-        list($response) = $this->domainDomainUpdateWithHttpInfo($domain, $domain2, $contentType);
+        list($response) = $this->domainDomainUpdateWithHttpInfo($domain, $domain_request, $contentType);
         return $response;
     }
 
@@ -3751,16 +3751,16 @@ class DomainApi
      * Operation domainDomainUpdateWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\Domain|null $domain2 (optional)
+     * @param  \PidginHost\Sdk\Model\DomainRequest|null $domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Domain, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainDomainUpdateWithHttpInfo($domain, $domain2 = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
+    public function domainDomainUpdateWithHttpInfo($domain, $domain_request = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
     {
-        $request = $this->domainDomainUpdateRequest($domain, $domain2, $contentType);
+        $request = $this->domainDomainUpdateRequest($domain, $domain_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3835,15 +3835,15 @@ class DomainApi
      * Operation domainDomainUpdateAsync
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\Domain|null $domain2 (optional)
+     * @param  \PidginHost\Sdk\Model\DomainRequest|null $domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainUpdateAsync($domain, $domain2 = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
+    public function domainDomainUpdateAsync($domain, $domain_request = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
     {
-        return $this->domainDomainUpdateAsyncWithHttpInfo($domain, $domain2, $contentType)
+        return $this->domainDomainUpdateAsyncWithHttpInfo($domain, $domain_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3855,16 +3855,16 @@ class DomainApi
      * Operation domainDomainUpdateAsyncWithHttpInfo
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\Domain|null $domain2 (optional)
+     * @param  \PidginHost\Sdk\Model\DomainRequest|null $domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainDomainUpdateAsyncWithHttpInfo($domain, $domain2 = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
+    public function domainDomainUpdateAsyncWithHttpInfo($domain, $domain_request = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Domain';
-        $request = $this->domainDomainUpdateRequest($domain, $domain2, $contentType);
+        $request = $this->domainDomainUpdateRequest($domain, $domain_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3906,13 +3906,13 @@ class DomainApi
      * Create request for operation 'domainDomainUpdate'
      *
      * @param  string $domain (required)
-     * @param  \PidginHost\Sdk\Model\Domain|null $domain2 (optional)
+     * @param  \PidginHost\Sdk\Model\DomainRequest|null $domain_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainDomainUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainDomainUpdateRequest($domain, $domain2 = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
+    public function domainDomainUpdateRequest($domain, $domain_request = null, string $contentType = self::contentTypes['domainDomainUpdate'][0])
     {
 
         // verify the required parameter 'domain' is set
@@ -3953,12 +3953,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($domain2)) {
+        if (isset($domain_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain2));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_request));
             } else {
-                $httpBody = $domain2;
+                $httpBody = $domain_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4014,32 +4014,32 @@ class DomainApi
     /**
      * Operation domainRegistrantsCreate
      *
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DomainRegistrant
      */
-    public function domainRegistrantsCreate($domain_registrant, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
+    public function domainRegistrantsCreate($domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
     {
-        list($response) = $this->domainRegistrantsCreateWithHttpInfo($domain_registrant, $contentType);
+        list($response) = $this->domainRegistrantsCreateWithHttpInfo($domain_registrant_request, $contentType);
         return $response;
     }
 
     /**
      * Operation domainRegistrantsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DomainRegistrant, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainRegistrantsCreateWithHttpInfo($domain_registrant, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
+    public function domainRegistrantsCreateWithHttpInfo($domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
     {
-        $request = $this->domainRegistrantsCreateRequest($domain_registrant, $contentType);
+        $request = $this->domainRegistrantsCreateRequest($domain_registrant_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4113,15 +4113,15 @@ class DomainApi
     /**
      * Operation domainRegistrantsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainRegistrantsCreateAsync($domain_registrant, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
+    public function domainRegistrantsCreateAsync($domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
     {
-        return $this->domainRegistrantsCreateAsyncWithHttpInfo($domain_registrant, $contentType)
+        return $this->domainRegistrantsCreateAsyncWithHttpInfo($domain_registrant_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4132,16 +4132,16 @@ class DomainApi
     /**
      * Operation domainRegistrantsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainRegistrantsCreateAsyncWithHttpInfo($domain_registrant, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
+    public function domainRegistrantsCreateAsyncWithHttpInfo($domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DomainRegistrant';
-        $request = $this->domainRegistrantsCreateRequest($domain_registrant, $contentType);
+        $request = $this->domainRegistrantsCreateRequest($domain_registrant_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4182,19 +4182,19 @@ class DomainApi
     /**
      * Create request for operation 'domainRegistrantsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainRegistrantsCreateRequest($domain_registrant, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
+    public function domainRegistrantsCreateRequest($domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsCreate'][0])
     {
 
-        // verify the required parameter 'domain_registrant' is set
-        if ($domain_registrant === null || (is_array($domain_registrant) && count($domain_registrant) === 0)) {
+        // verify the required parameter 'domain_registrant_request' is set
+        if ($domain_registrant_request === null || (is_array($domain_registrant_request) && count($domain_registrant_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $domain_registrant when calling domainRegistrantsCreate'
+                'Missing the required parameter $domain_registrant_request when calling domainRegistrantsCreate'
             );
         }
 
@@ -4217,12 +4217,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($domain_registrant)) {
+        if (isset($domain_registrant_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_registrant));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_registrant_request));
             } else {
-                $httpBody = $domain_registrant;
+                $httpBody = $domain_registrant_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4754,16 +4754,16 @@ class DomainApi
      * Operation domainRegistrantsPartialUpdate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrant|null $patched_domain_registrant patched_domain_registrant (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrantRequest|null $patched_domain_registrant_request patched_domain_registrant_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DomainRegistrant
      */
-    public function domainRegistrantsPartialUpdate($id, $patched_domain_registrant = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
+    public function domainRegistrantsPartialUpdate($id, $patched_domain_registrant_request = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
     {
-        list($response) = $this->domainRegistrantsPartialUpdateWithHttpInfo($id, $patched_domain_registrant, $contentType);
+        list($response) = $this->domainRegistrantsPartialUpdateWithHttpInfo($id, $patched_domain_registrant_request, $contentType);
         return $response;
     }
 
@@ -4771,16 +4771,16 @@ class DomainApi
      * Operation domainRegistrantsPartialUpdateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrant|null $patched_domain_registrant (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrantRequest|null $patched_domain_registrant_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DomainRegistrant, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainRegistrantsPartialUpdateWithHttpInfo($id, $patched_domain_registrant = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
+    public function domainRegistrantsPartialUpdateWithHttpInfo($id, $patched_domain_registrant_request = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
     {
-        $request = $this->domainRegistrantsPartialUpdateRequest($id, $patched_domain_registrant, $contentType);
+        $request = $this->domainRegistrantsPartialUpdateRequest($id, $patched_domain_registrant_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4855,15 +4855,15 @@ class DomainApi
      * Operation domainRegistrantsPartialUpdateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrant|null $patched_domain_registrant (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrantRequest|null $patched_domain_registrant_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainRegistrantsPartialUpdateAsync($id, $patched_domain_registrant = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
+    public function domainRegistrantsPartialUpdateAsync($id, $patched_domain_registrant_request = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
     {
-        return $this->domainRegistrantsPartialUpdateAsyncWithHttpInfo($id, $patched_domain_registrant, $contentType)
+        return $this->domainRegistrantsPartialUpdateAsyncWithHttpInfo($id, $patched_domain_registrant_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4875,16 +4875,16 @@ class DomainApi
      * Operation domainRegistrantsPartialUpdateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrant|null $patched_domain_registrant (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrantRequest|null $patched_domain_registrant_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainRegistrantsPartialUpdateAsyncWithHttpInfo($id, $patched_domain_registrant = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
+    public function domainRegistrantsPartialUpdateAsyncWithHttpInfo($id, $patched_domain_registrant_request = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DomainRegistrant';
-        $request = $this->domainRegistrantsPartialUpdateRequest($id, $patched_domain_registrant, $contentType);
+        $request = $this->domainRegistrantsPartialUpdateRequest($id, $patched_domain_registrant_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4926,13 +4926,13 @@ class DomainApi
      * Create request for operation 'domainRegistrantsPartialUpdate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrant|null $patched_domain_registrant (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedDomainRegistrantRequest|null $patched_domain_registrant_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainRegistrantsPartialUpdateRequest($id, $patched_domain_registrant = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
+    public function domainRegistrantsPartialUpdateRequest($id, $patched_domain_registrant_request = null, string $contentType = self::contentTypes['domainRegistrantsPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -4970,12 +4970,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($patched_domain_registrant)) {
+        if (isset($patched_domain_registrant_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_domain_registrant));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_domain_registrant_request));
             } else {
-                $httpBody = $patched_domain_registrant;
+                $httpBody = $patched_domain_registrant_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5297,16 +5297,16 @@ class DomainApi
      * Operation domainRegistrantsUpdate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DomainRegistrant
      */
-    public function domainRegistrantsUpdate($id, $domain_registrant, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
+    public function domainRegistrantsUpdate($id, $domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
     {
-        list($response) = $this->domainRegistrantsUpdateWithHttpInfo($id, $domain_registrant, $contentType);
+        list($response) = $this->domainRegistrantsUpdateWithHttpInfo($id, $domain_registrant_request, $contentType);
         return $response;
     }
 
@@ -5314,16 +5314,16 @@ class DomainApi
      * Operation domainRegistrantsUpdateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DomainRegistrant, HTTP status code, HTTP response headers (array of strings)
      */
-    public function domainRegistrantsUpdateWithHttpInfo($id, $domain_registrant, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
+    public function domainRegistrantsUpdateWithHttpInfo($id, $domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
     {
-        $request = $this->domainRegistrantsUpdateRequest($id, $domain_registrant, $contentType);
+        $request = $this->domainRegistrantsUpdateRequest($id, $domain_registrant_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5398,15 +5398,15 @@ class DomainApi
      * Operation domainRegistrantsUpdateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainRegistrantsUpdateAsync($id, $domain_registrant, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
+    public function domainRegistrantsUpdateAsync($id, $domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
     {
-        return $this->domainRegistrantsUpdateAsyncWithHttpInfo($id, $domain_registrant, $contentType)
+        return $this->domainRegistrantsUpdateAsyncWithHttpInfo($id, $domain_registrant_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5418,16 +5418,16 @@ class DomainApi
      * Operation domainRegistrantsUpdateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function domainRegistrantsUpdateAsyncWithHttpInfo($id, $domain_registrant, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
+    public function domainRegistrantsUpdateAsyncWithHttpInfo($id, $domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DomainRegistrant';
-        $request = $this->domainRegistrantsUpdateRequest($id, $domain_registrant, $contentType);
+        $request = $this->domainRegistrantsUpdateRequest($id, $domain_registrant_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5469,13 +5469,13 @@ class DomainApi
      * Create request for operation 'domainRegistrantsUpdate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\DomainRegistrant $domain_registrant (required)
+     * @param  \PidginHost\Sdk\Model\DomainRegistrantRequest $domain_registrant_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['domainRegistrantsUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function domainRegistrantsUpdateRequest($id, $domain_registrant, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
+    public function domainRegistrantsUpdateRequest($id, $domain_registrant_request, string $contentType = self::contentTypes['domainRegistrantsUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -5485,10 +5485,10 @@ class DomainApi
             );
         }
 
-        // verify the required parameter 'domain_registrant' is set
-        if ($domain_registrant === null || (is_array($domain_registrant) && count($domain_registrant) === 0)) {
+        // verify the required parameter 'domain_registrant_request' is set
+        if ($domain_registrant_request === null || (is_array($domain_registrant_request) && count($domain_registrant_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $domain_registrant when calling domainRegistrantsUpdate'
+                'Missing the required parameter $domain_registrant_request when calling domainRegistrantsUpdate'
             );
         }
 
@@ -5519,12 +5519,12 @@ class DomainApi
         );
 
         // for model (json/xml)
-        if (isset($domain_registrant)) {
+        if (isset($domain_registrant_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_registrant));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_registrant_request));
             } else {
-                $httpBody = $domain_registrant;
+                $httpBody = $domain_registrant_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

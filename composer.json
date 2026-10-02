@@ -1,6 +1,6 @@
 {
     "name": "pidginhost/sdk-php",
-    "version": "0.13.0",
+    "version": "0.14.0",
     "description": "The Pidgin Host API allows you to manage Services and resources within the Pidgin Host cloud in a simple, programmatic way using conventional HTTP requests. All of the functionality that you are familiar with in the Pidgin Host control panel is also available through the API, allowing you to script the complex actions that your situation requires.",
     "keywords": [
         "openapitools",

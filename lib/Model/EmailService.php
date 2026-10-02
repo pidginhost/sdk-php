@@ -69,8 +69,8 @@ class EmailService implements ModelInterface, ArrayAccess, \JsonSerializable
         'bounce_rate_pct' => 'string',
         'complaint_rate_pct' => 'string',
         'dedicated_ip_addon' => 'bool',
-        'quota_monthly' => 'string',
-        'price_monthly_eur' => 'string'
+        'quota_monthly' => 'int',
+        'price_monthly_eur' => 'float'
     ];
 
     /**
@@ -93,7 +93,7 @@ class EmailService implements ModelInterface, ArrayAccess, \JsonSerializable
         'complaint_rate_pct' => 'decimal',
         'dedicated_ip_addon' => null,
         'quota_monthly' => null,
-        'price_monthly_eur' => null
+        'price_monthly_eur' => 'double'
     ];
 
     /**
@@ -731,7 +731,7 @@ class EmailService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets quota_monthly
      *
-     * @return string
+     * @return int
      */
     public function getQuotaMonthly()
     {
@@ -741,7 +741,7 @@ class EmailService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets quota_monthly
      *
-     * @param string $quota_monthly quota_monthly
+     * @param int $quota_monthly quota_monthly
      *
      * @return self
      */
@@ -758,7 +758,7 @@ class EmailService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets price_monthly_eur
      *
-     * @return string
+     * @return float
      */
     public function getPriceMonthlyEur()
     {
@@ -768,7 +768,7 @@ class EmailService implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets price_monthly_eur
      *
-     * @param string $price_monthly_eur price_monthly_eur
+     * @param float $price_monthly_eur price_monthly_eur
      *
      * @return self
      */

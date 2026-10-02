@@ -29,7 +29,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 ## `billingDepositsCreate()`
 
 ```php
-billingDepositsCreate($deposit_create): \PidginHost\Sdk\Model\Deposit
+billingDepositsCreate($deposit_create_request): \PidginHost\Sdk\Model\Deposit
 ```
 
 
@@ -60,10 +60,10 @@ $apiInstance = new PidginHost\Sdk\Api\BillingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$deposit_create = new \PidginHost\Sdk\Model\DepositCreate(); // \PidginHost\Sdk\Model\DepositCreate
+$deposit_create_request = new \PidginHost\Sdk\Model\DepositCreateRequest(); // \PidginHost\Sdk\Model\DepositCreateRequest
 
 try {
-    $result = $apiInstance->billingDepositsCreate($deposit_create);
+    $result = $apiInstance->billingDepositsCreate($deposit_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingApi->billingDepositsCreate: ', $e->getMessage(), PHP_EOL;
@@ -74,7 +74,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **deposit_create** | [**\PidginHost\Sdk\Model\DepositCreate**](../Model/DepositCreate.md)|  | |
+| **deposit_create_request** | [**\PidginHost\Sdk\Model\DepositCreateRequest**](../Model/DepositCreateRequest.md)|  | |
 
 ### Return type
 
@@ -361,7 +361,7 @@ try {
 ## `billingFundsNotificationSettingsCreate()`
 
 ```php
-billingFundsNotificationSettingsCreate($low_balance_settings): \PidginHost\Sdk\Model\NotificationSettingsResponse
+billingFundsNotificationSettingsCreate($low_balance_settings_request): \PidginHost\Sdk\Model\NotificationSettingsResponse
 ```
 
 
@@ -392,10 +392,10 @@ $apiInstance = new PidginHost\Sdk\Api\BillingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$low_balance_settings = new \PidginHost\Sdk\Model\LowBalanceSettings(); // \PidginHost\Sdk\Model\LowBalanceSettings
+$low_balance_settings_request = new \PidginHost\Sdk\Model\LowBalanceSettingsRequest(); // \PidginHost\Sdk\Model\LowBalanceSettingsRequest
 
 try {
-    $result = $apiInstance->billingFundsNotificationSettingsCreate($low_balance_settings);
+    $result = $apiInstance->billingFundsNotificationSettingsCreate($low_balance_settings_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingApi->billingFundsNotificationSettingsCreate: ', $e->getMessage(), PHP_EOL;
@@ -406,7 +406,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **low_balance_settings** | [**\PidginHost\Sdk\Model\LowBalanceSettings**](../Model/LowBalanceSettings.md)|  | |
+| **low_balance_settings_request** | [**\PidginHost\Sdk\Model\LowBalanceSettingsRequest**](../Model/LowBalanceSettingsRequest.md)|  | |
 
 ### Return type
 
@@ -763,7 +763,7 @@ try {
 ## `billingServicesChangeBillingCycleCreate()`
 
 ```php
-billingServicesChangeBillingCycleCreate($id, $change_billing_cycle): \PidginHost\Sdk\Model\ChangeBillingCycleResponse
+billingServicesChangeBillingCycleCreate($id, $change_billing_cycle_request): \PidginHost\Sdk\Model\ChangeBillingCycleResponse
 ```
 
 
@@ -795,10 +795,10 @@ $apiInstance = new PidginHost\Sdk\Api\BillingApi(
     $config
 );
 $id = 'id_example'; // string
-$change_billing_cycle = new \PidginHost\Sdk\Model\ChangeBillingCycle(); // \PidginHost\Sdk\Model\ChangeBillingCycle
+$change_billing_cycle_request = new \PidginHost\Sdk\Model\ChangeBillingCycleRequest(); // \PidginHost\Sdk\Model\ChangeBillingCycleRequest
 
 try {
-    $result = $apiInstance->billingServicesChangeBillingCycleCreate($id, $change_billing_cycle);
+    $result = $apiInstance->billingServicesChangeBillingCycleCreate($id, $change_billing_cycle_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingApi->billingServicesChangeBillingCycleCreate: ', $e->getMessage(), PHP_EOL;
@@ -810,7 +810,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **change_billing_cycle** | [**\PidginHost\Sdk\Model\ChangeBillingCycle**](../Model/ChangeBillingCycle.md)|  | |
+| **change_billing_cycle_request** | [**\PidginHost\Sdk\Model\ChangeBillingCycleRequest**](../Model/ChangeBillingCycleRequest.md)|  | |
 
 ### Return type
 
@@ -832,7 +832,7 @@ try {
 ## `billingServicesChangeCompanyCreate()`
 
 ```php
-billingServicesChangeCompanyCreate($id, $change_company): \PidginHost\Sdk\Model\ChangeCompanyResponse
+billingServicesChangeCompanyCreate($id, $change_company_request): \PidginHost\Sdk\Model\ChangeCompanyResponse
 ```
 
 
@@ -864,10 +864,10 @@ $apiInstance = new PidginHost\Sdk\Api\BillingApi(
     $config
 );
 $id = 'id_example'; // string
-$change_company = new \PidginHost\Sdk\Model\ChangeCompany(); // \PidginHost\Sdk\Model\ChangeCompany
+$change_company_request = new \PidginHost\Sdk\Model\ChangeCompanyRequest(); // \PidginHost\Sdk\Model\ChangeCompanyRequest
 
 try {
-    $result = $apiInstance->billingServicesChangeCompanyCreate($id, $change_company);
+    $result = $apiInstance->billingServicesChangeCompanyCreate($id, $change_company_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BillingApi->billingServicesChangeCompanyCreate: ', $e->getMessage(), PHP_EOL;
@@ -879,7 +879,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **change_company** | [**\PidginHost\Sdk\Model\ChangeCompany**](../Model/ChangeCompany.md)|  | [optional] |
+| **change_company_request** | [**\PidginHost\Sdk\Model\ChangeCompanyRequest**](../Model/ChangeCompanyRequest.md)|  | [optional] |
 
 ### Return type
 

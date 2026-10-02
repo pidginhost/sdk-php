@@ -285,6 +285,10 @@ class AttachIPv6Request implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['ipv6'] === null) {
             $invalidProperties[] = "'ipv6' can't be null";
         }
+        if ((mb_strlen($this->container['ipv6']) < 1)) {
+            $invalidProperties[] = "invalid value for 'ipv6', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -322,6 +326,11 @@ class AttachIPv6Request implements ModelInterface, ArrayAccess, \JsonSerializabl
         if (is_null($ipv6)) {
             throw new \InvalidArgumentException('non-nullable ipv6 cannot be null');
         }
+
+        if ((mb_strlen($ipv6) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $ipv6 when calling AttachIPv6Request., must be bigger than or equal to 1.');
+        }
+
         $this->container['ipv6'] = $ipv6;
 
         return $this;

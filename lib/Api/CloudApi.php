@@ -354,6 +354,9 @@ class CloudApi
         'cloudServersSnapshotsRollbackCreate' => [
             'application/json',
         ],
+        'cloudServersTrafficRetrieve' => [
+            'application/json',
+        ],
         'cloudServersUpdate' => [
             'application/json',
         ],
@@ -456,32 +459,32 @@ class CloudApi
     /**
      * Operation cloudBucketsCreate
      *
-     * @param  \PidginHost\Sdk\Model\BucketCreate $bucket_create bucket_create (required)
+     * @param  \PidginHost\Sdk\Model\BucketCreateRequest $bucket_create_request bucket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Bucket
      */
-    public function cloudBucketsCreate($bucket_create, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
+    public function cloudBucketsCreate($bucket_create_request, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
     {
-        list($response) = $this->cloudBucketsCreateWithHttpInfo($bucket_create, $contentType);
+        list($response) = $this->cloudBucketsCreateWithHttpInfo($bucket_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation cloudBucketsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\BucketCreate $bucket_create (required)
+     * @param  \PidginHost\Sdk\Model\BucketCreateRequest $bucket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Bucket, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudBucketsCreateWithHttpInfo($bucket_create, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
+    public function cloudBucketsCreateWithHttpInfo($bucket_create_request, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
     {
-        $request = $this->cloudBucketsCreateRequest($bucket_create, $contentType);
+        $request = $this->cloudBucketsCreateRequest($bucket_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -555,15 +558,15 @@ class CloudApi
     /**
      * Operation cloudBucketsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\BucketCreate $bucket_create (required)
+     * @param  \PidginHost\Sdk\Model\BucketCreateRequest $bucket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudBucketsCreateAsync($bucket_create, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
+    public function cloudBucketsCreateAsync($bucket_create_request, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
     {
-        return $this->cloudBucketsCreateAsyncWithHttpInfo($bucket_create, $contentType)
+        return $this->cloudBucketsCreateAsyncWithHttpInfo($bucket_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -574,16 +577,16 @@ class CloudApi
     /**
      * Operation cloudBucketsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\BucketCreate $bucket_create (required)
+     * @param  \PidginHost\Sdk\Model\BucketCreateRequest $bucket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudBucketsCreateAsyncWithHttpInfo($bucket_create, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
+    public function cloudBucketsCreateAsyncWithHttpInfo($bucket_create_request, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Bucket';
-        $request = $this->cloudBucketsCreateRequest($bucket_create, $contentType);
+        $request = $this->cloudBucketsCreateRequest($bucket_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -624,19 +627,19 @@ class CloudApi
     /**
      * Create request for operation 'cloudBucketsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\BucketCreate $bucket_create (required)
+     * @param  \PidginHost\Sdk\Model\BucketCreateRequest $bucket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudBucketsCreateRequest($bucket_create, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
+    public function cloudBucketsCreateRequest($bucket_create_request, string $contentType = self::contentTypes['cloudBucketsCreate'][0])
     {
 
-        // verify the required parameter 'bucket_create' is set
-        if ($bucket_create === null || (is_array($bucket_create) && count($bucket_create) === 0)) {
+        // verify the required parameter 'bucket_create_request' is set
+        if ($bucket_create_request === null || (is_array($bucket_create_request) && count($bucket_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $bucket_create when calling cloudBucketsCreate'
+                'Missing the required parameter $bucket_create_request when calling cloudBucketsCreate'
             );
         }
 
@@ -659,12 +662,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($bucket_create)) {
+        if (isset($bucket_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bucket_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bucket_create_request));
             } else {
-                $httpBody = $bucket_create;
+                $httpBody = $bucket_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1761,16 +1764,16 @@ class CloudApi
      * Operation cloudBucketsResizeCreate
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketResize $bucket_resize bucket_resize (required)
+     * @param  \PidginHost\Sdk\Model\BucketResizeRequest $bucket_resize_request bucket_resize_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsResizeCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Bucket
      */
-    public function cloudBucketsResizeCreate($id, $bucket_resize, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
+    public function cloudBucketsResizeCreate($id, $bucket_resize_request, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
     {
-        list($response) = $this->cloudBucketsResizeCreateWithHttpInfo($id, $bucket_resize, $contentType);
+        list($response) = $this->cloudBucketsResizeCreateWithHttpInfo($id, $bucket_resize_request, $contentType);
         return $response;
     }
 
@@ -1778,16 +1781,16 @@ class CloudApi
      * Operation cloudBucketsResizeCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketResize $bucket_resize (required)
+     * @param  \PidginHost\Sdk\Model\BucketResizeRequest $bucket_resize_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsResizeCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Bucket, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudBucketsResizeCreateWithHttpInfo($id, $bucket_resize, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
+    public function cloudBucketsResizeCreateWithHttpInfo($id, $bucket_resize_request, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
     {
-        $request = $this->cloudBucketsResizeCreateRequest($id, $bucket_resize, $contentType);
+        $request = $this->cloudBucketsResizeCreateRequest($id, $bucket_resize_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1862,15 +1865,15 @@ class CloudApi
      * Operation cloudBucketsResizeCreateAsync
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketResize $bucket_resize (required)
+     * @param  \PidginHost\Sdk\Model\BucketResizeRequest $bucket_resize_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsResizeCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudBucketsResizeCreateAsync($id, $bucket_resize, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
+    public function cloudBucketsResizeCreateAsync($id, $bucket_resize_request, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
     {
-        return $this->cloudBucketsResizeCreateAsyncWithHttpInfo($id, $bucket_resize, $contentType)
+        return $this->cloudBucketsResizeCreateAsyncWithHttpInfo($id, $bucket_resize_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1882,16 +1885,16 @@ class CloudApi
      * Operation cloudBucketsResizeCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketResize $bucket_resize (required)
+     * @param  \PidginHost\Sdk\Model\BucketResizeRequest $bucket_resize_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsResizeCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudBucketsResizeCreateAsyncWithHttpInfo($id, $bucket_resize, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
+    public function cloudBucketsResizeCreateAsyncWithHttpInfo($id, $bucket_resize_request, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Bucket';
-        $request = $this->cloudBucketsResizeCreateRequest($id, $bucket_resize, $contentType);
+        $request = $this->cloudBucketsResizeCreateRequest($id, $bucket_resize_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1933,13 +1936,13 @@ class CloudApi
      * Create request for operation 'cloudBucketsResizeCreate'
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketResize $bucket_resize (required)
+     * @param  \PidginHost\Sdk\Model\BucketResizeRequest $bucket_resize_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsResizeCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudBucketsResizeCreateRequest($id, $bucket_resize, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
+    public function cloudBucketsResizeCreateRequest($id, $bucket_resize_request, string $contentType = self::contentTypes['cloudBucketsResizeCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1949,10 +1952,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'bucket_resize' is set
-        if ($bucket_resize === null || (is_array($bucket_resize) && count($bucket_resize) === 0)) {
+        // verify the required parameter 'bucket_resize_request' is set
+        if ($bucket_resize_request === null || (is_array($bucket_resize_request) && count($bucket_resize_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $bucket_resize when calling cloudBucketsResizeCreate'
+                'Missing the required parameter $bucket_resize_request when calling cloudBucketsResizeCreate'
             );
         }
 
@@ -1983,12 +1986,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($bucket_resize)) {
+        if (isset($bucket_resize_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bucket_resize));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bucket_resize_request));
             } else {
-                $httpBody = $bucket_resize;
+                $httpBody = $bucket_resize_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2310,16 +2313,16 @@ class CloudApi
      * Operation cloudBucketsVisibilityCreate
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketVisibility $bucket_visibility bucket_visibility (required)
+     * @param  \PidginHost\Sdk\Model\BucketVisibilityRequest $bucket_visibility_request bucket_visibility_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsVisibilityCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Bucket
      */
-    public function cloudBucketsVisibilityCreate($id, $bucket_visibility, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
+    public function cloudBucketsVisibilityCreate($id, $bucket_visibility_request, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
     {
-        list($response) = $this->cloudBucketsVisibilityCreateWithHttpInfo($id, $bucket_visibility, $contentType);
+        list($response) = $this->cloudBucketsVisibilityCreateWithHttpInfo($id, $bucket_visibility_request, $contentType);
         return $response;
     }
 
@@ -2327,16 +2330,16 @@ class CloudApi
      * Operation cloudBucketsVisibilityCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketVisibility $bucket_visibility (required)
+     * @param  \PidginHost\Sdk\Model\BucketVisibilityRequest $bucket_visibility_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsVisibilityCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Bucket, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudBucketsVisibilityCreateWithHttpInfo($id, $bucket_visibility, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
+    public function cloudBucketsVisibilityCreateWithHttpInfo($id, $bucket_visibility_request, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
     {
-        $request = $this->cloudBucketsVisibilityCreateRequest($id, $bucket_visibility, $contentType);
+        $request = $this->cloudBucketsVisibilityCreateRequest($id, $bucket_visibility_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2411,15 +2414,15 @@ class CloudApi
      * Operation cloudBucketsVisibilityCreateAsync
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketVisibility $bucket_visibility (required)
+     * @param  \PidginHost\Sdk\Model\BucketVisibilityRequest $bucket_visibility_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsVisibilityCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudBucketsVisibilityCreateAsync($id, $bucket_visibility, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
+    public function cloudBucketsVisibilityCreateAsync($id, $bucket_visibility_request, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
     {
-        return $this->cloudBucketsVisibilityCreateAsyncWithHttpInfo($id, $bucket_visibility, $contentType)
+        return $this->cloudBucketsVisibilityCreateAsyncWithHttpInfo($id, $bucket_visibility_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2431,16 +2434,16 @@ class CloudApi
      * Operation cloudBucketsVisibilityCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketVisibility $bucket_visibility (required)
+     * @param  \PidginHost\Sdk\Model\BucketVisibilityRequest $bucket_visibility_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsVisibilityCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudBucketsVisibilityCreateAsyncWithHttpInfo($id, $bucket_visibility, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
+    public function cloudBucketsVisibilityCreateAsyncWithHttpInfo($id, $bucket_visibility_request, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Bucket';
-        $request = $this->cloudBucketsVisibilityCreateRequest($id, $bucket_visibility, $contentType);
+        $request = $this->cloudBucketsVisibilityCreateRequest($id, $bucket_visibility_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2482,13 +2485,13 @@ class CloudApi
      * Create request for operation 'cloudBucketsVisibilityCreate'
      *
      * @param  int $id A unique integer value identifying this S3 bucket. (required)
-     * @param  \PidginHost\Sdk\Model\BucketVisibility $bucket_visibility (required)
+     * @param  \PidginHost\Sdk\Model\BucketVisibilityRequest $bucket_visibility_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsVisibilityCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudBucketsVisibilityCreateRequest($id, $bucket_visibility, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
+    public function cloudBucketsVisibilityCreateRequest($id, $bucket_visibility_request, string $contentType = self::contentTypes['cloudBucketsVisibilityCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2498,10 +2501,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'bucket_visibility' is set
-        if ($bucket_visibility === null || (is_array($bucket_visibility) && count($bucket_visibility) === 0)) {
+        // verify the required parameter 'bucket_visibility_request' is set
+        if ($bucket_visibility_request === null || (is_array($bucket_visibility_request) && count($bucket_visibility_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $bucket_visibility when calling cloudBucketsVisibilityCreate'
+                'Missing the required parameter $bucket_visibility_request when calling cloudBucketsVisibilityCreate'
             );
         }
 
@@ -2532,12 +2535,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($bucket_visibility)) {
+        if (isset($bucket_visibility_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bucket_visibility));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bucket_visibility_request));
             } else {
-                $httpBody = $bucket_visibility;
+                $httpBody = $bucket_visibility_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2593,32 +2596,32 @@ class CloudApi
     /**
      * Operation cloudFirewallRulesSetCreate
      *
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\FirewallRulesSet
      */
-    public function cloudFirewallRulesSetCreate($firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
+    public function cloudFirewallRulesSetCreate($firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
     {
-        list($response) = $this->cloudFirewallRulesSetCreateWithHttpInfo($firewall_rules_set, $contentType);
+        list($response) = $this->cloudFirewallRulesSetCreateWithHttpInfo($firewall_rules_set_request, $contentType);
         return $response;
     }
 
     /**
      * Operation cloudFirewallRulesSetCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\FirewallRulesSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFirewallRulesSetCreateWithHttpInfo($firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
+    public function cloudFirewallRulesSetCreateWithHttpInfo($firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
     {
-        $request = $this->cloudFirewallRulesSetCreateRequest($firewall_rules_set, $contentType);
+        $request = $this->cloudFirewallRulesSetCreateRequest($firewall_rules_set_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2692,15 +2695,15 @@ class CloudApi
     /**
      * Operation cloudFirewallRulesSetCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetCreateAsync($firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
+    public function cloudFirewallRulesSetCreateAsync($firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
     {
-        return $this->cloudFirewallRulesSetCreateAsyncWithHttpInfo($firewall_rules_set, $contentType)
+        return $this->cloudFirewallRulesSetCreateAsyncWithHttpInfo($firewall_rules_set_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2711,16 +2714,16 @@ class CloudApi
     /**
      * Operation cloudFirewallRulesSetCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetCreateAsyncWithHttpInfo($firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
+    public function cloudFirewallRulesSetCreateAsyncWithHttpInfo($firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\FirewallRulesSet';
-        $request = $this->cloudFirewallRulesSetCreateRequest($firewall_rules_set, $contentType);
+        $request = $this->cloudFirewallRulesSetCreateRequest($firewall_rules_set_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2761,19 +2764,19 @@ class CloudApi
     /**
      * Create request for operation 'cloudFirewallRulesSetCreate'
      *
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFirewallRulesSetCreateRequest($firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
+    public function cloudFirewallRulesSetCreateRequest($firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetCreate'][0])
     {
 
-        // verify the required parameter 'firewall_rules_set' is set
-        if ($firewall_rules_set === null || (is_array($firewall_rules_set) && count($firewall_rules_set) === 0)) {
+        // verify the required parameter 'firewall_rules_set_request' is set
+        if ($firewall_rules_set_request === null || (is_array($firewall_rules_set_request) && count($firewall_rules_set_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $firewall_rules_set when calling cloudFirewallRulesSetCreate'
+                'Missing the required parameter $firewall_rules_set_request when calling cloudFirewallRulesSetCreate'
             );
         }
 
@@ -2796,12 +2799,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($firewall_rules_set)) {
+        if (isset($firewall_rules_set_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($firewall_rules_set));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($firewall_rules_set_request));
             } else {
-                $httpBody = $firewall_rules_set;
+                $httpBody = $firewall_rules_set_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3318,16 +3321,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetPartialUpdate
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSet|null $patched_firewall_rules_set patched_firewall_rules_set (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSetRequest|null $patched_firewall_rules_set_request patched_firewall_rules_set_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\FirewallRulesSet
      */
-    public function cloudFirewallRulesSetPartialUpdate($id, $patched_firewall_rules_set = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
+    public function cloudFirewallRulesSetPartialUpdate($id, $patched_firewall_rules_set_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
     {
-        list($response) = $this->cloudFirewallRulesSetPartialUpdateWithHttpInfo($id, $patched_firewall_rules_set, $contentType);
+        list($response) = $this->cloudFirewallRulesSetPartialUpdateWithHttpInfo($id, $patched_firewall_rules_set_request, $contentType);
         return $response;
     }
 
@@ -3335,16 +3338,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetPartialUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSet|null $patched_firewall_rules_set (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSetRequest|null $patched_firewall_rules_set_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\FirewallRulesSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFirewallRulesSetPartialUpdateWithHttpInfo($id, $patched_firewall_rules_set = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
+    public function cloudFirewallRulesSetPartialUpdateWithHttpInfo($id, $patched_firewall_rules_set_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
     {
-        $request = $this->cloudFirewallRulesSetPartialUpdateRequest($id, $patched_firewall_rules_set, $contentType);
+        $request = $this->cloudFirewallRulesSetPartialUpdateRequest($id, $patched_firewall_rules_set_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3419,15 +3422,15 @@ class CloudApi
      * Operation cloudFirewallRulesSetPartialUpdateAsync
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSet|null $patched_firewall_rules_set (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSetRequest|null $patched_firewall_rules_set_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetPartialUpdateAsync($id, $patched_firewall_rules_set = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
+    public function cloudFirewallRulesSetPartialUpdateAsync($id, $patched_firewall_rules_set_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
     {
-        return $this->cloudFirewallRulesSetPartialUpdateAsyncWithHttpInfo($id, $patched_firewall_rules_set, $contentType)
+        return $this->cloudFirewallRulesSetPartialUpdateAsyncWithHttpInfo($id, $patched_firewall_rules_set_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3439,16 +3442,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetPartialUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSet|null $patched_firewall_rules_set (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSetRequest|null $patched_firewall_rules_set_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetPartialUpdateAsyncWithHttpInfo($id, $patched_firewall_rules_set = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
+    public function cloudFirewallRulesSetPartialUpdateAsyncWithHttpInfo($id, $patched_firewall_rules_set_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\FirewallRulesSet';
-        $request = $this->cloudFirewallRulesSetPartialUpdateRequest($id, $patched_firewall_rules_set, $contentType);
+        $request = $this->cloudFirewallRulesSetPartialUpdateRequest($id, $patched_firewall_rules_set_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3490,13 +3493,13 @@ class CloudApi
      * Create request for operation 'cloudFirewallRulesSetPartialUpdate'
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSet|null $patched_firewall_rules_set (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRulesSetRequest|null $patched_firewall_rules_set_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFirewallRulesSetPartialUpdateRequest($id, $patched_firewall_rules_set = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
+    public function cloudFirewallRulesSetPartialUpdateRequest($id, $patched_firewall_rules_set_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -3534,12 +3537,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($patched_firewall_rules_set)) {
+        if (isset($patched_firewall_rules_set_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_firewall_rules_set));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_firewall_rules_set_request));
             } else {
-                $httpBody = $patched_firewall_rules_set;
+                $httpBody = $patched_firewall_rules_set_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3861,16 +3864,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetRulesCreate
      *
      * @param  string $rules_set_id rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\FirewallRule
      */
-    public function cloudFirewallRulesSetRulesCreate($rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
+    public function cloudFirewallRulesSetRulesCreate($rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
     {
-        list($response) = $this->cloudFirewallRulesSetRulesCreateWithHttpInfo($rules_set_id, $firewall_rule, $contentType);
+        list($response) = $this->cloudFirewallRulesSetRulesCreateWithHttpInfo($rules_set_id, $firewall_rule_request, $contentType);
         return $response;
     }
 
@@ -3878,16 +3881,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetRulesCreateWithHttpInfo
      *
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\FirewallRule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFirewallRulesSetRulesCreateWithHttpInfo($rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
+    public function cloudFirewallRulesSetRulesCreateWithHttpInfo($rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
     {
-        $request = $this->cloudFirewallRulesSetRulesCreateRequest($rules_set_id, $firewall_rule, $contentType);
+        $request = $this->cloudFirewallRulesSetRulesCreateRequest($rules_set_id, $firewall_rule_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3962,15 +3965,15 @@ class CloudApi
      * Operation cloudFirewallRulesSetRulesCreateAsync
      *
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetRulesCreateAsync($rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
+    public function cloudFirewallRulesSetRulesCreateAsync($rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
     {
-        return $this->cloudFirewallRulesSetRulesCreateAsyncWithHttpInfo($rules_set_id, $firewall_rule, $contentType)
+        return $this->cloudFirewallRulesSetRulesCreateAsyncWithHttpInfo($rules_set_id, $firewall_rule_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3982,16 +3985,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetRulesCreateAsyncWithHttpInfo
      *
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetRulesCreateAsyncWithHttpInfo($rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
+    public function cloudFirewallRulesSetRulesCreateAsyncWithHttpInfo($rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\FirewallRule';
-        $request = $this->cloudFirewallRulesSetRulesCreateRequest($rules_set_id, $firewall_rule, $contentType);
+        $request = $this->cloudFirewallRulesSetRulesCreateRequest($rules_set_id, $firewall_rule_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4033,13 +4036,13 @@ class CloudApi
      * Create request for operation 'cloudFirewallRulesSetRulesCreate'
      *
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFirewallRulesSetRulesCreateRequest($rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
+    public function cloudFirewallRulesSetRulesCreateRequest($rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesCreate'][0])
     {
 
         // verify the required parameter 'rules_set_id' is set
@@ -4052,10 +4055,10 @@ class CloudApi
             throw new \InvalidArgumentException("invalid value for \"rules_set_id\" when calling CloudApi.cloudFirewallRulesSetRulesCreate, must conform to the pattern /^\\d{1,10}$/.");
         }
         
-        // verify the required parameter 'firewall_rule' is set
-        if ($firewall_rule === null || (is_array($firewall_rule) && count($firewall_rule) === 0)) {
+        // verify the required parameter 'firewall_rule_request' is set
+        if ($firewall_rule_request === null || (is_array($firewall_rule_request) && count($firewall_rule_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $firewall_rule when calling cloudFirewallRulesSetRulesCreate'
+                'Missing the required parameter $firewall_rule_request when calling cloudFirewallRulesSetRulesCreate'
             );
         }
 
@@ -4086,12 +4089,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($firewall_rule)) {
+        if (isset($firewall_rule_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($firewall_rule));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($firewall_rule_request));
             } else {
-                $httpBody = $firewall_rule;
+                $httpBody = $firewall_rule_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4655,16 +4658,16 @@ class CloudApi
      *
      * @param  string $rule_id rule_id (required)
      * @param  string $rules_set_id rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRule|null $patched_firewall_rule patched_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRuleRequest|null $patched_firewall_rule_request patched_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\FirewallRule
      */
-    public function cloudFirewallRulesSetRulesPartialUpdate($rule_id, $rules_set_id, $patched_firewall_rule = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
+    public function cloudFirewallRulesSetRulesPartialUpdate($rule_id, $rules_set_id, $patched_firewall_rule_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
     {
-        list($response) = $this->cloudFirewallRulesSetRulesPartialUpdateWithHttpInfo($rule_id, $rules_set_id, $patched_firewall_rule, $contentType);
+        list($response) = $this->cloudFirewallRulesSetRulesPartialUpdateWithHttpInfo($rule_id, $rules_set_id, $patched_firewall_rule_request, $contentType);
         return $response;
     }
 
@@ -4673,16 +4676,16 @@ class CloudApi
      *
      * @param  string $rule_id (required)
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRule|null $patched_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRuleRequest|null $patched_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\FirewallRule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFirewallRulesSetRulesPartialUpdateWithHttpInfo($rule_id, $rules_set_id, $patched_firewall_rule = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
+    public function cloudFirewallRulesSetRulesPartialUpdateWithHttpInfo($rule_id, $rules_set_id, $patched_firewall_rule_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
     {
-        $request = $this->cloudFirewallRulesSetRulesPartialUpdateRequest($rule_id, $rules_set_id, $patched_firewall_rule, $contentType);
+        $request = $this->cloudFirewallRulesSetRulesPartialUpdateRequest($rule_id, $rules_set_id, $patched_firewall_rule_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4758,15 +4761,15 @@ class CloudApi
      *
      * @param  string $rule_id (required)
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRule|null $patched_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRuleRequest|null $patched_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetRulesPartialUpdateAsync($rule_id, $rules_set_id, $patched_firewall_rule = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
+    public function cloudFirewallRulesSetRulesPartialUpdateAsync($rule_id, $rules_set_id, $patched_firewall_rule_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
     {
-        return $this->cloudFirewallRulesSetRulesPartialUpdateAsyncWithHttpInfo($rule_id, $rules_set_id, $patched_firewall_rule, $contentType)
+        return $this->cloudFirewallRulesSetRulesPartialUpdateAsyncWithHttpInfo($rule_id, $rules_set_id, $patched_firewall_rule_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4779,16 +4782,16 @@ class CloudApi
      *
      * @param  string $rule_id (required)
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRule|null $patched_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRuleRequest|null $patched_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetRulesPartialUpdateAsyncWithHttpInfo($rule_id, $rules_set_id, $patched_firewall_rule = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
+    public function cloudFirewallRulesSetRulesPartialUpdateAsyncWithHttpInfo($rule_id, $rules_set_id, $patched_firewall_rule_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\FirewallRule';
-        $request = $this->cloudFirewallRulesSetRulesPartialUpdateRequest($rule_id, $rules_set_id, $patched_firewall_rule, $contentType);
+        $request = $this->cloudFirewallRulesSetRulesPartialUpdateRequest($rule_id, $rules_set_id, $patched_firewall_rule_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4831,13 +4834,13 @@ class CloudApi
      *
      * @param  string $rule_id (required)
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedFirewallRule|null $patched_firewall_rule (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedFirewallRuleRequest|null $patched_firewall_rule_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFirewallRulesSetRulesPartialUpdateRequest($rule_id, $rules_set_id, $patched_firewall_rule = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
+    public function cloudFirewallRulesSetRulesPartialUpdateRequest($rule_id, $rules_set_id, $patched_firewall_rule_request = null, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesPartialUpdate'][0])
     {
 
         // verify the required parameter 'rule_id' is set
@@ -4893,12 +4896,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($patched_firewall_rule)) {
+        if (isset($patched_firewall_rule_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_firewall_rule));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_firewall_rule_request));
             } else {
-                $httpBody = $patched_firewall_rule;
+                $httpBody = $patched_firewall_rule_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5244,16 +5247,16 @@ class CloudApi
      *
      * @param  string $rule_id rule_id (required)
      * @param  string $rules_set_id rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\FirewallRule
      */
-    public function cloudFirewallRulesSetRulesUpdate($rule_id, $rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
+    public function cloudFirewallRulesSetRulesUpdate($rule_id, $rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
     {
-        list($response) = $this->cloudFirewallRulesSetRulesUpdateWithHttpInfo($rule_id, $rules_set_id, $firewall_rule, $contentType);
+        list($response) = $this->cloudFirewallRulesSetRulesUpdateWithHttpInfo($rule_id, $rules_set_id, $firewall_rule_request, $contentType);
         return $response;
     }
 
@@ -5262,16 +5265,16 @@ class CloudApi
      *
      * @param  string $rule_id (required)
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\FirewallRule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFirewallRulesSetRulesUpdateWithHttpInfo($rule_id, $rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
+    public function cloudFirewallRulesSetRulesUpdateWithHttpInfo($rule_id, $rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
     {
-        $request = $this->cloudFirewallRulesSetRulesUpdateRequest($rule_id, $rules_set_id, $firewall_rule, $contentType);
+        $request = $this->cloudFirewallRulesSetRulesUpdateRequest($rule_id, $rules_set_id, $firewall_rule_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5347,15 +5350,15 @@ class CloudApi
      *
      * @param  string $rule_id (required)
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetRulesUpdateAsync($rule_id, $rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
+    public function cloudFirewallRulesSetRulesUpdateAsync($rule_id, $rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
     {
-        return $this->cloudFirewallRulesSetRulesUpdateAsyncWithHttpInfo($rule_id, $rules_set_id, $firewall_rule, $contentType)
+        return $this->cloudFirewallRulesSetRulesUpdateAsyncWithHttpInfo($rule_id, $rules_set_id, $firewall_rule_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5368,16 +5371,16 @@ class CloudApi
      *
      * @param  string $rule_id (required)
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetRulesUpdateAsyncWithHttpInfo($rule_id, $rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
+    public function cloudFirewallRulesSetRulesUpdateAsyncWithHttpInfo($rule_id, $rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\FirewallRule';
-        $request = $this->cloudFirewallRulesSetRulesUpdateRequest($rule_id, $rules_set_id, $firewall_rule, $contentType);
+        $request = $this->cloudFirewallRulesSetRulesUpdateRequest($rule_id, $rules_set_id, $firewall_rule_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5420,13 +5423,13 @@ class CloudApi
      *
      * @param  string $rule_id (required)
      * @param  string $rules_set_id (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRule $firewall_rule (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRuleRequest $firewall_rule_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetRulesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFirewallRulesSetRulesUpdateRequest($rule_id, $rules_set_id, $firewall_rule, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
+    public function cloudFirewallRulesSetRulesUpdateRequest($rule_id, $rules_set_id, $firewall_rule_request, string $contentType = self::contentTypes['cloudFirewallRulesSetRulesUpdate'][0])
     {
 
         // verify the required parameter 'rule_id' is set
@@ -5446,10 +5449,10 @@ class CloudApi
             throw new \InvalidArgumentException("invalid value for \"rules_set_id\" when calling CloudApi.cloudFirewallRulesSetRulesUpdate, must conform to the pattern /^\\d{1,10}$/.");
         }
         
-        // verify the required parameter 'firewall_rule' is set
-        if ($firewall_rule === null || (is_array($firewall_rule) && count($firewall_rule) === 0)) {
+        // verify the required parameter 'firewall_rule_request' is set
+        if ($firewall_rule_request === null || (is_array($firewall_rule_request) && count($firewall_rule_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $firewall_rule when calling cloudFirewallRulesSetRulesUpdate'
+                'Missing the required parameter $firewall_rule_request when calling cloudFirewallRulesSetRulesUpdate'
             );
         }
 
@@ -5488,12 +5491,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($firewall_rule)) {
+        if (isset($firewall_rule_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($firewall_rule));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($firewall_rule_request));
             } else {
-                $httpBody = $firewall_rule;
+                $httpBody = $firewall_rule_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5550,16 +5553,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetUpdate
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\FirewallRulesSet
      */
-    public function cloudFirewallRulesSetUpdate($id, $firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
+    public function cloudFirewallRulesSetUpdate($id, $firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
     {
-        list($response) = $this->cloudFirewallRulesSetUpdateWithHttpInfo($id, $firewall_rules_set, $contentType);
+        list($response) = $this->cloudFirewallRulesSetUpdateWithHttpInfo($id, $firewall_rules_set_request, $contentType);
         return $response;
     }
 
@@ -5567,16 +5570,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\FirewallRulesSet, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFirewallRulesSetUpdateWithHttpInfo($id, $firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
+    public function cloudFirewallRulesSetUpdateWithHttpInfo($id, $firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
     {
-        $request = $this->cloudFirewallRulesSetUpdateRequest($id, $firewall_rules_set, $contentType);
+        $request = $this->cloudFirewallRulesSetUpdateRequest($id, $firewall_rules_set_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5651,15 +5654,15 @@ class CloudApi
      * Operation cloudFirewallRulesSetUpdateAsync
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetUpdateAsync($id, $firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
+    public function cloudFirewallRulesSetUpdateAsync($id, $firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
     {
-        return $this->cloudFirewallRulesSetUpdateAsyncWithHttpInfo($id, $firewall_rules_set, $contentType)
+        return $this->cloudFirewallRulesSetUpdateAsyncWithHttpInfo($id, $firewall_rules_set_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5671,16 +5674,16 @@ class CloudApi
      * Operation cloudFirewallRulesSetUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFirewallRulesSetUpdateAsyncWithHttpInfo($id, $firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
+    public function cloudFirewallRulesSetUpdateAsyncWithHttpInfo($id, $firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\FirewallRulesSet';
-        $request = $this->cloudFirewallRulesSetUpdateRequest($id, $firewall_rules_set, $contentType);
+        $request = $this->cloudFirewallRulesSetUpdateRequest($id, $firewall_rules_set_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5722,13 +5725,13 @@ class CloudApi
      * Create request for operation 'cloudFirewallRulesSetUpdate'
      *
      * @param  int $id A unique integer value identifying this firewall rules set. (required)
-     * @param  \PidginHost\Sdk\Model\FirewallRulesSet $firewall_rules_set (required)
+     * @param  \PidginHost\Sdk\Model\FirewallRulesSetRequest $firewall_rules_set_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFirewallRulesSetUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFirewallRulesSetUpdateRequest($id, $firewall_rules_set, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
+    public function cloudFirewallRulesSetUpdateRequest($id, $firewall_rules_set_request, string $contentType = self::contentTypes['cloudFirewallRulesSetUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -5738,10 +5741,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'firewall_rules_set' is set
-        if ($firewall_rules_set === null || (is_array($firewall_rules_set) && count($firewall_rules_set) === 0)) {
+        // verify the required parameter 'firewall_rules_set_request' is set
+        if ($firewall_rules_set_request === null || (is_array($firewall_rules_set_request) && count($firewall_rules_set_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $firewall_rules_set when calling cloudFirewallRulesSetUpdate'
+                'Missing the required parameter $firewall_rules_set_request when calling cloudFirewallRulesSetUpdate'
             );
         }
 
@@ -5772,12 +5775,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($firewall_rules_set)) {
+        if (isset($firewall_rules_set_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($firewall_rules_set));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($firewall_rules_set_request));
             } else {
-                $httpBody = $firewall_rules_set;
+                $httpBody = $firewall_rules_set_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6397,32 +6400,32 @@ class CloudApi
     /**
      * Operation cloudFloatingIpv4Create
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv4Create|null $floating_ipv4_create floating_ipv4_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv4CreateRequest|null $floating_ipv4_create_request floating_ipv4_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4Create'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\FloatingIPv4
      */
-    public function cloudFloatingIpv4Create($floating_ipv4_create = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
+    public function cloudFloatingIpv4Create($floating_ipv4_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
     {
-        list($response) = $this->cloudFloatingIpv4CreateWithHttpInfo($floating_ipv4_create, $contentType);
+        list($response) = $this->cloudFloatingIpv4CreateWithHttpInfo($floating_ipv4_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation cloudFloatingIpv4CreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv4Create|null $floating_ipv4_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv4CreateRequest|null $floating_ipv4_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4Create'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\FloatingIPv4, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFloatingIpv4CreateWithHttpInfo($floating_ipv4_create = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
+    public function cloudFloatingIpv4CreateWithHttpInfo($floating_ipv4_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
     {
-        $request = $this->cloudFloatingIpv4CreateRequest($floating_ipv4_create, $contentType);
+        $request = $this->cloudFloatingIpv4CreateRequest($floating_ipv4_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6496,15 +6499,15 @@ class CloudApi
     /**
      * Operation cloudFloatingIpv4CreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv4Create|null $floating_ipv4_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv4CreateRequest|null $floating_ipv4_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFloatingIpv4CreateAsync($floating_ipv4_create = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
+    public function cloudFloatingIpv4CreateAsync($floating_ipv4_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
     {
-        return $this->cloudFloatingIpv4CreateAsyncWithHttpInfo($floating_ipv4_create, $contentType)
+        return $this->cloudFloatingIpv4CreateAsyncWithHttpInfo($floating_ipv4_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6515,16 +6518,16 @@ class CloudApi
     /**
      * Operation cloudFloatingIpv4CreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv4Create|null $floating_ipv4_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv4CreateRequest|null $floating_ipv4_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFloatingIpv4CreateAsyncWithHttpInfo($floating_ipv4_create = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
+    public function cloudFloatingIpv4CreateAsyncWithHttpInfo($floating_ipv4_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\FloatingIPv4';
-        $request = $this->cloudFloatingIpv4CreateRequest($floating_ipv4_create, $contentType);
+        $request = $this->cloudFloatingIpv4CreateRequest($floating_ipv4_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6565,13 +6568,13 @@ class CloudApi
     /**
      * Create request for operation 'cloudFloatingIpv4Create'
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv4Create|null $floating_ipv4_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv4CreateRequest|null $floating_ipv4_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFloatingIpv4CreateRequest($floating_ipv4_create = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
+    public function cloudFloatingIpv4CreateRequest($floating_ipv4_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv4Create'][0])
     {
 
 
@@ -6594,12 +6597,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($floating_ipv4_create)) {
+        if (isset($floating_ipv4_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($floating_ipv4_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($floating_ipv4_create_request));
             } else {
-                $httpBody = $floating_ipv4_create;
+                $httpBody = $floating_ipv4_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7131,16 +7134,16 @@ class CloudApi
      * Operation cloudFloatingIpv4RdnsCreate
      *
      * @param  int $id A unique integer value identifying this floating IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ReverseDNS
      */
-    public function cloudFloatingIpv4RdnsCreate($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
+    public function cloudFloatingIpv4RdnsCreate($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
     {
-        list($response) = $this->cloudFloatingIpv4RdnsCreateWithHttpInfo($id, $reverse_dns, $contentType);
+        list($response) = $this->cloudFloatingIpv4RdnsCreateWithHttpInfo($id, $reverse_dns_request, $contentType);
         return $response;
     }
 
@@ -7148,16 +7151,16 @@ class CloudApi
      * Operation cloudFloatingIpv4RdnsCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this floating IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ReverseDNS, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFloatingIpv4RdnsCreateWithHttpInfo($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
+    public function cloudFloatingIpv4RdnsCreateWithHttpInfo($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
     {
-        $request = $this->cloudFloatingIpv4RdnsCreateRequest($id, $reverse_dns, $contentType);
+        $request = $this->cloudFloatingIpv4RdnsCreateRequest($id, $reverse_dns_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7232,15 +7235,15 @@ class CloudApi
      * Operation cloudFloatingIpv4RdnsCreateAsync
      *
      * @param  int $id A unique integer value identifying this floating IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFloatingIpv4RdnsCreateAsync($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
+    public function cloudFloatingIpv4RdnsCreateAsync($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
     {
-        return $this->cloudFloatingIpv4RdnsCreateAsyncWithHttpInfo($id, $reverse_dns, $contentType)
+        return $this->cloudFloatingIpv4RdnsCreateAsyncWithHttpInfo($id, $reverse_dns_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7252,16 +7255,16 @@ class CloudApi
      * Operation cloudFloatingIpv4RdnsCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this floating IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFloatingIpv4RdnsCreateAsyncWithHttpInfo($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
+    public function cloudFloatingIpv4RdnsCreateAsyncWithHttpInfo($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ReverseDNS';
-        $request = $this->cloudFloatingIpv4RdnsCreateRequest($id, $reverse_dns, $contentType);
+        $request = $this->cloudFloatingIpv4RdnsCreateRequest($id, $reverse_dns_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7303,13 +7306,13 @@ class CloudApi
      * Create request for operation 'cloudFloatingIpv4RdnsCreate'
      *
      * @param  int $id A unique integer value identifying this floating IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFloatingIpv4RdnsCreateRequest($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
+    public function cloudFloatingIpv4RdnsCreateRequest($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv4RdnsCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -7319,10 +7322,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'reverse_dns' is set
-        if ($reverse_dns === null || (is_array($reverse_dns) && count($reverse_dns) === 0)) {
+        // verify the required parameter 'reverse_dns_request' is set
+        if ($reverse_dns_request === null || (is_array($reverse_dns_request) && count($reverse_dns_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $reverse_dns when calling cloudFloatingIpv4RdnsCreate'
+                'Missing the required parameter $reverse_dns_request when calling cloudFloatingIpv4RdnsCreate'
             );
         }
 
@@ -7353,12 +7356,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($reverse_dns)) {
+        if (isset($reverse_dns_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reverse_dns));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reverse_dns_request));
             } else {
-                $httpBody = $reverse_dns;
+                $httpBody = $reverse_dns_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -8792,32 +8795,32 @@ class CloudApi
     /**
      * Operation cloudFloatingIpv6Create
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv6Create|null $floating_ipv6_create floating_ipv6_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv6CreateRequest|null $floating_ipv6_create_request floating_ipv6_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6Create'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\FloatingIPv6
      */
-    public function cloudFloatingIpv6Create($floating_ipv6_create = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
+    public function cloudFloatingIpv6Create($floating_ipv6_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
     {
-        list($response) = $this->cloudFloatingIpv6CreateWithHttpInfo($floating_ipv6_create, $contentType);
+        list($response) = $this->cloudFloatingIpv6CreateWithHttpInfo($floating_ipv6_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation cloudFloatingIpv6CreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv6Create|null $floating_ipv6_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv6CreateRequest|null $floating_ipv6_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6Create'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\FloatingIPv6, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFloatingIpv6CreateWithHttpInfo($floating_ipv6_create = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
+    public function cloudFloatingIpv6CreateWithHttpInfo($floating_ipv6_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
     {
-        $request = $this->cloudFloatingIpv6CreateRequest($floating_ipv6_create, $contentType);
+        $request = $this->cloudFloatingIpv6CreateRequest($floating_ipv6_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8891,15 +8894,15 @@ class CloudApi
     /**
      * Operation cloudFloatingIpv6CreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv6Create|null $floating_ipv6_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv6CreateRequest|null $floating_ipv6_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFloatingIpv6CreateAsync($floating_ipv6_create = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
+    public function cloudFloatingIpv6CreateAsync($floating_ipv6_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
     {
-        return $this->cloudFloatingIpv6CreateAsyncWithHttpInfo($floating_ipv6_create, $contentType)
+        return $this->cloudFloatingIpv6CreateAsyncWithHttpInfo($floating_ipv6_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8910,16 +8913,16 @@ class CloudApi
     /**
      * Operation cloudFloatingIpv6CreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv6Create|null $floating_ipv6_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv6CreateRequest|null $floating_ipv6_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFloatingIpv6CreateAsyncWithHttpInfo($floating_ipv6_create = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
+    public function cloudFloatingIpv6CreateAsyncWithHttpInfo($floating_ipv6_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\FloatingIPv6';
-        $request = $this->cloudFloatingIpv6CreateRequest($floating_ipv6_create, $contentType);
+        $request = $this->cloudFloatingIpv6CreateRequest($floating_ipv6_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8960,13 +8963,13 @@ class CloudApi
     /**
      * Create request for operation 'cloudFloatingIpv6Create'
      *
-     * @param  \PidginHost\Sdk\Model\FloatingIPv6Create|null $floating_ipv6_create (optional)
+     * @param  \PidginHost\Sdk\Model\FloatingIPv6CreateRequest|null $floating_ipv6_create_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFloatingIpv6CreateRequest($floating_ipv6_create = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
+    public function cloudFloatingIpv6CreateRequest($floating_ipv6_create_request = null, string $contentType = self::contentTypes['cloudFloatingIpv6Create'][0])
     {
 
 
@@ -8989,12 +8992,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($floating_ipv6_create)) {
+        if (isset($floating_ipv6_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($floating_ipv6_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($floating_ipv6_create_request));
             } else {
-                $httpBody = $floating_ipv6_create;
+                $httpBody = $floating_ipv6_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -9526,16 +9529,16 @@ class CloudApi
      * Operation cloudFloatingIpv6RdnsCreate
      *
      * @param  int $id A unique integer value identifying this floating IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ReverseDNS
      */
-    public function cloudFloatingIpv6RdnsCreate($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
+    public function cloudFloatingIpv6RdnsCreate($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
     {
-        list($response) = $this->cloudFloatingIpv6RdnsCreateWithHttpInfo($id, $reverse_dns, $contentType);
+        list($response) = $this->cloudFloatingIpv6RdnsCreateWithHttpInfo($id, $reverse_dns_request, $contentType);
         return $response;
     }
 
@@ -9543,16 +9546,16 @@ class CloudApi
      * Operation cloudFloatingIpv6RdnsCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this floating IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ReverseDNS, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudFloatingIpv6RdnsCreateWithHttpInfo($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
+    public function cloudFloatingIpv6RdnsCreateWithHttpInfo($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
     {
-        $request = $this->cloudFloatingIpv6RdnsCreateRequest($id, $reverse_dns, $contentType);
+        $request = $this->cloudFloatingIpv6RdnsCreateRequest($id, $reverse_dns_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9627,15 +9630,15 @@ class CloudApi
      * Operation cloudFloatingIpv6RdnsCreateAsync
      *
      * @param  int $id A unique integer value identifying this floating IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFloatingIpv6RdnsCreateAsync($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
+    public function cloudFloatingIpv6RdnsCreateAsync($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
     {
-        return $this->cloudFloatingIpv6RdnsCreateAsyncWithHttpInfo($id, $reverse_dns, $contentType)
+        return $this->cloudFloatingIpv6RdnsCreateAsyncWithHttpInfo($id, $reverse_dns_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9647,16 +9650,16 @@ class CloudApi
      * Operation cloudFloatingIpv6RdnsCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this floating IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudFloatingIpv6RdnsCreateAsyncWithHttpInfo($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
+    public function cloudFloatingIpv6RdnsCreateAsyncWithHttpInfo($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ReverseDNS';
-        $request = $this->cloudFloatingIpv6RdnsCreateRequest($id, $reverse_dns, $contentType);
+        $request = $this->cloudFloatingIpv6RdnsCreateRequest($id, $reverse_dns_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9698,13 +9701,13 @@ class CloudApi
      * Create request for operation 'cloudFloatingIpv6RdnsCreate'
      *
      * @param  int $id A unique integer value identifying this floating IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudFloatingIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudFloatingIpv6RdnsCreateRequest($id, $reverse_dns, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
+    public function cloudFloatingIpv6RdnsCreateRequest($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudFloatingIpv6RdnsCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -9714,10 +9717,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'reverse_dns' is set
-        if ($reverse_dns === null || (is_array($reverse_dns) && count($reverse_dns) === 0)) {
+        // verify the required parameter 'reverse_dns_request' is set
+        if ($reverse_dns_request === null || (is_array($reverse_dns_request) && count($reverse_dns_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $reverse_dns when calling cloudFloatingIpv6RdnsCreate'
+                'Missing the required parameter $reverse_dns_request when calling cloudFloatingIpv6RdnsCreate'
             );
         }
 
@@ -9748,12 +9751,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($reverse_dns)) {
+        if (isset($reverse_dns_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reverse_dns));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reverse_dns_request));
             } else {
-                $httpBody = $reverse_dns;
+                $httpBody = $reverse_dns_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -11666,32 +11669,30 @@ class CloudApi
     /**
      * Operation cloudIpv4Create
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4Create'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\PublicIPv4
      */
-    public function cloudIpv4Create($public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4Create'][0])
+    public function cloudIpv4Create(string $contentType = self::contentTypes['cloudIpv4Create'][0])
     {
-        list($response) = $this->cloudIpv4CreateWithHttpInfo($public_ipv4, $contentType);
+        list($response) = $this->cloudIpv4CreateWithHttpInfo($contentType);
         return $response;
     }
 
     /**
      * Operation cloudIpv4CreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4Create'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\PublicIPv4, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudIpv4CreateWithHttpInfo($public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4Create'][0])
+    public function cloudIpv4CreateWithHttpInfo(string $contentType = self::contentTypes['cloudIpv4Create'][0])
     {
-        $request = $this->cloudIpv4CreateRequest($public_ipv4, $contentType);
+        $request = $this->cloudIpv4CreateRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11765,15 +11766,14 @@ class CloudApi
     /**
      * Operation cloudIpv4CreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv4CreateAsync($public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4Create'][0])
+    public function cloudIpv4CreateAsync(string $contentType = self::contentTypes['cloudIpv4Create'][0])
     {
-        return $this->cloudIpv4CreateAsyncWithHttpInfo($public_ipv4, $contentType)
+        return $this->cloudIpv4CreateAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11784,16 +11784,15 @@ class CloudApi
     /**
      * Operation cloudIpv4CreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv4CreateAsyncWithHttpInfo($public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4Create'][0])
+    public function cloudIpv4CreateAsyncWithHttpInfo(string $contentType = self::contentTypes['cloudIpv4Create'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\PublicIPv4';
-        $request = $this->cloudIpv4CreateRequest($public_ipv4, $contentType);
+        $request = $this->cloudIpv4CreateRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11834,15 +11833,13 @@ class CloudApi
     /**
      * Create request for operation 'cloudIpv4Create'
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudIpv4CreateRequest($public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4Create'][0])
+    public function cloudIpv4CreateRequest(string $contentType = self::contentTypes['cloudIpv4Create'][0])
     {
-
 
 
         $resourcePath = '/api/cloud/ipv4/';
@@ -11863,14 +11860,7 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($public_ipv4)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($public_ipv4));
-            } else {
-                $httpBody = $public_ipv4;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12140,16 +12130,15 @@ class CloudApi
      * Operation cloudIpv4DetachCreate
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4DetachCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DetachIPv4Response
      */
-    public function cloudIpv4DetachCreate($id, $public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
+    public function cloudIpv4DetachCreate($id, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
     {
-        list($response) = $this->cloudIpv4DetachCreateWithHttpInfo($id, $public_ipv4, $contentType);
+        list($response) = $this->cloudIpv4DetachCreateWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -12157,16 +12146,15 @@ class CloudApi
      * Operation cloudIpv4DetachCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4DetachCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DetachIPv4Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudIpv4DetachCreateWithHttpInfo($id, $public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
+    public function cloudIpv4DetachCreateWithHttpInfo($id, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
     {
-        $request = $this->cloudIpv4DetachCreateRequest($id, $public_ipv4, $contentType);
+        $request = $this->cloudIpv4DetachCreateRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12241,15 +12229,14 @@ class CloudApi
      * Operation cloudIpv4DetachCreateAsync
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4DetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv4DetachCreateAsync($id, $public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
+    public function cloudIpv4DetachCreateAsync($id, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
     {
-        return $this->cloudIpv4DetachCreateAsyncWithHttpInfo($id, $public_ipv4, $contentType)
+        return $this->cloudIpv4DetachCreateAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12261,16 +12248,15 @@ class CloudApi
      * Operation cloudIpv4DetachCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4DetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv4DetachCreateAsyncWithHttpInfo($id, $public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
+    public function cloudIpv4DetachCreateAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DetachIPv4Response';
-        $request = $this->cloudIpv4DetachCreateRequest($id, $public_ipv4, $contentType);
+        $request = $this->cloudIpv4DetachCreateRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12312,13 +12298,12 @@ class CloudApi
      * Create request for operation 'cloudIpv4DetachCreate'
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv4|null $public_ipv4 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4DetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudIpv4DetachCreateRequest($id, $public_ipv4 = null, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
+    public function cloudIpv4DetachCreateRequest($id, string $contentType = self::contentTypes['cloudIpv4DetachCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -12327,7 +12312,6 @@ class CloudApi
                 'Missing the required parameter $id when calling cloudIpv4DetachCreate'
             );
         }
-
 
 
         $resourcePath = '/api/cloud/ipv4/{id}/detach/';
@@ -12356,14 +12340,7 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($public_ipv4)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($public_ipv4));
-            } else {
-                $httpBody = $public_ipv4;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -12678,16 +12655,16 @@ class CloudApi
      * Operation cloudIpv4RdnsCreate
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ReverseDNS
      */
-    public function cloudIpv4RdnsCreate($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
+    public function cloudIpv4RdnsCreate($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
     {
-        list($response) = $this->cloudIpv4RdnsCreateWithHttpInfo($id, $reverse_dns, $contentType);
+        list($response) = $this->cloudIpv4RdnsCreateWithHttpInfo($id, $reverse_dns_request, $contentType);
         return $response;
     }
 
@@ -12695,16 +12672,16 @@ class CloudApi
      * Operation cloudIpv4RdnsCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ReverseDNS, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudIpv4RdnsCreateWithHttpInfo($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
+    public function cloudIpv4RdnsCreateWithHttpInfo($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
     {
-        $request = $this->cloudIpv4RdnsCreateRequest($id, $reverse_dns, $contentType);
+        $request = $this->cloudIpv4RdnsCreateRequest($id, $reverse_dns_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12779,15 +12756,15 @@ class CloudApi
      * Operation cloudIpv4RdnsCreateAsync
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv4RdnsCreateAsync($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
+    public function cloudIpv4RdnsCreateAsync($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
     {
-        return $this->cloudIpv4RdnsCreateAsyncWithHttpInfo($id, $reverse_dns, $contentType)
+        return $this->cloudIpv4RdnsCreateAsyncWithHttpInfo($id, $reverse_dns_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12799,16 +12776,16 @@ class CloudApi
      * Operation cloudIpv4RdnsCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv4RdnsCreateAsyncWithHttpInfo($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
+    public function cloudIpv4RdnsCreateAsyncWithHttpInfo($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ReverseDNS';
-        $request = $this->cloudIpv4RdnsCreateRequest($id, $reverse_dns, $contentType);
+        $request = $this->cloudIpv4RdnsCreateRequest($id, $reverse_dns_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12850,13 +12827,13 @@ class CloudApi
      * Create request for operation 'cloudIpv4RdnsCreate'
      *
      * @param  int $id A unique integer value identifying this Public IPv4. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv4RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudIpv4RdnsCreateRequest($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
+    public function cloudIpv4RdnsCreateRequest($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv4RdnsCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -12866,10 +12843,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'reverse_dns' is set
-        if ($reverse_dns === null || (is_array($reverse_dns) && count($reverse_dns) === 0)) {
+        // verify the required parameter 'reverse_dns_request' is set
+        if ($reverse_dns_request === null || (is_array($reverse_dns_request) && count($reverse_dns_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $reverse_dns when calling cloudIpv4RdnsCreate'
+                'Missing the required parameter $reverse_dns_request when calling cloudIpv4RdnsCreate'
             );
         }
 
@@ -12900,12 +12877,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($reverse_dns)) {
+        if (isset($reverse_dns_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reverse_dns));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reverse_dns_request));
             } else {
-                $httpBody = $reverse_dns;
+                $httpBody = $reverse_dns_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -13491,32 +13468,30 @@ class CloudApi
     /**
      * Operation cloudIpv6Create
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6Create'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\PublicIPv6
      */
-    public function cloudIpv6Create($public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6Create'][0])
+    public function cloudIpv6Create(string $contentType = self::contentTypes['cloudIpv6Create'][0])
     {
-        list($response) = $this->cloudIpv6CreateWithHttpInfo($public_ipv6, $contentType);
+        list($response) = $this->cloudIpv6CreateWithHttpInfo($contentType);
         return $response;
     }
 
     /**
      * Operation cloudIpv6CreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6Create'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\PublicIPv6, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudIpv6CreateWithHttpInfo($public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6Create'][0])
+    public function cloudIpv6CreateWithHttpInfo(string $contentType = self::contentTypes['cloudIpv6Create'][0])
     {
-        $request = $this->cloudIpv6CreateRequest($public_ipv6, $contentType);
+        $request = $this->cloudIpv6CreateRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13590,15 +13565,14 @@ class CloudApi
     /**
      * Operation cloudIpv6CreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv6CreateAsync($public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6Create'][0])
+    public function cloudIpv6CreateAsync(string $contentType = self::contentTypes['cloudIpv6Create'][0])
     {
-        return $this->cloudIpv6CreateAsyncWithHttpInfo($public_ipv6, $contentType)
+        return $this->cloudIpv6CreateAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13609,16 +13583,15 @@ class CloudApi
     /**
      * Operation cloudIpv6CreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv6CreateAsyncWithHttpInfo($public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6Create'][0])
+    public function cloudIpv6CreateAsyncWithHttpInfo(string $contentType = self::contentTypes['cloudIpv6Create'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\PublicIPv6';
-        $request = $this->cloudIpv6CreateRequest($public_ipv6, $contentType);
+        $request = $this->cloudIpv6CreateRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13659,15 +13632,13 @@ class CloudApi
     /**
      * Create request for operation 'cloudIpv6Create'
      *
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6Create'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudIpv6CreateRequest($public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6Create'][0])
+    public function cloudIpv6CreateRequest(string $contentType = self::contentTypes['cloudIpv6Create'][0])
     {
-
 
 
         $resourcePath = '/api/cloud/ipv6/';
@@ -13688,14 +13659,7 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($public_ipv6)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($public_ipv6));
-            } else {
-                $httpBody = $public_ipv6;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13965,16 +13929,15 @@ class CloudApi
      * Operation cloudIpv6DetachCreate
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6DetachCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DetachIPv6Response
      */
-    public function cloudIpv6DetachCreate($id, $public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
+    public function cloudIpv6DetachCreate($id, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
     {
-        list($response) = $this->cloudIpv6DetachCreateWithHttpInfo($id, $public_ipv6, $contentType);
+        list($response) = $this->cloudIpv6DetachCreateWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -13982,16 +13945,15 @@ class CloudApi
      * Operation cloudIpv6DetachCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6DetachCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DetachIPv6Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudIpv6DetachCreateWithHttpInfo($id, $public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
+    public function cloudIpv6DetachCreateWithHttpInfo($id, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
     {
-        $request = $this->cloudIpv6DetachCreateRequest($id, $public_ipv6, $contentType);
+        $request = $this->cloudIpv6DetachCreateRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14066,15 +14028,14 @@ class CloudApi
      * Operation cloudIpv6DetachCreateAsync
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6DetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv6DetachCreateAsync($id, $public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
+    public function cloudIpv6DetachCreateAsync($id, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
     {
-        return $this->cloudIpv6DetachCreateAsyncWithHttpInfo($id, $public_ipv6, $contentType)
+        return $this->cloudIpv6DetachCreateAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14086,16 +14047,15 @@ class CloudApi
      * Operation cloudIpv6DetachCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6DetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv6DetachCreateAsyncWithHttpInfo($id, $public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
+    public function cloudIpv6DetachCreateAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DetachIPv6Response';
-        $request = $this->cloudIpv6DetachCreateRequest($id, $public_ipv6, $contentType);
+        $request = $this->cloudIpv6DetachCreateRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14137,13 +14097,12 @@ class CloudApi
      * Create request for operation 'cloudIpv6DetachCreate'
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\PublicIPv6|null $public_ipv6 (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6DetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudIpv6DetachCreateRequest($id, $public_ipv6 = null, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
+    public function cloudIpv6DetachCreateRequest($id, string $contentType = self::contentTypes['cloudIpv6DetachCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -14152,7 +14111,6 @@ class CloudApi
                 'Missing the required parameter $id when calling cloudIpv6DetachCreate'
             );
         }
-
 
 
         $resourcePath = '/api/cloud/ipv6/{id}/detach/';
@@ -14181,14 +14139,7 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($public_ipv6)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($public_ipv6));
-            } else {
-                $httpBody = $public_ipv6;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -14503,16 +14454,16 @@ class CloudApi
      * Operation cloudIpv6RdnsCreate
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ReverseDNS
      */
-    public function cloudIpv6RdnsCreate($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
+    public function cloudIpv6RdnsCreate($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
     {
-        list($response) = $this->cloudIpv6RdnsCreateWithHttpInfo($id, $reverse_dns, $contentType);
+        list($response) = $this->cloudIpv6RdnsCreateWithHttpInfo($id, $reverse_dns_request, $contentType);
         return $response;
     }
 
@@ -14520,16 +14471,16 @@ class CloudApi
      * Operation cloudIpv6RdnsCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ReverseDNS, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudIpv6RdnsCreateWithHttpInfo($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
+    public function cloudIpv6RdnsCreateWithHttpInfo($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
     {
-        $request = $this->cloudIpv6RdnsCreateRequest($id, $reverse_dns, $contentType);
+        $request = $this->cloudIpv6RdnsCreateRequest($id, $reverse_dns_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -14604,15 +14555,15 @@ class CloudApi
      * Operation cloudIpv6RdnsCreateAsync
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv6RdnsCreateAsync($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
+    public function cloudIpv6RdnsCreateAsync($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
     {
-        return $this->cloudIpv6RdnsCreateAsyncWithHttpInfo($id, $reverse_dns, $contentType)
+        return $this->cloudIpv6RdnsCreateAsyncWithHttpInfo($id, $reverse_dns_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -14624,16 +14575,16 @@ class CloudApi
      * Operation cloudIpv6RdnsCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudIpv6RdnsCreateAsyncWithHttpInfo($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
+    public function cloudIpv6RdnsCreateAsyncWithHttpInfo($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ReverseDNS';
-        $request = $this->cloudIpv6RdnsCreateRequest($id, $reverse_dns, $contentType);
+        $request = $this->cloudIpv6RdnsCreateRequest($id, $reverse_dns_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -14675,13 +14626,13 @@ class CloudApi
      * Create request for operation 'cloudIpv6RdnsCreate'
      *
      * @param  int $id A unique integer value identifying this Public IPv6. (required)
-     * @param  \PidginHost\Sdk\Model\ReverseDNS $reverse_dns (required)
+     * @param  \PidginHost\Sdk\Model\ReverseDNSRequest $reverse_dns_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudIpv6RdnsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudIpv6RdnsCreateRequest($id, $reverse_dns, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
+    public function cloudIpv6RdnsCreateRequest($id, $reverse_dns_request, string $contentType = self::contentTypes['cloudIpv6RdnsCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -14691,10 +14642,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'reverse_dns' is set
-        if ($reverse_dns === null || (is_array($reverse_dns) && count($reverse_dns) === 0)) {
+        // verify the required parameter 'reverse_dns_request' is set
+        if ($reverse_dns_request === null || (is_array($reverse_dns_request) && count($reverse_dns_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $reverse_dns when calling cloudIpv6RdnsCreate'
+                'Missing the required parameter $reverse_dns_request when calling cloudIpv6RdnsCreate'
             );
         }
 
@@ -14725,12 +14676,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($reverse_dns)) {
+        if (isset($reverse_dns_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reverse_dns));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($reverse_dns_request));
             } else {
-                $httpBody = $reverse_dns;
+                $httpBody = $reverse_dns_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -15317,16 +15268,16 @@ class CloudApi
      * Operation cloudPrivateNetworksAddServerCreate
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHost $private_network_add_host private_network_add_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHostRequest $private_network_add_host_request private_network_add_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksAddServerCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\AddServerResponse
      */
-    public function cloudPrivateNetworksAddServerCreate($id, $private_network_add_host, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
+    public function cloudPrivateNetworksAddServerCreate($id, $private_network_add_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
     {
-        list($response) = $this->cloudPrivateNetworksAddServerCreateWithHttpInfo($id, $private_network_add_host, $contentType);
+        list($response) = $this->cloudPrivateNetworksAddServerCreateWithHttpInfo($id, $private_network_add_host_request, $contentType);
         return $response;
     }
 
@@ -15334,16 +15285,16 @@ class CloudApi
      * Operation cloudPrivateNetworksAddServerCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHost $private_network_add_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHostRequest $private_network_add_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksAddServerCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\AddServerResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudPrivateNetworksAddServerCreateWithHttpInfo($id, $private_network_add_host, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
+    public function cloudPrivateNetworksAddServerCreateWithHttpInfo($id, $private_network_add_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
     {
-        $request = $this->cloudPrivateNetworksAddServerCreateRequest($id, $private_network_add_host, $contentType);
+        $request = $this->cloudPrivateNetworksAddServerCreateRequest($id, $private_network_add_host_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15418,15 +15369,15 @@ class CloudApi
      * Operation cloudPrivateNetworksAddServerCreateAsync
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHost $private_network_add_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHostRequest $private_network_add_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksAddServerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksAddServerCreateAsync($id, $private_network_add_host, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
+    public function cloudPrivateNetworksAddServerCreateAsync($id, $private_network_add_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
     {
-        return $this->cloudPrivateNetworksAddServerCreateAsyncWithHttpInfo($id, $private_network_add_host, $contentType)
+        return $this->cloudPrivateNetworksAddServerCreateAsyncWithHttpInfo($id, $private_network_add_host_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15438,16 +15389,16 @@ class CloudApi
      * Operation cloudPrivateNetworksAddServerCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHost $private_network_add_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHostRequest $private_network_add_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksAddServerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksAddServerCreateAsyncWithHttpInfo($id, $private_network_add_host, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
+    public function cloudPrivateNetworksAddServerCreateAsyncWithHttpInfo($id, $private_network_add_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\AddServerResponse';
-        $request = $this->cloudPrivateNetworksAddServerCreateRequest($id, $private_network_add_host, $contentType);
+        $request = $this->cloudPrivateNetworksAddServerCreateRequest($id, $private_network_add_host_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15489,13 +15440,13 @@ class CloudApi
      * Create request for operation 'cloudPrivateNetworksAddServerCreate'
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHost $private_network_add_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkAddHostRequest $private_network_add_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksAddServerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudPrivateNetworksAddServerCreateRequest($id, $private_network_add_host, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
+    public function cloudPrivateNetworksAddServerCreateRequest($id, $private_network_add_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksAddServerCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -15505,10 +15456,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'private_network_add_host' is set
-        if ($private_network_add_host === null || (is_array($private_network_add_host) && count($private_network_add_host) === 0)) {
+        // verify the required parameter 'private_network_add_host_request' is set
+        if ($private_network_add_host_request === null || (is_array($private_network_add_host_request) && count($private_network_add_host_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $private_network_add_host when calling cloudPrivateNetworksAddServerCreate'
+                'Missing the required parameter $private_network_add_host_request when calling cloudPrivateNetworksAddServerCreate'
             );
         }
 
@@ -15539,12 +15490,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($private_network_add_host)) {
+        if (isset($private_network_add_host_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_network_add_host));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_network_add_host_request));
             } else {
-                $httpBody = $private_network_add_host;
+                $httpBody = $private_network_add_host_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -15600,32 +15551,32 @@ class CloudApi
     /**
      * Operation cloudPrivateNetworksCreate
      *
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRequest $private_network_request private_network_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\PrivateNetwork
      */
-    public function cloudPrivateNetworksCreate($private_network, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
+    public function cloudPrivateNetworksCreate($private_network_request, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
     {
-        list($response) = $this->cloudPrivateNetworksCreateWithHttpInfo($private_network, $contentType);
+        list($response) = $this->cloudPrivateNetworksCreateWithHttpInfo($private_network_request, $contentType);
         return $response;
     }
 
     /**
      * Operation cloudPrivateNetworksCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRequest $private_network_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\PrivateNetwork, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudPrivateNetworksCreateWithHttpInfo($private_network, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
+    public function cloudPrivateNetworksCreateWithHttpInfo($private_network_request, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
     {
-        $request = $this->cloudPrivateNetworksCreateRequest($private_network, $contentType);
+        $request = $this->cloudPrivateNetworksCreateRequest($private_network_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15699,15 +15650,15 @@ class CloudApi
     /**
      * Operation cloudPrivateNetworksCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRequest $private_network_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksCreateAsync($private_network, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
+    public function cloudPrivateNetworksCreateAsync($private_network_request, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
     {
-        return $this->cloudPrivateNetworksCreateAsyncWithHttpInfo($private_network, $contentType)
+        return $this->cloudPrivateNetworksCreateAsyncWithHttpInfo($private_network_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15718,16 +15669,16 @@ class CloudApi
     /**
      * Operation cloudPrivateNetworksCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRequest $private_network_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksCreateAsyncWithHttpInfo($private_network, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
+    public function cloudPrivateNetworksCreateAsyncWithHttpInfo($private_network_request, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\PrivateNetwork';
-        $request = $this->cloudPrivateNetworksCreateRequest($private_network, $contentType);
+        $request = $this->cloudPrivateNetworksCreateRequest($private_network_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15768,19 +15719,19 @@ class CloudApi
     /**
      * Create request for operation 'cloudPrivateNetworksCreate'
      *
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRequest $private_network_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudPrivateNetworksCreateRequest($private_network, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
+    public function cloudPrivateNetworksCreateRequest($private_network_request, string $contentType = self::contentTypes['cloudPrivateNetworksCreate'][0])
     {
 
-        // verify the required parameter 'private_network' is set
-        if ($private_network === null || (is_array($private_network) && count($private_network) === 0)) {
+        // verify the required parameter 'private_network_request' is set
+        if ($private_network_request === null || (is_array($private_network_request) && count($private_network_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $private_network when calling cloudPrivateNetworksCreate'
+                'Missing the required parameter $private_network_request when calling cloudPrivateNetworksCreate'
             );
         }
 
@@ -15803,12 +15754,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($private_network)) {
+        if (isset($private_network_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_network));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_network_request));
             } else {
-                $httpBody = $private_network;
+                $httpBody = $private_network_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -16340,16 +16291,16 @@ class CloudApi
      * Operation cloudPrivateNetworksPartialUpdate
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetwork|null $patched_private_network patched_private_network (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetworkUpdateRequest|null $patched_private_network_update_request patched_private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\PrivateNetwork
      */
-    public function cloudPrivateNetworksPartialUpdate($id, $patched_private_network = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
+    public function cloudPrivateNetworksPartialUpdate($id, $patched_private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
     {
-        list($response) = $this->cloudPrivateNetworksPartialUpdateWithHttpInfo($id, $patched_private_network, $contentType);
+        list($response) = $this->cloudPrivateNetworksPartialUpdateWithHttpInfo($id, $patched_private_network_update_request, $contentType);
         return $response;
     }
 
@@ -16357,16 +16308,16 @@ class CloudApi
      * Operation cloudPrivateNetworksPartialUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetwork|null $patched_private_network (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetworkUpdateRequest|null $patched_private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\PrivateNetwork, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudPrivateNetworksPartialUpdateWithHttpInfo($id, $patched_private_network = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
+    public function cloudPrivateNetworksPartialUpdateWithHttpInfo($id, $patched_private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
     {
-        $request = $this->cloudPrivateNetworksPartialUpdateRequest($id, $patched_private_network, $contentType);
+        $request = $this->cloudPrivateNetworksPartialUpdateRequest($id, $patched_private_network_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16441,15 +16392,15 @@ class CloudApi
      * Operation cloudPrivateNetworksPartialUpdateAsync
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetwork|null $patched_private_network (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetworkUpdateRequest|null $patched_private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksPartialUpdateAsync($id, $patched_private_network = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
+    public function cloudPrivateNetworksPartialUpdateAsync($id, $patched_private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
     {
-        return $this->cloudPrivateNetworksPartialUpdateAsyncWithHttpInfo($id, $patched_private_network, $contentType)
+        return $this->cloudPrivateNetworksPartialUpdateAsyncWithHttpInfo($id, $patched_private_network_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16461,16 +16412,16 @@ class CloudApi
      * Operation cloudPrivateNetworksPartialUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetwork|null $patched_private_network (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetworkUpdateRequest|null $patched_private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksPartialUpdateAsyncWithHttpInfo($id, $patched_private_network = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
+    public function cloudPrivateNetworksPartialUpdateAsyncWithHttpInfo($id, $patched_private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\PrivateNetwork';
-        $request = $this->cloudPrivateNetworksPartialUpdateRequest($id, $patched_private_network, $contentType);
+        $request = $this->cloudPrivateNetworksPartialUpdateRequest($id, $patched_private_network_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16512,13 +16463,13 @@ class CloudApi
      * Create request for operation 'cloudPrivateNetworksPartialUpdate'
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetwork|null $patched_private_network (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedPrivateNetworkUpdateRequest|null $patched_private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudPrivateNetworksPartialUpdateRequest($id, $patched_private_network = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
+    public function cloudPrivateNetworksPartialUpdateRequest($id, $patched_private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -16556,12 +16507,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($patched_private_network)) {
+        if (isset($patched_private_network_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_private_network));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_private_network_update_request));
             } else {
-                $httpBody = $patched_private_network;
+                $httpBody = $patched_private_network_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -16618,16 +16569,16 @@ class CloudApi
      * Operation cloudPrivateNetworksRemoveServerCreate
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHost $private_network_remove_host private_network_remove_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHostRequest $private_network_remove_host_request private_network_remove_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRemoveServerCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\RemoveServerResponse
      */
-    public function cloudPrivateNetworksRemoveServerCreate($id, $private_network_remove_host, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
+    public function cloudPrivateNetworksRemoveServerCreate($id, $private_network_remove_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
     {
-        list($response) = $this->cloudPrivateNetworksRemoveServerCreateWithHttpInfo($id, $private_network_remove_host, $contentType);
+        list($response) = $this->cloudPrivateNetworksRemoveServerCreateWithHttpInfo($id, $private_network_remove_host_request, $contentType);
         return $response;
     }
 
@@ -16635,16 +16586,16 @@ class CloudApi
      * Operation cloudPrivateNetworksRemoveServerCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHost $private_network_remove_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHostRequest $private_network_remove_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRemoveServerCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\RemoveServerResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudPrivateNetworksRemoveServerCreateWithHttpInfo($id, $private_network_remove_host, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
+    public function cloudPrivateNetworksRemoveServerCreateWithHttpInfo($id, $private_network_remove_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
     {
-        $request = $this->cloudPrivateNetworksRemoveServerCreateRequest($id, $private_network_remove_host, $contentType);
+        $request = $this->cloudPrivateNetworksRemoveServerCreateRequest($id, $private_network_remove_host_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -16719,15 +16670,15 @@ class CloudApi
      * Operation cloudPrivateNetworksRemoveServerCreateAsync
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHost $private_network_remove_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHostRequest $private_network_remove_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRemoveServerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksRemoveServerCreateAsync($id, $private_network_remove_host, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
+    public function cloudPrivateNetworksRemoveServerCreateAsync($id, $private_network_remove_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
     {
-        return $this->cloudPrivateNetworksRemoveServerCreateAsyncWithHttpInfo($id, $private_network_remove_host, $contentType)
+        return $this->cloudPrivateNetworksRemoveServerCreateAsyncWithHttpInfo($id, $private_network_remove_host_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -16739,16 +16690,16 @@ class CloudApi
      * Operation cloudPrivateNetworksRemoveServerCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHost $private_network_remove_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHostRequest $private_network_remove_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRemoveServerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksRemoveServerCreateAsyncWithHttpInfo($id, $private_network_remove_host, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
+    public function cloudPrivateNetworksRemoveServerCreateAsyncWithHttpInfo($id, $private_network_remove_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\RemoveServerResponse';
-        $request = $this->cloudPrivateNetworksRemoveServerCreateRequest($id, $private_network_remove_host, $contentType);
+        $request = $this->cloudPrivateNetworksRemoveServerCreateRequest($id, $private_network_remove_host_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -16790,13 +16741,13 @@ class CloudApi
      * Create request for operation 'cloudPrivateNetworksRemoveServerCreate'
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHost $private_network_remove_host (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkRemoveHostRequest $private_network_remove_host_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRemoveServerCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudPrivateNetworksRemoveServerCreateRequest($id, $private_network_remove_host, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
+    public function cloudPrivateNetworksRemoveServerCreateRequest($id, $private_network_remove_host_request, string $contentType = self::contentTypes['cloudPrivateNetworksRemoveServerCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -16806,10 +16757,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'private_network_remove_host' is set
-        if ($private_network_remove_host === null || (is_array($private_network_remove_host) && count($private_network_remove_host) === 0)) {
+        // verify the required parameter 'private_network_remove_host_request' is set
+        if ($private_network_remove_host_request === null || (is_array($private_network_remove_host_request) && count($private_network_remove_host_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $private_network_remove_host when calling cloudPrivateNetworksRemoveServerCreate'
+                'Missing the required parameter $private_network_remove_host_request when calling cloudPrivateNetworksRemoveServerCreate'
             );
         }
 
@@ -16840,12 +16791,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($private_network_remove_host)) {
+        if (isset($private_network_remove_host_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_network_remove_host));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_network_remove_host_request));
             } else {
-                $httpBody = $private_network_remove_host;
+                $httpBody = $private_network_remove_host_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -17167,16 +17118,16 @@ class CloudApi
      * Operation cloudPrivateNetworksUpdate
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkUpdateRequest|null $private_network_update_request private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\PrivateNetwork
      */
-    public function cloudPrivateNetworksUpdate($id, $private_network, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
+    public function cloudPrivateNetworksUpdate($id, $private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
     {
-        list($response) = $this->cloudPrivateNetworksUpdateWithHttpInfo($id, $private_network, $contentType);
+        list($response) = $this->cloudPrivateNetworksUpdateWithHttpInfo($id, $private_network_update_request, $contentType);
         return $response;
     }
 
@@ -17184,16 +17135,16 @@ class CloudApi
      * Operation cloudPrivateNetworksUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkUpdateRequest|null $private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\PrivateNetwork, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudPrivateNetworksUpdateWithHttpInfo($id, $private_network, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
+    public function cloudPrivateNetworksUpdateWithHttpInfo($id, $private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
     {
-        $request = $this->cloudPrivateNetworksUpdateRequest($id, $private_network, $contentType);
+        $request = $this->cloudPrivateNetworksUpdateRequest($id, $private_network_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17268,15 +17219,15 @@ class CloudApi
      * Operation cloudPrivateNetworksUpdateAsync
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkUpdateRequest|null $private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksUpdateAsync($id, $private_network, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
+    public function cloudPrivateNetworksUpdateAsync($id, $private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
     {
-        return $this->cloudPrivateNetworksUpdateAsyncWithHttpInfo($id, $private_network, $contentType)
+        return $this->cloudPrivateNetworksUpdateAsyncWithHttpInfo($id, $private_network_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17288,16 +17239,16 @@ class CloudApi
      * Operation cloudPrivateNetworksUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkUpdateRequest|null $private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudPrivateNetworksUpdateAsyncWithHttpInfo($id, $private_network, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
+    public function cloudPrivateNetworksUpdateAsyncWithHttpInfo($id, $private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\PrivateNetwork';
-        $request = $this->cloudPrivateNetworksUpdateRequest($id, $private_network, $contentType);
+        $request = $this->cloudPrivateNetworksUpdateRequest($id, $private_network_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17339,13 +17290,13 @@ class CloudApi
      * Create request for operation 'cloudPrivateNetworksUpdate'
      *
      * @param  int $id A unique integer value identifying this private network. (required)
-     * @param  \PidginHost\Sdk\Model\PrivateNetwork $private_network (required)
+     * @param  \PidginHost\Sdk\Model\PrivateNetworkUpdateRequest|null $private_network_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudPrivateNetworksUpdateRequest($id, $private_network, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
+    public function cloudPrivateNetworksUpdateRequest($id, $private_network_update_request = null, string $contentType = self::contentTypes['cloudPrivateNetworksUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -17355,12 +17306,6 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'private_network' is set
-        if ($private_network === null || (is_array($private_network) && count($private_network) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $private_network when calling cloudPrivateNetworksUpdate'
-            );
-        }
 
 
         $resourcePath = '/api/cloud/private-networks/{id}/';
@@ -17389,12 +17334,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($private_network)) {
+        if (isset($private_network_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_network));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($private_network_update_request));
             } else {
-                $httpBody = $private_network;
+                $httpBody = $private_network_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -19069,16 +19014,15 @@ class CloudApi
      * Operation cloudServersBootIsosList
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersBootIsosList'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\PaginatedBootISOList
+     * @return \PidginHost\Sdk\Model\BootISO[]
      */
-    public function cloudServersBootIsosList($id, $page = null, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
+    public function cloudServersBootIsosList($id, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
     {
-        list($response) = $this->cloudServersBootIsosListWithHttpInfo($id, $page, $contentType);
+        list($response) = $this->cloudServersBootIsosListWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -19086,16 +19030,15 @@ class CloudApi
      * Operation cloudServersBootIsosListWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersBootIsosList'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\PaginatedBootISOList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\BootISO[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersBootIsosListWithHttpInfo($id, $page = null, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
+    public function cloudServersBootIsosListWithHttpInfo($id, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
     {
-        $request = $this->cloudServersBootIsosListRequest($id, $page, $contentType);
+        $request = $this->cloudServersBootIsosListRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19123,7 +19066,7 @@ class CloudApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\PaginatedBootISOList',
+                        '\PidginHost\Sdk\Model\BootISO[]',
                         $request,
                         $response,
                     );
@@ -19145,7 +19088,7 @@ class CloudApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\PaginatedBootISOList',
+                '\PidginHost\Sdk\Model\BootISO[]',
                 $request,
                 $response,
             );
@@ -19154,7 +19097,7 @@ class CloudApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\PaginatedBootISOList',
+                        '\PidginHost\Sdk\Model\BootISO[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19170,15 +19113,14 @@ class CloudApi
      * Operation cloudServersBootIsosListAsync
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersBootIsosList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersBootIsosListAsync($id, $page = null, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
+    public function cloudServersBootIsosListAsync($id, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
     {
-        return $this->cloudServersBootIsosListAsyncWithHttpInfo($id, $page, $contentType)
+        return $this->cloudServersBootIsosListAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19190,16 +19132,15 @@ class CloudApi
      * Operation cloudServersBootIsosListAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersBootIsosList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersBootIsosListAsyncWithHttpInfo($id, $page = null, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
+    public function cloudServersBootIsosListAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\PaginatedBootISOList';
-        $request = $this->cloudServersBootIsosListRequest($id, $page, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\BootISO[]';
+        $request = $this->cloudServersBootIsosListRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19241,13 +19182,12 @@ class CloudApi
      * Create request for operation 'cloudServersBootIsosList'
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersBootIsosList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersBootIsosListRequest($id, $page = null, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
+    public function cloudServersBootIsosListRequest($id, string $contentType = self::contentTypes['cloudServersBootIsosList'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -19258,7 +19198,6 @@ class CloudApi
         }
 
 
-
         $resourcePath = '/api/cloud/servers/{id}/boot-isos/';
         $formParams = [];
         $queryParams = [];
@@ -19266,15 +19205,6 @@ class CloudApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page,
-            'page', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
         // path params
@@ -19613,32 +19543,32 @@ class CloudApi
     /**
      * Operation cloudServersCreate
      *
-     * @param  \PidginHost\Sdk\Model\ServerAdd $server_add server_add (required)
+     * @param  \PidginHost\Sdk\Model\ServerAddRequest $server_add_request server_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ServerAddResponse
      */
-    public function cloudServersCreate($server_add, string $contentType = self::contentTypes['cloudServersCreate'][0])
+    public function cloudServersCreate($server_add_request, string $contentType = self::contentTypes['cloudServersCreate'][0])
     {
-        list($response) = $this->cloudServersCreateWithHttpInfo($server_add, $contentType);
+        list($response) = $this->cloudServersCreateWithHttpInfo($server_add_request, $contentType);
         return $response;
     }
 
     /**
      * Operation cloudServersCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\ServerAdd $server_add (required)
+     * @param  \PidginHost\Sdk\Model\ServerAddRequest $server_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ServerAddResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersCreateWithHttpInfo($server_add, string $contentType = self::contentTypes['cloudServersCreate'][0])
+    public function cloudServersCreateWithHttpInfo($server_add_request, string $contentType = self::contentTypes['cloudServersCreate'][0])
     {
-        $request = $this->cloudServersCreateRequest($server_add, $contentType);
+        $request = $this->cloudServersCreateRequest($server_add_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -19712,15 +19642,15 @@ class CloudApi
     /**
      * Operation cloudServersCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\ServerAdd $server_add (required)
+     * @param  \PidginHost\Sdk\Model\ServerAddRequest $server_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersCreateAsync($server_add, string $contentType = self::contentTypes['cloudServersCreate'][0])
+    public function cloudServersCreateAsync($server_add_request, string $contentType = self::contentTypes['cloudServersCreate'][0])
     {
-        return $this->cloudServersCreateAsyncWithHttpInfo($server_add, $contentType)
+        return $this->cloudServersCreateAsyncWithHttpInfo($server_add_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -19731,16 +19661,16 @@ class CloudApi
     /**
      * Operation cloudServersCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\ServerAdd $server_add (required)
+     * @param  \PidginHost\Sdk\Model\ServerAddRequest $server_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersCreateAsyncWithHttpInfo($server_add, string $contentType = self::contentTypes['cloudServersCreate'][0])
+    public function cloudServersCreateAsyncWithHttpInfo($server_add_request, string $contentType = self::contentTypes['cloudServersCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ServerAddResponse';
-        $request = $this->cloudServersCreateRequest($server_add, $contentType);
+        $request = $this->cloudServersCreateRequest($server_add_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -19781,19 +19711,19 @@ class CloudApi
     /**
      * Create request for operation 'cloudServersCreate'
      *
-     * @param  \PidginHost\Sdk\Model\ServerAdd $server_add (required)
+     * @param  \PidginHost\Sdk\Model\ServerAddRequest $server_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersCreateRequest($server_add, string $contentType = self::contentTypes['cloudServersCreate'][0])
+    public function cloudServersCreateRequest($server_add_request, string $contentType = self::contentTypes['cloudServersCreate'][0])
     {
 
-        // verify the required parameter 'server_add' is set
-        if ($server_add === null || (is_array($server_add) && count($server_add) === 0)) {
+        // verify the required parameter 'server_add_request' is set
+        if ($server_add_request === null || (is_array($server_add_request) && count($server_add_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $server_add when calling cloudServersCreate'
+                'Missing the required parameter $server_add_request when calling cloudServersCreate'
             );
         }
 
@@ -19816,12 +19746,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($server_add)) {
+        if (isset($server_add_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($server_add));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($server_add_request));
             } else {
-                $httpBody = $server_add;
+                $httpBody = $server_add_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -20093,16 +20023,16 @@ class CloudApi
      * Operation cloudServersDestroyProtectionCreate
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\DestroyProtection $destroy_protection destroy_protection (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request destroy_protection_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersDestroyProtectionCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DestroyProtectionResponse
      */
-    public function cloudServersDestroyProtectionCreate($id, $destroy_protection, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
+    public function cloudServersDestroyProtectionCreate($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
     {
-        list($response) = $this->cloudServersDestroyProtectionCreateWithHttpInfo($id, $destroy_protection, $contentType);
+        list($response) = $this->cloudServersDestroyProtectionCreateWithHttpInfo($id, $destroy_protection_request, $contentType);
         return $response;
     }
 
@@ -20110,16 +20040,16 @@ class CloudApi
      * Operation cloudServersDestroyProtectionCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\DestroyProtection $destroy_protection (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersDestroyProtectionCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DestroyProtectionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersDestroyProtectionCreateWithHttpInfo($id, $destroy_protection, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
+    public function cloudServersDestroyProtectionCreateWithHttpInfo($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
     {
-        $request = $this->cloudServersDestroyProtectionCreateRequest($id, $destroy_protection, $contentType);
+        $request = $this->cloudServersDestroyProtectionCreateRequest($id, $destroy_protection_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -20194,15 +20124,15 @@ class CloudApi
      * Operation cloudServersDestroyProtectionCreateAsync
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\DestroyProtection $destroy_protection (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersDestroyProtectionCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersDestroyProtectionCreateAsync($id, $destroy_protection, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
+    public function cloudServersDestroyProtectionCreateAsync($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
     {
-        return $this->cloudServersDestroyProtectionCreateAsyncWithHttpInfo($id, $destroy_protection, $contentType)
+        return $this->cloudServersDestroyProtectionCreateAsyncWithHttpInfo($id, $destroy_protection_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -20214,16 +20144,16 @@ class CloudApi
      * Operation cloudServersDestroyProtectionCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\DestroyProtection $destroy_protection (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersDestroyProtectionCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersDestroyProtectionCreateAsyncWithHttpInfo($id, $destroy_protection, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
+    public function cloudServersDestroyProtectionCreateAsyncWithHttpInfo($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DestroyProtectionResponse';
-        $request = $this->cloudServersDestroyProtectionCreateRequest($id, $destroy_protection, $contentType);
+        $request = $this->cloudServersDestroyProtectionCreateRequest($id, $destroy_protection_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -20265,13 +20195,13 @@ class CloudApi
      * Create request for operation 'cloudServersDestroyProtectionCreate'
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\DestroyProtection $destroy_protection (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersDestroyProtectionCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersDestroyProtectionCreateRequest($id, $destroy_protection, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
+    public function cloudServersDestroyProtectionCreateRequest($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudServersDestroyProtectionCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -20281,10 +20211,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'destroy_protection' is set
-        if ($destroy_protection === null || (is_array($destroy_protection) && count($destroy_protection) === 0)) {
+        // verify the required parameter 'destroy_protection_request' is set
+        if ($destroy_protection_request === null || (is_array($destroy_protection_request) && count($destroy_protection_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $destroy_protection when calling cloudServersDestroyProtectionCreate'
+                'Missing the required parameter $destroy_protection_request when calling cloudServersDestroyProtectionCreate'
             );
         }
 
@@ -20315,12 +20245,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($destroy_protection)) {
+        if (isset($destroy_protection_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($destroy_protection));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($destroy_protection_request));
             } else {
-                $httpBody = $destroy_protection;
+                $httpBody = $destroy_protection_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -21182,16 +21112,16 @@ class CloudApi
      * Operation cloudServersModifyPackageCreate
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerProductUpgrade $server_product_upgrade server_product_upgrade (required)
+     * @param  \PidginHost\Sdk\Model\ServerProductUpgradeRequest $server_product_upgrade_request server_product_upgrade_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersModifyPackageCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ServerUpgradeResponse
      */
-    public function cloudServersModifyPackageCreate($id, $server_product_upgrade, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
+    public function cloudServersModifyPackageCreate($id, $server_product_upgrade_request, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
     {
-        list($response) = $this->cloudServersModifyPackageCreateWithHttpInfo($id, $server_product_upgrade, $contentType);
+        list($response) = $this->cloudServersModifyPackageCreateWithHttpInfo($id, $server_product_upgrade_request, $contentType);
         return $response;
     }
 
@@ -21199,16 +21129,16 @@ class CloudApi
      * Operation cloudServersModifyPackageCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerProductUpgrade $server_product_upgrade (required)
+     * @param  \PidginHost\Sdk\Model\ServerProductUpgradeRequest $server_product_upgrade_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersModifyPackageCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ServerUpgradeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersModifyPackageCreateWithHttpInfo($id, $server_product_upgrade, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
+    public function cloudServersModifyPackageCreateWithHttpInfo($id, $server_product_upgrade_request, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
     {
-        $request = $this->cloudServersModifyPackageCreateRequest($id, $server_product_upgrade, $contentType);
+        $request = $this->cloudServersModifyPackageCreateRequest($id, $server_product_upgrade_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -21283,15 +21213,15 @@ class CloudApi
      * Operation cloudServersModifyPackageCreateAsync
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerProductUpgrade $server_product_upgrade (required)
+     * @param  \PidginHost\Sdk\Model\ServerProductUpgradeRequest $server_product_upgrade_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersModifyPackageCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersModifyPackageCreateAsync($id, $server_product_upgrade, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
+    public function cloudServersModifyPackageCreateAsync($id, $server_product_upgrade_request, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
     {
-        return $this->cloudServersModifyPackageCreateAsyncWithHttpInfo($id, $server_product_upgrade, $contentType)
+        return $this->cloudServersModifyPackageCreateAsyncWithHttpInfo($id, $server_product_upgrade_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -21303,16 +21233,16 @@ class CloudApi
      * Operation cloudServersModifyPackageCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerProductUpgrade $server_product_upgrade (required)
+     * @param  \PidginHost\Sdk\Model\ServerProductUpgradeRequest $server_product_upgrade_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersModifyPackageCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersModifyPackageCreateAsyncWithHttpInfo($id, $server_product_upgrade, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
+    public function cloudServersModifyPackageCreateAsyncWithHttpInfo($id, $server_product_upgrade_request, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ServerUpgradeResponse';
-        $request = $this->cloudServersModifyPackageCreateRequest($id, $server_product_upgrade, $contentType);
+        $request = $this->cloudServersModifyPackageCreateRequest($id, $server_product_upgrade_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -21354,13 +21284,13 @@ class CloudApi
      * Create request for operation 'cloudServersModifyPackageCreate'
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerProductUpgrade $server_product_upgrade (required)
+     * @param  \PidginHost\Sdk\Model\ServerProductUpgradeRequest $server_product_upgrade_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersModifyPackageCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersModifyPackageCreateRequest($id, $server_product_upgrade, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
+    public function cloudServersModifyPackageCreateRequest($id, $server_product_upgrade_request, string $contentType = self::contentTypes['cloudServersModifyPackageCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -21370,10 +21300,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'server_product_upgrade' is set
-        if ($server_product_upgrade === null || (is_array($server_product_upgrade) && count($server_product_upgrade) === 0)) {
+        // verify the required parameter 'server_product_upgrade_request' is set
+        if ($server_product_upgrade_request === null || (is_array($server_product_upgrade_request) && count($server_product_upgrade_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $server_product_upgrade when calling cloudServersModifyPackageCreate'
+                'Missing the required parameter $server_product_upgrade_request when calling cloudServersModifyPackageCreate'
             );
         }
 
@@ -21404,12 +21334,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($server_product_upgrade)) {
+        if (isset($server_product_upgrade_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($server_product_upgrade));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($server_product_upgrade_request));
             } else {
-                $httpBody = $server_product_upgrade;
+                $httpBody = $server_product_upgrade_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -21466,16 +21396,16 @@ class CloudApi
      * Operation cloudServersPartialUpdate
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedServerDetail|null $patched_server_detail patched_server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedServerDetailRequest|null $patched_server_detail_request patched_server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ServerDetail
      */
-    public function cloudServersPartialUpdate($id, $patched_server_detail = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
+    public function cloudServersPartialUpdate($id, $patched_server_detail_request = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
     {
-        list($response) = $this->cloudServersPartialUpdateWithHttpInfo($id, $patched_server_detail, $contentType);
+        list($response) = $this->cloudServersPartialUpdateWithHttpInfo($id, $patched_server_detail_request, $contentType);
         return $response;
     }
 
@@ -21483,16 +21413,16 @@ class CloudApi
      * Operation cloudServersPartialUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedServerDetail|null $patched_server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedServerDetailRequest|null $patched_server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ServerDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersPartialUpdateWithHttpInfo($id, $patched_server_detail = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
+    public function cloudServersPartialUpdateWithHttpInfo($id, $patched_server_detail_request = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
     {
-        $request = $this->cloudServersPartialUpdateRequest($id, $patched_server_detail, $contentType);
+        $request = $this->cloudServersPartialUpdateRequest($id, $patched_server_detail_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -21567,15 +21497,15 @@ class CloudApi
      * Operation cloudServersPartialUpdateAsync
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedServerDetail|null $patched_server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedServerDetailRequest|null $patched_server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersPartialUpdateAsync($id, $patched_server_detail = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
+    public function cloudServersPartialUpdateAsync($id, $patched_server_detail_request = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
     {
-        return $this->cloudServersPartialUpdateAsyncWithHttpInfo($id, $patched_server_detail, $contentType)
+        return $this->cloudServersPartialUpdateAsyncWithHttpInfo($id, $patched_server_detail_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -21587,16 +21517,16 @@ class CloudApi
      * Operation cloudServersPartialUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedServerDetail|null $patched_server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedServerDetailRequest|null $patched_server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersPartialUpdateAsyncWithHttpInfo($id, $patched_server_detail = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
+    public function cloudServersPartialUpdateAsyncWithHttpInfo($id, $patched_server_detail_request = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ServerDetail';
-        $request = $this->cloudServersPartialUpdateRequest($id, $patched_server_detail, $contentType);
+        $request = $this->cloudServersPartialUpdateRequest($id, $patched_server_detail_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -21638,13 +21568,13 @@ class CloudApi
      * Create request for operation 'cloudServersPartialUpdate'
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedServerDetail|null $patched_server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedServerDetailRequest|null $patched_server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersPartialUpdateRequest($id, $patched_server_detail = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
+    public function cloudServersPartialUpdateRequest($id, $patched_server_detail_request = null, string $contentType = self::contentTypes['cloudServersPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -21682,12 +21612,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($patched_server_detail)) {
+        if (isset($patched_server_detail_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_server_detail));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_server_detail_request));
             } else {
-                $httpBody = $patched_server_detail;
+                $httpBody = $patched_server_detail_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -22293,16 +22223,16 @@ class CloudApi
      * Operation cloudServersPublicInterfaceCreate
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PublicInterface|null $public_interface public_interface (optional)
+     * @param  \PidginHost\Sdk\Model\PublicInterfaceRequest|null $public_interface_request public_interface_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPublicInterfaceCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\PublicInterface
      */
-    public function cloudServersPublicInterfaceCreate($id, $public_interface = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
+    public function cloudServersPublicInterfaceCreate($id, $public_interface_request = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
     {
-        list($response) = $this->cloudServersPublicInterfaceCreateWithHttpInfo($id, $public_interface, $contentType);
+        list($response) = $this->cloudServersPublicInterfaceCreateWithHttpInfo($id, $public_interface_request, $contentType);
         return $response;
     }
 
@@ -22310,16 +22240,16 @@ class CloudApi
      * Operation cloudServersPublicInterfaceCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PublicInterface|null $public_interface (optional)
+     * @param  \PidginHost\Sdk\Model\PublicInterfaceRequest|null $public_interface_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPublicInterfaceCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\PublicInterface, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersPublicInterfaceCreateWithHttpInfo($id, $public_interface = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
+    public function cloudServersPublicInterfaceCreateWithHttpInfo($id, $public_interface_request = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
     {
-        $request = $this->cloudServersPublicInterfaceCreateRequest($id, $public_interface, $contentType);
+        $request = $this->cloudServersPublicInterfaceCreateRequest($id, $public_interface_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -22394,15 +22324,15 @@ class CloudApi
      * Operation cloudServersPublicInterfaceCreateAsync
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PublicInterface|null $public_interface (optional)
+     * @param  \PidginHost\Sdk\Model\PublicInterfaceRequest|null $public_interface_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPublicInterfaceCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersPublicInterfaceCreateAsync($id, $public_interface = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
+    public function cloudServersPublicInterfaceCreateAsync($id, $public_interface_request = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
     {
-        return $this->cloudServersPublicInterfaceCreateAsyncWithHttpInfo($id, $public_interface, $contentType)
+        return $this->cloudServersPublicInterfaceCreateAsyncWithHttpInfo($id, $public_interface_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -22414,16 +22344,16 @@ class CloudApi
      * Operation cloudServersPublicInterfaceCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PublicInterface|null $public_interface (optional)
+     * @param  \PidginHost\Sdk\Model\PublicInterfaceRequest|null $public_interface_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPublicInterfaceCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersPublicInterfaceCreateAsyncWithHttpInfo($id, $public_interface = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
+    public function cloudServersPublicInterfaceCreateAsyncWithHttpInfo($id, $public_interface_request = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\PublicInterface';
-        $request = $this->cloudServersPublicInterfaceCreateRequest($id, $public_interface, $contentType);
+        $request = $this->cloudServersPublicInterfaceCreateRequest($id, $public_interface_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -22465,13 +22395,13 @@ class CloudApi
      * Create request for operation 'cloudServersPublicInterfaceCreate'
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\PublicInterface|null $public_interface (optional)
+     * @param  \PidginHost\Sdk\Model\PublicInterfaceRequest|null $public_interface_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersPublicInterfaceCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersPublicInterfaceCreateRequest($id, $public_interface = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
+    public function cloudServersPublicInterfaceCreateRequest($id, $public_interface_request = null, string $contentType = self::contentTypes['cloudServersPublicInterfaceCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -22509,12 +22439,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($public_interface)) {
+        if (isset($public_interface_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($public_interface));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($public_interface_request));
             } else {
-                $httpBody = $public_interface;
+                $httpBody = $public_interface_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -24124,17 +24054,16 @@ class CloudApi
      * Operation cloudServersSnapshotsCreate
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\SnapshotCreate $snapshot_create snapshot_create (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  \PidginHost\Sdk\Model\SnapshotCreateRequest $snapshot_create_request snapshot_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\PaginatedSnapshotList|\PidginHost\Sdk\Model\SnapshotCreateQueued
+     * @return \PidginHost\Sdk\Model\SnapshotCreateQueued
      */
-    public function cloudServersSnapshotsCreate($id, $snapshot_create, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
+    public function cloudServersSnapshotsCreate($id, $snapshot_create_request, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
     {
-        list($response) = $this->cloudServersSnapshotsCreateWithHttpInfo($id, $snapshot_create, $page, $contentType);
+        list($response) = $this->cloudServersSnapshotsCreateWithHttpInfo($id, $snapshot_create_request, $contentType);
         return $response;
     }
 
@@ -24142,17 +24071,16 @@ class CloudApi
      * Operation cloudServersSnapshotsCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\SnapshotCreate $snapshot_create (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  \PidginHost\Sdk\Model\SnapshotCreateRequest $snapshot_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\PaginatedSnapshotList|\PidginHost\Sdk\Model\SnapshotCreateQueued, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\SnapshotCreateQueued, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersSnapshotsCreateWithHttpInfo($id, $snapshot_create, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
+    public function cloudServersSnapshotsCreateWithHttpInfo($id, $snapshot_create_request, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
     {
-        $request = $this->cloudServersSnapshotsCreateRequest($id, $snapshot_create, $page, $contentType);
+        $request = $this->cloudServersSnapshotsCreateRequest($id, $snapshot_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -24178,12 +24106,6 @@ class CloudApi
 
 
             switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\PaginatedSnapshotList',
-                        $request,
-                        $response,
-                    );
                 case 202:
                     return $this->handleResponseWithDataType(
                         '\PidginHost\Sdk\Model\SnapshotCreateQueued',
@@ -24208,20 +24130,12 @@ class CloudApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\PaginatedSnapshotList',
+                '\PidginHost\Sdk\Model\SnapshotCreateQueued',
                 $request,
                 $response,
             );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\PaginatedSnapshotList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -24241,16 +24155,15 @@ class CloudApi
      * Operation cloudServersSnapshotsCreateAsync
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\SnapshotCreate $snapshot_create (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  \PidginHost\Sdk\Model\SnapshotCreateRequest $snapshot_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersSnapshotsCreateAsync($id, $snapshot_create, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
+    public function cloudServersSnapshotsCreateAsync($id, $snapshot_create_request, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
     {
-        return $this->cloudServersSnapshotsCreateAsyncWithHttpInfo($id, $snapshot_create, $page, $contentType)
+        return $this->cloudServersSnapshotsCreateAsyncWithHttpInfo($id, $snapshot_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -24262,17 +24175,16 @@ class CloudApi
      * Operation cloudServersSnapshotsCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\SnapshotCreate $snapshot_create (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  \PidginHost\Sdk\Model\SnapshotCreateRequest $snapshot_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersSnapshotsCreateAsyncWithHttpInfo($id, $snapshot_create, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
+    public function cloudServersSnapshotsCreateAsyncWithHttpInfo($id, $snapshot_create_request, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\PaginatedSnapshotList';
-        $request = $this->cloudServersSnapshotsCreateRequest($id, $snapshot_create, $page, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\SnapshotCreateQueued';
+        $request = $this->cloudServersSnapshotsCreateRequest($id, $snapshot_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -24314,14 +24226,13 @@ class CloudApi
      * Create request for operation 'cloudServersSnapshotsCreate'
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\SnapshotCreate $snapshot_create (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  \PidginHost\Sdk\Model\SnapshotCreateRequest $snapshot_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersSnapshotsCreateRequest($id, $snapshot_create, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
+    public function cloudServersSnapshotsCreateRequest($id, $snapshot_create_request, string $contentType = self::contentTypes['cloudServersSnapshotsCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -24331,13 +24242,12 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'snapshot_create' is set
-        if ($snapshot_create === null || (is_array($snapshot_create) && count($snapshot_create) === 0)) {
+        // verify the required parameter 'snapshot_create_request' is set
+        if ($snapshot_create_request === null || (is_array($snapshot_create_request) && count($snapshot_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $snapshot_create when calling cloudServersSnapshotsCreate'
+                'Missing the required parameter $snapshot_create_request when calling cloudServersSnapshotsCreate'
             );
         }
-
 
 
         $resourcePath = '/api/cloud/servers/{id}/snapshots/';
@@ -24347,15 +24257,6 @@ class CloudApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page,
-            'page', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
         // path params
@@ -24375,12 +24276,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($snapshot_create)) {
+        if (isset($snapshot_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($snapshot_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($snapshot_create_request));
             } else {
-                $httpBody = $snapshot_create;
+                $httpBody = $snapshot_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -24725,16 +24626,15 @@ class CloudApi
      * Operation cloudServersSnapshotsList
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsList'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\PaginatedSnapshotList|\PidginHost\Sdk\Model\SnapshotCreateQueued
+     * @return \PidginHost\Sdk\Model\Snapshot[]
      */
-    public function cloudServersSnapshotsList($id, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
+    public function cloudServersSnapshotsList($id, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
     {
-        list($response) = $this->cloudServersSnapshotsListWithHttpInfo($id, $page, $contentType);
+        list($response) = $this->cloudServersSnapshotsListWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -24742,16 +24642,15 @@ class CloudApi
      * Operation cloudServersSnapshotsListWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsList'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\PaginatedSnapshotList|\PidginHost\Sdk\Model\SnapshotCreateQueued, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\Snapshot[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersSnapshotsListWithHttpInfo($id, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
+    public function cloudServersSnapshotsListWithHttpInfo($id, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
     {
-        $request = $this->cloudServersSnapshotsListRequest($id, $page, $contentType);
+        $request = $this->cloudServersSnapshotsListRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -24779,13 +24678,7 @@ class CloudApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\PaginatedSnapshotList',
-                        $request,
-                        $response,
-                    );
-                case 202:
-                    return $this->handleResponseWithDataType(
-                        '\PidginHost\Sdk\Model\SnapshotCreateQueued',
+                        '\PidginHost\Sdk\Model\Snapshot[]',
                         $request,
                         $response,
                     );
@@ -24807,7 +24700,7 @@ class CloudApi
             }
 
             return $this->handleResponseWithDataType(
-                '\PidginHost\Sdk\Model\PaginatedSnapshotList',
+                '\PidginHost\Sdk\Model\Snapshot[]',
                 $request,
                 $response,
             );
@@ -24816,15 +24709,7 @@ class CloudApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\PaginatedSnapshotList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 202:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\PidginHost\Sdk\Model\SnapshotCreateQueued',
+                        '\PidginHost\Sdk\Model\Snapshot[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24840,15 +24725,14 @@ class CloudApi
      * Operation cloudServersSnapshotsListAsync
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersSnapshotsListAsync($id, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
+    public function cloudServersSnapshotsListAsync($id, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
     {
-        return $this->cloudServersSnapshotsListAsyncWithHttpInfo($id, $page, $contentType)
+        return $this->cloudServersSnapshotsListAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -24860,16 +24744,15 @@ class CloudApi
      * Operation cloudServersSnapshotsListAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersSnapshotsListAsyncWithHttpInfo($id, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
+    public function cloudServersSnapshotsListAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
     {
-        $returnType = '\PidginHost\Sdk\Model\PaginatedSnapshotList';
-        $request = $this->cloudServersSnapshotsListRequest($id, $page, $contentType);
+        $returnType = '\PidginHost\Sdk\Model\Snapshot[]';
+        $request = $this->cloudServersSnapshotsListRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -24911,13 +24794,12 @@ class CloudApi
      * Create request for operation 'cloudServersSnapshotsList'
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  int|null $page A page number within the paginated result set. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersSnapshotsList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersSnapshotsListRequest($id, $page = null, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
+    public function cloudServersSnapshotsListRequest($id, string $contentType = self::contentTypes['cloudServersSnapshotsList'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -24928,7 +24810,6 @@ class CloudApi
         }
 
 
-
         $resourcePath = '/api/cloud/servers/{id}/snapshots/';
         $formParams = [];
         $queryParams = [];
@@ -24936,15 +24817,6 @@ class CloudApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $page,
-            'page', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
         // path params
@@ -25304,19 +25176,284 @@ class CloudApi
     }
 
     /**
+     * Operation cloudServersTrafficRetrieve
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersTrafficRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\ServerTrafficResponse
+     */
+    public function cloudServersTrafficRetrieve($id, string $contentType = self::contentTypes['cloudServersTrafficRetrieve'][0])
+    {
+        list($response) = $this->cloudServersTrafficRetrieveWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudServersTrafficRetrieveWithHttpInfo
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersTrafficRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\ServerTrafficResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudServersTrafficRetrieveWithHttpInfo($id, string $contentType = self::contentTypes['cloudServersTrafficRetrieve'][0])
+    {
+        $request = $this->cloudServersTrafficRetrieveRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ServerTrafficResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\ServerTrafficResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ServerTrafficResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudServersTrafficRetrieveAsync
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersTrafficRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudServersTrafficRetrieveAsync($id, string $contentType = self::contentTypes['cloudServersTrafficRetrieve'][0])
+    {
+        return $this->cloudServersTrafficRetrieveAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudServersTrafficRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersTrafficRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudServersTrafficRetrieveAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudServersTrafficRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\ServerTrafficResponse';
+        $request = $this->cloudServersTrafficRetrieveRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudServersTrafficRetrieve'
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersTrafficRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudServersTrafficRetrieveRequest($id, string $contentType = self::contentTypes['cloudServersTrafficRetrieve'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudServersTrafficRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/servers/{id}/traffic/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation cloudServersUpdate
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerDetail|null $server_detail server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\ServerDetailRequest|null $server_detail_request server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\ServerDetail
      */
-    public function cloudServersUpdate($id, $server_detail = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
+    public function cloudServersUpdate($id, $server_detail_request = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
     {
-        list($response) = $this->cloudServersUpdateWithHttpInfo($id, $server_detail, $contentType);
+        list($response) = $this->cloudServersUpdateWithHttpInfo($id, $server_detail_request, $contentType);
         return $response;
     }
 
@@ -25324,16 +25461,16 @@ class CloudApi
      * Operation cloudServersUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerDetail|null $server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\ServerDetailRequest|null $server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\ServerDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersUpdateWithHttpInfo($id, $server_detail = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
+    public function cloudServersUpdateWithHttpInfo($id, $server_detail_request = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
     {
-        $request = $this->cloudServersUpdateRequest($id, $server_detail, $contentType);
+        $request = $this->cloudServersUpdateRequest($id, $server_detail_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -25408,15 +25545,15 @@ class CloudApi
      * Operation cloudServersUpdateAsync
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerDetail|null $server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\ServerDetailRequest|null $server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersUpdateAsync($id, $server_detail = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
+    public function cloudServersUpdateAsync($id, $server_detail_request = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
     {
-        return $this->cloudServersUpdateAsyncWithHttpInfo($id, $server_detail, $contentType)
+        return $this->cloudServersUpdateAsyncWithHttpInfo($id, $server_detail_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -25428,16 +25565,16 @@ class CloudApi
      * Operation cloudServersUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerDetail|null $server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\ServerDetailRequest|null $server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersUpdateAsyncWithHttpInfo($id, $server_detail = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
+    public function cloudServersUpdateAsyncWithHttpInfo($id, $server_detail_request = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\ServerDetail';
-        $request = $this->cloudServersUpdateRequest($id, $server_detail, $contentType);
+        $request = $this->cloudServersUpdateRequest($id, $server_detail_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -25479,13 +25616,13 @@ class CloudApi
      * Create request for operation 'cloudServersUpdate'
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
-     * @param  \PidginHost\Sdk\Model\ServerDetail|null $server_detail (optional)
+     * @param  \PidginHost\Sdk\Model\ServerDetailRequest|null $server_detail_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersUpdateRequest($id, $server_detail = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
+    public function cloudServersUpdateRequest($id, $server_detail_request = null, string $contentType = self::contentTypes['cloudServersUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -25523,12 +25660,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($server_detail)) {
+        if (isset($server_detail_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($server_detail));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($server_detail_request));
             } else {
-                $httpBody = $server_detail;
+                $httpBody = $server_detail_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -25850,16 +25987,16 @@ class CloudApi
      * Operation cloudServersVolumesCreate
      *
      * @param  string $server_id server_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeRequest $volume_request volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Volume
      */
-    public function cloudServersVolumesCreate($server_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
+    public function cloudServersVolumesCreate($server_id, $volume_request, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
     {
-        list($response) = $this->cloudServersVolumesCreateWithHttpInfo($server_id, $volume, $contentType);
+        list($response) = $this->cloudServersVolumesCreateWithHttpInfo($server_id, $volume_request, $contentType);
         return $response;
     }
 
@@ -25867,16 +26004,16 @@ class CloudApi
      * Operation cloudServersVolumesCreateWithHttpInfo
      *
      * @param  string $server_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeRequest $volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Volume, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersVolumesCreateWithHttpInfo($server_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
+    public function cloudServersVolumesCreateWithHttpInfo($server_id, $volume_request, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
     {
-        $request = $this->cloudServersVolumesCreateRequest($server_id, $volume, $contentType);
+        $request = $this->cloudServersVolumesCreateRequest($server_id, $volume_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -25951,15 +26088,15 @@ class CloudApi
      * Operation cloudServersVolumesCreateAsync
      *
      * @param  string $server_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeRequest $volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersVolumesCreateAsync($server_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
+    public function cloudServersVolumesCreateAsync($server_id, $volume_request, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
     {
-        return $this->cloudServersVolumesCreateAsyncWithHttpInfo($server_id, $volume, $contentType)
+        return $this->cloudServersVolumesCreateAsyncWithHttpInfo($server_id, $volume_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -25971,16 +26108,16 @@ class CloudApi
      * Operation cloudServersVolumesCreateAsyncWithHttpInfo
      *
      * @param  string $server_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeRequest $volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersVolumesCreateAsyncWithHttpInfo($server_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
+    public function cloudServersVolumesCreateAsyncWithHttpInfo($server_id, $volume_request, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Volume';
-        $request = $this->cloudServersVolumesCreateRequest($server_id, $volume, $contentType);
+        $request = $this->cloudServersVolumesCreateRequest($server_id, $volume_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -26022,13 +26159,13 @@ class CloudApi
      * Create request for operation 'cloudServersVolumesCreate'
      *
      * @param  string $server_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeRequest $volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersVolumesCreateRequest($server_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
+    public function cloudServersVolumesCreateRequest($server_id, $volume_request, string $contentType = self::contentTypes['cloudServersVolumesCreate'][0])
     {
 
         // verify the required parameter 'server_id' is set
@@ -26041,10 +26178,10 @@ class CloudApi
             throw new \InvalidArgumentException("invalid value for \"server_id\" when calling CloudApi.cloudServersVolumesCreate, must conform to the pattern /^\\d{1,10}$/.");
         }
         
-        // verify the required parameter 'volume' is set
-        if ($volume === null || (is_array($volume) && count($volume) === 0)) {
+        // verify the required parameter 'volume_request' is set
+        if ($volume_request === null || (is_array($volume_request) && count($volume_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $volume when calling cloudServersVolumesCreate'
+                'Missing the required parameter $volume_request when calling cloudServersVolumesCreate'
             );
         }
 
@@ -26075,12 +26212,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($volume)) {
+        if (isset($volume_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($volume));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($volume_request));
             } else {
-                $httpBody = $volume;
+                $httpBody = $volume_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -26644,16 +26781,16 @@ class CloudApi
      *
      * @param  string $server_id server_id (required)
      * @param  string $volume_id volume_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Volume
      */
-    public function cloudServersVolumesPartialUpdate($server_id, $volume_id, $patched_volume = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
+    public function cloudServersVolumesPartialUpdate($server_id, $volume_id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
     {
-        list($response) = $this->cloudServersVolumesPartialUpdateWithHttpInfo($server_id, $volume_id, $patched_volume, $contentType);
+        list($response) = $this->cloudServersVolumesPartialUpdateWithHttpInfo($server_id, $volume_id, $patched_volume_update_request, $contentType);
         return $response;
     }
 
@@ -26662,16 +26799,16 @@ class CloudApi
      *
      * @param  string $server_id (required)
      * @param  string $volume_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Volume, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersVolumesPartialUpdateWithHttpInfo($server_id, $volume_id, $patched_volume = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
+    public function cloudServersVolumesPartialUpdateWithHttpInfo($server_id, $volume_id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
     {
-        $request = $this->cloudServersVolumesPartialUpdateRequest($server_id, $volume_id, $patched_volume, $contentType);
+        $request = $this->cloudServersVolumesPartialUpdateRequest($server_id, $volume_id, $patched_volume_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -26747,15 +26884,15 @@ class CloudApi
      *
      * @param  string $server_id (required)
      * @param  string $volume_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersVolumesPartialUpdateAsync($server_id, $volume_id, $patched_volume = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
+    public function cloudServersVolumesPartialUpdateAsync($server_id, $volume_id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
     {
-        return $this->cloudServersVolumesPartialUpdateAsyncWithHttpInfo($server_id, $volume_id, $patched_volume, $contentType)
+        return $this->cloudServersVolumesPartialUpdateAsyncWithHttpInfo($server_id, $volume_id, $patched_volume_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -26768,16 +26905,16 @@ class CloudApi
      *
      * @param  string $server_id (required)
      * @param  string $volume_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersVolumesPartialUpdateAsyncWithHttpInfo($server_id, $volume_id, $patched_volume = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
+    public function cloudServersVolumesPartialUpdateAsyncWithHttpInfo($server_id, $volume_id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Volume';
-        $request = $this->cloudServersVolumesPartialUpdateRequest($server_id, $volume_id, $patched_volume, $contentType);
+        $request = $this->cloudServersVolumesPartialUpdateRequest($server_id, $volume_id, $patched_volume_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -26820,13 +26957,13 @@ class CloudApi
      *
      * @param  string $server_id (required)
      * @param  string $volume_id (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersVolumesPartialUpdateRequest($server_id, $volume_id, $patched_volume = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
+    public function cloudServersVolumesPartialUpdateRequest($server_id, $volume_id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudServersVolumesPartialUpdate'][0])
     {
 
         // verify the required parameter 'server_id' is set
@@ -26882,12 +27019,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($patched_volume)) {
+        if (isset($patched_volume_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_volume));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_volume_update_request));
             } else {
-                $httpBody = $patched_volume;
+                $httpBody = $patched_volume_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -27233,16 +27370,16 @@ class CloudApi
      *
      * @param  string $server_id server_id (required)
      * @param  string $volume_id volume_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Volume
      */
-    public function cloudServersVolumesUpdate($server_id, $volume_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
+    public function cloudServersVolumesUpdate($server_id, $volume_id, $volume_update_request, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
     {
-        list($response) = $this->cloudServersVolumesUpdateWithHttpInfo($server_id, $volume_id, $volume, $contentType);
+        list($response) = $this->cloudServersVolumesUpdateWithHttpInfo($server_id, $volume_id, $volume_update_request, $contentType);
         return $response;
     }
 
@@ -27251,16 +27388,16 @@ class CloudApi
      *
      * @param  string $server_id (required)
      * @param  string $volume_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Volume, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudServersVolumesUpdateWithHttpInfo($server_id, $volume_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
+    public function cloudServersVolumesUpdateWithHttpInfo($server_id, $volume_id, $volume_update_request, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
     {
-        $request = $this->cloudServersVolumesUpdateRequest($server_id, $volume_id, $volume, $contentType);
+        $request = $this->cloudServersVolumesUpdateRequest($server_id, $volume_id, $volume_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27336,15 +27473,15 @@ class CloudApi
      *
      * @param  string $server_id (required)
      * @param  string $volume_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersVolumesUpdateAsync($server_id, $volume_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
+    public function cloudServersVolumesUpdateAsync($server_id, $volume_id, $volume_update_request, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
     {
-        return $this->cloudServersVolumesUpdateAsyncWithHttpInfo($server_id, $volume_id, $volume, $contentType)
+        return $this->cloudServersVolumesUpdateAsyncWithHttpInfo($server_id, $volume_id, $volume_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -27357,16 +27494,16 @@ class CloudApi
      *
      * @param  string $server_id (required)
      * @param  string $volume_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudServersVolumesUpdateAsyncWithHttpInfo($server_id, $volume_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
+    public function cloudServersVolumesUpdateAsyncWithHttpInfo($server_id, $volume_id, $volume_update_request, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Volume';
-        $request = $this->cloudServersVolumesUpdateRequest($server_id, $volume_id, $volume, $contentType);
+        $request = $this->cloudServersVolumesUpdateRequest($server_id, $volume_id, $volume_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -27409,13 +27546,13 @@ class CloudApi
      *
      * @param  string $server_id (required)
      * @param  string $volume_id (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudServersVolumesUpdateRequest($server_id, $volume_id, $volume, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
+    public function cloudServersVolumesUpdateRequest($server_id, $volume_id, $volume_update_request, string $contentType = self::contentTypes['cloudServersVolumesUpdate'][0])
     {
 
         // verify the required parameter 'server_id' is set
@@ -27435,10 +27572,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'volume' is set
-        if ($volume === null || (is_array($volume) && count($volume) === 0)) {
+        // verify the required parameter 'volume_update_request' is set
+        if ($volume_update_request === null || (is_array($volume_update_request) && count($volume_update_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $volume when calling cloudServersVolumesUpdate'
+                'Missing the required parameter $volume_update_request when calling cloudServersVolumesUpdate'
             );
         }
 
@@ -27477,12 +27614,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($volume)) {
+        if (isset($volume_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($volume));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($volume_update_request));
             } else {
-                $httpBody = $volume;
+                $httpBody = $volume_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -28064,16 +28201,16 @@ class CloudApi
      * Operation cloudVolumesAttachCreate
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\AttachVolume $attach_volume attach_volume (required)
+     * @param  \PidginHost\Sdk\Model\AttachVolumeRequest $attach_volume_request attach_volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesAttachCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\AttachVolume
      */
-    public function cloudVolumesAttachCreate($id, $attach_volume, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
+    public function cloudVolumesAttachCreate($id, $attach_volume_request, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
     {
-        list($response) = $this->cloudVolumesAttachCreateWithHttpInfo($id, $attach_volume, $contentType);
+        list($response) = $this->cloudVolumesAttachCreateWithHttpInfo($id, $attach_volume_request, $contentType);
         return $response;
     }
 
@@ -28081,16 +28218,16 @@ class CloudApi
      * Operation cloudVolumesAttachCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\AttachVolume $attach_volume (required)
+     * @param  \PidginHost\Sdk\Model\AttachVolumeRequest $attach_volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesAttachCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\AttachVolume, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudVolumesAttachCreateWithHttpInfo($id, $attach_volume, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
+    public function cloudVolumesAttachCreateWithHttpInfo($id, $attach_volume_request, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
     {
-        $request = $this->cloudVolumesAttachCreateRequest($id, $attach_volume, $contentType);
+        $request = $this->cloudVolumesAttachCreateRequest($id, $attach_volume_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -28165,15 +28302,15 @@ class CloudApi
      * Operation cloudVolumesAttachCreateAsync
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\AttachVolume $attach_volume (required)
+     * @param  \PidginHost\Sdk\Model\AttachVolumeRequest $attach_volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesAttachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudVolumesAttachCreateAsync($id, $attach_volume, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
+    public function cloudVolumesAttachCreateAsync($id, $attach_volume_request, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
     {
-        return $this->cloudVolumesAttachCreateAsyncWithHttpInfo($id, $attach_volume, $contentType)
+        return $this->cloudVolumesAttachCreateAsyncWithHttpInfo($id, $attach_volume_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28185,16 +28322,16 @@ class CloudApi
      * Operation cloudVolumesAttachCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\AttachVolume $attach_volume (required)
+     * @param  \PidginHost\Sdk\Model\AttachVolumeRequest $attach_volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesAttachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudVolumesAttachCreateAsyncWithHttpInfo($id, $attach_volume, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
+    public function cloudVolumesAttachCreateAsyncWithHttpInfo($id, $attach_volume_request, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\AttachVolume';
-        $request = $this->cloudVolumesAttachCreateRequest($id, $attach_volume, $contentType);
+        $request = $this->cloudVolumesAttachCreateRequest($id, $attach_volume_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28236,13 +28373,13 @@ class CloudApi
      * Create request for operation 'cloudVolumesAttachCreate'
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\AttachVolume $attach_volume (required)
+     * @param  \PidginHost\Sdk\Model\AttachVolumeRequest $attach_volume_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesAttachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudVolumesAttachCreateRequest($id, $attach_volume, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
+    public function cloudVolumesAttachCreateRequest($id, $attach_volume_request, string $contentType = self::contentTypes['cloudVolumesAttachCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -28252,10 +28389,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'attach_volume' is set
-        if ($attach_volume === null || (is_array($attach_volume) && count($attach_volume) === 0)) {
+        // verify the required parameter 'attach_volume_request' is set
+        if ($attach_volume_request === null || (is_array($attach_volume_request) && count($attach_volume_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $attach_volume when calling cloudVolumesAttachCreate'
+                'Missing the required parameter $attach_volume_request when calling cloudVolumesAttachCreate'
             );
         }
 
@@ -28286,12 +28423,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($attach_volume)) {
+        if (isset($attach_volume_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($attach_volume));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($attach_volume_request));
             } else {
-                $httpBody = $attach_volume;
+                $httpBody = $attach_volume_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -28563,16 +28700,15 @@ class CloudApi
      * Operation cloudVolumesDetachCreate
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume volume (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesDetachCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\DetachVolume
      */
-    public function cloudVolumesDetachCreate($id, $volume, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
+    public function cloudVolumesDetachCreate($id, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
     {
-        list($response) = $this->cloudVolumesDetachCreateWithHttpInfo($id, $volume, $contentType);
+        list($response) = $this->cloudVolumesDetachCreateWithHttpInfo($id, $contentType);
         return $response;
     }
 
@@ -28580,16 +28716,15 @@ class CloudApi
      * Operation cloudVolumesDetachCreateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesDetachCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\DetachVolume, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudVolumesDetachCreateWithHttpInfo($id, $volume, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
+    public function cloudVolumesDetachCreateWithHttpInfo($id, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
     {
-        $request = $this->cloudVolumesDetachCreateRequest($id, $volume, $contentType);
+        $request = $this->cloudVolumesDetachCreateRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -28664,15 +28799,14 @@ class CloudApi
      * Operation cloudVolumesDetachCreateAsync
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesDetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudVolumesDetachCreateAsync($id, $volume, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
+    public function cloudVolumesDetachCreateAsync($id, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
     {
-        return $this->cloudVolumesDetachCreateAsyncWithHttpInfo($id, $volume, $contentType)
+        return $this->cloudVolumesDetachCreateAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28684,16 +28818,15 @@ class CloudApi
      * Operation cloudVolumesDetachCreateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesDetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudVolumesDetachCreateAsyncWithHttpInfo($id, $volume, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
+    public function cloudVolumesDetachCreateAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\DetachVolume';
-        $request = $this->cloudVolumesDetachCreateRequest($id, $volume, $contentType);
+        $request = $this->cloudVolumesDetachCreateRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28735,26 +28868,18 @@ class CloudApi
      * Create request for operation 'cloudVolumesDetachCreate'
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesDetachCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudVolumesDetachCreateRequest($id, $volume, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
+    public function cloudVolumesDetachCreateRequest($id, string $contentType = self::contentTypes['cloudVolumesDetachCreate'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling cloudVolumesDetachCreate'
-            );
-        }
-
-        // verify the required parameter 'volume' is set
-        if ($volume === null || (is_array($volume) && count($volume) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $volume when calling cloudVolumesDetachCreate'
             );
         }
 
@@ -28785,14 +28910,7 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($volume)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($volume));
-            } else {
-                $httpBody = $volume;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -29092,16 +29210,16 @@ class CloudApi
      * Operation cloudVolumesPartialUpdate
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Volume
      */
-    public function cloudVolumesPartialUpdate($id, $patched_volume = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
+    public function cloudVolumesPartialUpdate($id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
     {
-        list($response) = $this->cloudVolumesPartialUpdateWithHttpInfo($id, $patched_volume, $contentType);
+        list($response) = $this->cloudVolumesPartialUpdateWithHttpInfo($id, $patched_volume_update_request, $contentType);
         return $response;
     }
 
@@ -29109,16 +29227,16 @@ class CloudApi
      * Operation cloudVolumesPartialUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Volume, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudVolumesPartialUpdateWithHttpInfo($id, $patched_volume = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
+    public function cloudVolumesPartialUpdateWithHttpInfo($id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
     {
-        $request = $this->cloudVolumesPartialUpdateRequest($id, $patched_volume, $contentType);
+        $request = $this->cloudVolumesPartialUpdateRequest($id, $patched_volume_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29193,15 +29311,15 @@ class CloudApi
      * Operation cloudVolumesPartialUpdateAsync
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudVolumesPartialUpdateAsync($id, $patched_volume = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
+    public function cloudVolumesPartialUpdateAsync($id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
     {
-        return $this->cloudVolumesPartialUpdateAsyncWithHttpInfo($id, $patched_volume, $contentType)
+        return $this->cloudVolumesPartialUpdateAsyncWithHttpInfo($id, $patched_volume_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29213,16 +29331,16 @@ class CloudApi
      * Operation cloudVolumesPartialUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudVolumesPartialUpdateAsyncWithHttpInfo($id, $patched_volume = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
+    public function cloudVolumesPartialUpdateAsyncWithHttpInfo($id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Volume';
-        $request = $this->cloudVolumesPartialUpdateRequest($id, $patched_volume, $contentType);
+        $request = $this->cloudVolumesPartialUpdateRequest($id, $patched_volume_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -29264,13 +29382,13 @@ class CloudApi
      * Create request for operation 'cloudVolumesPartialUpdate'
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\PatchedVolume|null $patched_volume (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedVolumeUpdateRequest|null $patched_volume_update_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesPartialUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudVolumesPartialUpdateRequest($id, $patched_volume = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
+    public function cloudVolumesPartialUpdateRequest($id, $patched_volume_update_request = null, string $contentType = self::contentTypes['cloudVolumesPartialUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -29308,12 +29426,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($patched_volume)) {
+        if (isset($patched_volume_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_volume));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($patched_volume_update_request));
             } else {
-                $httpBody = $patched_volume;
+                $httpBody = $patched_volume_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -29635,16 +29753,16 @@ class CloudApi
      * Operation cloudVolumesUpdate
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\Volume
      */
-    public function cloudVolumesUpdate($id, $volume, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
+    public function cloudVolumesUpdate($id, $volume_update_request, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
     {
-        list($response) = $this->cloudVolumesUpdateWithHttpInfo($id, $volume, $contentType);
+        list($response) = $this->cloudVolumesUpdateWithHttpInfo($id, $volume_update_request, $contentType);
         return $response;
     }
 
@@ -29652,16 +29770,16 @@ class CloudApi
      * Operation cloudVolumesUpdateWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\Volume, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloudVolumesUpdateWithHttpInfo($id, $volume, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
+    public function cloudVolumesUpdateWithHttpInfo($id, $volume_update_request, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
     {
-        $request = $this->cloudVolumesUpdateRequest($id, $volume, $contentType);
+        $request = $this->cloudVolumesUpdateRequest($id, $volume_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29736,15 +29854,15 @@ class CloudApi
      * Operation cloudVolumesUpdateAsync
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudVolumesUpdateAsync($id, $volume, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
+    public function cloudVolumesUpdateAsync($id, $volume_update_request, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
     {
-        return $this->cloudVolumesUpdateAsyncWithHttpInfo($id, $volume, $contentType)
+        return $this->cloudVolumesUpdateAsyncWithHttpInfo($id, $volume_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29756,16 +29874,16 @@ class CloudApi
      * Operation cloudVolumesUpdateAsyncWithHttpInfo
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloudVolumesUpdateAsyncWithHttpInfo($id, $volume, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
+    public function cloudVolumesUpdateAsyncWithHttpInfo($id, $volume_update_request, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\Volume';
-        $request = $this->cloudVolumesUpdateRequest($id, $volume, $contentType);
+        $request = $this->cloudVolumesUpdateRequest($id, $volume_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -29807,13 +29925,13 @@ class CloudApi
      * Create request for operation 'cloudVolumesUpdate'
      *
      * @param  int $id A unique integer value identifying this storage. (required)
-     * @param  \PidginHost\Sdk\Model\Volume $volume (required)
+     * @param  \PidginHost\Sdk\Model\VolumeUpdateRequest $volume_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudVolumesUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cloudVolumesUpdateRequest($id, $volume, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
+    public function cloudVolumesUpdateRequest($id, $volume_update_request, string $contentType = self::contentTypes['cloudVolumesUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -29823,10 +29941,10 @@ class CloudApi
             );
         }
 
-        // verify the required parameter 'volume' is set
-        if ($volume === null || (is_array($volume) && count($volume) === 0)) {
+        // verify the required parameter 'volume_update_request' is set
+        if ($volume_update_request === null || (is_array($volume_update_request) && count($volume_update_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $volume when calling cloudVolumesUpdate'
+                'Missing the required parameter $volume_update_request when calling cloudVolumesUpdate'
             );
         }
 
@@ -29857,12 +29975,12 @@ class CloudApi
         );
 
         // for model (json/xml)
-        if (isset($volume)) {
+        if (isset($volume_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($volume));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($volume_update_request));
             } else {
-                $httpBody = $volume;
+                $httpBody = $volume_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

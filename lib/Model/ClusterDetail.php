@@ -122,23 +122,23 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => false,
         'name' => false,
         'generation' => false,
-        'cluster_type' => false,
-        'kube_version' => false,
+        'cluster_type' => true,
+        'kube_version' => true,
         'price_per_month' => false,
         'price_per_hour' => false,
         'features' => false,
         'features_ready' => false,
-        'kubeconfig_valid_until' => false,
-        'ipv4_address' => false,
-        'ipv6_address' => false,
+        'kubeconfig_valid_until' => true,
+        'ipv4_address' => true,
+        'ipv6_address' => true,
         'dual_stack' => false,
         'protected' => false,
-        'talos_version' => false,
+        'talos_version' => true,
         'talos_upgrade_available' => false,
-        'talos_next_version' => false,
-        'storage_quota_gb' => false,
-        'last_pool_used_bytes' => false,
-        'last_storage_sync_at' => false
+        'talos_next_version' => true,
+        'storage_quota_gb' => true,
+        'last_pool_used_bytes' => true,
+        'last_storage_sync_at' => true
     ];
 
     /**
@@ -428,11 +428,11 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['generation'] === null) {
             $invalidProperties[] = "'generation' can't be null";
         }
-        if ($this->container['cluster_type'] === null) {
-            $invalidProperties[] = "'cluster_type' can't be null";
+        if ($this->container['cluster_type'] === null && !$this->isNullableSetToNull('cluster_type')) {
+            $invalidProperties[] = "'cluster_type' is required";
         }
-        if ($this->container['kube_version'] === null) {
-            $invalidProperties[] = "'kube_version' can't be null";
+        if ($this->container['kube_version'] === null && !$this->isNullableSetToNull('kube_version')) {
+            $invalidProperties[] = "'kube_version' is required";
         }
         if ($this->container['price_per_month'] === null) {
             $invalidProperties[] = "'price_per_month' can't be null";
@@ -447,35 +447,35 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['features_ready'] === null) {
             $invalidProperties[] = "'features_ready' can't be null";
         }
-        if ($this->container['kubeconfig_valid_until'] === null) {
-            $invalidProperties[] = "'kubeconfig_valid_until' can't be null";
+        if ($this->container['kubeconfig_valid_until'] === null && !$this->isNullableSetToNull('kubeconfig_valid_until')) {
+            $invalidProperties[] = "'kubeconfig_valid_until' is required";
         }
-        if ($this->container['ipv4_address'] === null) {
-            $invalidProperties[] = "'ipv4_address' can't be null";
+        if ($this->container['ipv4_address'] === null && !$this->isNullableSetToNull('ipv4_address')) {
+            $invalidProperties[] = "'ipv4_address' is required";
         }
-        if ($this->container['ipv6_address'] === null) {
-            $invalidProperties[] = "'ipv6_address' can't be null";
+        if ($this->container['ipv6_address'] === null && !$this->isNullableSetToNull('ipv6_address')) {
+            $invalidProperties[] = "'ipv6_address' is required";
         }
         if ($this->container['dual_stack'] === null) {
             $invalidProperties[] = "'dual_stack' can't be null";
         }
-        if ($this->container['talos_version'] === null) {
-            $invalidProperties[] = "'talos_version' can't be null";
+        if ($this->container['talos_version'] === null && !$this->isNullableSetToNull('talos_version')) {
+            $invalidProperties[] = "'talos_version' is required";
         }
         if ($this->container['talos_upgrade_available'] === null) {
             $invalidProperties[] = "'talos_upgrade_available' can't be null";
         }
-        if ($this->container['talos_next_version'] === null) {
-            $invalidProperties[] = "'talos_next_version' can't be null";
+        if ($this->container['talos_next_version'] === null && !$this->isNullableSetToNull('talos_next_version')) {
+            $invalidProperties[] = "'talos_next_version' is required";
         }
-        if ($this->container['storage_quota_gb'] === null) {
-            $invalidProperties[] = "'storage_quota_gb' can't be null";
+        if ($this->container['storage_quota_gb'] === null && !$this->isNullableSetToNull('storage_quota_gb')) {
+            $invalidProperties[] = "'storage_quota_gb' is required";
         }
-        if ($this->container['last_pool_used_bytes'] === null) {
-            $invalidProperties[] = "'last_pool_used_bytes' can't be null";
+        if ($this->container['last_pool_used_bytes'] === null && !$this->isNullableSetToNull('last_pool_used_bytes')) {
+            $invalidProperties[] = "'last_pool_used_bytes' is required";
         }
-        if ($this->container['last_storage_sync_at'] === null) {
-            $invalidProperties[] = "'last_storage_sync_at' can't be null";
+        if ($this->container['last_storage_sync_at'] === null && !$this->isNullableSetToNull('last_storage_sync_at')) {
+            $invalidProperties[] = "'last_storage_sync_at' is required";
         }
         return $invalidProperties;
     }
@@ -607,7 +607,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets cluster_type
      *
-     * @return string
+     * @return string|null
      */
     public function getClusterType()
     {
@@ -617,14 +617,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets cluster_type
      *
-     * @param string $cluster_type cluster_type
+     * @param string|null $cluster_type cluster_type
      *
      * @return self
      */
     public function setClusterType($cluster_type)
     {
         if (is_null($cluster_type)) {
-            throw new \InvalidArgumentException('non-nullable cluster_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'cluster_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cluster_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['cluster_type'] = $cluster_type;
 
@@ -634,7 +641,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets kube_version
      *
-     * @return string
+     * @return string|null
      */
     public function getKubeVersion()
     {
@@ -644,14 +651,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets kube_version
      *
-     * @param string $kube_version kube_version
+     * @param string|null $kube_version kube_version
      *
      * @return self
      */
     public function setKubeVersion($kube_version)
     {
         if (is_null($kube_version)) {
-            throw new \InvalidArgumentException('non-nullable kube_version cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'kube_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('kube_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['kube_version'] = $kube_version;
 
@@ -774,7 +788,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets kubeconfig_valid_until
      *
-     * @return string
+     * @return string|null
      */
     public function getKubeconfigValidUntil()
     {
@@ -784,14 +798,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets kubeconfig_valid_until
      *
-     * @param string $kubeconfig_valid_until kubeconfig_valid_until
+     * @param string|null $kubeconfig_valid_until kubeconfig_valid_until
      *
      * @return self
      */
     public function setKubeconfigValidUntil($kubeconfig_valid_until)
     {
         if (is_null($kubeconfig_valid_until)) {
-            throw new \InvalidArgumentException('non-nullable kubeconfig_valid_until cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'kubeconfig_valid_until');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('kubeconfig_valid_until', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['kubeconfig_valid_until'] = $kubeconfig_valid_until;
 
@@ -801,7 +822,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ipv4_address
      *
-     * @return string
+     * @return string|null
      */
     public function getIpv4Address()
     {
@@ -811,14 +832,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ipv4_address
      *
-     * @param string $ipv4_address ipv4_address
+     * @param string|null $ipv4_address ipv4_address
      *
      * @return self
      */
     public function setIpv4Address($ipv4_address)
     {
         if (is_null($ipv4_address)) {
-            throw new \InvalidArgumentException('non-nullable ipv4_address cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ipv4_address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ipv4_address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ipv4_address'] = $ipv4_address;
 
@@ -828,7 +856,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets ipv6_address
      *
-     * @return string
+     * @return string|null
      */
     public function getIpv6Address()
     {
@@ -838,14 +866,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ipv6_address
      *
-     * @param string $ipv6_address ipv6_address
+     * @param string|null $ipv6_address ipv6_address
      *
      * @return self
      */
     public function setIpv6Address($ipv6_address)
     {
         if (is_null($ipv6_address)) {
-            throw new \InvalidArgumentException('non-nullable ipv6_address cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ipv6_address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ipv6_address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['ipv6_address'] = $ipv6_address;
 
@@ -909,7 +944,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets talos_version
      *
-     * @return string
+     * @return string|null
      */
     public function getTalosVersion()
     {
@@ -919,14 +954,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets talos_version
      *
-     * @param string $talos_version talos_version
+     * @param string|null $talos_version talos_version
      *
      * @return self
      */
     public function setTalosVersion($talos_version)
     {
         if (is_null($talos_version)) {
-            throw new \InvalidArgumentException('non-nullable talos_version cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'talos_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('talos_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['talos_version'] = $talos_version;
 
@@ -963,7 +1005,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets talos_next_version
      *
-     * @return string
+     * @return string|null
      */
     public function getTalosNextVersion()
     {
@@ -973,14 +1015,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets talos_next_version
      *
-     * @param string $talos_next_version talos_next_version
+     * @param string|null $talos_next_version talos_next_version
      *
      * @return self
      */
     public function setTalosNextVersion($talos_next_version)
     {
         if (is_null($talos_next_version)) {
-            throw new \InvalidArgumentException('non-nullable talos_next_version cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'talos_next_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('talos_next_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['talos_next_version'] = $talos_next_version;
 
@@ -990,7 +1039,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets storage_quota_gb
      *
-     * @return int
+     * @return int|null
      */
     public function getStorageQuotaGb()
     {
@@ -1000,14 +1049,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets storage_quota_gb
      *
-     * @param int $storage_quota_gb storage_quota_gb
+     * @param int|null $storage_quota_gb storage_quota_gb
      *
      * @return self
      */
     public function setStorageQuotaGb($storage_quota_gb)
     {
         if (is_null($storage_quota_gb)) {
-            throw new \InvalidArgumentException('non-nullable storage_quota_gb cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'storage_quota_gb');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('storage_quota_gb', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['storage_quota_gb'] = $storage_quota_gb;
 
@@ -1017,7 +1073,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_pool_used_bytes
      *
-     * @return int
+     * @return int|null
      */
     public function getLastPoolUsedBytes()
     {
@@ -1027,14 +1083,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_pool_used_bytes
      *
-     * @param int $last_pool_used_bytes last_pool_used_bytes
+     * @param int|null $last_pool_used_bytes last_pool_used_bytes
      *
      * @return self
      */
     public function setLastPoolUsedBytes($last_pool_used_bytes)
     {
         if (is_null($last_pool_used_bytes)) {
-            throw new \InvalidArgumentException('non-nullable last_pool_used_bytes cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_pool_used_bytes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_pool_used_bytes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_pool_used_bytes'] = $last_pool_used_bytes;
 
@@ -1044,7 +1107,7 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_storage_sync_at
      *
-     * @return string
+     * @return string|null
      */
     public function getLastStorageSyncAt()
     {
@@ -1054,14 +1117,21 @@ class ClusterDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_storage_sync_at
      *
-     * @param string $last_storage_sync_at last_storage_sync_at
+     * @param string|null $last_storage_sync_at last_storage_sync_at
      *
      * @return self
      */
     public function setLastStorageSyncAt($last_storage_sync_at)
     {
         if (is_null($last_storage_sync_at)) {
-            throw new \InvalidArgumentException('non-nullable last_storage_sync_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_storage_sync_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_storage_sync_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_storage_sync_at'] = $last_storage_sync_at;
 

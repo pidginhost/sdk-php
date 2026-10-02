@@ -276,8 +276,8 @@ class PublicInterface implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('interface', $data ?? [], null);
-        $this->setIfExists('ipv4', $data ?? [], null);
-        $this->setIfExists('ipv6', $data ?? [], null);
+        $this->setIfExists('ipv4', $data ?? [], '');
+        $this->setIfExists('ipv6', $data ?? [], '');
         $this->setIfExists('fw_rules_set', $data ?? [], null);
         $this->setIfExists('fw_policy_in', $data ?? [], null);
         $this->setIfExists('fw_policy_out', $data ?? [], null);

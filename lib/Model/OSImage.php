@@ -91,7 +91,7 @@ class OSImage implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
         'slug' => false,
         'name' => false,
-        'family_name' => false,
+        'family_name' => true,
         'is_default' => false,
         'default_username' => false
     ];
@@ -331,8 +331,8 @@ class OSImage implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 200.";
         }
 
-        if ($this->container['family_name'] === null) {
-            $invalidProperties[] = "'family_name' can't be null";
+        if ($this->container['family_name'] === null && !$this->isNullableSetToNull('family_name')) {
+            $invalidProperties[] = "'family_name' is required";
         }
         if ($this->container['default_username'] === null) {
             $invalidProperties[] = "'default_username' can't be null";
@@ -447,7 +447,7 @@ class OSImage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets family_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyName()
     {
@@ -457,14 +457,21 @@ class OSImage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets family_name
      *
-     * @param string $family_name family_name
+     * @param string|null $family_name family_name
      *
      * @return self
      */
     public function setFamilyName($family_name)
     {
         if (is_null($family_name)) {
-            throw new \InvalidArgumentException('non-nullable family_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['family_name'] = $family_name;
 

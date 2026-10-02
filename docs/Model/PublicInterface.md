@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **interface** | **string** |  | [readonly]
-**ipv4** | **string** |  | [readonly]
-**ipv6** | **string** |  | [readonly]
+**ipv4** | **string** |  | [readonly] [default to '']
+**ipv6** | **string** |  | [readonly] [default to '']
 **fw_rules_set** | **string** | ID or slug | [optional]
 **fw_policy_in** | [**\PidginHost\Sdk\Model\FwPolicyOutEnum**](FwPolicyOutEnum.md) |  | [optional]
 **fw_policy_out** | [**\PidginHost\Sdk\Model\FwPolicyOutEnum**](FwPolicyOutEnum.md) |  | [optional]

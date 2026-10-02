@@ -353,12 +353,6 @@ class APITokenList implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['request_count'] === null) {
             $invalidProperties[] = "'request_count' can't be null";
         }
-        if ($this->container['account'] === null && !$this->isNullableSetToNull('account')) {
-            $invalidProperties[] = "'account' is required";
-        }
-        if ($this->container['membership_status'] === null && !$this->isNullableSetToNull('membership_status')) {
-            $invalidProperties[] = "'membership_status' is required";
-        }
         return $invalidProperties;
     }
 

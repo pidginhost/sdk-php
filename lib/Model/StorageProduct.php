@@ -64,8 +64,8 @@ class StorageProduct implements ModelInterface, ArrayAccess, \JsonSerializable
         'type' => 'string',
         'unit' => 'string',
         'price' => 'string',
-        'min_size' => 'string',
-        'max_size' => 'string'
+        'min_size' => 'int',
+        'max_size' => 'int'
     ];
 
     /**
@@ -552,7 +552,7 @@ class StorageProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets min_size
      *
-     * @return string
+     * @return int
      */
     public function getMinSize()
     {
@@ -562,7 +562,7 @@ class StorageProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets min_size
      *
-     * @param string $min_size min_size
+     * @param int $min_size min_size
      *
      * @return self
      */
@@ -579,7 +579,7 @@ class StorageProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets max_size
      *
-     * @return string
+     * @return int
      */
     public function getMaxSize()
     {
@@ -589,7 +589,7 @@ class StorageProduct implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets max_size
      *
-     * @param string $max_size max_size
+     * @param int $max_size max_size
      *
      * @return self
      */

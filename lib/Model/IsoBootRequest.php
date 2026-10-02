@@ -275,6 +275,10 @@ class IsoBootRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['iso']) && (mb_strlen($this->container['iso']) < 1)) {
+            $invalidProperties[] = "invalid value for 'iso', the character length must be bigger than or equal to 1.";
+        }
+
         if (!is_null($this->container['iso']) && !preg_match("/^[-a-zA-Z0-9_]+$/", $this->container['iso'])) {
             $invalidProperties[] = "invalid value for 'iso', must be conform to the pattern /^[-a-zA-Z0-9_]+$/.";
         }
@@ -317,6 +321,9 @@ class IsoBootRequest implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable iso cannot be null');
         }
 
+        if ((mb_strlen($iso) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $iso when calling IsoBootRequest., must be bigger than or equal to 1.');
+        }
         if ((!preg_match("/^[-a-zA-Z0-9_]+$/", ObjectSerializer::toString($iso)))) {
             throw new \InvalidArgumentException("invalid value for \$iso when calling IsoBootRequest., must conform to the pattern /^[-a-zA-Z0-9_]+$/.");
         }

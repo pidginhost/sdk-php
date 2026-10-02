@@ -660,32 +660,32 @@ class SupportApi
     /**
      * Operation supportTicketsCreate
      *
-     * @param  \PidginHost\Sdk\Model\TicketCreate $ticket_create ticket_create (required)
+     * @param  \PidginHost\Sdk\Model\TicketCreateRequest $ticket_create_request ticket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\TicketDetail
      */
-    public function supportTicketsCreate($ticket_create, string $contentType = self::contentTypes['supportTicketsCreate'][0])
+    public function supportTicketsCreate($ticket_create_request, string $contentType = self::contentTypes['supportTicketsCreate'][0])
     {
-        list($response) = $this->supportTicketsCreateWithHttpInfo($ticket_create, $contentType);
+        list($response) = $this->supportTicketsCreateWithHttpInfo($ticket_create_request, $contentType);
         return $response;
     }
 
     /**
      * Operation supportTicketsCreateWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\TicketCreate $ticket_create (required)
+     * @param  \PidginHost\Sdk\Model\TicketCreateRequest $ticket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\TicketDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function supportTicketsCreateWithHttpInfo($ticket_create, string $contentType = self::contentTypes['supportTicketsCreate'][0])
+    public function supportTicketsCreateWithHttpInfo($ticket_create_request, string $contentType = self::contentTypes['supportTicketsCreate'][0])
     {
-        $request = $this->supportTicketsCreateRequest($ticket_create, $contentType);
+        $request = $this->supportTicketsCreateRequest($ticket_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -759,15 +759,15 @@ class SupportApi
     /**
      * Operation supportTicketsCreateAsync
      *
-     * @param  \PidginHost\Sdk\Model\TicketCreate $ticket_create (required)
+     * @param  \PidginHost\Sdk\Model\TicketCreateRequest $ticket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function supportTicketsCreateAsync($ticket_create, string $contentType = self::contentTypes['supportTicketsCreate'][0])
+    public function supportTicketsCreateAsync($ticket_create_request, string $contentType = self::contentTypes['supportTicketsCreate'][0])
     {
-        return $this->supportTicketsCreateAsyncWithHttpInfo($ticket_create, $contentType)
+        return $this->supportTicketsCreateAsyncWithHttpInfo($ticket_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -778,16 +778,16 @@ class SupportApi
     /**
      * Operation supportTicketsCreateAsyncWithHttpInfo
      *
-     * @param  \PidginHost\Sdk\Model\TicketCreate $ticket_create (required)
+     * @param  \PidginHost\Sdk\Model\TicketCreateRequest $ticket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function supportTicketsCreateAsyncWithHttpInfo($ticket_create, string $contentType = self::contentTypes['supportTicketsCreate'][0])
+    public function supportTicketsCreateAsyncWithHttpInfo($ticket_create_request, string $contentType = self::contentTypes['supportTicketsCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\TicketDetail';
-        $request = $this->supportTicketsCreateRequest($ticket_create, $contentType);
+        $request = $this->supportTicketsCreateRequest($ticket_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -828,19 +828,19 @@ class SupportApi
     /**
      * Create request for operation 'supportTicketsCreate'
      *
-     * @param  \PidginHost\Sdk\Model\TicketCreate $ticket_create (required)
+     * @param  \PidginHost\Sdk\Model\TicketCreateRequest $ticket_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function supportTicketsCreateRequest($ticket_create, string $contentType = self::contentTypes['supportTicketsCreate'][0])
+    public function supportTicketsCreateRequest($ticket_create_request, string $contentType = self::contentTypes['supportTicketsCreate'][0])
     {
 
-        // verify the required parameter 'ticket_create' is set
-        if ($ticket_create === null || (is_array($ticket_create) && count($ticket_create) === 0)) {
+        // verify the required parameter 'ticket_create_request' is set
+        if ($ticket_create_request === null || (is_array($ticket_create_request) && count($ticket_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ticket_create when calling supportTicketsCreate'
+                'Missing the required parameter $ticket_create_request when calling supportTicketsCreate'
             );
         }
 
@@ -863,12 +863,12 @@ class SupportApi
         );
 
         // for model (json/xml)
-        if (isset($ticket_create)) {
+        if (isset($ticket_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ticket_create));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ticket_create_request));
             } else {
-                $httpBody = $ticket_create;
+                $httpBody = $ticket_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1738,16 +1738,16 @@ class SupportApi
      * Operation supportTicketsReplyCreate
      *
      * @param  string $id id (required)
-     * @param  \PidginHost\Sdk\Model\TicketReply $ticket_reply ticket_reply (required)
+     * @param  \PidginHost\Sdk\Model\TicketReplyRequest $ticket_reply_request ticket_reply_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsReplyCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \PidginHost\Sdk\Model\TicketReplyResponse
      */
-    public function supportTicketsReplyCreate($id, $ticket_reply, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
+    public function supportTicketsReplyCreate($id, $ticket_reply_request, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
     {
-        list($response) = $this->supportTicketsReplyCreateWithHttpInfo($id, $ticket_reply, $contentType);
+        list($response) = $this->supportTicketsReplyCreateWithHttpInfo($id, $ticket_reply_request, $contentType);
         return $response;
     }
 
@@ -1755,16 +1755,16 @@ class SupportApi
      * Operation supportTicketsReplyCreateWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\TicketReply $ticket_reply (required)
+     * @param  \PidginHost\Sdk\Model\TicketReplyRequest $ticket_reply_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsReplyCreate'] to see the possible values for this operation
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \PidginHost\Sdk\Model\TicketReplyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function supportTicketsReplyCreateWithHttpInfo($id, $ticket_reply, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
+    public function supportTicketsReplyCreateWithHttpInfo($id, $ticket_reply_request, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
     {
-        $request = $this->supportTicketsReplyCreateRequest($id, $ticket_reply, $contentType);
+        $request = $this->supportTicketsReplyCreateRequest($id, $ticket_reply_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1839,15 +1839,15 @@ class SupportApi
      * Operation supportTicketsReplyCreateAsync
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\TicketReply $ticket_reply (required)
+     * @param  \PidginHost\Sdk\Model\TicketReplyRequest $ticket_reply_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsReplyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function supportTicketsReplyCreateAsync($id, $ticket_reply, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
+    public function supportTicketsReplyCreateAsync($id, $ticket_reply_request, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
     {
-        return $this->supportTicketsReplyCreateAsyncWithHttpInfo($id, $ticket_reply, $contentType)
+        return $this->supportTicketsReplyCreateAsyncWithHttpInfo($id, $ticket_reply_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1859,16 +1859,16 @@ class SupportApi
      * Operation supportTicketsReplyCreateAsyncWithHttpInfo
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\TicketReply $ticket_reply (required)
+     * @param  \PidginHost\Sdk\Model\TicketReplyRequest $ticket_reply_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsReplyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function supportTicketsReplyCreateAsyncWithHttpInfo($id, $ticket_reply, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
+    public function supportTicketsReplyCreateAsyncWithHttpInfo($id, $ticket_reply_request, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
     {
         $returnType = '\PidginHost\Sdk\Model\TicketReplyResponse';
-        $request = $this->supportTicketsReplyCreateRequest($id, $ticket_reply, $contentType);
+        $request = $this->supportTicketsReplyCreateRequest($id, $ticket_reply_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1910,13 +1910,13 @@ class SupportApi
      * Create request for operation 'supportTicketsReplyCreate'
      *
      * @param  string $id (required)
-     * @param  \PidginHost\Sdk\Model\TicketReply $ticket_reply (required)
+     * @param  \PidginHost\Sdk\Model\TicketReplyRequest $ticket_reply_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['supportTicketsReplyCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function supportTicketsReplyCreateRequest($id, $ticket_reply, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
+    public function supportTicketsReplyCreateRequest($id, $ticket_reply_request, string $contentType = self::contentTypes['supportTicketsReplyCreate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1926,10 +1926,10 @@ class SupportApi
             );
         }
 
-        // verify the required parameter 'ticket_reply' is set
-        if ($ticket_reply === null || (is_array($ticket_reply) && count($ticket_reply) === 0)) {
+        // verify the required parameter 'ticket_reply_request' is set
+        if ($ticket_reply_request === null || (is_array($ticket_reply_request) && count($ticket_reply_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ticket_reply when calling supportTicketsReplyCreate'
+                'Missing the required parameter $ticket_reply_request when calling supportTicketsReplyCreate'
             );
         }
 
@@ -1960,12 +1960,12 @@ class SupportApi
         );
 
         // for model (json/xml)
-        if (isset($ticket_reply)) {
+        if (isset($ticket_reply_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ticket_reply));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($ticket_reply_request));
             } else {
-                $httpBody = $ticket_reply;
+                $httpBody = $ticket_reply_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
