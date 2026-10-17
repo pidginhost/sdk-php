@@ -493,18 +493,6 @@ class EmailApiTest extends TestCase
     }
 
     /**
-     * Test case for emailServicesRestoreCreate
-     *
-     * .
-     *
-     */
-    public function testEmailServicesRestoreCreate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for emailServicesRetrieve
      *
      * .

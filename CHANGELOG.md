@@ -5,6 +5,21 @@ All notable changes to the PidginHost PHP SDK are documented here.
 This SDK is auto-generated from the [PidginHost API schema](https://www.pidginhost.com/api/schema/).
 Version bumps reflect schema changes, not hand-written code changes.
 
+## v0.16.0
+
+### Removed
+
+- Operations meant only for PidginHost staff or the PidginHost mobile app are
+  gone, along with the `O` API group: `KubernetesClustersL3Retrieve`,
+  `KubernetesClustersL3CutoverCreate`, `KubernetesClustersL3RevertCreate`,
+  `KubernetesClustersEncryptionReconcileCreate`,
+  `KubernetesClustersNodeOperationsResumeCreate`,
+  `KubernetesClustersPoolRemovalJournalsResumeCreate`,
+  `EmailServicesRestoreCreate`, `OMobileSessionRetrieve`,
+  `OMobileDashboardRetrieve` and `ORegisterCreate`. The
+  `ClusterEncryptionReconcileRequest` and `MobileOAuthSession` models went
+  with them.
+
 ## v0.15.0
 
 ### Added

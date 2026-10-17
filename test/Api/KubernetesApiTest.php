@@ -181,18 +181,6 @@ class KubernetesApiTest extends TestCase
     }
 
     /**
-     * Test case for kubernetesClustersEncryptionReconcileCreate
-     *
-     * .
-     *
-     */
-    public function testKubernetesClustersEncryptionReconcileCreate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for kubernetesClustersEncryptionRetrieve
      *
      * .
@@ -313,42 +301,6 @@ class KubernetesApiTest extends TestCase
     }
 
     /**
-     * Test case for kubernetesClustersL3CutoverCreate
-     *
-     * .
-     *
-     */
-    public function testKubernetesClustersL3CutoverCreate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for kubernetesClustersL3Retrieve
-     *
-     * .
-     *
-     */
-    public function testKubernetesClustersL3Retrieve()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for kubernetesClustersL3RevertCreate
-     *
-     * .
-     *
-     */
-    public function testKubernetesClustersL3RevertCreate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for kubernetesClustersLbFirewallCreate
      *
      * .
@@ -457,18 +409,6 @@ class KubernetesApiTest extends TestCase
     }
 
     /**
-     * Test case for kubernetesClustersNodeOperationsResumeCreate
-     *
-     * .
-     *
-     */
-    public function testKubernetesClustersNodeOperationsResumeCreate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for kubernetesClustersNodeOperationsRetrieve
      *
      * .
@@ -511,18 +451,6 @@ class KubernetesApiTest extends TestCase
      *
      */
     public function testKubernetesClustersPoolRemovalJournalsList()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for kubernetesClustersPoolRemovalJournalsResumeCreate
-     *
-     * .
-     *
-     */
-    public function testKubernetesClustersPoolRemovalJournalsResumeCreate()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
