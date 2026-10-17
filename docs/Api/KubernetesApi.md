@@ -26,6 +26,9 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**kubernetesClustersKubeVersionUpgradeCreate()**](KubernetesApi.md#kubernetesClustersKubeVersionUpgradeCreate) | **POST** /api/kubernetes/clusters/{id}/kube-version-upgrade/ |  |
 | [**kubernetesClustersKubeconfigCreate()**](KubernetesApi.md#kubernetesClustersKubeconfigCreate) | **POST** /api/kubernetes/clusters/{id}/kubeconfig/ |  |
 | [**kubernetesClustersKubeconfigRetrieve()**](KubernetesApi.md#kubernetesClustersKubeconfigRetrieve) | **GET** /api/kubernetes/clusters/{id}/kubeconfig/ |  |
+| [**kubernetesClustersL3CutoverCreate()**](KubernetesApi.md#kubernetesClustersL3CutoverCreate) | **POST** /api/kubernetes/clusters/{id}/l3/cutover/ |  |
+| [**kubernetesClustersL3Retrieve()**](KubernetesApi.md#kubernetesClustersL3Retrieve) | **GET** /api/kubernetes/clusters/{id}/l3/ |  |
+| [**kubernetesClustersL3RevertCreate()**](KubernetesApi.md#kubernetesClustersL3RevertCreate) | **POST** /api/kubernetes/clusters/{id}/l3/revert/ |  |
 | [**kubernetesClustersLbFirewallCreate()**](KubernetesApi.md#kubernetesClustersLbFirewallCreate) | **POST** /api/kubernetes/clusters/{cluster_id}/lb-firewall/ |  |
 | [**kubernetesClustersLbFirewallDestroy()**](KubernetesApi.md#kubernetesClustersLbFirewallDestroy) | **DELETE** /api/kubernetes/clusters/{cluster_id}/lb-firewall/{id}/ |  |
 | [**kubernetesClustersLbFirewallList()**](KubernetesApi.md#kubernetesClustersLbFirewallList) | **GET** /api/kubernetes/clusters/{cluster_id}/lb-firewall/ |  |
@@ -1437,6 +1440,211 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `text/plain`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `kubernetesClustersL3CutoverCreate()`
+
+```php
+kubernetesClustersL3CutoverCreate($id, $cluster_detail_request): \PidginHost\Sdk\Model\ClusterDetail
+```
+
+
+
+Start one staff L3 cutover. Only the plan, the confirmation and the attended window are read from the request.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+$cluster_detail_request = new \PidginHost\Sdk\Model\ClusterDetailRequest(); // \PidginHost\Sdk\Model\ClusterDetailRequest
+
+try {
+    $result = $apiInstance->kubernetesClustersL3CutoverCreate($id, $cluster_detail_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->kubernetesClustersL3CutoverCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **cluster_detail_request** | [**\PidginHost\Sdk\Model\ClusterDetailRequest**](../Model/ClusterDetailRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\ClusterDetail**](../Model/ClusterDetail.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `kubernetesClustersL3Retrieve()`
+
+```php
+kubernetesClustersL3Retrieve($id): \PidginHost\Sdk\Model\ClusterDetail
+```
+
+
+
+The staff L3 plan for this cluster; read-only.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->kubernetesClustersL3Retrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->kubernetesClustersL3Retrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\ClusterDetail**](../Model/ClusterDetail.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `kubernetesClustersL3RevertCreate()`
+
+```php
+kubernetesClustersL3RevertCreate($id, $cluster_detail_request): \PidginHost\Sdk\Model\ClusterDetail
+```
+
+
+
+Request one staff revert of a committed L3 operation.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+$cluster_detail_request = new \PidginHost\Sdk\Model\ClusterDetailRequest(); // \PidginHost\Sdk\Model\ClusterDetailRequest
+
+try {
+    $result = $apiInstance->kubernetesClustersL3RevertCreate($id, $cluster_detail_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->kubernetesClustersL3RevertCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **cluster_detail_request** | [**\PidginHost\Sdk\Model\ClusterDetailRequest**](../Model/ClusterDetailRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\ClusterDetail**](../Model/ClusterDetail.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -3038,12 +3246,12 @@ try {
 ## `kubernetesClustersResourcePoolsDestroy()`
 
 ```php
-kubernetesClustersResourcePoolsDestroy($cluster_id, $id)
+kubernetesClustersResourcePoolsDestroy($cluster_id, $id, $resource_pool_delete_request)
 ```
 
 
 
-Adds :class:`~account.iam_enforcement.IAMActionPermission` as an intersection with the route's existing permission classes (spec §6).  Detail routes (``self.detail``) defer the role/scope check to ``has_object_permission`` so the account-scoped ``get_object`` answers 404 for foreign IDs before any role denial; every other route enforces in ``has_permission``. A detail action that never calls ``get_object`` would skip enforcement — the route probes pin the denial for each route.
+Delete a resource pool and every node in it.
 
 ### Example
 
@@ -3071,9 +3279,10 @@ $apiInstance = new PidginHost\Sdk\Api\KubernetesApi(
 );
 $cluster_id = 56; // int
 $id = 'id_example'; // string
+$resource_pool_delete_request = new \PidginHost\Sdk\Model\ResourcePoolDeleteRequest(); // \PidginHost\Sdk\Model\ResourcePoolDeleteRequest
 
 try {
-    $apiInstance->kubernetesClustersResourcePoolsDestroy($cluster_id, $id);
+    $apiInstance->kubernetesClustersResourcePoolsDestroy($cluster_id, $id, $resource_pool_delete_request);
 } catch (Exception $e) {
     echo 'Exception when calling KubernetesApi->kubernetesClustersResourcePoolsDestroy: ', $e->getMessage(), PHP_EOL;
 }
@@ -3085,6 +3294,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **cluster_id** | **int**|  | |
 | **id** | **string**|  | |
+| **resource_pool_delete_request** | [**\PidginHost\Sdk\Model\ResourcePoolDeleteRequest**](../Model/ResourcePoolDeleteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -3096,7 +3306,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -3175,7 +3385,7 @@ try {
 ## `kubernetesClustersResourcePoolsNodesDestroy()`
 
 ```php
-kubernetesClustersResourcePoolsNodesDestroy($cluster_id, $id, $pool_id): \PidginHost\Sdk\Model\NodeOperation
+kubernetesClustersResourcePoolsNodesDestroy($cluster_id, $id, $pool_id, $node_operation_delete_request): \PidginHost\Sdk\Model\NodeOperation
 ```
 
 
@@ -3209,9 +3419,10 @@ $apiInstance = new PidginHost\Sdk\Api\KubernetesApi(
 $cluster_id = 56; // int
 $id = 'id_example'; // string
 $pool_id = 56; // int
+$node_operation_delete_request = new \PidginHost\Sdk\Model\NodeOperationDeleteRequest(); // \PidginHost\Sdk\Model\NodeOperationDeleteRequest
 
 try {
-    $result = $apiInstance->kubernetesClustersResourcePoolsNodesDestroy($cluster_id, $id, $pool_id);
+    $result = $apiInstance->kubernetesClustersResourcePoolsNodesDestroy($cluster_id, $id, $pool_id, $node_operation_delete_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KubernetesApi->kubernetesClustersResourcePoolsNodesDestroy: ', $e->getMessage(), PHP_EOL;
@@ -3225,6 +3436,7 @@ try {
 | **cluster_id** | **int**|  | |
 | **id** | **string**|  | |
 | **pool_id** | **int**|  | |
+| **node_operation_delete_request** | [**\PidginHost\Sdk\Model\NodeOperationDeleteRequest**](../Model/NodeOperationDeleteRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -3236,7 +3448,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -4898,7 +5110,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**|  | |
-| **cluster_detail_request** | [**\PidginHost\Sdk\Model\ClusterDetailRequest**](../Model/ClusterDetailRequest.md)|  | |
+| **cluster_detail_request** | [**\PidginHost\Sdk\Model\ClusterDetailRequest**](../Model/ClusterDetailRequest.md)|  | [optional] |
 
 ### Return type
 

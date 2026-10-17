@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**billing** | [**\PidginHost\Sdk\Model\ResourceBilling**](ResourceBilling.md) |  | [readonly]
 **id** | **int** |  | [readonly]
 **company** | **int** |  | [optional]
 **billing_cycle** | **int** |  | [readonly]

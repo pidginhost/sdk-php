@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**billing** | [**\PidginHost\Sdk\Model\ResourceBilling**](ResourceBilling.md) |  | [readonly]
 **id** | **int** |  | [readonly]
 **hostname** | **string** |  | [readonly]
 **status** | [**\PidginHost\Sdk\Model\ServiceStatusEnum**](ServiceStatusEnum.md) |  | [readonly]

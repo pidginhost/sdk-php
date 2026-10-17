@@ -8,6 +8,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | ------------- | ------------- | ------------- |
 | [**domainDomainCancelCreate()**](DomainApi.md#domainDomainCancelCreate) | **POST** /api/domain/domain/{domain}/cancel/ |  |
 | [**domainDomainCheckAvailabilityCreate()**](DomainApi.md#domainDomainCheckAvailabilityCreate) | **POST** /api/domain/domain/check-availability/ |  |
+| [**domainDomainCheckAvailabilityRetrieve()**](DomainApi.md#domainDomainCheckAvailabilityRetrieve) | **GET** /api/domain/domain/check-availability/ |  |
 | [**domainDomainContactsCreate()**](DomainApi.md#domainDomainContactsCreate) | **POST** /api/domain/domain/{domain}/contacts/ |  |
 | [**domainDomainCreate()**](DomainApi.md#domainDomainCreate) | **POST** /api/domain/domain/ |  |
 | [**domainDomainDnsCreate()**](DomainApi.md#domainDomainDnsCreate) | **POST** /api/domain/domain/{domain}/dns/ |  |
@@ -26,6 +27,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**domainRegistrantsPartialUpdate()**](DomainApi.md#domainRegistrantsPartialUpdate) | **PATCH** /api/domain/registrants/{id}/ |  |
 | [**domainRegistrantsRetrieve()**](DomainApi.md#domainRegistrantsRetrieve) | **GET** /api/domain/registrants/{id}/ |  |
 | [**domainRegistrantsUpdate()**](DomainApi.md#domainRegistrantsUpdate) | **PUT** /api/domain/registrants/{id}/ |  |
+| [**domainTldCatalogRetrieve()**](DomainApi.md#domainTldCatalogRetrieve) | **GET** /api/domain/tld/catalog/ |  |
 | [**domainTldList()**](DomainApi.md#domainTldList) | **GET** /api/domain/tld/ |  |
 | [**domainTldRetrieve()**](DomainApi.md#domainTldRetrieve) | **GET** /api/domain/tld/{id}/ |  |
 
@@ -100,7 +102,7 @@ try {
 ## `domainDomainCheckAvailabilityCreate()`
 
 ```php
-domainDomainCheckAvailabilityCreate($check_availability_request): \PidginHost\Sdk\Model\CheckAvailability
+domainDomainCheckAvailabilityCreate($check_availability_request): \PidginHost\Sdk\Model\DomainAvailability
 ```
 
 
@@ -149,7 +151,7 @@ try {
 
 ### Return type
 
-[**\PidginHost\Sdk\Model\CheckAvailability**](../Model/CheckAvailability.md)
+[**\PidginHost\Sdk\Model\DomainAvailability**](../Model/DomainAvailability.md)
 
 ### Authorization
 
@@ -158,6 +160,73 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `domainDomainCheckAvailabilityRetrieve()`
+
+```php
+domainDomainCheckAvailabilityRetrieve($domain): \PidginHost\Sdk\Model\DomainAvailability
+```
+
+
+
+Manage your domains
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\DomainApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$domain = 'domain_example'; // string | Domain with tld, ex: example.com
+
+try {
+    $result = $apiInstance->domainDomainCheckAvailabilityRetrieve($domain);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainApi->domainDomainCheckAvailabilityRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain** | **string**| Domain with tld, ex: example.com | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\DomainAvailability**](../Model/DomainAvailability.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -509,7 +578,7 @@ try {
 ## `domainDomainList()`
 
 ```php
-domainDomainList($page): \PidginHost\Sdk\Model\PaginatedDomainList
+domainDomainList($page, $status_group): \PidginHost\Sdk\Model\PaginatedDomainList
 ```
 
 
@@ -541,9 +610,10 @@ $apiInstance = new PidginHost\Sdk\Api\DomainApi(
     $config
 );
 $page = 56; // int | A page number within the paginated result set.
+$status_group = 'status_group_example'; // string | Filter by the account service status before pagination; ordered by expiry, then ID.
 
 try {
-    $result = $apiInstance->domainDomainList($page);
+    $result = $apiInstance->domainDomainList($page, $status_group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainApi->domainDomainList: ', $e->getMessage(), PHP_EOL;
@@ -555,6 +625,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **page** | **int**| A page number within the paginated result set. | [optional] |
+| **status_group** | **string**| Filter by the account service status before pagination; ordered by expiry, then ID. | [optional] |
 
 ### Return type
 
@@ -1382,6 +1453,70 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `domainTldCatalogRetrieve()`
+
+```php
+domainTldCatalogRetrieve(): \PidginHost\Sdk\Model\TLDCatalog
+```
+
+
+
+Registration catalog uses exactly the registrar/prices used by create.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\DomainApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->domainTldCatalogRetrieve();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainApi->domainTldCatalogRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\PidginHost\Sdk\Model\TLDCatalog**](../Model/TLDCatalog.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

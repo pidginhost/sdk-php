@@ -15,10 +15,12 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**accountCompaniesPartialUpdate()**](AccountApi.md#accountCompaniesPartialUpdate) | **PATCH** /api/account/companies/{id}/ |  |
 | [**accountCompaniesRetrieve()**](AccountApi.md#accountCompaniesRetrieve) | **GET** /api/account/companies/{id}/ |  |
 | [**accountCompaniesUpdate()**](AccountApi.md#accountCompaniesUpdate) | **PUT** /api/account/companies/{id}/ |  |
+| [**accountDashboardRetrieve()**](AccountApi.md#accountDashboardRetrieve) | **GET** /api/account/dashboard/ |  |
 | [**accountEmailsList()**](AccountApi.md#accountEmailsList) | **GET** /api/account/emails/ |  |
 | [**accountProfilePartialUpdate()**](AccountApi.md#accountProfilePartialUpdate) | **PATCH** /api/account/profile |  |
 | [**accountProfileRetrieve()**](AccountApi.md#accountProfileRetrieve) | **GET** /api/account/profile |  |
 | [**accountProfileUpdate()**](AccountApi.md#accountProfileUpdate) | **PUT** /api/account/profile |  |
+| [**accountSessionRetrieve()**](AccountApi.md#accountSessionRetrieve) | **GET** /api/account/session/ |  |
 | [**accountSshKeysCreate()**](AccountApi.md#accountSshKeysCreate) | **POST** /api/account/ssh-keys/ |  |
 | [**accountSshKeysDestroy()**](AccountApi.md#accountSshKeysDestroy) | **DELETE** /api/account/ssh-keys/{id}/ |  |
 | [**accountSshKeysList()**](AccountApi.md#accountSshKeysList) | **GET** /api/account/ssh-keys/ |  |
@@ -632,6 +634,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `accountDashboardRetrieve()`
+
+```php
+accountDashboardRetrieve(): \PidginHost\Sdk\Model\Dashboard
+```
+
+
+
+Adds :class:`~account.iam_enforcement.IAMActionPermission` as an intersection with the route's existing permission classes (spec §6).  Detail routes (``self.detail``) defer the role/scope check to ``has_object_permission`` so the account-scoped ``get_object`` answers 404 for foreign IDs before any role denial; every other route enforces in ``has_permission``. A detail action that never calls ``get_object`` would skip enforcement — the route probes pin the denial for each route.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->accountDashboardRetrieve();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->accountDashboardRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\PidginHost\Sdk\Model\Dashboard**](../Model/Dashboard.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `accountEmailsList()`
 
 ```php
@@ -891,6 +957,70 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `accountSessionRetrieve()`
+
+```php
+accountSessionRetrieve(): \PidginHost\Sdk\Model\AccountSessionResponse
+```
+
+
+
+Resolved account and role/scope intersection without owner-only profile access.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->accountSessionRetrieve();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->accountSessionRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\PidginHost\Sdk\Model\AccountSessionResponse**](../Model/AccountSessionResponse.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

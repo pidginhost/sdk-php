@@ -125,10 +125,12 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**accountCompaniesPartialUpdate**](docs/Api/AccountApi.md#accountcompaniespartialupdate) | **PATCH** /api/account/companies/{id}/ | 
 *AccountApi* | [**accountCompaniesRetrieve**](docs/Api/AccountApi.md#accountcompaniesretrieve) | **GET** /api/account/companies/{id}/ | 
 *AccountApi* | [**accountCompaniesUpdate**](docs/Api/AccountApi.md#accountcompaniesupdate) | **PUT** /api/account/companies/{id}/ | 
+*AccountApi* | [**accountDashboardRetrieve**](docs/Api/AccountApi.md#accountdashboardretrieve) | **GET** /api/account/dashboard/ | 
 *AccountApi* | [**accountEmailsList**](docs/Api/AccountApi.md#accountemailslist) | **GET** /api/account/emails/ | 
 *AccountApi* | [**accountProfilePartialUpdate**](docs/Api/AccountApi.md#accountprofilepartialupdate) | **PATCH** /api/account/profile | 
 *AccountApi* | [**accountProfileRetrieve**](docs/Api/AccountApi.md#accountprofileretrieve) | **GET** /api/account/profile | 
 *AccountApi* | [**accountProfileUpdate**](docs/Api/AccountApi.md#accountprofileupdate) | **PUT** /api/account/profile | 
+*AccountApi* | [**accountSessionRetrieve**](docs/Api/AccountApi.md#accountsessionretrieve) | **GET** /api/account/session/ | 
 *AccountApi* | [**accountSshKeysCreate**](docs/Api/AccountApi.md#accountsshkeyscreate) | **POST** /api/account/ssh-keys/ | 
 *AccountApi* | [**accountSshKeysDestroy**](docs/Api/AccountApi.md#accountsshkeysdestroy) | **DELETE** /api/account/ssh-keys/{id}/ | 
 *AccountApi* | [**accountSshKeysList**](docs/Api/AccountApi.md#accountsshkeyslist) | **GET** /api/account/ssh-keys/ | 
@@ -273,6 +275,7 @@ Class | Method | HTTP request | Description
 *DedicatedApi* | [**dedicatedServersRetrieve**](docs/Api/DedicatedApi.md#dedicatedserversretrieve) | **GET** /api/dedicated/servers/{id}/ | 
 *DomainApi* | [**domainDomainCancelCreate**](docs/Api/DomainApi.md#domaindomaincancelcreate) | **POST** /api/domain/domain/{domain}/cancel/ | 
 *DomainApi* | [**domainDomainCheckAvailabilityCreate**](docs/Api/DomainApi.md#domaindomaincheckavailabilitycreate) | **POST** /api/domain/domain/check-availability/ | 
+*DomainApi* | [**domainDomainCheckAvailabilityRetrieve**](docs/Api/DomainApi.md#domaindomaincheckavailabilityretrieve) | **GET** /api/domain/domain/check-availability/ | 
 *DomainApi* | [**domainDomainContactsCreate**](docs/Api/DomainApi.md#domaindomaincontactscreate) | **POST** /api/domain/domain/{domain}/contacts/ | 
 *DomainApi* | [**domainDomainCreate**](docs/Api/DomainApi.md#domaindomaincreate) | **POST** /api/domain/domain/ | 
 *DomainApi* | [**domainDomainDnsCreate**](docs/Api/DomainApi.md#domaindomaindnscreate) | **POST** /api/domain/domain/{domain}/dns/ | 
@@ -291,6 +294,7 @@ Class | Method | HTTP request | Description
 *DomainApi* | [**domainRegistrantsPartialUpdate**](docs/Api/DomainApi.md#domainregistrantspartialupdate) | **PATCH** /api/domain/registrants/{id}/ | 
 *DomainApi* | [**domainRegistrantsRetrieve**](docs/Api/DomainApi.md#domainregistrantsretrieve) | **GET** /api/domain/registrants/{id}/ | 
 *DomainApi* | [**domainRegistrantsUpdate**](docs/Api/DomainApi.md#domainregistrantsupdate) | **PUT** /api/domain/registrants/{id}/ | 
+*DomainApi* | [**domainTldCatalogRetrieve**](docs/Api/DomainApi.md#domaintldcatalogretrieve) | **GET** /api/domain/tld/catalog/ | 
 *DomainApi* | [**domainTldList**](docs/Api/DomainApi.md#domaintldlist) | **GET** /api/domain/tld/ | 
 *DomainApi* | [**domainTldRetrieve**](docs/Api/DomainApi.md#domaintldretrieve) | **GET** /api/domain/tld/{id}/ | 
 *EmailApi* | [**emailApiCredentialsCreate**](docs/Api/EmailApi.md#emailapicredentialscreate) | **POST** /api/email/api_credentials/ | 
@@ -354,6 +358,8 @@ Class | Method | HTTP request | Description
 *HostingApi* | [**hostingHostingChangePasswordCreate**](docs/Api/HostingApi.md#hostinghostingchangepasswordcreate) | **POST** /api/hosting/hosting/{id}/change-password/ | 
 *HostingApi* | [**hostingHostingList**](docs/Api/HostingApi.md#hostinghostinglist) | **GET** /api/hosting/hosting/ | 
 *HostingApi* | [**hostingHostingRetrieve**](docs/Api/HostingApi.md#hostinghostingretrieve) | **GET** /api/hosting/hosting/{id}/ | 
+*HostingApi* | [**hostingHostingUpgradeOptionsRetrieve**](docs/Api/HostingApi.md#hostinghostingupgradeoptionsretrieve) | **GET** /api/hosting/hosting/{id}/upgrade-options/ | 
+*HostingApi* | [**hostingHostingUsageRetrieve**](docs/Api/HostingApi.md#hostinghostingusageretrieve) | **GET** /api/hosting/hosting/{id}/usage/ | 
 *KubernetesApi* | [**kubernetesClusterTypesList**](docs/Api/KubernetesApi.md#kubernetesclustertypeslist) | **GET** /api/kubernetes/cluster-types/ | 
 *KubernetesApi* | [**kubernetesClustersConnectVmCreate**](docs/Api/KubernetesApi.md#kubernetesclustersconnectvmcreate) | **POST** /api/kubernetes/clusters/{id}/connect-vm/ | 
 *KubernetesApi* | [**kubernetesClustersConnectedVmsRetrieve**](docs/Api/KubernetesApi.md#kubernetesclustersconnectedvmsretrieve) | **GET** /api/kubernetes/clusters/{id}/connected-vms/ | 
@@ -374,6 +380,9 @@ Class | Method | HTTP request | Description
 *KubernetesApi* | [**kubernetesClustersKubeVersionUpgradeCreate**](docs/Api/KubernetesApi.md#kubernetesclusterskubeversionupgradecreate) | **POST** /api/kubernetes/clusters/{id}/kube-version-upgrade/ | 
 *KubernetesApi* | [**kubernetesClustersKubeconfigCreate**](docs/Api/KubernetesApi.md#kubernetesclusterskubeconfigcreate) | **POST** /api/kubernetes/clusters/{id}/kubeconfig/ | 
 *KubernetesApi* | [**kubernetesClustersKubeconfigRetrieve**](docs/Api/KubernetesApi.md#kubernetesclusterskubeconfigretrieve) | **GET** /api/kubernetes/clusters/{id}/kubeconfig/ | 
+*KubernetesApi* | [**kubernetesClustersL3CutoverCreate**](docs/Api/KubernetesApi.md#kubernetesclustersl3cutovercreate) | **POST** /api/kubernetes/clusters/{id}/l3/cutover/ | 
+*KubernetesApi* | [**kubernetesClustersL3Retrieve**](docs/Api/KubernetesApi.md#kubernetesclustersl3retrieve) | **GET** /api/kubernetes/clusters/{id}/l3/ | 
+*KubernetesApi* | [**kubernetesClustersL3RevertCreate**](docs/Api/KubernetesApi.md#kubernetesclustersl3revertcreate) | **POST** /api/kubernetes/clusters/{id}/l3/revert/ | 
 *KubernetesApi* | [**kubernetesClustersLbFirewallCreate**](docs/Api/KubernetesApi.md#kubernetesclusterslbfirewallcreate) | **POST** /api/kubernetes/clusters/{cluster_id}/lb-firewall/ | 
 *KubernetesApi* | [**kubernetesClustersLbFirewallDestroy**](docs/Api/KubernetesApi.md#kubernetesclusterslbfirewalldestroy) | **DELETE** /api/kubernetes/clusters/{cluster_id}/lb-firewall/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersLbFirewallList**](docs/Api/KubernetesApi.md#kubernetesclusterslbfirewalllist) | **GET** /api/kubernetes/clusters/{cluster_id}/lb-firewall/ | 
@@ -426,6 +435,8 @@ Class | Method | HTTP request | Description
 *KubernetesApi* | [**kubernetesClustersUpdate**](docs/Api/KubernetesApi.md#kubernetesclustersupdate) | **PUT** /api/kubernetes/clusters/{id}/ | 
 *KubernetesApi* | [**kubernetesClustersUpgradeFeatureCreate**](docs/Api/KubernetesApi.md#kubernetesclustersupgradefeaturecreate) | **POST** /api/kubernetes/clusters/{id}/upgrade-feature/ | 
 *KubernetesApi* | [**kubernetesClustersUpgradeLbCreate**](docs/Api/KubernetesApi.md#kubernetesclustersupgradelbcreate) | **POST** /api/kubernetes/clusters/{id}/upgrade-lb/ | 
+*OApi* | [**oMobileDashboardRetrieve**](docs/Api/OApi.md#omobiledashboardretrieve) | **GET** /o/mobile/dashboard/ | 
+*OApi* | [**oMobileSessionRetrieve**](docs/Api/OApi.md#omobilesessionretrieve) | **GET** /o/mobile/session/ | 
 *OApi* | [**oRegisterCreate**](docs/Api/OApi.md#oregistercreate) | **POST** /o/register | 
 *SchemaApi* | [**schemaRetrieve**](docs/Api/SchemaApi.md#schemaretrieve) | **GET** /api/schema/ | 
 *SupportApi* | [**supportDepartmentsList**](docs/Api/SupportApi.md#supportdepartmentslist) | **GET** /api/support/departments/ | 
@@ -442,6 +453,7 @@ Class | Method | HTTP request | Description
 - [APITokenCreate](docs/Model/APITokenCreate.md)
 - [APITokenCreateRequest](docs/Model/APITokenCreateRequest.md)
 - [APITokenList](docs/Model/APITokenList.md)
+- [AccountSessionResponse](docs/Model/AccountSessionResponse.md)
 - [ActivateFreeDNSRequest](docs/Model/ActivateFreeDNSRequest.md)
 - [ActivateFreeDNSResponse](docs/Model/ActivateFreeDNSResponse.md)
 - [ActivityLogEntry](docs/Model/ActivityLogEntry.md)
@@ -476,7 +488,6 @@ Class | Method | HTTP request | Description
 - [ChangeCompanyRequest](docs/Model/ChangeCompanyRequest.md)
 - [ChangeCompanyResponse](docs/Model/ChangeCompanyResponse.md)
 - [ChangePasswordRequest](docs/Model/ChangePasswordRequest.md)
-- [CheckAvailability](docs/Model/CheckAvailability.md)
 - [CheckAvailabilityRequest](docs/Model/CheckAvailabilityRequest.md)
 - [ClusterAddRequest](docs/Model/ClusterAddRequest.md)
 - [ClusterAddResponse](docs/Model/ClusterAddResponse.md)
@@ -504,14 +515,20 @@ Class | Method | HTTP request | Description
 - [ContactsUpdateResponse](docs/Model/ContactsUpdateResponse.md)
 - [CountryEnum](docs/Model/CountryEnum.md)
 - [CredentialCreateRequest](docs/Model/CredentialCreateRequest.md)
+- [CurrencyEnum](docs/Model/CurrencyEnum.md)
 - [DNSGlue](docs/Model/DNSGlue.md)
 - [DNSGlueRequest](docs/Model/DNSGlueRequest.md)
 - [DNSRecord](docs/Model/DNSRecord.md)
 - [DNSRecordCreateRequest](docs/Model/DNSRecordCreateRequest.md)
 - [DNSRecordCreateTypeEnum](docs/Model/DNSRecordCreateTypeEnum.md)
 - [DNSRecordMutateResponse](docs/Model/DNSRecordMutateResponse.md)
+- [Dashboard](docs/Model/Dashboard.md)
+- [DashboardBilling](docs/Model/DashboardBilling.md)
+- [DashboardResources](docs/Model/DashboardResources.md)
+- [DashboardServer](docs/Model/DashboardServer.md)
 - [DeactivateFreeDNSRequest](docs/Model/DeactivateFreeDNSRequest.md)
 - [DeactivateFreeDNSResponse](docs/Model/DeactivateFreeDNSResponse.md)
+- [DedicatedHardware](docs/Model/DedicatedHardware.md)
 - [DedicatedRDNSRequest](docs/Model/DedicatedRDNSRequest.md)
 - [DedicatedServer](docs/Model/DedicatedServer.md)
 - [DedicatedServerIP](docs/Model/DedicatedServerIP.md)
@@ -533,6 +550,7 @@ Class | Method | HTTP request | Description
 - [DnsSourceEnum](docs/Model/DnsSourceEnum.md)
 - [Domain](docs/Model/Domain.md)
 - [DomainAddRequest](docs/Model/DomainAddRequest.md)
+- [DomainAvailability](docs/Model/DomainAvailability.md)
 - [DomainCancelResponse](docs/Model/DomainCancelResponse.md)
 - [DomainCreate](docs/Model/DomainCreate.md)
 - [DomainCreateRequest](docs/Model/DomainCreateRequest.md)
@@ -551,6 +569,7 @@ Class | Method | HTTP request | Description
 - [EmailStats](docs/Model/EmailStats.md)
 - [EncryptionModeEnum](docs/Model/EncryptionModeEnum.md)
 - [EncryptionReasonCodeEnum](docs/Model/EncryptionReasonCodeEnum.md)
+- [ExpiringDomain](docs/Model/ExpiringDomain.md)
 - [FeatureUpgradeRequest](docs/Model/FeatureUpgradeRequest.md)
 - [FeatureUpgradeResponse](docs/Model/FeatureUpgradeResponse.md)
 - [FeaturesEnum](docs/Model/FeaturesEnum.md)
@@ -579,14 +598,21 @@ Class | Method | HTTP request | Description
 - [HTTPRouteRequest](docs/Model/HTTPRouteRequest.md)
 - [HardwareGeneration](docs/Model/HardwareGeneration.md)
 - [HostingChangePasswordResponse](docs/Model/HostingChangePasswordResponse.md)
+- [HostingLVEPeriod](docs/Model/HostingLVEPeriod.md)
 - [HostingService](docs/Model/HostingService.md)
+- [HostingUpgradeOption](docs/Model/HostingUpgradeOption.md)
+- [HostingUpgradeOptions](docs/Model/HostingUpgradeOptions.md)
+- [HostingUsage](docs/Model/HostingUsage.md)
+- [HostingUsageMetric](docs/Model/HostingUsageMetric.md)
 - [InboundRoute](docs/Model/InboundRoute.md)
 - [InboundRouteCreateRequest](docs/Model/InboundRouteCreateRequest.md)
 - [InboundRouteWriteResponse](docs/Model/InboundRouteWriteResponse.md)
 - [InvoiceDetail](docs/Model/InvoiceDetail.md)
 - [InvoiceList](docs/Model/InvoiceList.md)
+- [InvoiceLocalAmounts](docs/Model/InvoiceLocalAmounts.md)
 - [InvoiceService](docs/Model/InvoiceService.md)
 - [InvoiceStatusEnum](docs/Model/InvoiceStatusEnum.md)
+- [InvoiceTypeEnum](docs/Model/InvoiceTypeEnum.md)
 - [IsoBootRequest](docs/Model/IsoBootRequest.md)
 - [K8sPortForward](docs/Model/K8sPortForward.md)
 - [K8sPortForwardRequest](docs/Model/K8sPortForwardRequest.md)
@@ -600,11 +626,13 @@ Class | Method | HTTP request | Description
 - [LBUpgradePlanResponse](docs/Model/LBUpgradePlanResponse.md)
 - [LBUpgradeRequest](docs/Model/LBUpgradeRequest.md)
 - [LowBalanceSettingsRequest](docs/Model/LowBalanceSettingsRequest.md)
+- [MobileOAuthSession](docs/Model/MobileOAuthSession.md)
 - [ModeEnum](docs/Model/ModeEnum.md)
 - [NameserversUpdateRequest](docs/Model/NameserversUpdateRequest.md)
 - [NameserversUpdateResponse](docs/Model/NameserversUpdateResponse.md)
 - [NodeMetricsResponse](docs/Model/NodeMetricsResponse.md)
 - [NodeOperation](docs/Model/NodeOperation.md)
+- [NodeOperationDeleteRequest](docs/Model/NodeOperationDeleteRequest.md)
 - [NodeOperationKindEnum](docs/Model/NodeOperationKindEnum.md)
 - [NodeOperationRebootRequest](docs/Model/NodeOperationRebootRequest.md)
 - [NodeOperationRetryRequest](docs/Model/NodeOperationRetryRequest.md)
@@ -708,9 +736,12 @@ Class | Method | HTTP request | Description
 - [RenewDomainRequest](docs/Model/RenewDomainRequest.md)
 - [RescueEnterQueued](docs/Model/RescueEnterQueued.md)
 - [RescueExitQueued](docs/Model/RescueExitQueued.md)
+- [ResourceBilling](docs/Model/ResourceBilling.md)
+- [ResourceBillingProfile](docs/Model/ResourceBillingProfile.md)
 - [ResourcePool](docs/Model/ResourcePool.md)
 - [ResourcePoolAddRequest](docs/Model/ResourcePoolAddRequest.md)
 - [ResourcePoolAddResponse](docs/Model/ResourcePoolAddResponse.md)
+- [ResourcePoolDeleteRequest](docs/Model/ResourcePoolDeleteRequest.md)
 - [ResourcePoolNode](docs/Model/ResourcePoolNode.md)
 - [ResourcePoolRequest](docs/Model/ResourcePoolRequest.md)
 - [ResourceStatusEnum](docs/Model/ResourceStatusEnum.md)
@@ -764,6 +795,7 @@ Class | Method | HTTP request | Description
 - [TCPRoute](docs/Model/TCPRoute.md)
 - [TCPRouteRequest](docs/Model/TCPRouteRequest.md)
 - [TLD](docs/Model/TLD.md)
+- [TLDCatalog](docs/Model/TLDCatalog.md)
 - [TalosUpgradeResponse](docs/Model/TalosUpgradeResponse.md)
 - [ThresholdTypeEnum](docs/Model/ThresholdTypeEnum.md)
 - [TicketCloseResponse](docs/Model/TicketCloseResponse.md)
@@ -787,6 +819,7 @@ Class | Method | HTTP request | Description
 - [UDPRouteRequest](docs/Model/UDPRouteRequest.md)
 - [VersionEnum](docs/Model/VersionEnum.md)
 - [Volume](docs/Model/Volume.md)
+- [VolumeBusy](docs/Model/VolumeBusy.md)
 - [VolumeRequest](docs/Model/VolumeRequest.md)
 - [VolumeUpdateRequest](docs/Model/VolumeUpdateRequest.md)
 
@@ -829,6 +862,6 @@ support@pidginhost.com
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `1.0.0 (v1)`
-    - Package version: `0.14.0`
-    - Generator version: `7.24.0`
+    - Package version: `0.15.0`
+    - Generator version: `7.26.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

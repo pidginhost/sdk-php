@@ -9,6 +9,8 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**hostingHostingChangePasswordCreate()**](HostingApi.md#hostingHostingChangePasswordCreate) | **POST** /api/hosting/hosting/{id}/change-password/ |  |
 | [**hostingHostingList()**](HostingApi.md#hostingHostingList) | **GET** /api/hosting/hosting/ |  |
 | [**hostingHostingRetrieve()**](HostingApi.md#hostingHostingRetrieve) | **GET** /api/hosting/hosting/{id}/ |  |
+| [**hostingHostingUpgradeOptionsRetrieve()**](HostingApi.md#hostingHostingUpgradeOptionsRetrieve) | **GET** /api/hosting/hosting/{id}/upgrade-options/ |  |
+| [**hostingHostingUsageRetrieve()**](HostingApi.md#hostingHostingUsageRetrieve) | **GET** /api/hosting/hosting/{id}/usage/ |  |
 
 
 ## `hostingHostingChangePasswordCreate()`
@@ -200,6 +202,140 @@ try {
 ### Return type
 
 [**\PidginHost\Sdk\Model\HostingService**](../Model/HostingService.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `hostingHostingUpgradeOptionsRetrieve()`
+
+```php
+hostingHostingUpgradeOptionsRetrieve($id): \PidginHost\Sdk\Model\HostingUpgradeOptions
+```
+
+
+
+List and manage cPanel/shared hosting services.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\HostingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->hostingHostingUpgradeOptionsRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling HostingApi->hostingHostingUpgradeOptionsRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\HostingUpgradeOptions**](../Model/HostingUpgradeOptions.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `hostingHostingUsageRetrieve()`
+
+```php
+hostingHostingUsageRetrieve($id): \PidginHost\Sdk\Model\HostingUsage
+```
+
+
+
+List and manage cPanel/shared hosting services.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\HostingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->hostingHostingUsageRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling HostingApi->hostingHostingUsageRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\HostingUsage**](../Model/HostingUsage.md)
 
 ### Authorization
 

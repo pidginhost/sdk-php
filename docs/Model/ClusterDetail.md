@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **generation** | **string** |  | [readonly]
 **cluster_type** | **string** |  | [readonly]
 **kube_version** | **string** |  | [readonly]
-**price_per_month** | **string** |  |
+**price_per_month** | **string** |  | [readonly]
 **price_per_hour** | **float** |  | [readonly]
 **features** | [**\PidginHost\Sdk\Model\FeaturesEnum[]**](FeaturesEnum.md) |  | [optional]
 **features_ready** | **bool** |  | [readonly]

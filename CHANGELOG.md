@@ -5,6 +5,39 @@ All notable changes to the PidginHost PHP SDK are documented here.
 This SDK is auto-generated from the [PidginHost API schema](https://www.pidginhost.com/api/schema/).
 Version bumps reflect schema changes, not hand-written code changes.
 
+## v0.15.0
+
+### Added
+
+- **Account dashboard and session.** `AccountDashboardRetrieve` returns
+  `Dashboard` and `AccountSessionRetrieve` returns `AccountSessionResponse`.
+- **Domain availability and TLD catalog.** `DomainDomainCheckAvailabilityRetrieve`
+  checks a name with a GET, and `DomainTldCatalogRetrieve` returns `TLDCatalog`.
+  `TLD` gained `min_years` and `year_step`.
+- **Hosting usage and upgrades.** `HostingHostingUsageRetrieve` returns
+  `HostingUsage` and `HostingHostingUpgradeOptionsRetrieve` returns
+  `HostingUpgradeOptions`.
+- Servers, volumes, buckets, private networks, dedicated servers, hosting and
+  services gained `billing` (`ResourceBilling`): the price and billing cycle,
+  or null.
+- `DedicatedServer.hardware` (`DedicatedHardware`) describes the machine.
+- `InvoiceList` and `InvoiceDetail` gained `invoice_type`,
+  `can_pay_with_funds` and `local_amounts` (`InvoiceLocalAmounts`).
+- `Volume.status` says whether a volume is active or busy. Volume updates
+  answer 409 with `VolumeBusy` while a resize or move is still running.
+- Kubernetes pool and node deletes take a body, `ResourcePoolDeleteRequest`
+  and `NodeOperationDeleteRequest`, to accept local data loss.
+
+### Changed
+
+- The domain availability check returns `DomainAvailability` (`available`,
+  `supported`), which is what the API sends. `CheckAvailability` is gone.
+- `DNSRecord` fields that belong to one record type, such as `address` or
+  `txtdata`, are optional. Reading a zone with mixed record types no longer
+  fails.
+- `ClusterDetailRequest` and `PatchedClusterDetailRequest` no longer have
+  `price_per_month`, which the API never let you change.
+
 ## v0.14.0
 
 ### Added

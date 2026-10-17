@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **gateway** | **string** |  | [optional]
 **provisioned** | **bool** |  | [readonly]
 **servers** | **array<string,string>[]** |  | [readonly]
+**billing** | [**\PidginHost\Sdk\Model\ResourceBilling**](ResourceBilling.md) |  | [readonly]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
