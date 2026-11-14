@@ -18,6 +18,7 @@ use PidginHost\Sdk\Api\BillingApi;
 use PidginHost\Sdk\Api\CloudApi;
 use PidginHost\Sdk\Api\DedicatedApi;
 use PidginHost\Sdk\Api\DomainApi;
+use PidginHost\Sdk\Api\EmailApi;
 use PidginHost\Sdk\Api\FreednsApi;
 use PidginHost\Sdk\Api\HostingApi;
 use PidginHost\Sdk\Api\KubernetesApi;
@@ -31,6 +32,7 @@ class PidginHost
     public CloudApi $cloud;
     public DedicatedApi $dedicated;
     public DomainApi $domain;
+    public EmailApi $email;
     public FreednsApi $freedns;
     public HostingApi $hosting;
     public KubernetesApi $kubernetes;
@@ -59,6 +61,7 @@ class PidginHost
         $this->cloud = new CloudApi(null, $this->configuration);
         $this->dedicated = new DedicatedApi(null, $this->configuration);
         $this->domain = new DomainApi(null, $this->configuration);
+        $this->email = new EmailApi(null, $this->configuration);
         $this->freedns = new FreednsApi(null, $this->configuration);
         $this->hosting = new HostingApi(null, $this->configuration);
         $this->kubernetes = new KubernetesApi(null, $this->configuration);

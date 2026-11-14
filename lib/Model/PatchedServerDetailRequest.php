@@ -58,6 +58,7 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
+        'hostname' => 'string',
         'project' => 'string',
         'password' => 'string',
         'ssh_pub_key' => 'string'
@@ -71,6 +72,7 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'hostname' => null,
         'project' => null,
         'password' => null,
         'ssh_pub_key' => null
@@ -82,6 +84,7 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'hostname' => false,
         'project' => false,
         'password' => false,
         'ssh_pub_key' => false
@@ -173,6 +176,7 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
+        'hostname' => 'hostname',
         'project' => 'project',
         'password' => 'password',
         'ssh_pub_key' => 'ssh_pub_key'
@@ -184,6 +188,7 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
+        'hostname' => 'setHostname',
         'project' => 'setProject',
         'password' => 'setPassword',
         'ssh_pub_key' => 'setSshPubKey'
@@ -195,6 +200,7 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
+        'hostname' => 'getHostname',
         'project' => 'getProject',
         'password' => 'getPassword',
         'ssh_pub_key' => 'getSshPubKey'
@@ -257,6 +263,7 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('hostname', $data ?? [], null);
         $this->setIfExists('project', $data ?? [], null);
         $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('ssh_pub_key', $data ?? [], null);
@@ -289,6 +296,14 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['hostname']) && (mb_strlen($this->container['hostname']) > 200)) {
+            $invalidProperties[] = "invalid value for 'hostname', the character length must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['hostname']) && (mb_strlen($this->container['hostname']) < 1)) {
+            $invalidProperties[] = "invalid value for 'hostname', the character length must be bigger than or equal to 1.";
+        }
+
         if (!is_null($this->container['project']) && (mb_strlen($this->container['project']) > 200)) {
             $invalidProperties[] = "invalid value for 'project', the character length must be smaller than or equal to 200.";
         }
@@ -315,6 +330,40 @@ class PatchedServerDetailRequest implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets hostname
+     *
+     * @return string|null
+     */
+    public function getHostname()
+    {
+        return $this->container['hostname'];
+    }
+
+    /**
+     * Sets hostname
+     *
+     * @param string|null $hostname Renaming also moves reverse DNS still on the old name. The server takes the new name at its next reboot from the panel or API, which also creates new SSH host keys and resets the login password and SSH keys to the ones saved here.
+     *
+     * @return self
+     */
+    public function setHostname($hostname)
+    {
+        if (is_null($hostname)) {
+            throw new \InvalidArgumentException('non-nullable hostname cannot be null');
+        }
+        if ((mb_strlen($hostname) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $hostname when calling PatchedServerDetailRequest., must be smaller than or equal to 200.');
+        }
+        if ((mb_strlen($hostname) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $hostname when calling PatchedServerDetailRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['hostname'] = $hostname;
+
+        return $this;
+    }
 
     /**
      * Gets project

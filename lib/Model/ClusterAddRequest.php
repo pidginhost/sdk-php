@@ -297,7 +297,7 @@ class ClusterAddRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('resource_pool_package', $data ?? [], null);
         $this->setIfExists('resource_pool_size', $data ?? [], null);
-        $this->setIfExists('kube_version', $data ?? [], KubeVersionEnum::_1_36_3);
+        $this->setIfExists('kube_version', $data ?? [], KubeVersionEnum::_1_36_6);
         $this->setIfExists('features', $data ?? [], null);
         $this->setIfExists('enable_gateway_api', $data ?? [], null);
         $this->setIfExists('dual_stack', $data ?? [], false);

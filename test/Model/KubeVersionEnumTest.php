@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * KubeVersionEnumTest Class Doc Comment
  *
  * @category    Class
- * @description * &#x60;1.33.13&#x60; - 1.33.13 * &#x60;1.34.10&#x60; - 1.34.10 * &#x60;1.35.7&#x60; - 1.35.7 * &#x60;1.36.3&#x60; - 1.36.3
+ * @description * &#x60;1.35.10&#x60; - 1.35.10 * &#x60;1.36.6&#x60; - 1.36.6
  * @package     PidginHost\Sdk
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -374,8 +374,8 @@ class DomainRegistrantRequest implements ModelInterface, ArrayAccess, \JsonSeria
             $invalidProperties[] = "invalid value for 'last_name', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['company']) && (mb_strlen($this->container['company']) > 40)) {
-            $invalidProperties[] = "invalid value for 'company', the character length must be smaller than or equal to 40.";
+        if (!is_null($this->container['company']) && (mb_strlen($this->container['company']) > 128)) {
+            $invalidProperties[] = "invalid value for 'company', the character length must be smaller than or equal to 128.";
         }
 
         if ($this->container['address'] === null) {
@@ -567,8 +567,8 @@ class DomainRegistrantRequest implements ModelInterface, ArrayAccess, \JsonSeria
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        if (!is_null($company) && (mb_strlen($company) > 40)) {
-            throw new \InvalidArgumentException('invalid length for $company when calling DomainRegistrantRequest., must be smaller than or equal to 40.');
+        if (!is_null($company) && (mb_strlen($company) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $company when calling DomainRegistrantRequest., must be smaller than or equal to 128.');
         }
 
         $this->container['company'] = $company;

@@ -34,7 +34,7 @@ use \PidginHost\Sdk\ObjectSerializer;
  * KubeVersionEnum Class Doc Comment
  *
  * @category Class
- * @description * &#x60;1.33.13&#x60; - 1.33.13 * &#x60;1.34.10&#x60; - 1.34.10 * &#x60;1.35.7&#x60; - 1.35.7 * &#x60;1.36.3&#x60; - 1.36.3
+ * @description * &#x60;1.35.10&#x60; - 1.35.10 * &#x60;1.36.6&#x60; - 1.36.6
  * @package  PidginHost\Sdk
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,13 +44,9 @@ class KubeVersionEnum
     /**
      * Possible values of this enum
      */
-    public const _1_33_13 = '1.33.13';
+    public const _1_35_10 = '1.35.10';
 
-    public const _1_34_10 = '1.34.10';
-
-    public const _1_35_7 = '1.35.7';
-
-    public const _1_36_3 = '1.36.3';
+    public const _1_36_6 = '1.36.6';
 
     /**
      * Gets allowable values of the enum
@@ -59,10 +55,8 @@ class KubeVersionEnum
     public static function getAllowableEnumValues()
     {
         return [
-            self::_1_33_13,
-            self::_1_34_10,
-            self::_1_35_7,
-            self::_1_36_3
+            self::_1_35_10,
+            self::_1_36_6
         ];
     }
 }

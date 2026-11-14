@@ -435,9 +435,10 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['hostname'] === null) {
-            $invalidProperties[] = "'hostname' can't be null";
+        if (!is_null($this->container['hostname']) && (mb_strlen($this->container['hostname']) > 200)) {
+            $invalidProperties[] = "invalid value for 'hostname', the character length must be smaller than or equal to 200.";
         }
+
         if (!is_null($this->container['project']) && (mb_strlen($this->container['project']) > 200)) {
             $invalidProperties[] = "invalid value for 'project', the character length must be smaller than or equal to 200.";
         }
@@ -579,7 +580,7 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets hostname
      *
-     * @return string
+     * @return string|null
      */
     public function getHostname()
     {
@@ -589,7 +590,7 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets hostname
      *
-     * @param string $hostname hostname
+     * @param string|null $hostname Renaming also moves reverse DNS still on the old name. The server takes the new name at its next reboot from the panel or API, which also creates new SSH host keys and resets the login password and SSH keys to the ones saved here.
      *
      * @return self
      */
@@ -598,6 +599,10 @@ class ServerDetail implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($hostname)) {
             throw new \InvalidArgumentException('non-nullable hostname cannot be null');
         }
+        if ((mb_strlen($hostname) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $hostname when calling ServerDetail., must be smaller than or equal to 200.');
+        }
+
         $this->container['hostname'] = $hostname;
 
         return $this;

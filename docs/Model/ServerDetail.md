@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **billing** | [**\PidginHost\Sdk\Model\ResourceBilling**](ResourceBilling.md) |  | [readonly]
 **id** | **int** |  | [readonly]
-**hostname** | **string** |  | [readonly]
+**hostname** | **string** | Renaming also moves reverse DNS still on the old name. The server takes the new name at its next reboot from the panel or API, which also creates new SSH host keys and resets the login password and SSH keys to the ones saved here. | [optional]
 **project** | **string** |  | [optional]
 **image** | **string** |  | [readonly]
 **package** | **string** |  | [readonly]

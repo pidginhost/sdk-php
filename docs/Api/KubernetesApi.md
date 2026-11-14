@@ -31,6 +31,8 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**kubernetesClustersLbFirewallPartialUpdate()**](KubernetesApi.md#kubernetesClustersLbFirewallPartialUpdate) | **PATCH** /api/kubernetes/clusters/{cluster_id}/lb-firewall/{id}/ |  |
 | [**kubernetesClustersLbFirewallRetrieve()**](KubernetesApi.md#kubernetesClustersLbFirewallRetrieve) | **GET** /api/kubernetes/clusters/{cluster_id}/lb-firewall/{id}/ |  |
 | [**kubernetesClustersLbFirewallUpdate()**](KubernetesApi.md#kubernetesClustersLbFirewallUpdate) | **PUT** /api/kubernetes/clusters/{cluster_id}/lb-firewall/{id}/ |  |
+| [**kubernetesClustersLbReimageCreate()**](KubernetesApi.md#kubernetesClustersLbReimageCreate) | **POST** /api/kubernetes/clusters/{id}/lb-reimage/ |  |
+| [**kubernetesClustersLbReimageRetrieve()**](KubernetesApi.md#kubernetesClustersLbReimageRetrieve) | **GET** /api/kubernetes/clusters/{id}/lb-reimage/ |  |
 | [**kubernetesClustersList()**](KubernetesApi.md#kubernetesClustersList) | **GET** /api/kubernetes/clusters/ |  |
 | [**kubernetesClustersNodeOperationsCancelCreate()**](KubernetesApi.md#kubernetesClustersNodeOperationsCancelCreate) | **POST** /api/kubernetes/clusters/{cluster_id}/node-operations/{id}/cancel/ |  |
 | [**kubernetesClustersNodeOperationsList()**](KubernetesApi.md#kubernetesClustersNodeOperationsList) | **GET** /api/kubernetes/clusters/{cluster_id}/node-operations/ |  |
@@ -1781,6 +1783,142 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `kubernetesClustersLbReimageCreate()`
+
+```php
+kubernetesClustersLbReimageCreate($id, $lb_reimage_request): \PidginHost\Sdk\Model\LBReimageStarted
+```
+
+
+
+Start a load-balancer replacement now. Traffic through the load balancer stops while it is switched over. Support can roll back for 24 hours after it completes. OAuth access tokens cannot start one.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+$lb_reimage_request = new \PidginHost\Sdk\Model\LBReimageRequest(); // \PidginHost\Sdk\Model\LBReimageRequest
+
+try {
+    $result = $apiInstance->kubernetesClustersLbReimageCreate($id, $lb_reimage_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->kubernetesClustersLbReimageCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **lb_reimage_request** | [**\PidginHost\Sdk\Model\LBReimageRequest**](../Model/LBReimageRequest.md)|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\LBReimageStarted**](../Model/LBReimageStarted.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `kubernetesClustersLbReimageRetrieve()`
+
+```php
+kubernetesClustersLbReimageRetrieve($id): \PidginHost\Sdk\Model\LBReimageStatus
+```
+
+
+
+Show the latest load-balancer replacement on this cluster and whether one can start now.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\KubernetesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->kubernetesClustersLbReimageRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KubernetesApi->kubernetesClustersLbReimageRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\LBReimageStatus**](../Model/LBReimageStatus.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

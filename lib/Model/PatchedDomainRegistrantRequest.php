@@ -368,8 +368,8 @@ class PatchedDomainRegistrantRequest implements ModelInterface, ArrayAccess, \Js
             $invalidProperties[] = "invalid value for 'last_name', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['company']) && (mb_strlen($this->container['company']) > 40)) {
-            $invalidProperties[] = "invalid value for 'company', the character length must be smaller than or equal to 40.";
+        if (!is_null($this->container['company']) && (mb_strlen($this->container['company']) > 128)) {
+            $invalidProperties[] = "invalid value for 'company', the character length must be smaller than or equal to 128.";
         }
 
         if (!is_null($this->container['address']) && (mb_strlen($this->container['address']) > 128)) {
@@ -540,8 +540,8 @@ class PatchedDomainRegistrantRequest implements ModelInterface, ArrayAccess, \Js
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        if (!is_null($company) && (mb_strlen($company) > 40)) {
-            throw new \InvalidArgumentException('invalid length for $company when calling PatchedDomainRegistrantRequest., must be smaller than or equal to 40.');
+        if (!is_null($company) && (mb_strlen($company) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $company when calling PatchedDomainRegistrantRequest., must be smaller than or equal to 128.');
         }
 
         $this->container['company'] = $company;

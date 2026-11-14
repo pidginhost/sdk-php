@@ -189,6 +189,141 @@ class CloudApi
         'cloudFloatingIpv6UnauthorizeCreate' => [
             'application/json',
         ],
+        'cloudGatewaysCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysDestroy' => [
+            'application/json',
+        ],
+        'cloudGatewaysFirewallRulesCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysFirewallRulesDestroy' => [
+            'application/json',
+        ],
+        'cloudGatewaysFirewallRulesList' => [
+            'application/json',
+        ],
+        'cloudGatewaysFirewallRulesMoveCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysFirewallRulesPartialUpdate' => [
+            'application/json',
+        ],
+        'cloudGatewaysFirewallRulesRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysList' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersDestroy' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersList' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersPartialUpdate' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersRoutesCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersRoutesDestroy' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersRoutesList' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersRoutesPartialUpdate' => [
+            'application/json',
+        ],
+        'cloudGatewaysListenersRoutesRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysNetworksCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysNetworksDestroy' => [
+            'application/json',
+        ],
+        'cloudGatewaysNetworksList' => [
+            'application/json',
+        ],
+        'cloudGatewaysNetworksPartialUpdate' => [
+            'application/json',
+        ],
+        'cloudGatewaysNetworksRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysOperationsList' => [
+            'application/json',
+        ],
+        'cloudGatewaysOperationsRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysPartialUpdate' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsBackendsCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsBackendsDestroy' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsBackendsList' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsBackendsPartialUpdate' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsBackendsRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsDestroy' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsList' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsPartialUpdate' => [
+            'application/json',
+        ],
+        'cloudGatewaysPoolsRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysPortForwardsCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysPortForwardsDestroy' => [
+            'application/json',
+        ],
+        'cloudGatewaysPortForwardsList' => [
+            'application/json',
+        ],
+        'cloudGatewaysPortForwardsPartialUpdate' => [
+            'application/json',
+        ],
+        'cloudGatewaysPortForwardsRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysReenrollCreate' => [
+            'application/json',
+        ],
+        'cloudGatewaysRetrieve' => [
+            'application/json',
+        ],
+        'cloudGatewaysStatusRetrieve' => [
+            'application/json',
+        ],
         'cloudGenerationsList' => [
             'application/json',
         ],
@@ -246,6 +381,9 @@ class CloudApi
         'cloudPrivateNetworksAddServerCreate' => [
             'application/json',
         ],
+        'cloudPrivateNetworksApplyRouteCreate' => [
+            'application/json',
+        ],
         'cloudPrivateNetworksCreate' => [
             'application/json',
         ],
@@ -262,6 +400,9 @@ class CloudApi
             'application/json',
         ],
         'cloudPrivateNetworksRetrieve' => [
+            'application/json',
+        ],
+        'cloudPrivateNetworksRouteStatusRetrieve' => [
             'application/json',
         ],
         'cloudPrivateNetworksUpdate' => [
@@ -10844,6 +10985,13762 @@ class CloudApi
     }
 
     /**
+     * Operation cloudGatewaysCreate
+     *
+     * @param  \PidginHost\Sdk\Model\GatewayCreateRequest $gateway_create_request gateway_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\Gateway
+     */
+    public function cloudGatewaysCreate($gateway_create_request, string $contentType = self::contentTypes['cloudGatewaysCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysCreateWithHttpInfo($gateway_create_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysCreateWithHttpInfo
+     *
+     * @param  \PidginHost\Sdk\Model\GatewayCreateRequest $gateway_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\Gateway, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysCreateWithHttpInfo($gateway_create_request, string $contentType = self::contentTypes['cloudGatewaysCreate'][0])
+    {
+        $request = $this->cloudGatewaysCreateRequest($gateway_create_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\Gateway',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\Gateway',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\Gateway',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysCreateAsync
+     *
+     * @param  \PidginHost\Sdk\Model\GatewayCreateRequest $gateway_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysCreateAsync($gateway_create_request, string $contentType = self::contentTypes['cloudGatewaysCreate'][0])
+    {
+        return $this->cloudGatewaysCreateAsyncWithHttpInfo($gateway_create_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysCreateAsyncWithHttpInfo
+     *
+     * @param  \PidginHost\Sdk\Model\GatewayCreateRequest $gateway_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysCreateAsyncWithHttpInfo($gateway_create_request, string $contentType = self::contentTypes['cloudGatewaysCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\Gateway';
+        $request = $this->cloudGatewaysCreateRequest($gateway_create_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysCreate'
+     *
+     * @param  \PidginHost\Sdk\Model\GatewayCreateRequest $gateway_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysCreateRequest($gateway_create_request, string $contentType = self::contentTypes['cloudGatewaysCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_create_request' is set
+        if ($gateway_create_request === null || (is_array($gateway_create_request) && count($gateway_create_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_create_request when calling cloudGatewaysCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_create_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_create_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_create_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysDestroy
+     *
+     * @param  string $id id (required)
+     * @param  int[]|null $networks The preview&#39;s network ids. (optional)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayDeleteConflict
+     */
+    public function cloudGatewaysDestroy($id, $networks = null, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysDestroy'][0])
+    {
+        list($response) = $this->cloudGatewaysDestroyWithHttpInfo($id, $networks, $revision, $servers, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysDestroyWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  int[]|null $networks The preview&#39;s network ids. (optional)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayDeleteConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysDestroyWithHttpInfo($id, $networks = null, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysDestroy'][0])
+    {
+        $request = $this->cloudGatewaysDestroyRequest($id, $networks, $revision, $servers, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayDeleteConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayDeleteConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysDestroyAsync
+     *
+     * @param  string $id (required)
+     * @param  int[]|null $networks The preview&#39;s network ids. (optional)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysDestroyAsync($id, $networks = null, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysDestroy'][0])
+    {
+        return $this->cloudGatewaysDestroyAsyncWithHttpInfo($id, $networks, $revision, $servers, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysDestroyAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  int[]|null $networks The preview&#39;s network ids. (optional)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysDestroyAsyncWithHttpInfo($id, $networks = null, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysDestroy'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysDestroyRequest($id, $networks, $revision, $servers, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysDestroy'
+     *
+     * @param  string $id (required)
+     * @param  int[]|null $networks The preview&#39;s network ids. (optional)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysDestroyRequest($id, $networks = null, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysDestroy'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysDestroy'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/cloud/gateways/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $networks,
+            'networks', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $servers,
+            'servers', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesCreate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallRuleWriteRequest $gateway_firewall_rule_write_request gateway_firewall_rule_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayFirewallRule|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysFirewallRulesCreate($gateway_id, $gateway_firewall_rule_write_request, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysFirewallRulesCreateWithHttpInfo($gateway_id, $gateway_firewall_rule_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesCreateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallRuleWriteRequest $gateway_firewall_rule_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayFirewallRule|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysFirewallRulesCreateWithHttpInfo($gateway_id, $gateway_firewall_rule_write_request, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesCreate'][0])
+    {
+        $request = $this->cloudGatewaysFirewallRulesCreateRequest($gateway_id, $gateway_firewall_rule_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesCreateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallRuleWriteRequest $gateway_firewall_rule_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesCreateAsync($gateway_id, $gateway_firewall_rule_write_request, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesCreate'][0])
+    {
+        return $this->cloudGatewaysFirewallRulesCreateAsyncWithHttpInfo($gateway_id, $gateway_firewall_rule_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesCreateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallRuleWriteRequest $gateway_firewall_rule_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesCreateAsyncWithHttpInfo($gateway_id, $gateway_firewall_rule_write_request, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayFirewallRule';
+        $request = $this->cloudGatewaysFirewallRulesCreateRequest($gateway_id, $gateway_firewall_rule_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysFirewallRulesCreate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallRuleWriteRequest $gateway_firewall_rule_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysFirewallRulesCreateRequest($gateway_id, $gateway_firewall_rule_write_request, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysFirewallRulesCreate'
+            );
+        }
+
+        // verify the required parameter 'gateway_firewall_rule_write_request' is set
+        if ($gateway_firewall_rule_write_request === null || (is_array($gateway_firewall_rule_write_request) && count($gateway_firewall_rule_write_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_firewall_rule_write_request when calling cloudGatewaysFirewallRulesCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/firewall-rules/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_firewall_rule_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_firewall_rule_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_firewall_rule_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesDestroy
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysFirewallRulesDestroy($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesDestroy'][0])
+    {
+        list($response) = $this->cloudGatewaysFirewallRulesDestroyWithHttpInfo($gateway_id, $id, $revision, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesDestroyWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysFirewallRulesDestroyWithHttpInfo($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesDestroy'][0])
+    {
+        $request = $this->cloudGatewaysFirewallRulesDestroyRequest($gateway_id, $id, $revision, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesDestroyAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesDestroyAsync($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesDestroy'][0])
+    {
+        return $this->cloudGatewaysFirewallRulesDestroyAsyncWithHttpInfo($gateway_id, $id, $revision, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesDestroyAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesDestroyAsyncWithHttpInfo($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesDestroy'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysFirewallRulesDestroyRequest($gateway_id, $id, $revision, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysFirewallRulesDestroy'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysFirewallRulesDestroyRequest($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesDestroy'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysFirewallRulesDestroy'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysFirewallRulesDestroy'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/firewall-rules/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesList
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayFirewallRuleList
+     */
+    public function cloudGatewaysFirewallRulesList($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesList'][0])
+    {
+        list($response) = $this->cloudGatewaysFirewallRulesListWithHttpInfo($gateway_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesListWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayFirewallRuleList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysFirewallRulesListWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesList'][0])
+    {
+        $request = $this->cloudGatewaysFirewallRulesListRequest($gateway_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayFirewallRuleList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayFirewallRuleList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayFirewallRuleList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesListAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesListAsync($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesList'][0])
+    {
+        return $this->cloudGatewaysFirewallRulesListAsyncWithHttpInfo($gateway_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesListAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesListAsyncWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayFirewallRuleList';
+        $request = $this->cloudGatewaysFirewallRulesListRequest($gateway_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysFirewallRulesList'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysFirewallRulesListRequest($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesList'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysFirewallRulesList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/firewall-rules/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesMoveCreate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallMoveRequest $gateway_firewall_move_request gateway_firewall_move_request (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayFirewallRule|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysFirewallRulesMoveCreate($gateway_id, $id, $gateway_firewall_move_request, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysFirewallRulesMoveCreateWithHttpInfo($gateway_id, $id, $gateway_firewall_move_request, $revision, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesMoveCreateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallMoveRequest $gateway_firewall_move_request (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayFirewallRule|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysFirewallRulesMoveCreateWithHttpInfo($gateway_id, $id, $gateway_firewall_move_request, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'][0])
+    {
+        $request = $this->cloudGatewaysFirewallRulesMoveCreateRequest($gateway_id, $id, $gateway_firewall_move_request, $revision, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesMoveCreateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallMoveRequest $gateway_firewall_move_request (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesMoveCreateAsync($gateway_id, $id, $gateway_firewall_move_request, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'][0])
+    {
+        return $this->cloudGatewaysFirewallRulesMoveCreateAsyncWithHttpInfo($gateway_id, $id, $gateway_firewall_move_request, $revision, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesMoveCreateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallMoveRequest $gateway_firewall_move_request (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesMoveCreateAsyncWithHttpInfo($gateway_id, $id, $gateway_firewall_move_request, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayFirewallRule';
+        $request = $this->cloudGatewaysFirewallRulesMoveCreateRequest($gateway_id, $id, $gateway_firewall_move_request, $revision, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysFirewallRulesMoveCreate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayFirewallMoveRequest $gateway_firewall_move_request (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysFirewallRulesMoveCreateRequest($gateway_id, $id, $gateway_firewall_move_request, $revision = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesMoveCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysFirewallRulesMoveCreate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysFirewallRulesMoveCreate'
+            );
+        }
+
+        // verify the required parameter 'gateway_firewall_move_request' is set
+        if ($gateway_firewall_move_request === null || (is_array($gateway_firewall_move_request) && count($gateway_firewall_move_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_firewall_move_request when calling cloudGatewaysFirewallRulesMoveCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/firewall-rules/{id}/move/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_firewall_move_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_firewall_move_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_firewall_move_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesPartialUpdate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayFirewallRuleWriteRequest|null $patched_gateway_firewall_rule_write_request patched_gateway_firewall_rule_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayFirewallRule|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysFirewallRulesPartialUpdate($gateway_id, $id, $patched_gateway_firewall_rule_write_request = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'][0])
+    {
+        list($response) = $this->cloudGatewaysFirewallRulesPartialUpdateWithHttpInfo($gateway_id, $id, $patched_gateway_firewall_rule_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesPartialUpdateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayFirewallRuleWriteRequest|null $patched_gateway_firewall_rule_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayFirewallRule|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysFirewallRulesPartialUpdateWithHttpInfo($gateway_id, $id, $patched_gateway_firewall_rule_write_request = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'][0])
+    {
+        $request = $this->cloudGatewaysFirewallRulesPartialUpdateRequest($gateway_id, $id, $patched_gateway_firewall_rule_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesPartialUpdateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayFirewallRuleWriteRequest|null $patched_gateway_firewall_rule_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesPartialUpdateAsync($gateway_id, $id, $patched_gateway_firewall_rule_write_request = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'][0])
+    {
+        return $this->cloudGatewaysFirewallRulesPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $patched_gateway_firewall_rule_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesPartialUpdateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayFirewallRuleWriteRequest|null $patched_gateway_firewall_rule_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $patched_gateway_firewall_rule_write_request = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayFirewallRule';
+        $request = $this->cloudGatewaysFirewallRulesPartialUpdateRequest($gateway_id, $id, $patched_gateway_firewall_rule_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysFirewallRulesPartialUpdate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayFirewallRuleWriteRequest|null $patched_gateway_firewall_rule_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysFirewallRulesPartialUpdateRequest($gateway_id, $id, $patched_gateway_firewall_rule_write_request = null, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesPartialUpdate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysFirewallRulesPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysFirewallRulesPartialUpdate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/firewall-rules/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patched_gateway_firewall_rule_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($patched_gateway_firewall_rule_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $patched_gateway_firewall_rule_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesRetrieve
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayFirewallRule
+     */
+    public function cloudGatewaysFirewallRulesRetrieve($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysFirewallRulesRetrieveWithHttpInfo($gateway_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesRetrieveWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayFirewallRule, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysFirewallRulesRetrieveWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysFirewallRulesRetrieveRequest($gateway_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayFirewallRule',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesRetrieveAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesRetrieveAsync($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesRetrieve'][0])
+    {
+        return $this->cloudGatewaysFirewallRulesRetrieveAsyncWithHttpInfo($gateway_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysFirewallRulesRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysFirewallRulesRetrieveAsyncWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayFirewallRule';
+        $request = $this->cloudGatewaysFirewallRulesRetrieveRequest($gateway_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysFirewallRulesRetrieve'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysFirewallRulesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysFirewallRulesRetrieveRequest($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysFirewallRulesRetrieve'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysFirewallRulesRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysFirewallRulesRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/firewall-rules/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysList
+     *
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayList
+     */
+    public function cloudGatewaysList($page = null, string $contentType = self::contentTypes['cloudGatewaysList'][0])
+    {
+        list($response) = $this->cloudGatewaysListWithHttpInfo($page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListWithHttpInfo
+     *
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListWithHttpInfo($page = null, string $contentType = self::contentTypes['cloudGatewaysList'][0])
+    {
+        $request = $this->cloudGatewaysListRequest($page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListAsync
+     *
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListAsync($page = null, string $contentType = self::contentTypes['cloudGatewaysList'][0])
+    {
+        return $this->cloudGatewaysListAsyncWithHttpInfo($page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListAsyncWithHttpInfo
+     *
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListAsyncWithHttpInfo($page = null, string $contentType = self::contentTypes['cloudGatewaysList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayList';
+        $request = $this->cloudGatewaysListRequest($page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysList'
+     *
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListRequest($page = null, string $contentType = self::contentTypes['cloudGatewaysList'][0])
+    {
+
+
+
+        $resourcePath = '/api/cloud/gateways/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersCreate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayLBListenerWriteRequest|null $gateway_lb_listener_write_request gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayLBListener|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysListenersCreate($gateway_id, $gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersCreateWithHttpInfo($gateway_id, $gateway_lb_listener_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersCreateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayLBListenerWriteRequest|null $gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayLBListener|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersCreateWithHttpInfo($gateway_id, $gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersCreate'][0])
+    {
+        $request = $this->cloudGatewaysListenersCreateRequest($gateway_id, $gateway_lb_listener_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayLBListener',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayLBListener',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayLBListener',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersCreateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayLBListenerWriteRequest|null $gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersCreateAsync($gateway_id, $gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersCreate'][0])
+    {
+        return $this->cloudGatewaysListenersCreateAsyncWithHttpInfo($gateway_id, $gateway_lb_listener_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersCreateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayLBListenerWriteRequest|null $gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersCreateAsyncWithHttpInfo($gateway_id, $gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayLBListener';
+        $request = $this->cloudGatewaysListenersCreateRequest($gateway_id, $gateway_lb_listener_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersCreate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayLBListenerWriteRequest|null $gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersCreateRequest($gateway_id, $gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_lb_listener_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_lb_listener_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_lb_listener_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersDestroy
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysListenersDestroy($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersDestroy'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersDestroyWithHttpInfo($gateway_id, $id, $revision, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersDestroyWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersDestroyWithHttpInfo($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersDestroy'][0])
+    {
+        $request = $this->cloudGatewaysListenersDestroyRequest($gateway_id, $id, $revision, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersDestroyAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersDestroyAsync($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersDestroy'][0])
+    {
+        return $this->cloudGatewaysListenersDestroyAsyncWithHttpInfo($gateway_id, $id, $revision, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersDestroyAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersDestroyAsyncWithHttpInfo($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersDestroy'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysListenersDestroyRequest($gateway_id, $id, $revision, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersDestroy'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersDestroyRequest($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersDestroy'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersDestroy'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysListenersDestroy'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersList
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayLBListenerList
+     */
+    public function cloudGatewaysListenersList($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersList'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersListWithHttpInfo($gateway_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersListWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayLBListenerList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersListWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersList'][0])
+    {
+        $request = $this->cloudGatewaysListenersListRequest($gateway_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayLBListenerList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayLBListenerList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayLBListenerList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersListAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersListAsync($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersList'][0])
+    {
+        return $this->cloudGatewaysListenersListAsyncWithHttpInfo($gateway_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersListAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersListAsyncWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayLBListenerList';
+        $request = $this->cloudGatewaysListenersListRequest($gateway_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersList'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersListRequest($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersList'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersPartialUpdate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayLBListenerWriteRequest|null $patched_gateway_lb_listener_write_request patched_gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayLBListener|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysListenersPartialUpdate($gateway_id, $id, $patched_gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersPartialUpdate'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersPartialUpdateWithHttpInfo($gateway_id, $id, $patched_gateway_lb_listener_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersPartialUpdateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayLBListenerWriteRequest|null $patched_gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayLBListener|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersPartialUpdateWithHttpInfo($gateway_id, $id, $patched_gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersPartialUpdate'][0])
+    {
+        $request = $this->cloudGatewaysListenersPartialUpdateRequest($gateway_id, $id, $patched_gateway_lb_listener_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayLBListener',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayLBListener',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayLBListener',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersPartialUpdateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayLBListenerWriteRequest|null $patched_gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersPartialUpdateAsync($gateway_id, $id, $patched_gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersPartialUpdate'][0])
+    {
+        return $this->cloudGatewaysListenersPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $patched_gateway_lb_listener_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersPartialUpdateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayLBListenerWriteRequest|null $patched_gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $patched_gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersPartialUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayLBListener';
+        $request = $this->cloudGatewaysListenersPartialUpdateRequest($gateway_id, $id, $patched_gateway_lb_listener_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersPartialUpdate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayLBListenerWriteRequest|null $patched_gateway_lb_listener_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersPartialUpdateRequest($gateway_id, $id, $patched_gateway_lb_listener_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersPartialUpdate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysListenersPartialUpdate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patched_gateway_lb_listener_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($patched_gateway_lb_listener_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $patched_gateway_lb_listener_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRetrieve
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayLBListener
+     */
+    public function cloudGatewaysListenersRetrieve($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysListenersRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersRetrieveWithHttpInfo($gateway_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRetrieveWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayLBListener, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersRetrieveWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysListenersRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysListenersRetrieveRequest($gateway_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayLBListener',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayLBListener',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayLBListener',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRetrieveAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRetrieveAsync($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysListenersRetrieve'][0])
+    {
+        return $this->cloudGatewaysListenersRetrieveAsyncWithHttpInfo($gateway_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRetrieveAsyncWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysListenersRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayLBListener';
+        $request = $this->cloudGatewaysListenersRetrieveRequest($gateway_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersRetrieve'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersRetrieveRequest($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysListenersRetrieve'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysListenersRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesCreate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $listener_id listener_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayRouteWriteRequest|null $gateway_route_write_request gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayRoute|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysListenersRoutesCreate($gateway_id, $listener_id, $gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersRoutesCreateWithHttpInfo($gateway_id, $listener_id, $gateway_route_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesCreateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $listener_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayRouteWriteRequest|null $gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayRoute|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersRoutesCreateWithHttpInfo($gateway_id, $listener_id, $gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesCreate'][0])
+    {
+        $request = $this->cloudGatewaysListenersRoutesCreateRequest($gateway_id, $listener_id, $gateway_route_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayRoute',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayRoute',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayRoute',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesCreateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $listener_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayRouteWriteRequest|null $gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesCreateAsync($gateway_id, $listener_id, $gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesCreate'][0])
+    {
+        return $this->cloudGatewaysListenersRoutesCreateAsyncWithHttpInfo($gateway_id, $listener_id, $gateway_route_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesCreateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $listener_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayRouteWriteRequest|null $gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesCreateAsyncWithHttpInfo($gateway_id, $listener_id, $gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayRoute';
+        $request = $this->cloudGatewaysListenersRoutesCreateRequest($gateway_id, $listener_id, $gateway_route_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersRoutesCreate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $listener_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayRouteWriteRequest|null $gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersRoutesCreateRequest($gateway_id, $listener_id, $gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersRoutesCreate'
+            );
+        }
+
+        // verify the required parameter 'listener_id' is set
+        if ($listener_id === null || (is_array($listener_id) && count($listener_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $listener_id when calling cloudGatewaysListenersRoutesCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($listener_id !== null) {
+            $resourcePath = str_replace(
+                '{listener_id}',
+                ObjectSerializer::toPathValue($listener_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_route_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_route_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_route_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesDestroy
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int $listener_id listener_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysListenersRoutesDestroy($gateway_id, $id, $listener_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesDestroy'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersRoutesDestroyWithHttpInfo($gateway_id, $id, $listener_id, $revision, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesDestroyWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersRoutesDestroyWithHttpInfo($gateway_id, $id, $listener_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesDestroy'][0])
+    {
+        $request = $this->cloudGatewaysListenersRoutesDestroyRequest($gateway_id, $id, $listener_id, $revision, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesDestroyAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesDestroyAsync($gateway_id, $id, $listener_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesDestroy'][0])
+    {
+        return $this->cloudGatewaysListenersRoutesDestroyAsyncWithHttpInfo($gateway_id, $id, $listener_id, $revision, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesDestroyAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesDestroyAsyncWithHttpInfo($gateway_id, $id, $listener_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesDestroy'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysListenersRoutesDestroyRequest($gateway_id, $id, $listener_id, $revision, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersRoutesDestroy'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersRoutesDestroyRequest($gateway_id, $id, $listener_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesDestroy'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersRoutesDestroy'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysListenersRoutesDestroy'
+            );
+        }
+
+        // verify the required parameter 'listener_id' is set
+        if ($listener_id === null || (is_array($listener_id) && count($listener_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $listener_id when calling cloudGatewaysListenersRoutesDestroy'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($listener_id !== null) {
+            $resourcePath = str_replace(
+                '{listener_id}',
+                ObjectSerializer::toPathValue($listener_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesList
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $listener_id listener_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayRouteList
+     */
+    public function cloudGatewaysListenersRoutesList($gateway_id, $listener_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesList'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersRoutesListWithHttpInfo($gateway_id, $listener_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesListWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $listener_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayRouteList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersRoutesListWithHttpInfo($gateway_id, $listener_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesList'][0])
+    {
+        $request = $this->cloudGatewaysListenersRoutesListRequest($gateway_id, $listener_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayRouteList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayRouteList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayRouteList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesListAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $listener_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesListAsync($gateway_id, $listener_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesList'][0])
+    {
+        return $this->cloudGatewaysListenersRoutesListAsyncWithHttpInfo($gateway_id, $listener_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesListAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $listener_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesListAsyncWithHttpInfo($gateway_id, $listener_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayRouteList';
+        $request = $this->cloudGatewaysListenersRoutesListRequest($gateway_id, $listener_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersRoutesList'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $listener_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersRoutesListRequest($gateway_id, $listener_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesList'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersRoutesList'
+            );
+        }
+
+        // verify the required parameter 'listener_id' is set
+        if ($listener_id === null || (is_array($listener_id) && count($listener_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $listener_id when calling cloudGatewaysListenersRoutesList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($listener_id !== null) {
+            $resourcePath = str_replace(
+                '{listener_id}',
+                ObjectSerializer::toPathValue($listener_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesPartialUpdate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int $listener_id listener_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayRouteWriteRequest|null $patched_gateway_route_write_request patched_gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayRoute|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysListenersRoutesPartialUpdate($gateway_id, $id, $listener_id, $patched_gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersRoutesPartialUpdateWithHttpInfo($gateway_id, $id, $listener_id, $patched_gateway_route_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesPartialUpdateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayRouteWriteRequest|null $patched_gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayRoute|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersRoutesPartialUpdateWithHttpInfo($gateway_id, $id, $listener_id, $patched_gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'][0])
+    {
+        $request = $this->cloudGatewaysListenersRoutesPartialUpdateRequest($gateway_id, $id, $listener_id, $patched_gateway_route_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayRoute',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayRoute',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayRoute',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesPartialUpdateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayRouteWriteRequest|null $patched_gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesPartialUpdateAsync($gateway_id, $id, $listener_id, $patched_gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'][0])
+    {
+        return $this->cloudGatewaysListenersRoutesPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $listener_id, $patched_gateway_route_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesPartialUpdateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayRouteWriteRequest|null $patched_gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $listener_id, $patched_gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayRoute';
+        $request = $this->cloudGatewaysListenersRoutesPartialUpdateRequest($gateway_id, $id, $listener_id, $patched_gateway_route_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersRoutesPartialUpdate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayRouteWriteRequest|null $patched_gateway_route_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersRoutesPartialUpdateRequest($gateway_id, $id, $listener_id, $patched_gateway_route_write_request = null, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesPartialUpdate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersRoutesPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysListenersRoutesPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'listener_id' is set
+        if ($listener_id === null || (is_array($listener_id) && count($listener_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $listener_id when calling cloudGatewaysListenersRoutesPartialUpdate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($listener_id !== null) {
+            $resourcePath = str_replace(
+                '{listener_id}',
+                ObjectSerializer::toPathValue($listener_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patched_gateway_route_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($patched_gateway_route_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $patched_gateway_route_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesRetrieve
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int $listener_id listener_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayRoute
+     */
+    public function cloudGatewaysListenersRoutesRetrieve($gateway_id, $id, $listener_id, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysListenersRoutesRetrieveWithHttpInfo($gateway_id, $id, $listener_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesRetrieveWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayRoute, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysListenersRoutesRetrieveWithHttpInfo($gateway_id, $id, $listener_id, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysListenersRoutesRetrieveRequest($gateway_id, $id, $listener_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayRoute',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayRoute',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayRoute',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesRetrieveAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesRetrieveAsync($gateway_id, $id, $listener_id, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesRetrieve'][0])
+    {
+        return $this->cloudGatewaysListenersRoutesRetrieveAsyncWithHttpInfo($gateway_id, $id, $listener_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysListenersRoutesRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysListenersRoutesRetrieveAsyncWithHttpInfo($gateway_id, $id, $listener_id, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayRoute';
+        $request = $this->cloudGatewaysListenersRoutesRetrieveRequest($gateway_id, $id, $listener_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysListenersRoutesRetrieve'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $listener_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysListenersRoutesRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysListenersRoutesRetrieveRequest($gateway_id, $id, $listener_id, string $contentType = self::contentTypes['cloudGatewaysListenersRoutesRetrieve'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysListenersRoutesRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysListenersRoutesRetrieve'
+            );
+        }
+
+        // verify the required parameter 'listener_id' is set
+        if ($listener_id === null || (is_array($listener_id) && count($listener_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $listener_id when calling cloudGatewaysListenersRoutesRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($listener_id !== null) {
+            $resourcePath = str_replace(
+                '{listener_id}',
+                ObjectSerializer::toPathValue($listener_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksCreate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayNetworkCreateRequest $gateway_network_create_request gateway_network_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysNetworksCreate($gateway_id, $gateway_network_create_request, string $contentType = self::contentTypes['cloudGatewaysNetworksCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysNetworksCreateWithHttpInfo($gateway_id, $gateway_network_create_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksCreateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayNetworkCreateRequest $gateway_network_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysNetworksCreateWithHttpInfo($gateway_id, $gateway_network_create_request, string $contentType = self::contentTypes['cloudGatewaysNetworksCreate'][0])
+    {
+        $request = $this->cloudGatewaysNetworksCreateRequest($gateway_id, $gateway_network_create_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksCreateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayNetworkCreateRequest $gateway_network_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksCreateAsync($gateway_id, $gateway_network_create_request, string $contentType = self::contentTypes['cloudGatewaysNetworksCreate'][0])
+    {
+        return $this->cloudGatewaysNetworksCreateAsyncWithHttpInfo($gateway_id, $gateway_network_create_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksCreateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayNetworkCreateRequest $gateway_network_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksCreateAsyncWithHttpInfo($gateway_id, $gateway_network_create_request, string $contentType = self::contentTypes['cloudGatewaysNetworksCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysNetworksCreateRequest($gateway_id, $gateway_network_create_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysNetworksCreate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayNetworkCreateRequest $gateway_network_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysNetworksCreateRequest($gateway_id, $gateway_network_create_request, string $contentType = self::contentTypes['cloudGatewaysNetworksCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysNetworksCreate'
+            );
+        }
+
+        // verify the required parameter 'gateway_network_create_request' is set
+        if ($gateway_network_create_request === null || (is_array($gateway_network_create_request) && count($gateway_network_create_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_network_create_request when calling cloudGatewaysNetworksCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/networks/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_network_create_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_network_create_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_network_create_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksDestroy
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $network_id network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysNetworksDestroy($gateway_id, $network_id, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysNetworksDestroy'][0])
+    {
+        list($response) = $this->cloudGatewaysNetworksDestroyWithHttpInfo($gateway_id, $network_id, $revision, $servers, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksDestroyWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysNetworksDestroyWithHttpInfo($gateway_id, $network_id, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysNetworksDestroy'][0])
+    {
+        $request = $this->cloudGatewaysNetworksDestroyRequest($gateway_id, $network_id, $revision, $servers, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksDestroyAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksDestroyAsync($gateway_id, $network_id, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysNetworksDestroy'][0])
+    {
+        return $this->cloudGatewaysNetworksDestroyAsyncWithHttpInfo($gateway_id, $network_id, $revision, $servers, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksDestroyAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksDestroyAsyncWithHttpInfo($gateway_id, $network_id, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysNetworksDestroy'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysNetworksDestroyRequest($gateway_id, $network_id, $revision, $servers, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysNetworksDestroy'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysNetworksDestroyRequest($gateway_id, $network_id, $revision = null, $servers = null, string $contentType = self::contentTypes['cloudGatewaysNetworksDestroy'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysNetworksDestroy'
+            );
+        }
+
+        // verify the required parameter 'network_id' is set
+        if ($network_id === null || (is_array($network_id) && count($network_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $network_id when calling cloudGatewaysNetworksDestroy'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/networks/{network_id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $servers,
+            'servers', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($network_id !== null) {
+            $resourcePath = str_replace(
+                '{network_id}',
+                ObjectSerializer::toPathValue($network_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksList
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayNetworkList
+     */
+    public function cloudGatewaysNetworksList($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysNetworksList'][0])
+    {
+        list($response) = $this->cloudGatewaysNetworksListWithHttpInfo($gateway_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksListWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayNetworkList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysNetworksListWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysNetworksList'][0])
+    {
+        $request = $this->cloudGatewaysNetworksListRequest($gateway_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayNetworkList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayNetworkList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayNetworkList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksListAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksListAsync($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysNetworksList'][0])
+    {
+        return $this->cloudGatewaysNetworksListAsyncWithHttpInfo($gateway_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksListAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksListAsyncWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysNetworksList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayNetworkList';
+        $request = $this->cloudGatewaysNetworksListRequest($gateway_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysNetworksList'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysNetworksListRequest($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysNetworksList'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysNetworksList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/networks/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksPartialUpdate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $network_id network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayNetworkUpdateRequest|null $patched_gateway_network_update_request patched_gateway_network_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayNetwork|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysNetworksPartialUpdate($gateway_id, $network_id, $revision = null, $servers = null, $patched_gateway_network_update_request = null, string $contentType = self::contentTypes['cloudGatewaysNetworksPartialUpdate'][0])
+    {
+        list($response) = $this->cloudGatewaysNetworksPartialUpdateWithHttpInfo($gateway_id, $network_id, $revision, $servers, $patched_gateway_network_update_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksPartialUpdateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayNetworkUpdateRequest|null $patched_gateway_network_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayNetwork|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysNetworksPartialUpdateWithHttpInfo($gateway_id, $network_id, $revision = null, $servers = null, $patched_gateway_network_update_request = null, string $contentType = self::contentTypes['cloudGatewaysNetworksPartialUpdate'][0])
+    {
+        $request = $this->cloudGatewaysNetworksPartialUpdateRequest($gateway_id, $network_id, $revision, $servers, $patched_gateway_network_update_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayNetwork',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayNetwork',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayNetwork',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksPartialUpdateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayNetworkUpdateRequest|null $patched_gateway_network_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksPartialUpdateAsync($gateway_id, $network_id, $revision = null, $servers = null, $patched_gateway_network_update_request = null, string $contentType = self::contentTypes['cloudGatewaysNetworksPartialUpdate'][0])
+    {
+        return $this->cloudGatewaysNetworksPartialUpdateAsyncWithHttpInfo($gateway_id, $network_id, $revision, $servers, $patched_gateway_network_update_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksPartialUpdateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayNetworkUpdateRequest|null $patched_gateway_network_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksPartialUpdateAsyncWithHttpInfo($gateway_id, $network_id, $revision = null, $servers = null, $patched_gateway_network_update_request = null, string $contentType = self::contentTypes['cloudGatewaysNetworksPartialUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayNetwork';
+        $request = $this->cloudGatewaysNetworksPartialUpdateRequest($gateway_id, $network_id, $revision, $servers, $patched_gateway_network_update_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysNetworksPartialUpdate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  int[]|null $servers The preview&#39;s server ids. (optional)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayNetworkUpdateRequest|null $patched_gateway_network_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysNetworksPartialUpdateRequest($gateway_id, $network_id, $revision = null, $servers = null, $patched_gateway_network_update_request = null, string $contentType = self::contentTypes['cloudGatewaysNetworksPartialUpdate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysNetworksPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'network_id' is set
+        if ($network_id === null || (is_array($network_id) && count($network_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $network_id when calling cloudGatewaysNetworksPartialUpdate'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/networks/{network_id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $servers,
+            'servers', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($network_id !== null) {
+            $resourcePath = str_replace(
+                '{network_id}',
+                ObjectSerializer::toPathValue($network_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patched_gateway_network_update_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($patched_gateway_network_update_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $patched_gateway_network_update_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksRetrieve
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $network_id network_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayNetwork
+     */
+    public function cloudGatewaysNetworksRetrieve($gateway_id, $network_id, string $contentType = self::contentTypes['cloudGatewaysNetworksRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysNetworksRetrieveWithHttpInfo($gateway_id, $network_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksRetrieveWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayNetwork, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysNetworksRetrieveWithHttpInfo($gateway_id, $network_id, string $contentType = self::contentTypes['cloudGatewaysNetworksRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysNetworksRetrieveRequest($gateway_id, $network_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayNetwork',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayNetwork',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayNetwork',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksRetrieveAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksRetrieveAsync($gateway_id, $network_id, string $contentType = self::contentTypes['cloudGatewaysNetworksRetrieve'][0])
+    {
+        return $this->cloudGatewaysNetworksRetrieveAsyncWithHttpInfo($gateway_id, $network_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysNetworksRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysNetworksRetrieveAsyncWithHttpInfo($gateway_id, $network_id, string $contentType = self::contentTypes['cloudGatewaysNetworksRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayNetwork';
+        $request = $this->cloudGatewaysNetworksRetrieveRequest($gateway_id, $network_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysNetworksRetrieve'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $network_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysNetworksRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysNetworksRetrieveRequest($gateway_id, $network_id, string $contentType = self::contentTypes['cloudGatewaysNetworksRetrieve'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysNetworksRetrieve'
+            );
+        }
+
+        // verify the required parameter 'network_id' is set
+        if ($network_id === null || (is_array($network_id) && count($network_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $network_id when calling cloudGatewaysNetworksRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/networks/{network_id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($network_id !== null) {
+            $resourcePath = str_replace(
+                '{network_id}',
+                ObjectSerializer::toPathValue($network_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysOperationsList
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayOperationList
+     */
+    public function cloudGatewaysOperationsList($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysOperationsList'][0])
+    {
+        list($response) = $this->cloudGatewaysOperationsListWithHttpInfo($gateway_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysOperationsListWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayOperationList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysOperationsListWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysOperationsList'][0])
+    {
+        $request = $this->cloudGatewaysOperationsListRequest($gateway_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayOperationList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayOperationList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayOperationList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysOperationsListAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysOperationsListAsync($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysOperationsList'][0])
+    {
+        return $this->cloudGatewaysOperationsListAsyncWithHttpInfo($gateway_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysOperationsListAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysOperationsListAsyncWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysOperationsList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayOperationList';
+        $request = $this->cloudGatewaysOperationsListRequest($gateway_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysOperationsList'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysOperationsListRequest($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysOperationsList'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysOperationsList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/operations/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysOperationsRetrieve
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation
+     */
+    public function cloudGatewaysOperationsRetrieve($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysOperationsRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysOperationsRetrieveWithHttpInfo($gateway_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysOperationsRetrieveWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysOperationsRetrieveWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysOperationsRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysOperationsRetrieveRequest($gateway_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysOperationsRetrieveAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysOperationsRetrieveAsync($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysOperationsRetrieve'][0])
+    {
+        return $this->cloudGatewaysOperationsRetrieveAsyncWithHttpInfo($gateway_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysOperationsRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysOperationsRetrieveAsyncWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysOperationsRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysOperationsRetrieveRequest($gateway_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysOperationsRetrieve'
+     *
+     * @param  int $gateway_id (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysOperationsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysOperationsRetrieveRequest($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysOperationsRetrieve'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysOperationsRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysOperationsRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/operations/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPartialUpdate
+     *
+     * @param  string $id id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayUpdateRequest|null $patched_gateway_update_request patched_gateway_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\Gateway|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPartialUpdate($id, $patched_gateway_update_request = null, string $contentType = self::contentTypes['cloudGatewaysPartialUpdate'][0])
+    {
+        list($response) = $this->cloudGatewaysPartialUpdateWithHttpInfo($id, $patched_gateway_update_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPartialUpdateWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayUpdateRequest|null $patched_gateway_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\Gateway|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPartialUpdateWithHttpInfo($id, $patched_gateway_update_request = null, string $contentType = self::contentTypes['cloudGatewaysPartialUpdate'][0])
+    {
+        $request = $this->cloudGatewaysPartialUpdateRequest($id, $patched_gateway_update_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\Gateway',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\Gateway',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\Gateway',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPartialUpdateAsync
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayUpdateRequest|null $patched_gateway_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPartialUpdateAsync($id, $patched_gateway_update_request = null, string $contentType = self::contentTypes['cloudGatewaysPartialUpdate'][0])
+    {
+        return $this->cloudGatewaysPartialUpdateAsyncWithHttpInfo($id, $patched_gateway_update_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPartialUpdateAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayUpdateRequest|null $patched_gateway_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPartialUpdateAsyncWithHttpInfo($id, $patched_gateway_update_request = null, string $contentType = self::contentTypes['cloudGatewaysPartialUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\Gateway';
+        $request = $this->cloudGatewaysPartialUpdateRequest($id, $patched_gateway_update_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPartialUpdate'
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayUpdateRequest|null $patched_gateway_update_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPartialUpdateRequest($id, $patched_gateway_update_request = null, string $contentType = self::contentTypes['cloudGatewaysPartialUpdate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPartialUpdate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patched_gateway_update_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($patched_gateway_update_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $patched_gateway_update_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsCreate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $pool_id pool_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendWriteRequest|null $gateway_backend_write_request gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayBackend|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPoolsBackendsCreate($gateway_id, $pool_id, $gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsBackendsCreateWithHttpInfo($gateway_id, $pool_id, $gateway_backend_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsCreateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendWriteRequest|null $gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayBackend|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsBackendsCreateWithHttpInfo($gateway_id, $pool_id, $gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsCreate'][0])
+    {
+        $request = $this->cloudGatewaysPoolsBackendsCreateRequest($gateway_id, $pool_id, $gateway_backend_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayBackend',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayBackend',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayBackend',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsCreateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendWriteRequest|null $gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsCreateAsync($gateway_id, $pool_id, $gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsCreate'][0])
+    {
+        return $this->cloudGatewaysPoolsBackendsCreateAsyncWithHttpInfo($gateway_id, $pool_id, $gateway_backend_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsCreateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendWriteRequest|null $gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsCreateAsyncWithHttpInfo($gateway_id, $pool_id, $gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayBackend';
+        $request = $this->cloudGatewaysPoolsBackendsCreateRequest($gateway_id, $pool_id, $gateway_backend_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsBackendsCreate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendWriteRequest|null $gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsBackendsCreateRequest($gateway_id, $pool_id, $gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsBackendsCreate'
+            );
+        }
+
+        // verify the required parameter 'pool_id' is set
+        if ($pool_id === null || (is_array($pool_id) && count($pool_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pool_id when calling cloudGatewaysPoolsBackendsCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($pool_id !== null) {
+            $resourcePath = str_replace(
+                '{pool_id}',
+                ObjectSerializer::toPathValue($pool_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_backend_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_backend_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_backend_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsDestroy
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int $pool_id pool_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPoolsBackendsDestroy($gateway_id, $id, $pool_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsDestroy'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsBackendsDestroyWithHttpInfo($gateway_id, $id, $pool_id, $revision, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsDestroyWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsBackendsDestroyWithHttpInfo($gateway_id, $id, $pool_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsDestroy'][0])
+    {
+        $request = $this->cloudGatewaysPoolsBackendsDestroyRequest($gateway_id, $id, $pool_id, $revision, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsDestroyAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsDestroyAsync($gateway_id, $id, $pool_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsDestroy'][0])
+    {
+        return $this->cloudGatewaysPoolsBackendsDestroyAsyncWithHttpInfo($gateway_id, $id, $pool_id, $revision, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsDestroyAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsDestroyAsyncWithHttpInfo($gateway_id, $id, $pool_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsDestroy'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysPoolsBackendsDestroyRequest($gateway_id, $id, $pool_id, $revision, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsBackendsDestroy'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsBackendsDestroyRequest($gateway_id, $id, $pool_id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsDestroy'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsBackendsDestroy'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPoolsBackendsDestroy'
+            );
+        }
+
+        // verify the required parameter 'pool_id' is set
+        if ($pool_id === null || (is_array($pool_id) && count($pool_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pool_id when calling cloudGatewaysPoolsBackendsDestroy'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($pool_id !== null) {
+            $resourcePath = str_replace(
+                '{pool_id}',
+                ObjectSerializer::toPathValue($pool_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsList
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $pool_id pool_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayBackendList
+     */
+    public function cloudGatewaysPoolsBackendsList($gateway_id, $pool_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsList'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsBackendsListWithHttpInfo($gateway_id, $pool_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsListWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $pool_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayBackendList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsBackendsListWithHttpInfo($gateway_id, $pool_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsList'][0])
+    {
+        $request = $this->cloudGatewaysPoolsBackendsListRequest($gateway_id, $pool_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayBackendList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayBackendList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayBackendList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsListAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $pool_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsListAsync($gateway_id, $pool_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsList'][0])
+    {
+        return $this->cloudGatewaysPoolsBackendsListAsyncWithHttpInfo($gateway_id, $pool_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsListAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $pool_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsListAsyncWithHttpInfo($gateway_id, $pool_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayBackendList';
+        $request = $this->cloudGatewaysPoolsBackendsListRequest($gateway_id, $pool_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsBackendsList'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $pool_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsBackendsListRequest($gateway_id, $pool_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsList'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsBackendsList'
+            );
+        }
+
+        // verify the required parameter 'pool_id' is set
+        if ($pool_id === null || (is_array($pool_id) && count($pool_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pool_id when calling cloudGatewaysPoolsBackendsList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($pool_id !== null) {
+            $resourcePath = str_replace(
+                '{pool_id}',
+                ObjectSerializer::toPathValue($pool_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsPartialUpdate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int $pool_id pool_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendWriteRequest|null $patched_gateway_backend_write_request patched_gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayBackend|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPoolsBackendsPartialUpdate($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsBackendsPartialUpdateWithHttpInfo($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsPartialUpdateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendWriteRequest|null $patched_gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayBackend|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsBackendsPartialUpdateWithHttpInfo($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'][0])
+    {
+        $request = $this->cloudGatewaysPoolsBackendsPartialUpdateRequest($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayBackend',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayBackend',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayBackend',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsPartialUpdateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendWriteRequest|null $patched_gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsPartialUpdateAsync($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'][0])
+    {
+        return $this->cloudGatewaysPoolsBackendsPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsPartialUpdateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendWriteRequest|null $patched_gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayBackend';
+        $request = $this->cloudGatewaysPoolsBackendsPartialUpdateRequest($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsBackendsPartialUpdate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendWriteRequest|null $patched_gateway_backend_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsBackendsPartialUpdateRequest($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsPartialUpdate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsBackendsPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPoolsBackendsPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'pool_id' is set
+        if ($pool_id === null || (is_array($pool_id) && count($pool_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pool_id when calling cloudGatewaysPoolsBackendsPartialUpdate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($pool_id !== null) {
+            $resourcePath = str_replace(
+                '{pool_id}',
+                ObjectSerializer::toPathValue($pool_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patched_gateway_backend_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($patched_gateway_backend_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $patched_gateway_backend_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsRetrieve
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int $pool_id pool_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayBackend
+     */
+    public function cloudGatewaysPoolsBackendsRetrieve($gateway_id, $id, $pool_id, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsBackendsRetrieveWithHttpInfo($gateway_id, $id, $pool_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsRetrieveWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayBackend, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsBackendsRetrieveWithHttpInfo($gateway_id, $id, $pool_id, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysPoolsBackendsRetrieveRequest($gateway_id, $id, $pool_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayBackend',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayBackend',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayBackend',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsRetrieveAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsRetrieveAsync($gateway_id, $id, $pool_id, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'][0])
+    {
+        return $this->cloudGatewaysPoolsBackendsRetrieveAsyncWithHttpInfo($gateway_id, $id, $pool_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsBackendsRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsBackendsRetrieveAsyncWithHttpInfo($gateway_id, $id, $pool_id, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayBackend';
+        $request = $this->cloudGatewaysPoolsBackendsRetrieveRequest($gateway_id, $id, $pool_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsBackendsRetrieve'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int $pool_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsBackendsRetrieveRequest($gateway_id, $id, $pool_id, string $contentType = self::contentTypes['cloudGatewaysPoolsBackendsRetrieve'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsBackendsRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPoolsBackendsRetrieve'
+            );
+        }
+
+        // verify the required parameter 'pool_id' is set
+        if ($pool_id === null || (is_array($pool_id) && count($pool_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pool_id when calling cloudGatewaysPoolsBackendsRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($pool_id !== null) {
+            $resourcePath = str_replace(
+                '{pool_id}',
+                ObjectSerializer::toPathValue($pool_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsCreate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendPoolWriteRequest|null $gateway_backend_pool_write_request gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayBackendPool|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPoolsCreate($gateway_id, $gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsCreateWithHttpInfo($gateway_id, $gateway_backend_pool_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsCreateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendPoolWriteRequest|null $gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayBackendPool|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsCreateWithHttpInfo($gateway_id, $gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsCreate'][0])
+    {
+        $request = $this->cloudGatewaysPoolsCreateRequest($gateway_id, $gateway_backend_pool_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayBackendPool',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayBackendPool',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayBackendPool',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsCreateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendPoolWriteRequest|null $gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsCreateAsync($gateway_id, $gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsCreate'][0])
+    {
+        return $this->cloudGatewaysPoolsCreateAsyncWithHttpInfo($gateway_id, $gateway_backend_pool_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsCreateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendPoolWriteRequest|null $gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsCreateAsyncWithHttpInfo($gateway_id, $gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayBackendPool';
+        $request = $this->cloudGatewaysPoolsCreateRequest($gateway_id, $gateway_backend_pool_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsCreate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayBackendPoolWriteRequest|null $gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsCreateRequest($gateway_id, $gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_backend_pool_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_backend_pool_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_backend_pool_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsDestroy
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPoolsDestroy($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsDestroy'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsDestroyWithHttpInfo($gateway_id, $id, $revision, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsDestroyWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsDestroyWithHttpInfo($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsDestroy'][0])
+    {
+        $request = $this->cloudGatewaysPoolsDestroyRequest($gateway_id, $id, $revision, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsDestroyAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsDestroyAsync($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsDestroy'][0])
+    {
+        return $this->cloudGatewaysPoolsDestroyAsyncWithHttpInfo($gateway_id, $id, $revision, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsDestroyAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsDestroyAsyncWithHttpInfo($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsDestroy'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysPoolsDestroyRequest($gateway_id, $id, $revision, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsDestroy'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsDestroyRequest($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPoolsDestroy'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsDestroy'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPoolsDestroy'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsList
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayBackendPoolList
+     */
+    public function cloudGatewaysPoolsList($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsList'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsListWithHttpInfo($gateway_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsListWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayBackendPoolList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsListWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsList'][0])
+    {
+        $request = $this->cloudGatewaysPoolsListRequest($gateway_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayBackendPoolList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayBackendPoolList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayBackendPoolList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsListAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsListAsync($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsList'][0])
+    {
+        return $this->cloudGatewaysPoolsListAsyncWithHttpInfo($gateway_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsListAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsListAsyncWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayBackendPoolList';
+        $request = $this->cloudGatewaysPoolsListRequest($gateway_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsList'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsListRequest($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPoolsList'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsPartialUpdate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendPoolWriteRequest|null $patched_gateway_backend_pool_write_request patched_gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayBackendPool|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPoolsPartialUpdate($gateway_id, $id, $patched_gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsPartialUpdate'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsPartialUpdateWithHttpInfo($gateway_id, $id, $patched_gateway_backend_pool_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsPartialUpdateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendPoolWriteRequest|null $patched_gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayBackendPool|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsPartialUpdateWithHttpInfo($gateway_id, $id, $patched_gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsPartialUpdate'][0])
+    {
+        $request = $this->cloudGatewaysPoolsPartialUpdateRequest($gateway_id, $id, $patched_gateway_backend_pool_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayBackendPool',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayBackendPool',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayBackendPool',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsPartialUpdateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendPoolWriteRequest|null $patched_gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsPartialUpdateAsync($gateway_id, $id, $patched_gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsPartialUpdate'][0])
+    {
+        return $this->cloudGatewaysPoolsPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $patched_gateway_backend_pool_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsPartialUpdateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendPoolWriteRequest|null $patched_gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $patched_gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsPartialUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayBackendPool';
+        $request = $this->cloudGatewaysPoolsPartialUpdateRequest($gateway_id, $id, $patched_gateway_backend_pool_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsPartialUpdate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayBackendPoolWriteRequest|null $patched_gateway_backend_pool_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsPartialUpdateRequest($gateway_id, $id, $patched_gateway_backend_pool_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPoolsPartialUpdate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPoolsPartialUpdate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patched_gateway_backend_pool_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($patched_gateway_backend_pool_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $patched_gateway_backend_pool_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsRetrieve
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayBackendPool
+     */
+    public function cloudGatewaysPoolsRetrieve($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPoolsRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysPoolsRetrieveWithHttpInfo($gateway_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsRetrieveWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayBackendPool, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPoolsRetrieveWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPoolsRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysPoolsRetrieveRequest($gateway_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayBackendPool',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayBackendPool',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayBackendPool',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsRetrieveAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsRetrieveAsync($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPoolsRetrieve'][0])
+    {
+        return $this->cloudGatewaysPoolsRetrieveAsyncWithHttpInfo($gateway_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPoolsRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPoolsRetrieveAsyncWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPoolsRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayBackendPool';
+        $request = $this->cloudGatewaysPoolsRetrieveRequest($gateway_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPoolsRetrieve'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPoolsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPoolsRetrieveRequest($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPoolsRetrieve'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPoolsRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPoolsRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/pools/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsCreate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayForwardWriteRequest $gateway_forward_write_request gateway_forward_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayForward|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPortForwardsCreate($gateway_id, $gateway_forward_write_request, string $contentType = self::contentTypes['cloudGatewaysPortForwardsCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysPortForwardsCreateWithHttpInfo($gateway_id, $gateway_forward_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsCreateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayForwardWriteRequest $gateway_forward_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayForward|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPortForwardsCreateWithHttpInfo($gateway_id, $gateway_forward_write_request, string $contentType = self::contentTypes['cloudGatewaysPortForwardsCreate'][0])
+    {
+        $request = $this->cloudGatewaysPortForwardsCreateRequest($gateway_id, $gateway_forward_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 201:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayForward',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayForward',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayForward',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsCreateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayForwardWriteRequest $gateway_forward_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsCreateAsync($gateway_id, $gateway_forward_write_request, string $contentType = self::contentTypes['cloudGatewaysPortForwardsCreate'][0])
+    {
+        return $this->cloudGatewaysPortForwardsCreateAsyncWithHttpInfo($gateway_id, $gateway_forward_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsCreateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayForwardWriteRequest $gateway_forward_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsCreateAsyncWithHttpInfo($gateway_id, $gateway_forward_write_request, string $contentType = self::contentTypes['cloudGatewaysPortForwardsCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayForward';
+        $request = $this->cloudGatewaysPortForwardsCreateRequest($gateway_id, $gateway_forward_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPortForwardsCreate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayForwardWriteRequest $gateway_forward_write_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPortForwardsCreateRequest($gateway_id, $gateway_forward_write_request, string $contentType = self::contentTypes['cloudGatewaysPortForwardsCreate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPortForwardsCreate'
+            );
+        }
+
+        // verify the required parameter 'gateway_forward_write_request' is set
+        if ($gateway_forward_write_request === null || (is_array($gateway_forward_write_request) && count($gateway_forward_write_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_forward_write_request when calling cloudGatewaysPortForwardsCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/port-forwards/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_forward_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_forward_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_forward_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsDestroy
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPortForwardsDestroy($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsDestroy'][0])
+    {
+        list($response) = $this->cloudGatewaysPortForwardsDestroyWithHttpInfo($gateway_id, $id, $revision, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsDestroyWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsDestroy'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPortForwardsDestroyWithHttpInfo($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsDestroy'][0])
+    {
+        $request = $this->cloudGatewaysPortForwardsDestroyRequest($gateway_id, $id, $revision, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsDestroyAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsDestroyAsync($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsDestroy'][0])
+    {
+        return $this->cloudGatewaysPortForwardsDestroyAsyncWithHttpInfo($gateway_id, $id, $revision, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsDestroyAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsDestroyAsyncWithHttpInfo($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsDestroy'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysPortForwardsDestroyRequest($gateway_id, $id, $revision, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPortForwardsDestroy'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  int|null $revision The gateway&#39;s desired revision from the preview; without it, a preview. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsDestroy'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPortForwardsDestroyRequest($gateway_id, $id, $revision = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsDestroy'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPortForwardsDestroy'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPortForwardsDestroy'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/port-forwards/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $revision,
+            'revision', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsList
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\PaginatedGatewayForwardList
+     */
+    public function cloudGatewaysPortForwardsList($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsList'][0])
+    {
+        list($response) = $this->cloudGatewaysPortForwardsListWithHttpInfo($gateway_id, $page, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsListWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsList'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\PaginatedGatewayForwardList, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPortForwardsListWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsList'][0])
+    {
+        $request = $this->cloudGatewaysPortForwardsListRequest($gateway_id, $page, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PaginatedGatewayForwardList',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\PaginatedGatewayForwardList',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PaginatedGatewayForwardList',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsListAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsListAsync($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsList'][0])
+    {
+        return $this->cloudGatewaysPortForwardsListAsyncWithHttpInfo($gateway_id, $page, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsListAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsListAsyncWithHttpInfo($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsList'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\PaginatedGatewayForwardList';
+        $request = $this->cloudGatewaysPortForwardsListRequest($gateway_id, $page, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPortForwardsList'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int|null $page A page number within the paginated result set. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPortForwardsListRequest($gateway_id, $page = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsList'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPortForwardsList'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/port-forwards/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page,
+            'page', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsPartialUpdate
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayForwardWriteRequest|null $patched_gateway_forward_write_request patched_gateway_forward_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayForward|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudGatewaysPortForwardsPartialUpdate($gateway_id, $id, $patched_gateway_forward_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'][0])
+    {
+        list($response) = $this->cloudGatewaysPortForwardsPartialUpdateWithHttpInfo($gateway_id, $id, $patched_gateway_forward_write_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsPartialUpdateWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayForwardWriteRequest|null $patched_gateway_forward_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayForward|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPortForwardsPartialUpdateWithHttpInfo($gateway_id, $id, $patched_gateway_forward_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'][0])
+    {
+        $request = $this->cloudGatewaysPortForwardsPartialUpdateRequest($gateway_id, $id, $patched_gateway_forward_write_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayForward',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayForward',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayForward',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsPartialUpdateAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayForwardWriteRequest|null $patched_gateway_forward_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsPartialUpdateAsync($gateway_id, $id, $patched_gateway_forward_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'][0])
+    {
+        return $this->cloudGatewaysPortForwardsPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $patched_gateway_forward_write_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsPartialUpdateAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayForwardWriteRequest|null $patched_gateway_forward_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsPartialUpdateAsyncWithHttpInfo($gateway_id, $id, $patched_gateway_forward_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayForward';
+        $request = $this->cloudGatewaysPortForwardsPartialUpdateRequest($gateway_id, $id, $patched_gateway_forward_write_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPortForwardsPartialUpdate'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\PatchedGatewayForwardWriteRequest|null $patched_gateway_forward_write_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPortForwardsPartialUpdateRequest($gateway_id, $id, $patched_gateway_forward_write_request = null, string $contentType = self::contentTypes['cloudGatewaysPortForwardsPartialUpdate'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPortForwardsPartialUpdate'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPortForwardsPartialUpdate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/port-forwards/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($patched_gateway_forward_write_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($patched_gateway_forward_write_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $patched_gateway_forward_write_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsRetrieve
+     *
+     * @param  int $gateway_id gateway_id (required)
+     * @param  int $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayForward
+     */
+    public function cloudGatewaysPortForwardsRetrieve($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPortForwardsRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysPortForwardsRetrieveWithHttpInfo($gateway_id, $id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsRetrieveWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayForward, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysPortForwardsRetrieveWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPortForwardsRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysPortForwardsRetrieveRequest($gateway_id, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayForward',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayForward',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayForward',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsRetrieveAsync
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsRetrieveAsync($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPortForwardsRetrieve'][0])
+    {
+        return $this->cloudGatewaysPortForwardsRetrieveAsyncWithHttpInfo($gateway_id, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysPortForwardsRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysPortForwardsRetrieveAsyncWithHttpInfo($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPortForwardsRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayForward';
+        $request = $this->cloudGatewaysPortForwardsRetrieveRequest($gateway_id, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysPortForwardsRetrieve'
+     *
+     * @param  int $gateway_id (required)
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysPortForwardsRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysPortForwardsRetrieveRequest($gateway_id, $id, string $contentType = self::contentTypes['cloudGatewaysPortForwardsRetrieve'][0])
+    {
+
+        // verify the required parameter 'gateway_id' is set
+        if ($gateway_id === null || (is_array($gateway_id) && count($gateway_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $gateway_id when calling cloudGatewaysPortForwardsRetrieve'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysPortForwardsRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{gateway_id}/port-forwards/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($gateway_id !== null) {
+            $resourcePath = str_replace(
+                '{gateway_id}',
+                ObjectSerializer::toPathValue($gateway_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysReenrollCreate
+     *
+     * @param  string $id id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayReenrollRequest|null $gateway_reenroll_request gateway_reenroll_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysReenrollCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayReenrollConflict
+     */
+    public function cloudGatewaysReenrollCreate($id, $gateway_reenroll_request = null, string $contentType = self::contentTypes['cloudGatewaysReenrollCreate'][0])
+    {
+        list($response) = $this->cloudGatewaysReenrollCreateWithHttpInfo($id, $gateway_reenroll_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysReenrollCreateWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayReenrollRequest|null $gateway_reenroll_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysReenrollCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayReenrollConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysReenrollCreateWithHttpInfo($id, $gateway_reenroll_request = null, string $contentType = self::contentTypes['cloudGatewaysReenrollCreate'][0])
+    {
+        $request = $this->cloudGatewaysReenrollCreateRequest($id, $gateway_reenroll_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayReenrollConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayReenrollConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysReenrollCreateAsync
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayReenrollRequest|null $gateway_reenroll_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysReenrollCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysReenrollCreateAsync($id, $gateway_reenroll_request = null, string $contentType = self::contentTypes['cloudGatewaysReenrollCreate'][0])
+    {
+        return $this->cloudGatewaysReenrollCreateAsyncWithHttpInfo($id, $gateway_reenroll_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysReenrollCreateAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayReenrollRequest|null $gateway_reenroll_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysReenrollCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysReenrollCreateAsyncWithHttpInfo($id, $gateway_reenroll_request = null, string $contentType = self::contentTypes['cloudGatewaysReenrollCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudGatewaysReenrollCreateRequest($id, $gateway_reenroll_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysReenrollCreate'
+     *
+     * @param  string $id (required)
+     * @param  \PidginHost\Sdk\Model\GatewayReenrollRequest|null $gateway_reenroll_request (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysReenrollCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysReenrollCreateRequest($id, $gateway_reenroll_request = null, string $contentType = self::contentTypes['cloudGatewaysReenrollCreate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysReenrollCreate'
+            );
+        }
+
+
+
+        $resourcePath = '/api/cloud/gateways/{id}/reenroll/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($gateway_reenroll_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($gateway_reenroll_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $gateway_reenroll_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysRetrieve
+     *
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\Gateway
+     */
+    public function cloudGatewaysRetrieve($id, string $contentType = self::contentTypes['cloudGatewaysRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysRetrieveWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysRetrieveWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\Gateway, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysRetrieveWithHttpInfo($id, string $contentType = self::contentTypes['cloudGatewaysRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysRetrieveRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\Gateway',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\Gateway',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\Gateway',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysRetrieveAsync
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysRetrieveAsync($id, string $contentType = self::contentTypes['cloudGatewaysRetrieve'][0])
+    {
+        return $this->cloudGatewaysRetrieveAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysRetrieveAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysRetrieveAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudGatewaysRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\Gateway';
+        $request = $this->cloudGatewaysRetrieveRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysRetrieve'
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysRetrieveRequest($id, string $contentType = self::contentTypes['cloudGatewaysRetrieve'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudGatewaysStatusRetrieve
+     *
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayStatus
+     */
+    public function cloudGatewaysStatusRetrieve($id, string $contentType = self::contentTypes['cloudGatewaysStatusRetrieve'][0])
+    {
+        list($response) = $this->cloudGatewaysStatusRetrieveWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudGatewaysStatusRetrieveWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudGatewaysStatusRetrieveWithHttpInfo($id, string $contentType = self::contentTypes['cloudGatewaysStatusRetrieve'][0])
+    {
+        $request = $this->cloudGatewaysStatusRetrieveRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayStatus',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayStatus',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudGatewaysStatusRetrieveAsync
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysStatusRetrieveAsync($id, string $contentType = self::contentTypes['cloudGatewaysStatusRetrieve'][0])
+    {
+        return $this->cloudGatewaysStatusRetrieveAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudGatewaysStatusRetrieveAsyncWithHttpInfo
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudGatewaysStatusRetrieveAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudGatewaysStatusRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayStatus';
+        $request = $this->cloudGatewaysStatusRetrieveRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudGatewaysStatusRetrieve'
+     *
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudGatewaysStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudGatewaysStatusRetrieveRequest($id, string $contentType = self::contentTypes['cloudGatewaysStatusRetrieve'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudGatewaysStatusRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/gateways/{id}/status/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation cloudGenerationsList
      *
      * List hardware generations
@@ -15857,6 +29754,312 @@ class CloudApi
     }
 
     /**
+     * Operation cloudPrivateNetworksApplyRouteCreate
+     *
+     * @param  int $id id (required)
+     * @param  \PidginHost\Sdk\Model\ApplyRouteRequest $apply_route_request apply_route_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksApplyRouteCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict
+     */
+    public function cloudPrivateNetworksApplyRouteCreate($id, $apply_route_request, string $contentType = self::contentTypes['cloudPrivateNetworksApplyRouteCreate'][0])
+    {
+        list($response) = $this->cloudPrivateNetworksApplyRouteCreateWithHttpInfo($id, $apply_route_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudPrivateNetworksApplyRouteCreateWithHttpInfo
+     *
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\ApplyRouteRequest $apply_route_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksApplyRouteCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\GatewayOperation|\PidginHost\Sdk\Model\GatewayConflict, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudPrivateNetworksApplyRouteCreateWithHttpInfo($id, $apply_route_request, string $contentType = self::contentTypes['cloudPrivateNetworksApplyRouteCreate'][0])
+    {
+        $request = $this->cloudPrivateNetworksApplyRouteCreateRequest($id, $apply_route_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 202:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $request,
+                        $response,
+                    );
+                case 409:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\GatewayOperation',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 202:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayOperation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\GatewayConflict',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudPrivateNetworksApplyRouteCreateAsync
+     *
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\ApplyRouteRequest $apply_route_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksApplyRouteCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudPrivateNetworksApplyRouteCreateAsync($id, $apply_route_request, string $contentType = self::contentTypes['cloudPrivateNetworksApplyRouteCreate'][0])
+    {
+        return $this->cloudPrivateNetworksApplyRouteCreateAsyncWithHttpInfo($id, $apply_route_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudPrivateNetworksApplyRouteCreateAsyncWithHttpInfo
+     *
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\ApplyRouteRequest $apply_route_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksApplyRouteCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudPrivateNetworksApplyRouteCreateAsyncWithHttpInfo($id, $apply_route_request, string $contentType = self::contentTypes['cloudPrivateNetworksApplyRouteCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\GatewayOperation';
+        $request = $this->cloudPrivateNetworksApplyRouteCreateRequest($id, $apply_route_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudPrivateNetworksApplyRouteCreate'
+     *
+     * @param  int $id (required)
+     * @param  \PidginHost\Sdk\Model\ApplyRouteRequest $apply_route_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksApplyRouteCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudPrivateNetworksApplyRouteCreateRequest($id, $apply_route_request, string $contentType = self::contentTypes['cloudPrivateNetworksApplyRouteCreate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudPrivateNetworksApplyRouteCreate'
+            );
+        }
+
+        // verify the required parameter 'apply_route_request' is set
+        if ($apply_route_request === null || (is_array($apply_route_request) && count($apply_route_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $apply_route_request when calling cloudPrivateNetworksApplyRouteCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/private-networks/{id}/apply-route/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($apply_route_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($apply_route_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $apply_route_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation cloudPrivateNetworksCreate
      *
      * @param  \PidginHost\Sdk\Model\PrivateNetworkRequest $private_network_request private_network_request (required)
@@ -17378,6 +31581,275 @@ class CloudApi
 
 
         $resourcePath = '/api/cloud/private-networks/{id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudPrivateNetworksRouteStatusRetrieve
+     *
+     * @param  int $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\RouteStatus
+     */
+    public function cloudPrivateNetworksRouteStatusRetrieve($id, string $contentType = self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'][0])
+    {
+        list($response) = $this->cloudPrivateNetworksRouteStatusRetrieveWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudPrivateNetworksRouteStatusRetrieveWithHttpInfo
+     *
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\RouteStatus, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudPrivateNetworksRouteStatusRetrieveWithHttpInfo($id, string $contentType = self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'][0])
+    {
+        $request = $this->cloudPrivateNetworksRouteStatusRetrieveRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\RouteStatus',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\RouteStatus',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\RouteStatus',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudPrivateNetworksRouteStatusRetrieveAsync
+     *
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudPrivateNetworksRouteStatusRetrieveAsync($id, string $contentType = self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'][0])
+    {
+        return $this->cloudPrivateNetworksRouteStatusRetrieveAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudPrivateNetworksRouteStatusRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudPrivateNetworksRouteStatusRetrieveAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\RouteStatus';
+        $request = $this->cloudPrivateNetworksRouteStatusRetrieveRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudPrivateNetworksRouteStatusRetrieve'
+     *
+     * @param  int $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudPrivateNetworksRouteStatusRetrieveRequest($id, string $contentType = self::contentTypes['cloudPrivateNetworksRouteStatusRetrieve'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudPrivateNetworksRouteStatusRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/private-networks/{id}/route-status/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -81,6 +81,15 @@ class PatchedServerDetailRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "hostname"
+     */
+    public function testPropertyHostname()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "project"
      */
     public function testPropertyProject()

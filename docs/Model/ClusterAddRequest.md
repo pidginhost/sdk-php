@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional]
 **resource_pool_package** | **string** | ID or slug |
 **resource_pool_size** | **int** |  | [optional]
-**kube_version** | [**\PidginHost\Sdk\Model\KubeVersionEnum**](KubeVersionEnum.md) |  | [optional] [default to KubeVersionEnum::_1_36_3]
+**kube_version** | [**\PidginHost\Sdk\Model\KubeVersionEnum**](KubeVersionEnum.md) |  | [optional] [default to KubeVersionEnum::_1_36_6]
 **features** | [**\PidginHost\Sdk\Model\FeaturesEnum[]**](FeaturesEnum.md) |  | [optional]
 **enable_gateway_api** | **bool** |  | [optional]
 **dual_stack** | **bool** | Enable IPv6 dual-stack for pods, services, and the cluster private network. Available only when the platform has K8S_DUAL_STACK_ENABLED. Cannot be changed after provisioning. | [optional] [default to false]

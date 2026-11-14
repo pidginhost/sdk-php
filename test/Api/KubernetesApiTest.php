@@ -373,6 +373,30 @@ class KubernetesApiTest extends TestCase
     }
 
     /**
+     * Test case for kubernetesClustersLbReimageCreate
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersLbReimageCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for kubernetesClustersLbReimageRetrieve
+     *
+     * .
+     *
+     */
+    public function testKubernetesClustersLbReimageRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for kubernetesClustersList
      *
      * .

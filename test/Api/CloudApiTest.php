@@ -529,6 +529,546 @@ class CloudApiTest extends TestCase
     }
 
     /**
+     * Test case for cloudGatewaysCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysDestroy
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysDestroy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysFirewallRulesCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysFirewallRulesCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysFirewallRulesDestroy
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysFirewallRulesDestroy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysFirewallRulesList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysFirewallRulesList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysFirewallRulesMoveCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysFirewallRulesMoveCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysFirewallRulesPartialUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysFirewallRulesPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysFirewallRulesRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysFirewallRulesRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersDestroy
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersDestroy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersPartialUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersRoutesCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersRoutesCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersRoutesDestroy
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersRoutesDestroy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersRoutesList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersRoutesList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersRoutesPartialUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersRoutesPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysListenersRoutesRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysListenersRoutesRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysNetworksCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysNetworksCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysNetworksDestroy
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysNetworksDestroy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysNetworksList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysNetworksList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysNetworksPartialUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysNetworksPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysNetworksRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysNetworksRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysOperationsList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysOperationsList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysOperationsRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysOperationsRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPartialUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsBackendsCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsBackendsCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsBackendsDestroy
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsBackendsDestroy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsBackendsList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsBackendsList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsBackendsPartialUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsBackendsPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsBackendsRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsBackendsRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsDestroy
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsDestroy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsPartialUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPoolsRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPoolsRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPortForwardsCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPortForwardsCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPortForwardsDestroy
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPortForwardsDestroy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPortForwardsList
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPortForwardsList()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPortForwardsPartialUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPortForwardsPartialUpdate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysPortForwardsRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysPortForwardsRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysReenrollCreate
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysReenrollCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudGatewaysStatusRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudGatewaysStatusRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for cloudGenerationsList
      *
      * List hardware generations.
@@ -757,6 +1297,18 @@ class CloudApiTest extends TestCase
     }
 
     /**
+     * Test case for cloudPrivateNetworksApplyRouteCreate
+     *
+     * .
+     *
+     */
+    public function testCloudPrivateNetworksApplyRouteCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for cloudPrivateNetworksCreate
      *
      * .
@@ -823,6 +1375,18 @@ class CloudApiTest extends TestCase
      *
      */
     public function testCloudPrivateNetworksRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudPrivateNetworksRouteStatusRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudPrivateNetworksRouteStatusRetrieve()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

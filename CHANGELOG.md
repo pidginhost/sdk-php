@@ -5,6 +5,50 @@ All notable changes to the PidginHost PHP SDK are documented here.
 This SDK is auto-generated from the [PidginHost API schema](https://www.pidginhost.com/api/schema/).
 Version bumps reflect schema changes, not hand-written code changes.
 
+## v0.17.0
+
+### Added
+
+- **Gateways.** `CloudGatewaysList`, `CloudGatewaysCreate`,
+  `CloudGatewaysRetrieve`, `CloudGatewaysPartialUpdate` and
+  `CloudGatewaysDestroy` manage a gateway (`Gateway`).
+  `CloudGatewaysStatusRetrieve` returns `GatewayStatus`, and
+  `CloudGatewaysReenrollCreate` re-enrolls a gateway.
+- **Gateway networks.** `CloudGatewaysNetworksList`,
+  `CloudGatewaysNetworksCreate`, `CloudGatewaysNetworksRetrieve`,
+  `CloudGatewaysNetworksPartialUpdate` and `CloudGatewaysNetworksDestroy`
+  attach and detach private networks (`GatewayNetwork`) and switch SNAT.
+- **Gateway firewall rules.** `CloudGatewaysFirewallRulesList`,
+  `CloudGatewaysFirewallRulesCreate`, `CloudGatewaysFirewallRulesRetrieve`,
+  `CloudGatewaysFirewallRulesPartialUpdate`,
+  `CloudGatewaysFirewallRulesDestroy` and
+  `CloudGatewaysFirewallRulesMoveCreate` manage and reorder
+  `GatewayFirewallRule`.
+- **Gateway port forwards.** `CloudGatewaysPortForwardsList`,
+  `CloudGatewaysPortForwardsCreate`, `CloudGatewaysPortForwardsRetrieve`,
+  `CloudGatewaysPortForwardsPartialUpdate` and
+  `CloudGatewaysPortForwardsDestroy` manage `GatewayForward`.
+- **Gateway operations.** Changes that take time answer 202 with a
+  `GatewayOperation`. `CloudGatewaysOperationsList` and
+  `CloudGatewaysOperationsRetrieve` follow them.
+- A change that would cut servers off answers 409 with a preview to confirm:
+  `GatewayConflict`, `GatewayDeleteConflict` or `GatewayReenrollConflict`.
+- **Private network routes.** `CloudPrivateNetworksRouteStatusRetrieve`
+  returns `RouteStatus`, each server's default route on the network.
+  `CloudPrivateNetworksApplyRouteCreate` applies the route and reboots the
+  servers named in `ApplyRouteRequest`.
+- Servers can be renamed: `ServerDetailRequest` and
+  `PatchedServerDetailRequest` gained `hostname`.
+- The `PidginHost` client exposes the email API as `$client->email`.
+
+### Changed
+
+- `ServerDetail.hostname` is optional, now that it can be written.
+- `ActivateFreeDNSRequest.ip` is optional and can be null. Leave it out to
+  start with an empty zone.
+- `KubeVersionEnum` offers 1.35.10 and 1.36.6. Versions 1.33.13, 1.34.10,
+  1.35.7 and 1.36.3 are gone, and new clusters default to 1.36.6.
+
 ## v0.16.0
 
 ### Removed

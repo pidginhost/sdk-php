@@ -314,12 +314,12 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('billing', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('full_name', $data ?? [], null);
+        $this->setIfExists('full_name', $data ?? [], '');
         $this->setIfExists('quota_gb', $data ?? [], null);
         $this->setIfExists('used_bytes', $data ?? [], null);
         $this->setIfExists('object_count', $data ?? [], null);
         $this->setIfExists('public_read', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], ResourceStatusEnum::PENDING);
         $this->setIfExists('endpoint', $data ?? [], null);
         $this->setIfExists('region', $data ?? [], null);
         $this->setIfExists('created', $data ?? [], null);

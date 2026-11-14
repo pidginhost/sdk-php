@@ -84,7 +84,7 @@ class ActivateFreeDNSRequest implements ModelInterface, ArrayAccess, \JsonSerial
     protected static array $openAPINullables = [
         'domain' => false,
         'source' => false,
-        'ip' => false
+        'ip' => true
     ];
 
     /**
@@ -299,10 +299,7 @@ class ActivateFreeDNSRequest implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['source'] === null) {
             $invalidProperties[] = "'source' can't be null";
         }
-        if ($this->container['ip'] === null) {
-            $invalidProperties[] = "'ip' can't be null";
-        }
-        if ((mb_strlen($this->container['ip']) < 1)) {
+        if (!is_null($this->container['ip']) && (mb_strlen($this->container['ip']) < 1)) {
             $invalidProperties[] = "invalid value for 'ip', the character length must be bigger than or equal to 1.";
         }
 
@@ -383,7 +380,7 @@ class ActivateFreeDNSRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets ip
      *
-     * @return string
+     * @return string|null
      */
     public function getIp()
     {
@@ -393,17 +390,24 @@ class ActivateFreeDNSRequest implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets ip
      *
-     * @param string $ip IPv4 address to use as the default A record for the zone.
+     * @param string|null $ip IPv4 address for the zone's default records. Leave it out to start with an empty zone.
      *
      * @return self
      */
     public function setIp($ip)
     {
         if (is_null($ip)) {
-            throw new \InvalidArgumentException('non-nullable ip cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'ip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
 
-        if ((mb_strlen($ip) < 1)) {
+        if (!is_null($ip) && (mb_strlen($ip) < 1)) {
             throw new \InvalidArgumentException('invalid length for $ip when calling ActivateFreeDNSRequest., must be bigger than or equal to 1.');
         }
 

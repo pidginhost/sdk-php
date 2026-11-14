@@ -44,6 +44,51 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**cloudFloatingIpv6RdnsRetrieve()**](CloudApi.md#cloudFloatingIpv6RdnsRetrieve) | **GET** /api/cloud/floating-ipv6/{id}/rdns/ |  |
 | [**cloudFloatingIpv6Retrieve()**](CloudApi.md#cloudFloatingIpv6Retrieve) | **GET** /api/cloud/floating-ipv6/{id}/ |  |
 | [**cloudFloatingIpv6UnauthorizeCreate()**](CloudApi.md#cloudFloatingIpv6UnauthorizeCreate) | **POST** /api/cloud/floating-ipv6/{id}/unauthorize/ |  |
+| [**cloudGatewaysCreate()**](CloudApi.md#cloudGatewaysCreate) | **POST** /api/cloud/gateways/ |  |
+| [**cloudGatewaysDestroy()**](CloudApi.md#cloudGatewaysDestroy) | **DELETE** /api/cloud/gateways/{id}/ |  |
+| [**cloudGatewaysFirewallRulesCreate()**](CloudApi.md#cloudGatewaysFirewallRulesCreate) | **POST** /api/cloud/gateways/{gateway_id}/firewall-rules/ |  |
+| [**cloudGatewaysFirewallRulesDestroy()**](CloudApi.md#cloudGatewaysFirewallRulesDestroy) | **DELETE** /api/cloud/gateways/{gateway_id}/firewall-rules/{id}/ |  |
+| [**cloudGatewaysFirewallRulesList()**](CloudApi.md#cloudGatewaysFirewallRulesList) | **GET** /api/cloud/gateways/{gateway_id}/firewall-rules/ |  |
+| [**cloudGatewaysFirewallRulesMoveCreate()**](CloudApi.md#cloudGatewaysFirewallRulesMoveCreate) | **POST** /api/cloud/gateways/{gateway_id}/firewall-rules/{id}/move/ |  |
+| [**cloudGatewaysFirewallRulesPartialUpdate()**](CloudApi.md#cloudGatewaysFirewallRulesPartialUpdate) | **PATCH** /api/cloud/gateways/{gateway_id}/firewall-rules/{id}/ |  |
+| [**cloudGatewaysFirewallRulesRetrieve()**](CloudApi.md#cloudGatewaysFirewallRulesRetrieve) | **GET** /api/cloud/gateways/{gateway_id}/firewall-rules/{id}/ |  |
+| [**cloudGatewaysList()**](CloudApi.md#cloudGatewaysList) | **GET** /api/cloud/gateways/ |  |
+| [**cloudGatewaysListenersCreate()**](CloudApi.md#cloudGatewaysListenersCreate) | **POST** /api/cloud/gateways/{gateway_id}/listeners/ |  |
+| [**cloudGatewaysListenersDestroy()**](CloudApi.md#cloudGatewaysListenersDestroy) | **DELETE** /api/cloud/gateways/{gateway_id}/listeners/{id}/ |  |
+| [**cloudGatewaysListenersList()**](CloudApi.md#cloudGatewaysListenersList) | **GET** /api/cloud/gateways/{gateway_id}/listeners/ |  |
+| [**cloudGatewaysListenersPartialUpdate()**](CloudApi.md#cloudGatewaysListenersPartialUpdate) | **PATCH** /api/cloud/gateways/{gateway_id}/listeners/{id}/ |  |
+| [**cloudGatewaysListenersRetrieve()**](CloudApi.md#cloudGatewaysListenersRetrieve) | **GET** /api/cloud/gateways/{gateway_id}/listeners/{id}/ |  |
+| [**cloudGatewaysListenersRoutesCreate()**](CloudApi.md#cloudGatewaysListenersRoutesCreate) | **POST** /api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/ |  |
+| [**cloudGatewaysListenersRoutesDestroy()**](CloudApi.md#cloudGatewaysListenersRoutesDestroy) | **DELETE** /api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/{id}/ |  |
+| [**cloudGatewaysListenersRoutesList()**](CloudApi.md#cloudGatewaysListenersRoutesList) | **GET** /api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/ |  |
+| [**cloudGatewaysListenersRoutesPartialUpdate()**](CloudApi.md#cloudGatewaysListenersRoutesPartialUpdate) | **PATCH** /api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/{id}/ |  |
+| [**cloudGatewaysListenersRoutesRetrieve()**](CloudApi.md#cloudGatewaysListenersRoutesRetrieve) | **GET** /api/cloud/gateways/{gateway_id}/listeners/{listener_id}/routes/{id}/ |  |
+| [**cloudGatewaysNetworksCreate()**](CloudApi.md#cloudGatewaysNetworksCreate) | **POST** /api/cloud/gateways/{gateway_id}/networks/ |  |
+| [**cloudGatewaysNetworksDestroy()**](CloudApi.md#cloudGatewaysNetworksDestroy) | **DELETE** /api/cloud/gateways/{gateway_id}/networks/{network_id}/ |  |
+| [**cloudGatewaysNetworksList()**](CloudApi.md#cloudGatewaysNetworksList) | **GET** /api/cloud/gateways/{gateway_id}/networks/ |  |
+| [**cloudGatewaysNetworksPartialUpdate()**](CloudApi.md#cloudGatewaysNetworksPartialUpdate) | **PATCH** /api/cloud/gateways/{gateway_id}/networks/{network_id}/ |  |
+| [**cloudGatewaysNetworksRetrieve()**](CloudApi.md#cloudGatewaysNetworksRetrieve) | **GET** /api/cloud/gateways/{gateway_id}/networks/{network_id}/ |  |
+| [**cloudGatewaysOperationsList()**](CloudApi.md#cloudGatewaysOperationsList) | **GET** /api/cloud/gateways/{gateway_id}/operations/ |  |
+| [**cloudGatewaysOperationsRetrieve()**](CloudApi.md#cloudGatewaysOperationsRetrieve) | **GET** /api/cloud/gateways/{gateway_id}/operations/{id}/ |  |
+| [**cloudGatewaysPartialUpdate()**](CloudApi.md#cloudGatewaysPartialUpdate) | **PATCH** /api/cloud/gateways/{id}/ |  |
+| [**cloudGatewaysPoolsBackendsCreate()**](CloudApi.md#cloudGatewaysPoolsBackendsCreate) | **POST** /api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/ |  |
+| [**cloudGatewaysPoolsBackendsDestroy()**](CloudApi.md#cloudGatewaysPoolsBackendsDestroy) | **DELETE** /api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/{id}/ |  |
+| [**cloudGatewaysPoolsBackendsList()**](CloudApi.md#cloudGatewaysPoolsBackendsList) | **GET** /api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/ |  |
+| [**cloudGatewaysPoolsBackendsPartialUpdate()**](CloudApi.md#cloudGatewaysPoolsBackendsPartialUpdate) | **PATCH** /api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/{id}/ |  |
+| [**cloudGatewaysPoolsBackendsRetrieve()**](CloudApi.md#cloudGatewaysPoolsBackendsRetrieve) | **GET** /api/cloud/gateways/{gateway_id}/pools/{pool_id}/backends/{id}/ |  |
+| [**cloudGatewaysPoolsCreate()**](CloudApi.md#cloudGatewaysPoolsCreate) | **POST** /api/cloud/gateways/{gateway_id}/pools/ |  |
+| [**cloudGatewaysPoolsDestroy()**](CloudApi.md#cloudGatewaysPoolsDestroy) | **DELETE** /api/cloud/gateways/{gateway_id}/pools/{id}/ |  |
+| [**cloudGatewaysPoolsList()**](CloudApi.md#cloudGatewaysPoolsList) | **GET** /api/cloud/gateways/{gateway_id}/pools/ |  |
+| [**cloudGatewaysPoolsPartialUpdate()**](CloudApi.md#cloudGatewaysPoolsPartialUpdate) | **PATCH** /api/cloud/gateways/{gateway_id}/pools/{id}/ |  |
+| [**cloudGatewaysPoolsRetrieve()**](CloudApi.md#cloudGatewaysPoolsRetrieve) | **GET** /api/cloud/gateways/{gateway_id}/pools/{id}/ |  |
+| [**cloudGatewaysPortForwardsCreate()**](CloudApi.md#cloudGatewaysPortForwardsCreate) | **POST** /api/cloud/gateways/{gateway_id}/port-forwards/ |  |
+| [**cloudGatewaysPortForwardsDestroy()**](CloudApi.md#cloudGatewaysPortForwardsDestroy) | **DELETE** /api/cloud/gateways/{gateway_id}/port-forwards/{id}/ |  |
+| [**cloudGatewaysPortForwardsList()**](CloudApi.md#cloudGatewaysPortForwardsList) | **GET** /api/cloud/gateways/{gateway_id}/port-forwards/ |  |
+| [**cloudGatewaysPortForwardsPartialUpdate()**](CloudApi.md#cloudGatewaysPortForwardsPartialUpdate) | **PATCH** /api/cloud/gateways/{gateway_id}/port-forwards/{id}/ |  |
+| [**cloudGatewaysPortForwardsRetrieve()**](CloudApi.md#cloudGatewaysPortForwardsRetrieve) | **GET** /api/cloud/gateways/{gateway_id}/port-forwards/{id}/ |  |
+| [**cloudGatewaysReenrollCreate()**](CloudApi.md#cloudGatewaysReenrollCreate) | **POST** /api/cloud/gateways/{id}/reenroll/ |  |
+| [**cloudGatewaysRetrieve()**](CloudApi.md#cloudGatewaysRetrieve) | **GET** /api/cloud/gateways/{id}/ |  |
+| [**cloudGatewaysStatusRetrieve()**](CloudApi.md#cloudGatewaysStatusRetrieve) | **GET** /api/cloud/gateways/{id}/status/ |  |
 | [**cloudGenerationsList()**](CloudApi.md#cloudGenerationsList) | **GET** /api/cloud/generations/ | List hardware generations |
 | [**cloudGenerationsRetrieve()**](CloudApi.md#cloudGenerationsRetrieve) | **GET** /api/cloud/generations/{slug}/ |  |
 | [**cloudImagesList()**](CloudApi.md#cloudImagesList) | **GET** /api/cloud/images/ |  |
@@ -63,12 +108,14 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**cloudIpv6RdnsRetrieve()**](CloudApi.md#cloudIpv6RdnsRetrieve) | **GET** /api/cloud/ipv6/{id}/rdns/ |  |
 | [**cloudIpv6Retrieve()**](CloudApi.md#cloudIpv6Retrieve) | **GET** /api/cloud/ipv6/{id}/ |  |
 | [**cloudPrivateNetworksAddServerCreate()**](CloudApi.md#cloudPrivateNetworksAddServerCreate) | **POST** /api/cloud/private-networks/{id}/add-server/ |  |
+| [**cloudPrivateNetworksApplyRouteCreate()**](CloudApi.md#cloudPrivateNetworksApplyRouteCreate) | **POST** /api/cloud/private-networks/{id}/apply-route/ |  |
 | [**cloudPrivateNetworksCreate()**](CloudApi.md#cloudPrivateNetworksCreate) | **POST** /api/cloud/private-networks/ |  |
 | [**cloudPrivateNetworksDestroy()**](CloudApi.md#cloudPrivateNetworksDestroy) | **DELETE** /api/cloud/private-networks/{id}/ |  |
 | [**cloudPrivateNetworksList()**](CloudApi.md#cloudPrivateNetworksList) | **GET** /api/cloud/private-networks/ |  |
 | [**cloudPrivateNetworksPartialUpdate()**](CloudApi.md#cloudPrivateNetworksPartialUpdate) | **PATCH** /api/cloud/private-networks/{id}/ |  |
 | [**cloudPrivateNetworksRemoveServerCreate()**](CloudApi.md#cloudPrivateNetworksRemoveServerCreate) | **POST** /api/cloud/private-networks/{id}/remove-server/ |  |
 | [**cloudPrivateNetworksRetrieve()**](CloudApi.md#cloudPrivateNetworksRetrieve) | **GET** /api/cloud/private-networks/{id}/ |  |
+| [**cloudPrivateNetworksRouteStatusRetrieve()**](CloudApi.md#cloudPrivateNetworksRouteStatusRetrieve) | **GET** /api/cloud/private-networks/{id}/route-status/ |  |
 | [**cloudPrivateNetworksUpdate()**](CloudApi.md#cloudPrivateNetworksUpdate) | **PUT** /api/cloud/private-networks/{id}/ |  |
 | [**cloudServerPackagesByGenerationRetrieve()**](CloudApi.md#cloudServerPackagesByGenerationRetrieve) | **GET** /api/cloud/server-packages/by-generation/ |  |
 | [**cloudServerPackagesList()**](CloudApi.md#cloudServerPackagesList) | **GET** /api/cloud/server-packages/ |  |
@@ -2693,6 +2740,3165 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `cloudGatewaysCreate()`
+
+```php
+cloudGatewaysCreate($gateway_create_request): \PidginHost\Sdk\Model\Gateway
+```
+
+
+
+Reserve a gateway and queue its provisioning (spec 11.1); its state shows the progress.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_create_request = new \PidginHost\Sdk\Model\GatewayCreateRequest(); // \PidginHost\Sdk\Model\GatewayCreateRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysCreate($gateway_create_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_create_request** | [**\PidginHost\Sdk\Model\GatewayCreateRequest**](../Model/GatewayCreateRequest.md)|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\Gateway**](../Model/Gateway.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysDestroy()`
+
+```php
+cloudGatewaysDestroy($id, $networks, $revision, $servers): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Delete the gateway (spec 11.5): its VM is destroyed, then its networks and IPv4 are released. Without the preview's revision, networks and servers, 409 with a fresh preview.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+$networks = array(56); // int[] | The preview's network ids.
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+$servers = array(56); // int[] | The preview's server ids.
+
+try {
+    $result = $apiInstance->cloudGatewaysDestroy($id, $networks, $revision, $servers);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysDestroy: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **networks** | [**int[]**](../Model/int.md)| The preview&#39;s network ids. | [optional] |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+| **servers** | [**int[]**](../Model/int.md)| The preview&#39;s server ids. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysFirewallRulesCreate()`
+
+```php
+cloudGatewaysFirewallRulesCreate($gateway_id, $gateway_firewall_rule_write_request): \PidginHost\Sdk\Model\GatewayFirewallRule
+```
+
+
+
+Add a rule after the last one (spec 5.7); it is pending until the agent applies its revision.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$gateway_firewall_rule_write_request = new \PidginHost\Sdk\Model\GatewayFirewallRuleWriteRequest(); // \PidginHost\Sdk\Model\GatewayFirewallRuleWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysFirewallRulesCreate($gateway_id, $gateway_firewall_rule_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysFirewallRulesCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **gateway_firewall_rule_write_request** | [**\PidginHost\Sdk\Model\GatewayFirewallRuleWriteRequest**](../Model/GatewayFirewallRuleWriteRequest.md)|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayFirewallRule**](../Model/GatewayFirewallRule.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysFirewallRulesDestroy()`
+
+```php
+cloudGatewaysFirewallRulesDestroy($gateway_id, $id, $revision): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Delete a rule (spec 5.11): 202 with the record the agent's acknowledgement completes. Without the preview's revision, 409 with a fresh one.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+
+try {
+    $result = $apiInstance->cloudGatewaysFirewallRulesDestroy($gateway_id, $id, $revision);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysFirewallRulesDestroy: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysFirewallRulesList()`
+
+```php
+cloudGatewaysFirewallRulesList($gateway_id, $page): \PidginHost\Sdk\Model\PaginatedGatewayFirewallRuleList
+```
+
+
+
+A gateway's firewall rules, in evaluation order
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysFirewallRulesList($gateway_id, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysFirewallRulesList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayFirewallRuleList**](../Model/PaginatedGatewayFirewallRuleList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysFirewallRulesMoveCreate()`
+
+```php
+cloudGatewaysFirewallRulesMoveCreate($gateway_id, $id, $gateway_firewall_move_request, $revision): \PidginHost\Sdk\Model\GatewayFirewallRule
+```
+
+
+
+Move a rule to a position, the others keeping their order. Without the preview's revision, 409 with a fresh one.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$gateway_firewall_move_request = new \PidginHost\Sdk\Model\GatewayFirewallMoveRequest(); // \PidginHost\Sdk\Model\GatewayFirewallMoveRequest
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+
+try {
+    $result = $apiInstance->cloudGatewaysFirewallRulesMoveCreate($gateway_id, $id, $gateway_firewall_move_request, $revision);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysFirewallRulesMoveCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **gateway_firewall_move_request** | [**\PidginHost\Sdk\Model\GatewayFirewallMoveRequest**](../Model/GatewayFirewallMoveRequest.md)|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayFirewallRule**](../Model/GatewayFirewallRule.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysFirewallRulesPartialUpdate()`
+
+```php
+cloudGatewaysFirewallRulesPartialUpdate($gateway_id, $id, $patched_gateway_firewall_rule_write_request): \PidginHost\Sdk\Model\GatewayFirewallRule
+```
+
+
+
+Change a rule's fields; a source or destination is replaced whole. Its position stays.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$patched_gateway_firewall_rule_write_request = new \PidginHost\Sdk\Model\PatchedGatewayFirewallRuleWriteRequest(); // \PidginHost\Sdk\Model\PatchedGatewayFirewallRuleWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysFirewallRulesPartialUpdate($gateway_id, $id, $patched_gateway_firewall_rule_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysFirewallRulesPartialUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **patched_gateway_firewall_rule_write_request** | [**\PidginHost\Sdk\Model\PatchedGatewayFirewallRuleWriteRequest**](../Model/PatchedGatewayFirewallRuleWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayFirewallRule**](../Model/GatewayFirewallRule.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysFirewallRulesRetrieve()`
+
+```php
+cloudGatewaysFirewallRulesRetrieve($gateway_id, $id): \PidginHost\Sdk\Model\GatewayFirewallRule
+```
+
+
+
+A gateway's firewall rules, in evaluation order
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+
+try {
+    $result = $apiInstance->cloudGatewaysFirewallRulesRetrieve($gateway_id, $id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysFirewallRulesRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayFirewallRule**](../Model/GatewayFirewallRule.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysList()`
+
+```php
+cloudGatewaysList($page): \PidginHost\Sdk\Model\PaginatedGatewayList
+```
+
+
+
+Manage gateways
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysList($page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayList**](../Model/PaginatedGatewayList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersCreate()`
+
+```php
+cloudGatewaysListenersCreate($gateway_id, $gateway_lb_listener_write_request): \PidginHost\Sdk\Model\GatewayLBListener
+```
+
+
+
+Add a listener (spec 6.8): tcp and udp name a pool, http takes routes. Pending until applied.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$gateway_lb_listener_write_request = new \PidginHost\Sdk\Model\GatewayLBListenerWriteRequest(); // \PidginHost\Sdk\Model\GatewayLBListenerWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersCreate($gateway_id, $gateway_lb_listener_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **gateway_lb_listener_write_request** | [**\PidginHost\Sdk\Model\GatewayLBListenerWriteRequest**](../Model/GatewayLBListenerWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayLBListener**](../Model/GatewayLBListener.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersDestroy()`
+
+```php
+cloudGatewaysListenersDestroy($gateway_id, $id, $revision): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Delete a listener and its routes (spec 5.11): 202 with the record the agent's acknowledgement completes. Without the preview's revision, 409 with a fresh one.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersDestroy($gateway_id, $id, $revision);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersDestroy: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersList()`
+
+```php
+cloudGatewaysListenersList($gateway_id, $page): \PidginHost\Sdk\Model\PaginatedGatewayLBListenerList
+```
+
+
+
+A gateway's load balancer listeners
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersList($gateway_id, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayLBListenerList**](../Model/PaginatedGatewayLBListenerList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersPartialUpdate()`
+
+```php
+cloudGatewaysListenersPartialUpdate($gateway_id, $id, $patched_gateway_lb_listener_write_request): \PidginHost\Sdk\Model\GatewayLBListener
+```
+
+
+
+Change a listener's pool, sources, comment or enabled flag; protocol, port and mode are fixed.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$patched_gateway_lb_listener_write_request = new \PidginHost\Sdk\Model\PatchedGatewayLBListenerWriteRequest(); // \PidginHost\Sdk\Model\PatchedGatewayLBListenerWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersPartialUpdate($gateway_id, $id, $patched_gateway_lb_listener_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersPartialUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **patched_gateway_lb_listener_write_request** | [**\PidginHost\Sdk\Model\PatchedGatewayLBListenerWriteRequest**](../Model/PatchedGatewayLBListenerWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayLBListener**](../Model/GatewayLBListener.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersRetrieve()`
+
+```php
+cloudGatewaysListenersRetrieve($gateway_id, $id): \PidginHost\Sdk\Model\GatewayLBListener
+```
+
+
+
+A gateway's load balancer listeners
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersRetrieve($gateway_id, $id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayLBListener**](../Model/GatewayLBListener.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersRoutesCreate()`
+
+```php
+cloudGatewaysListenersRoutesCreate($gateway_id, $listener_id, $gateway_route_write_request): \PidginHost\Sdk\Model\GatewayRoute
+```
+
+
+
+Add a route (spec 5.6): hostnames and a path prefix to a pool. Pending until applied.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$listener_id = 56; // int
+$gateway_route_write_request = new \PidginHost\Sdk\Model\GatewayRouteWriteRequest(); // \PidginHost\Sdk\Model\GatewayRouteWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersRoutesCreate($gateway_id, $listener_id, $gateway_route_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersRoutesCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **listener_id** | **int**|  | |
+| **gateway_route_write_request** | [**\PidginHost\Sdk\Model\GatewayRouteWriteRequest**](../Model/GatewayRouteWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayRoute**](../Model/GatewayRoute.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersRoutesDestroy()`
+
+```php
+cloudGatewaysListenersRoutesDestroy($gateway_id, $id, $listener_id, $revision): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Delete a route (spec 5.11): 202 with the record the agent's acknowledgement completes. Without the preview's revision, 409 with a fresh one.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$listener_id = 56; // int
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersRoutesDestroy($gateway_id, $id, $listener_id, $revision);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersRoutesDestroy: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **listener_id** | **int**|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersRoutesList()`
+
+```php
+cloudGatewaysListenersRoutesList($gateway_id, $listener_id, $page): \PidginHost\Sdk\Model\PaginatedGatewayRouteList
+```
+
+
+
+An http listener's routes
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$listener_id = 56; // int
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersRoutesList($gateway_id, $listener_id, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersRoutesList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **listener_id** | **int**|  | |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayRouteList**](../Model/PaginatedGatewayRouteList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersRoutesPartialUpdate()`
+
+```php
+cloudGatewaysListenersRoutesPartialUpdate($gateway_id, $id, $listener_id, $patched_gateway_route_write_request): \PidginHost\Sdk\Model\GatewayRoute
+```
+
+
+
+Change a route; hostnames are replaced whole.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$listener_id = 56; // int
+$patched_gateway_route_write_request = new \PidginHost\Sdk\Model\PatchedGatewayRouteWriteRequest(); // \PidginHost\Sdk\Model\PatchedGatewayRouteWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersRoutesPartialUpdate($gateway_id, $id, $listener_id, $patched_gateway_route_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersRoutesPartialUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **listener_id** | **int**|  | |
+| **patched_gateway_route_write_request** | [**\PidginHost\Sdk\Model\PatchedGatewayRouteWriteRequest**](../Model/PatchedGatewayRouteWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayRoute**](../Model/GatewayRoute.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysListenersRoutesRetrieve()`
+
+```php
+cloudGatewaysListenersRoutesRetrieve($gateway_id, $id, $listener_id): \PidginHost\Sdk\Model\GatewayRoute
+```
+
+
+
+An http listener's routes
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$listener_id = 56; // int
+
+try {
+    $result = $apiInstance->cloudGatewaysListenersRoutesRetrieve($gateway_id, $id, $listener_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysListenersRoutesRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **listener_id** | **int**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayRoute**](../Model/GatewayRoute.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysNetworksCreate()`
+
+```php
+cloudGatewaysNetworksCreate($gateway_id, $gateway_network_create_request): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Attach a network (spec 11.3): the operation reserves it and hotplugs the gateway's NIC.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$gateway_network_create_request = new \PidginHost\Sdk\Model\GatewayNetworkCreateRequest(); // \PidginHost\Sdk\Model\GatewayNetworkCreateRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysNetworksCreate($gateway_id, $gateway_network_create_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysNetworksCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **gateway_network_create_request** | [**\PidginHost\Sdk\Model\GatewayNetworkCreateRequest**](../Model/GatewayNetworkCreateRequest.md)|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysNetworksDestroy()`
+
+```php
+cloudGatewaysNetworksDestroy($gateway_id, $network_id, $revision, $servers): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Detach a network (spec 11.3). Without the preview's revision and servers, 409 with a fresh preview.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$network_id = 56; // int
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+$servers = array(56); // int[] | The preview's server ids.
+
+try {
+    $result = $apiInstance->cloudGatewaysNetworksDestroy($gateway_id, $network_id, $revision, $servers);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysNetworksDestroy: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **network_id** | **int**|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+| **servers** | [**int[]**](../Model/int.md)| The preview&#39;s server ids. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysNetworksList()`
+
+```php
+cloudGatewaysNetworksList($gateway_id, $page): \PidginHost\Sdk\Model\PaginatedGatewayNetworkList
+```
+
+
+
+A gateway's private networks, by network id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysNetworksList($gateway_id, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysNetworksList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayNetworkList**](../Model/PaginatedGatewayNetworkList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysNetworksPartialUpdate()`
+
+```php
+cloudGatewaysNetworksPartialUpdate($gateway_id, $network_id, $revision, $servers, $patched_gateway_network_update_request): \PidginHost\Sdk\Model\GatewayNetwork
+```
+
+
+
+Switch a router network's SNAT (spec 6.4). Turning it off without the preview's revision and servers answers 409 with a fresh preview; the change is pending until the agent applies it.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$network_id = 56; // int
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+$servers = array(56); // int[] | The preview's server ids.
+$patched_gateway_network_update_request = new \PidginHost\Sdk\Model\PatchedGatewayNetworkUpdateRequest(); // \PidginHost\Sdk\Model\PatchedGatewayNetworkUpdateRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysNetworksPartialUpdate($gateway_id, $network_id, $revision, $servers, $patched_gateway_network_update_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysNetworksPartialUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **network_id** | **int**|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+| **servers** | [**int[]**](../Model/int.md)| The preview&#39;s server ids. | [optional] |
+| **patched_gateway_network_update_request** | [**\PidginHost\Sdk\Model\PatchedGatewayNetworkUpdateRequest**](../Model/PatchedGatewayNetworkUpdateRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayNetwork**](../Model/GatewayNetwork.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysNetworksRetrieve()`
+
+```php
+cloudGatewaysNetworksRetrieve($gateway_id, $network_id): \PidginHost\Sdk\Model\GatewayNetwork
+```
+
+
+
+A gateway's private networks, by network id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$network_id = 56; // int
+
+try {
+    $result = $apiInstance->cloudGatewaysNetworksRetrieve($gateway_id, $network_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysNetworksRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **network_id** | **int**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayNetwork**](../Model/GatewayNetwork.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysOperationsList()`
+
+```php
+cloudGatewaysOperationsList($gateway_id, $page): \PidginHost\Sdk\Model\PaginatedGatewayOperationList
+```
+
+
+
+A gateway's operations, newest first
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysOperationsList($gateway_id, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysOperationsList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayOperationList**](../Model/PaginatedGatewayOperationList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysOperationsRetrieve()`
+
+```php
+cloudGatewaysOperationsRetrieve($gateway_id, $id): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+A gateway's operations, newest first
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->cloudGatewaysOperationsRetrieve($gateway_id, $id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysOperationsRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPartialUpdate()`
+
+```php
+cloudGatewaysPartialUpdate($id, $patched_gateway_update_request): \PidginHost\Sdk\Model\Gateway
+```
+
+
+
+Rename the gateway or change its maintenance window. The name is not compiled, so no revision follows; a new window reaches the agent in a new revision (spec 11.4).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+$patched_gateway_update_request = new \PidginHost\Sdk\Model\PatchedGatewayUpdateRequest(); // \PidginHost\Sdk\Model\PatchedGatewayUpdateRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysPartialUpdate($id, $patched_gateway_update_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPartialUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **patched_gateway_update_request** | [**\PidginHost\Sdk\Model\PatchedGatewayUpdateRequest**](../Model/PatchedGatewayUpdateRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\Gateway**](../Model/Gateway.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsBackendsCreate()`
+
+```php
+cloudGatewaysPoolsBackendsCreate($gateway_id, $pool_id, $gateway_backend_write_request): \PidginHost\Sdk\Model\GatewayBackend
+```
+
+
+
+Add a server to the pool (spec 5.5); it is pending until the agent applies its revision.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$pool_id = 56; // int
+$gateway_backend_write_request = new \PidginHost\Sdk\Model\GatewayBackendWriteRequest(); // \PidginHost\Sdk\Model\GatewayBackendWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsBackendsCreate($gateway_id, $pool_id, $gateway_backend_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsBackendsCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **pool_id** | **int**|  | |
+| **gateway_backend_write_request** | [**\PidginHost\Sdk\Model\GatewayBackendWriteRequest**](../Model/GatewayBackendWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayBackend**](../Model/GatewayBackend.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsBackendsDestroy()`
+
+```php
+cloudGatewaysPoolsBackendsDestroy($gateway_id, $id, $pool_id, $revision): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Remove a server (spec 5.11): 202 with the record the agent's acknowledgement completes. Without the preview's revision, 409 with a fresh one.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$pool_id = 56; // int
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsBackendsDestroy($gateway_id, $id, $pool_id, $revision);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsBackendsDestroy: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **pool_id** | **int**|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsBackendsList()`
+
+```php
+cloudGatewaysPoolsBackendsList($gateway_id, $pool_id, $page): \PidginHost\Sdk\Model\PaginatedGatewayBackendList
+```
+
+
+
+A backend pool's servers
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$pool_id = 56; // int
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsBackendsList($gateway_id, $pool_id, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsBackendsList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **pool_id** | **int**|  | |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayBackendList**](../Model/PaginatedGatewayBackendList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsBackendsPartialUpdate()`
+
+```php
+cloudGatewaysPoolsBackendsPartialUpdate($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request): \PidginHost\Sdk\Model\GatewayBackend
+```
+
+
+
+Change a server. The last enabled server of a pool in use cannot be disabled.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$pool_id = 56; // int
+$patched_gateway_backend_write_request = new \PidginHost\Sdk\Model\PatchedGatewayBackendWriteRequest(); // \PidginHost\Sdk\Model\PatchedGatewayBackendWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsBackendsPartialUpdate($gateway_id, $id, $pool_id, $patched_gateway_backend_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsBackendsPartialUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **pool_id** | **int**|  | |
+| **patched_gateway_backend_write_request** | [**\PidginHost\Sdk\Model\PatchedGatewayBackendWriteRequest**](../Model/PatchedGatewayBackendWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayBackend**](../Model/GatewayBackend.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsBackendsRetrieve()`
+
+```php
+cloudGatewaysPoolsBackendsRetrieve($gateway_id, $id, $pool_id): \PidginHost\Sdk\Model\GatewayBackend
+```
+
+
+
+A backend pool's servers
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$pool_id = 56; // int
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsBackendsRetrieve($gateway_id, $id, $pool_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsBackendsRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **pool_id** | **int**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayBackend**](../Model/GatewayBackend.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsCreate()`
+
+```php
+cloudGatewaysPoolsCreate($gateway_id, $gateway_backend_pool_write_request): \PidginHost\Sdk\Model\GatewayBackendPool
+```
+
+
+
+Add a backend pool (spec 5.5); it is pending until the agent applies its revision.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$gateway_backend_pool_write_request = new \PidginHost\Sdk\Model\GatewayBackendPoolWriteRequest(); // \PidginHost\Sdk\Model\GatewayBackendPoolWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsCreate($gateway_id, $gateway_backend_pool_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **gateway_backend_pool_write_request** | [**\PidginHost\Sdk\Model\GatewayBackendPoolWriteRequest**](../Model/GatewayBackendPoolWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayBackendPool**](../Model/GatewayBackendPool.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsDestroy()`
+
+```php
+cloudGatewaysPoolsDestroy($gateway_id, $id, $revision): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Delete an unused pool and its servers (spec 5.11): 202 with the record the agent's acknowledgement completes. Without the preview's revision, 409 with a fresh one.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsDestroy($gateway_id, $id, $revision);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsDestroy: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsList()`
+
+```php
+cloudGatewaysPoolsList($gateway_id, $page): \PidginHost\Sdk\Model\PaginatedGatewayBackendPoolList
+```
+
+
+
+A gateway's backend pools
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsList($gateway_id, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayBackendPoolList**](../Model/PaginatedGatewayBackendPoolList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsPartialUpdate()`
+
+```php
+cloudGatewaysPoolsPartialUpdate($gateway_id, $id, $patched_gateway_backend_pool_write_request): \PidginHost\Sdk\Model\GatewayBackendPool
+```
+
+
+
+Change a pool; health_check takes the fields to change. Every listener and route on it must still fit.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$patched_gateway_backend_pool_write_request = new \PidginHost\Sdk\Model\PatchedGatewayBackendPoolWriteRequest(); // \PidginHost\Sdk\Model\PatchedGatewayBackendPoolWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsPartialUpdate($gateway_id, $id, $patched_gateway_backend_pool_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsPartialUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **patched_gateway_backend_pool_write_request** | [**\PidginHost\Sdk\Model\PatchedGatewayBackendPoolWriteRequest**](../Model/PatchedGatewayBackendPoolWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayBackendPool**](../Model/GatewayBackendPool.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPoolsRetrieve()`
+
+```php
+cloudGatewaysPoolsRetrieve($gateway_id, $id): \PidginHost\Sdk\Model\GatewayBackendPool
+```
+
+
+
+A gateway's backend pools
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+
+try {
+    $result = $apiInstance->cloudGatewaysPoolsRetrieve($gateway_id, $id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPoolsRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayBackendPool**](../Model/GatewayBackendPool.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPortForwardsCreate()`
+
+```php
+cloudGatewaysPortForwardsCreate($gateway_id, $gateway_forward_write_request): \PidginHost\Sdk\Model\GatewayForward
+```
+
+
+
+Add a port forward (spec 6.7); it is pending until the agent applies its revision.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$gateway_forward_write_request = new \PidginHost\Sdk\Model\GatewayForwardWriteRequest(); // \PidginHost\Sdk\Model\GatewayForwardWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysPortForwardsCreate($gateway_id, $gateway_forward_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPortForwardsCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **gateway_forward_write_request** | [**\PidginHost\Sdk\Model\GatewayForwardWriteRequest**](../Model/GatewayForwardWriteRequest.md)|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayForward**](../Model/GatewayForward.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPortForwardsDestroy()`
+
+```php
+cloudGatewaysPortForwardsDestroy($gateway_id, $id, $revision): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Delete a forward (spec 5.11): 202 with the record the agent's acknowledgement completes. Without the preview's revision, 409 with a fresh one.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$revision = 56; // int | The gateway's desired revision from the preview; without it, a preview.
+
+try {
+    $result = $apiInstance->cloudGatewaysPortForwardsDestroy($gateway_id, $id, $revision);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPortForwardsDestroy: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **revision** | **int**| The gateway&#39;s desired revision from the preview; without it, a preview. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPortForwardsList()`
+
+```php
+cloudGatewaysPortForwardsList($gateway_id, $page): \PidginHost\Sdk\Model\PaginatedGatewayForwardList
+```
+
+
+
+A gateway's port forwards
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$page = 56; // int | A page number within the paginated result set.
+
+try {
+    $result = $apiInstance->cloudGatewaysPortForwardsList($gateway_id, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPortForwardsList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **page** | **int**| A page number within the paginated result set. | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\PaginatedGatewayForwardList**](../Model/PaginatedGatewayForwardList.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPortForwardsPartialUpdate()`
+
+```php
+cloudGatewaysPortForwardsPartialUpdate($gateway_id, $id, $patched_gateway_forward_write_request): \PidginHost\Sdk\Model\GatewayForward
+```
+
+
+
+Change a forward's fields; public_ports and target are each replaced whole.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+$patched_gateway_forward_write_request = new \PidginHost\Sdk\Model\PatchedGatewayForwardWriteRequest(); // \PidginHost\Sdk\Model\PatchedGatewayForwardWriteRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysPortForwardsPartialUpdate($gateway_id, $id, $patched_gateway_forward_write_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPortForwardsPartialUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+| **patched_gateway_forward_write_request** | [**\PidginHost\Sdk\Model\PatchedGatewayForwardWriteRequest**](../Model/PatchedGatewayForwardWriteRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayForward**](../Model/GatewayForward.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysPortForwardsRetrieve()`
+
+```php
+cloudGatewaysPortForwardsRetrieve($gateway_id, $id): \PidginHost\Sdk\Model\GatewayForward
+```
+
+
+
+A gateway's port forwards
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gateway_id = 56; // int
+$id = 56; // int
+
+try {
+    $result = $apiInstance->cloudGatewaysPortForwardsRetrieve($gateway_id, $id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysPortForwardsRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **gateway_id** | **int**|  | |
+| **id** | **int**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayForward**](../Model/GatewayForward.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysReenrollCreate()`
+
+```php
+cloudGatewaysReenrollCreate($id, $gateway_reenroll_request): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Re-enroll the gateway (spec 8.1 step 6): its agent token is revoked and it restarts to enroll again. Without the preview's revision, networks and servers, 409 with a fresh preview.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+$gateway_reenroll_request = new \PidginHost\Sdk\Model\GatewayReenrollRequest(); // \PidginHost\Sdk\Model\GatewayReenrollRequest
+
+try {
+    $result = $apiInstance->cloudGatewaysReenrollCreate($id, $gateway_reenroll_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysReenrollCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+| **gateway_reenroll_request** | [**\PidginHost\Sdk\Model\GatewayReenrollRequest**](../Model/GatewayReenrollRequest.md)|  | [optional] |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysRetrieve()`
+
+```php
+cloudGatewaysRetrieve($id): \PidginHost\Sdk\Model\Gateway
+```
+
+
+
+Manage gateways
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->cloudGatewaysRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\Gateway**](../Model/Gateway.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudGatewaysStatusRetrieve()`
+
+```php
+cloudGatewaysStatusRetrieve($id): \PidginHost\Sdk\Model\GatewayStatus
+```
+
+
+
+The gateway's state and the customer part of its agent's last report (spec 9.5).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string
+
+try {
+    $result = $apiInstance->cloudGatewaysStatusRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudGatewaysStatusRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayStatus**](../Model/GatewayStatus.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `cloudGenerationsList()`
 
 ```php
@@ -3961,6 +7167,75 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `cloudPrivateNetworksApplyRouteCreate()`
+
+```php
+cloudPrivateNetworksApplyRouteCreate($id, $apply_route_request): \PidginHost\Sdk\Model\GatewayOperation
+```
+
+
+
+Re-render the named servers' routes and reboot them (spec 6.3); naming a server acknowledges its reboot.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+$apply_route_request = new \PidginHost\Sdk\Model\ApplyRouteRequest(); // \PidginHost\Sdk\Model\ApplyRouteRequest
+
+try {
+    $result = $apiInstance->cloudPrivateNetworksApplyRouteCreate($id, $apply_route_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudPrivateNetworksApplyRouteCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+| **apply_route_request** | [**\PidginHost\Sdk\Model\ApplyRouteRequest**](../Model/ApplyRouteRequest.md)|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\GatewayOperation**](../Model/GatewayOperation.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `cloudPrivateNetworksCreate()`
 
 ```php
@@ -4352,6 +7627,73 @@ try {
 ### Return type
 
 [**\PidginHost\Sdk\Model\PrivateNetwork**](../Model/PrivateNetwork.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudPrivateNetworksRouteStatusRetrieve()`
+
+```php
+cloudPrivateNetworksRouteStatusRetrieve($id): \PidginHost\Sdk\Model\RouteStatus
+```
+
+
+
+Each server's default route against the spec 6.2 rule, read from Proxmox, and the network's route applies.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int
+
+try {
+    $result = $apiInstance->cloudPrivateNetworksRouteStatusRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudPrivateNetworksRouteStatusRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\RouteStatus**](../Model/RouteStatus.md)
 
 ### Authorization
 
