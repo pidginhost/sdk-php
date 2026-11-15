@@ -5,6 +5,10 @@ All notable changes to the PidginHost PHP SDK are documented here.
 This SDK is auto-generated from the [PidginHost API schema](https://www.pidginhost.com/api/schema/).
 Version bumps reflect schema changes, not hand-written code changes.
 
+## v0.17.1
+
+No API changes since v0.17.0.
+
 ## v0.17.0
 
 ### Added
