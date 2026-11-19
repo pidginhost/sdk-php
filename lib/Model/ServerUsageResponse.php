@@ -62,7 +62,8 @@ class ServerUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'uptime' => 'int',
         'uptime_text' => 'string',
         'cpu' => 'array<string,mixed>',
-        'memory' => 'array<string,mixed>'
+        'memory' => 'array<string,mixed>',
+        'message' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class ServerUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'uptime' => null,
         'uptime_text' => null,
         'cpu' => null,
-        'memory' => null
+        'memory' => null,
+        'message' => null
     ];
 
     /**
@@ -90,7 +92,8 @@ class ServerUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'uptime' => false,
         'uptime_text' => false,
         'cpu' => false,
-        'memory' => false
+        'memory' => false,
+        'message' => false
     ];
 
     /**
@@ -183,7 +186,8 @@ class ServerUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'uptime' => 'uptime',
         'uptime_text' => 'uptime_text',
         'cpu' => 'cpu',
-        'memory' => 'memory'
+        'memory' => 'memory',
+        'message' => 'message'
     ];
 
     /**
@@ -196,7 +200,8 @@ class ServerUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'uptime' => 'setUptime',
         'uptime_text' => 'setUptimeText',
         'cpu' => 'setCpu',
-        'memory' => 'setMemory'
+        'memory' => 'setMemory',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -209,7 +214,8 @@ class ServerUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         'uptime' => 'getUptime',
         'uptime_text' => 'getUptimeText',
         'cpu' => 'getCpu',
-        'memory' => 'getMemory'
+        'memory' => 'getMemory',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -274,6 +280,7 @@ class ServerUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('uptime_text', $data ?? [], null);
         $this->setIfExists('cpu', $data ?? [], null);
         $this->setIfExists('memory', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
     }
 
     /**
@@ -464,6 +471,33 @@ class ServerUsageResponse implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable memory cannot be null');
         }
         $this->container['memory'] = $memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message Why the status is unavailable, when it is.
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
 
         return $this;
     }

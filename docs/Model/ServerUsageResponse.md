@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **uptime_text** | **string** |  |
 **cpu** | **array<string,mixed>** |  |
 **memory** | **array<string,mixed>** |  |
+**message** | **string** | Why the status is unavailable, when it is. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

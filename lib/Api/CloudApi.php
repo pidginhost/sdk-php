@@ -87,6 +87,9 @@ class CloudApi
         'cloudBucketsDestroy' => [
             'application/json',
         ],
+        'cloudBucketsDestroyProtectionCreate' => [
+            'application/json',
+        ],
         'cloudBucketsList' => [
             'application/json',
         ],
@@ -451,6 +454,12 @@ class CloudApi
             'application/json',
         ],
         'cloudServersModifyPackageCreate' => [
+            'application/json',
+        ],
+        'cloudServersMonitoringRetrieve' => [
+            'application/json',
+        ],
+        'cloudServersMonitoringUpdate' => [
             'application/json',
         ],
         'cloudServersPartialUpdate' => [
@@ -1670,6 +1679,298 @@ class CloudApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudBucketsDestroyProtectionCreate
+     *
+     * @param  int $id A unique integer value identifying this S3 bucket. (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request destroy_protection_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsDestroyProtectionCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\DestroyProtection
+     */
+    public function cloudBucketsDestroyProtectionCreate($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudBucketsDestroyProtectionCreate'][0])
+    {
+        list($response) = $this->cloudBucketsDestroyProtectionCreateWithHttpInfo($id, $destroy_protection_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudBucketsDestroyProtectionCreateWithHttpInfo
+     *
+     * @param  int $id A unique integer value identifying this S3 bucket. (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsDestroyProtectionCreate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\DestroyProtection, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudBucketsDestroyProtectionCreateWithHttpInfo($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudBucketsDestroyProtectionCreate'][0])
+    {
+        $request = $this->cloudBucketsDestroyProtectionCreateRequest($id, $destroy_protection_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\DestroyProtection',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\DestroyProtection',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\DestroyProtection',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudBucketsDestroyProtectionCreateAsync
+     *
+     * @param  int $id A unique integer value identifying this S3 bucket. (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsDestroyProtectionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudBucketsDestroyProtectionCreateAsync($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudBucketsDestroyProtectionCreate'][0])
+    {
+        return $this->cloudBucketsDestroyProtectionCreateAsyncWithHttpInfo($id, $destroy_protection_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudBucketsDestroyProtectionCreateAsyncWithHttpInfo
+     *
+     * @param  int $id A unique integer value identifying this S3 bucket. (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsDestroyProtectionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudBucketsDestroyProtectionCreateAsyncWithHttpInfo($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudBucketsDestroyProtectionCreate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\DestroyProtection';
+        $request = $this->cloudBucketsDestroyProtectionCreateRequest($id, $destroy_protection_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudBucketsDestroyProtectionCreate'
+     *
+     * @param  int $id A unique integer value identifying this S3 bucket. (required)
+     * @param  \PidginHost\Sdk\Model\DestroyProtectionRequest $destroy_protection_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudBucketsDestroyProtectionCreate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudBucketsDestroyProtectionCreateRequest($id, $destroy_protection_request, string $contentType = self::contentTypes['cloudBucketsDestroyProtectionCreate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudBucketsDestroyProtectionCreate'
+            );
+        }
+
+        // verify the required parameter 'destroy_protection_request' is set
+        if ($destroy_protection_request === null || (is_array($destroy_protection_request) && count($destroy_protection_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $destroy_protection_request when calling cloudBucketsDestroyProtectionCreate'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/buckets/{id}/destroy-protection/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($destroy_protection_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($destroy_protection_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $destroy_protection_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -36297,6 +36598,567 @@ class CloudApi
     }
 
     /**
+     * Operation cloudServersMonitoringRetrieve
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\ServerMonitoring
+     */
+    public function cloudServersMonitoringRetrieve($id, string $contentType = self::contentTypes['cloudServersMonitoringRetrieve'][0])
+    {
+        list($response) = $this->cloudServersMonitoringRetrieveWithHttpInfo($id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudServersMonitoringRetrieveWithHttpInfo
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringRetrieve'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\ServerMonitoring, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudServersMonitoringRetrieveWithHttpInfo($id, string $contentType = self::contentTypes['cloudServersMonitoringRetrieve'][0])
+    {
+        $request = $this->cloudServersMonitoringRetrieveRequest($id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ServerMonitoring',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\ServerMonitoring',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ServerMonitoring',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudServersMonitoringRetrieveAsync
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudServersMonitoringRetrieveAsync($id, string $contentType = self::contentTypes['cloudServersMonitoringRetrieve'][0])
+    {
+        return $this->cloudServersMonitoringRetrieveAsyncWithHttpInfo($id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudServersMonitoringRetrieveAsyncWithHttpInfo
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudServersMonitoringRetrieveAsyncWithHttpInfo($id, string $contentType = self::contentTypes['cloudServersMonitoringRetrieve'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\ServerMonitoring';
+        $request = $this->cloudServersMonitoringRetrieveRequest($id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudServersMonitoringRetrieve'
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringRetrieve'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudServersMonitoringRetrieveRequest($id, string $contentType = self::contentTypes['cloudServersMonitoringRetrieve'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudServersMonitoringRetrieve'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/servers/{id}/monitoring/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation cloudServersMonitoringUpdate
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  \PidginHost\Sdk\Model\ServerMonitoringRequest $server_monitoring_request server_monitoring_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \PidginHost\Sdk\Model\ServerMonitoring
+     */
+    public function cloudServersMonitoringUpdate($id, $server_monitoring_request, string $contentType = self::contentTypes['cloudServersMonitoringUpdate'][0])
+    {
+        list($response) = $this->cloudServersMonitoringUpdateWithHttpInfo($id, $server_monitoring_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation cloudServersMonitoringUpdateWithHttpInfo
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  \PidginHost\Sdk\Model\ServerMonitoringRequest $server_monitoring_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringUpdate'] to see the possible values for this operation
+     *
+     * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \PidginHost\Sdk\Model\ServerMonitoring, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloudServersMonitoringUpdateWithHttpInfo($id, $server_monitoring_request, string $contentType = self::contentTypes['cloudServersMonitoringUpdate'][0])
+    {
+        $request = $this->cloudServersMonitoringUpdateRequest($id, $server_monitoring_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\ServerMonitoring',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\PidginHost\Sdk\Model\ServerMonitoring',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\ServerMonitoring',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation cloudServersMonitoringUpdateAsync
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  \PidginHost\Sdk\Model\ServerMonitoringRequest $server_monitoring_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudServersMonitoringUpdateAsync($id, $server_monitoring_request, string $contentType = self::contentTypes['cloudServersMonitoringUpdate'][0])
+    {
+        return $this->cloudServersMonitoringUpdateAsyncWithHttpInfo($id, $server_monitoring_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation cloudServersMonitoringUpdateAsyncWithHttpInfo
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  \PidginHost\Sdk\Model\ServerMonitoringRequest $server_monitoring_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function cloudServersMonitoringUpdateAsyncWithHttpInfo($id, $server_monitoring_request, string $contentType = self::contentTypes['cloudServersMonitoringUpdate'][0])
+    {
+        $returnType = '\PidginHost\Sdk\Model\ServerMonitoring';
+        $request = $this->cloudServersMonitoringUpdateRequest($id, $server_monitoring_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'cloudServersMonitoringUpdate'
+     *
+     * @param  int $id A unique integer value identifying this virtual machine. (required)
+     * @param  \PidginHost\Sdk\Model\ServerMonitoringRequest $server_monitoring_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cloudServersMonitoringUpdate'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function cloudServersMonitoringUpdateRequest($id, $server_monitoring_request, string $contentType = self::contentTypes['cloudServersMonitoringUpdate'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling cloudServersMonitoringUpdate'
+            );
+        }
+
+        // verify the required parameter 'server_monitoring_request' is set
+        if ($server_monitoring_request === null || (is_array($server_monitoring_request) && count($server_monitoring_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $server_monitoring_request when calling cloudServersMonitoringUpdate'
+            );
+        }
+
+
+        $resourcePath = '/api/cloud/servers/{id}/monitoring/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($server_monitoring_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($server_monitoring_request), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $server_monitoring_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation cloudServersPartialUpdate
      *
      * @param  int $id A unique integer value identifying this virtual machine. (required)
@@ -36591,7 +37453,7 @@ class CloudApi
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \PidginHost\Sdk\Model\PowerManagement
+     * @return \PidginHost\Sdk\Model\PowerManagement|\PidginHost\Sdk\Model\PowerManagementHostUnavailable
      */
     public function cloudServersPowerManagementCreate($id, $power_management_request, string $contentType = self::contentTypes['cloudServersPowerManagementCreate'][0])
     {
@@ -36608,7 +37470,7 @@ class CloudApi
      *
      * @throws \PidginHost\Sdk\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \PidginHost\Sdk\Model\PowerManagement, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \PidginHost\Sdk\Model\PowerManagement|\PidginHost\Sdk\Model\PowerManagementHostUnavailable, HTTP status code, HTTP response headers (array of strings)
      */
     public function cloudServersPowerManagementCreateWithHttpInfo($id, $power_management_request, string $contentType = self::contentTypes['cloudServersPowerManagementCreate'][0])
     {
@@ -36644,6 +37506,12 @@ class CloudApi
                         $request,
                         $response,
                     );
+                case 503:
+                    return $this->handleResponseWithDataType(
+                        '\PidginHost\Sdk\Model\PowerManagementHostUnavailable',
+                        $request,
+                        $response,
+                    );
             }
 
             
@@ -36672,6 +37540,14 @@ class CloudApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\PidginHost\Sdk\Model\PowerManagement',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 503:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\PidginHost\Sdk\Model\PowerManagementHostUnavailable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

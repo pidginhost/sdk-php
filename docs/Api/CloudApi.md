@@ -10,6 +10,7 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**cloudBucketsCredentialsRevealCreate()**](CloudApi.md#cloudBucketsCredentialsRevealCreate) | **POST** /api/cloud/buckets/{id}/credentials/reveal/ |  |
 | [**cloudBucketsCredentialsRotateCreate()**](CloudApi.md#cloudBucketsCredentialsRotateCreate) | **POST** /api/cloud/buckets/{id}/credentials/rotate/ |  |
 | [**cloudBucketsDestroy()**](CloudApi.md#cloudBucketsDestroy) | **DELETE** /api/cloud/buckets/{id}/ |  |
+| [**cloudBucketsDestroyProtectionCreate()**](CloudApi.md#cloudBucketsDestroyProtectionCreate) | **POST** /api/cloud/buckets/{id}/destroy-protection/ |  |
 | [**cloudBucketsList()**](CloudApi.md#cloudBucketsList) | **GET** /api/cloud/buckets/ |  |
 | [**cloudBucketsResizeCreate()**](CloudApi.md#cloudBucketsResizeCreate) | **POST** /api/cloud/buckets/{id}/resize/ |  |
 | [**cloudBucketsRetrieve()**](CloudApi.md#cloudBucketsRetrieve) | **GET** /api/cloud/buckets/{id}/ |  |
@@ -132,6 +133,8 @@ All URIs are relative to https://www.pidginhost.com, except if the operation def
 | [**cloudServersDetachIpv6Create()**](CloudApi.md#cloudServersDetachIpv6Create) | **POST** /api/cloud/servers/{id}/detach-ipv6/ |  |
 | [**cloudServersList()**](CloudApi.md#cloudServersList) | **GET** /api/cloud/servers/ |  |
 | [**cloudServersModifyPackageCreate()**](CloudApi.md#cloudServersModifyPackageCreate) | **POST** /api/cloud/servers/{id}/modify-package/ |  |
+| [**cloudServersMonitoringRetrieve()**](CloudApi.md#cloudServersMonitoringRetrieve) | **GET** /api/cloud/servers/{id}/monitoring/ |  |
+| [**cloudServersMonitoringUpdate()**](CloudApi.md#cloudServersMonitoringUpdate) | **PUT** /api/cloud/servers/{id}/monitoring/ |  |
 | [**cloudServersPartialUpdate()**](CloudApi.md#cloudServersPartialUpdate) | **PATCH** /api/cloud/servers/{id}/ |  |
 | [**cloudServersPowerManagementCreate()**](CloudApi.md#cloudServersPowerManagementCreate) | **POST** /api/cloud/servers/{id}/power-management/ |  |
 | [**cloudServersPowerManagementRetrieve()**](CloudApi.md#cloudServersPowerManagementRetrieve) | **GET** /api/cloud/servers/{id}/power-management/ |  |
@@ -428,6 +431,75 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudBucketsDestroyProtectionCreate()`
+
+```php
+cloudBucketsDestroyProtectionCreate($id, $destroy_protection_request): \PidginHost\Sdk\Model\DestroyProtection
+```
+
+
+
+Enable or disable destroy protection.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | A unique integer value identifying this S3 bucket.
+$destroy_protection_request = new \PidginHost\Sdk\Model\DestroyProtectionRequest(); // \PidginHost\Sdk\Model\DestroyProtectionRequest
+
+try {
+    $result = $apiInstance->cloudBucketsDestroyProtectionCreate($id, $destroy_protection_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudBucketsDestroyProtectionCreate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| A unique integer value identifying this S3 bucket. | |
+| **destroy_protection_request** | [**\PidginHost\Sdk\Model\DestroyProtectionRequest**](../Model/DestroyProtectionRequest.md)|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\DestroyProtection**](../Model/DestroyProtection.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -8790,6 +8862,142 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `cloudServersMonitoringRetrieve()`
+
+```php
+cloudServersMonitoringRetrieve($id): \PidginHost\Sdk\Model\ServerMonitoring
+```
+
+
+
+Show whether monitoring alerts are on for this server.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | A unique integer value identifying this virtual machine.
+
+try {
+    $result = $apiInstance->cloudServersMonitoringRetrieve($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudServersMonitoringRetrieve: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| A unique integer value identifying this virtual machine. | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\ServerMonitoring**](../Model/ServerMonitoring.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `cloudServersMonitoringUpdate()`
+
+```php
+cloudServersMonitoringUpdate($id, $server_monitoring_request): \PidginHost\Sdk\Model\ServerMonitoring
+```
+
+
+
+Turn monitoring alerts on or off. Only an active server can change it.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: tokenAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure API key authorization: cookieAuth
+$config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKey('sessionid', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = PidginHost\Sdk\Configuration::getDefaultConfiguration()->setApiKeyPrefix('sessionid', 'Bearer');
+
+
+$apiInstance = new PidginHost\Sdk\Api\CloudApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 56; // int | A unique integer value identifying this virtual machine.
+$server_monitoring_request = new \PidginHost\Sdk\Model\ServerMonitoringRequest(); // \PidginHost\Sdk\Model\ServerMonitoringRequest
+
+try {
+    $result = $apiInstance->cloudServersMonitoringUpdate($id, $server_monitoring_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CloudApi->cloudServersMonitoringUpdate: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| A unique integer value identifying this virtual machine. | |
+| **server_monitoring_request** | [**\PidginHost\Sdk\Model\ServerMonitoringRequest**](../Model/ServerMonitoringRequest.md)|  | |
+
+### Return type
+
+[**\PidginHost\Sdk\Model\ServerMonitoring**](../Model/ServerMonitoring.md)
+
+### Authorization
+
+[tokenAuth](../../README.md#tokenAuth), [cookieAuth](../../README.md#cookieAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `cloudServersPartialUpdate()`
 
 ```php
@@ -8867,7 +9075,7 @@ cloudServersPowerManagementCreate($id, $power_management_request): \PidginHost\S
 
 
 
-Server power management
+Queue a power action and return the state observed before queueing. If the state cannot be read, the action is refused with HTTP 503.
 
 ### Example
 
@@ -8936,7 +9144,7 @@ cloudServersPowerManagementRetrieve($id): \PidginHost\Sdk\Model\PowerManagement
 
 
 
-Server power management
+Read the server's power state and the reason if it is unavailable.
 
 ### Example
 

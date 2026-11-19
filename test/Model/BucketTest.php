@@ -153,6 +153,15 @@ class BucketTest extends TestCase
     }
 
     /**
+     * Test attribute "destroy_protection"
+     */
+    public function testPropertyDestroyProtection()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()

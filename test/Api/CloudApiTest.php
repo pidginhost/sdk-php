@@ -121,6 +121,18 @@ class CloudApiTest extends TestCase
     }
 
     /**
+     * Test case for cloudBucketsDestroyProtectionCreate
+     *
+     * .
+     *
+     */
+    public function testCloudBucketsDestroyProtectionCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for cloudBucketsList
      *
      * .
@@ -1579,6 +1591,30 @@ class CloudApiTest extends TestCase
      *
      */
     public function testCloudServersModifyPackageCreate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudServersMonitoringRetrieve
+     *
+     * .
+     *
+     */
+    public function testCloudServersMonitoringRetrieve()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for cloudServersMonitoringUpdate
+     *
+     * .
+     *
+     */
+    public function testCloudServersMonitoringUpdate()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

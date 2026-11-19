@@ -66,6 +66,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'used_bytes' => 'int',
         'object_count' => 'int',
         'public_read' => 'bool',
+        'destroy_protection' => 'bool',
         'status' => '\PidginHost\Sdk\Model\ResourceStatusEnum',
         'endpoint' => 'string',
         'region' => 'string',
@@ -88,6 +89,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'used_bytes' => 'int64',
         'object_count' => 'int64',
         'public_read' => null,
+        'destroy_protection' => null,
         'status' => null,
         'endpoint' => null,
         'region' => null,
@@ -108,6 +110,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'used_bytes' => false,
         'object_count' => false,
         'public_read' => false,
+        'destroy_protection' => false,
         'status' => false,
         'endpoint' => false,
         'region' => false,
@@ -208,6 +211,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'used_bytes' => 'used_bytes',
         'object_count' => 'object_count',
         'public_read' => 'public_read',
+        'destroy_protection' => 'destroy_protection',
         'status' => 'status',
         'endpoint' => 'endpoint',
         'region' => 'region',
@@ -228,6 +232,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'used_bytes' => 'setUsedBytes',
         'object_count' => 'setObjectCount',
         'public_read' => 'setPublicRead',
+        'destroy_protection' => 'setDestroyProtection',
         'status' => 'setStatus',
         'endpoint' => 'setEndpoint',
         'region' => 'setRegion',
@@ -248,6 +253,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         'used_bytes' => 'getUsedBytes',
         'object_count' => 'getObjectCount',
         'public_read' => 'getPublicRead',
+        'destroy_protection' => 'getDestroyProtection',
         'status' => 'getStatus',
         'endpoint' => 'getEndpoint',
         'region' => 'getRegion',
@@ -319,6 +325,7 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('used_bytes', $data ?? [], null);
         $this->setIfExists('object_count', $data ?? [], null);
         $this->setIfExists('public_read', $data ?? [], null);
+        $this->setIfExists('destroy_protection', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], ResourceStatusEnum::PENDING);
         $this->setIfExists('endpoint', $data ?? [], null);
         $this->setIfExists('region', $data ?? [], null);
@@ -375,6 +382,9 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['public_read'] === null) {
             $invalidProperties[] = "'public_read' can't be null";
+        }
+        if ($this->container['destroy_protection'] === null) {
+            $invalidProperties[] = "'destroy_protection' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
@@ -622,6 +632,33 @@ class Bucket implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable public_read cannot be null');
         }
         $this->container['public_read'] = $public_read;
+
+        return $this;
+    }
+
+    /**
+     * Gets destroy_protection
+     *
+     * @return bool
+     */
+    public function getDestroyProtection()
+    {
+        return $this->container['destroy_protection'];
+    }
+
+    /**
+     * Sets destroy_protection
+     *
+     * @param bool $destroy_protection Prevents the bucket from being deleted until disabled.
+     *
+     * @return self
+     */
+    public function setDestroyProtection($destroy_protection)
+    {
+        if (is_null($destroy_protection)) {
+            throw new \InvalidArgumentException('non-nullable destroy_protection cannot be null');
+        }
+        $this->container['destroy_protection'] = $destroy_protection;
 
         return $this;
     }

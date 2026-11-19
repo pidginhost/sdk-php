@@ -5,6 +5,26 @@ All notable changes to the PidginHost PHP SDK are documented here.
 This SDK is auto-generated from the [PidginHost API schema](https://www.pidginhost.com/api/schema/).
 Version bumps reflect schema changes, not hand-written code changes.
 
+## v0.18.0
+
+### Added
+
+- **Bucket destroy protection.** `CloudBucketsDestroyProtectionCreate`
+  turns deletion protection for a bucket on or off (`DestroyProtection`), and
+  `Bucket` reports it as `destroy_protection`.
+- **Server monitoring.** `CloudServersMonitoringRetrieve` and
+  `CloudServersMonitoringUpdate` read and switch the free email alert sent
+  when a server stops unexpectedly or its host stops responding
+  (`ServerMonitoring`).
+
+### Changed
+
+- `CloudServersPowerManagementCreate` refuses the action with HTTP 503
+  (`PowerManagementHostUnavailable`) when the server state cannot be read;
+  `PowerManagement` gained an optional `message`.
+- `ServerUsageResponse` gained an optional `message` explaining why the usage
+  status is unavailable.
+
 ## v0.17.1
 
 No API changes since v0.17.0.

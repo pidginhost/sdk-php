@@ -88,4 +88,13 @@ class PowerManagementTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "message"
+     */
+    public function testPropertyMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

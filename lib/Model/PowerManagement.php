@@ -58,7 +58,8 @@ class PowerManagement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'status' => 'string'
+        'status' => 'string',
+        'message' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class PowerManagement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'status' => null
+        'status' => null,
+        'message' => null
     ];
 
     /**
@@ -78,7 +80,8 @@ class PowerManagement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'status' => false
+        'status' => false,
+        'message' => false
     ];
 
     /**
@@ -167,7 +170,8 @@ class PowerManagement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status'
+        'status' => 'status',
+        'message' => 'message'
     ];
 
     /**
@@ -176,7 +180,8 @@ class PowerManagement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -185,7 +190,8 @@ class PowerManagement implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -246,6 +252,7 @@ class PowerManagement implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
     }
 
     /**
@@ -316,6 +323,33 @@ class PowerManagement implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message message
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
 
         return $this;
     }
